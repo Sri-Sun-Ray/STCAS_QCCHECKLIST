@@ -1890,7 +1890,7 @@ async function showSection(section, subsection) {
   } else if (section === "3.0") {
     // For all other sections, add Save Observation button
     mainContent.innerHTML += `
-      <h3 class="section-heading">Tower-Installation of Tower(If applicable based on the Contract)</h3>
+      <h3 class="section-heading"> Building</h3>
        <div class="table-container">
       <table class="observations" id="observations-section-3_0">
         <thead>
@@ -2152,7 +2152,7 @@ async function showSection(section, subsection) {
   } else if (section === "4.0") {
     // For all other sections, add Save Observation button
     mainContent.innerHTML += `
-      <h3 class="section-heading" > RTU  </h3>
+      <h3 class="section-heading" > Tower </h3>
        <div  class="table-container">
       <table class="observations" id="observations-section-4_0">
         <thead>
@@ -2825,7 +2825,7 @@ Input voltage range shall be verified 110V</td>
     // Clear old section content but preserve station info
     clearSectionContent();
     mainContent.innerHTML += `
-      <h3 class="section-heading" id="section-heading-6_0"> Installation of Kavach equipment </h3>
+      <h3 class="section-heading" id="section-heading-6_0"> Kavach & RIU equipment </h3>
        <div  class="table-container">
       <table class="observations" id="observations-section-6_0">
         <thead>
@@ -3370,7 +3370,7 @@ Default & standby OFC paths verified.</td>
     // Clear old section content but preserve station info
     clearSectionContent();
     mainContent.innerHTML += `
-      <h3 class="section-heading" id="section-heading-7_0"> RTU </h3>
+      <h3 class="section-heading" id="section-heading-7_0"> RF Communication equipment on tower </h3>
        <div  class="table-container">
       <table class="observations" id="observations-section-7_0">
         <thead>
@@ -3617,7 +3617,7 @@ Ensure RTU doors shall be fully closed and locked.</td>
   }else if (section === "8.0") {
     // For all other sections, add Save Observation button
     mainContent.innerHTML += `
-      <h3 class="section-heading" > IPS </h3>
+      <h3 class="section-heading" > OFC Networking rack </h3>
        <div  class="table-container">
       <table class="observations" id="observations-section-8_0">
         <thead>
@@ -3816,7 +3816,7 @@ Ensure RTU doors shall be fully closed and locked.</td>
     ;`
   } else if (section === "9.0") {
  mainContent.innerHTML += `
-      <h3 class="section-heading" > DC-DC Convertors </h3>
+      <h3 class="section-heading" > Relay rack </h3>
        <div  class="table-container">
       <table class="observations" id="observations-section-9_0">
         <thead>
@@ -3986,7 +3986,7 @@ Ensure RTU doors shall be fully closed and locked.</td>
 else if(section==="10.0"){
       // For all other sections, add Save Observation button
     mainContent.innerHTML += `
-      <h3 class="section-heading" > PDU </h3>
+      <h3 class="section-heading" > Earthing</h3>
        <div  class="table-container">
       <table class="observations" id="observations-section-10_0">
         <thead>
@@ -4179,7 +4179,7 @@ else if(section==="10.0"){
   else if(section==="11.0"){
       // For all other sections, add Save Observation button
     mainContent.innerHTML += `
-      <h3 class="section-heading" > SMOCIP </h3>
+      <h3 class="section-heading" > Indoor wiring / cabling </h3>
        <div  class="table-container">
       <table class="observations" id="observations-section-11_0">
         <thead>
@@ -4471,7 +4471,7 @@ Segregation of power & communication cables</td>
   else if(section==="12.0"){
       // For all other sections, add Save Observation button
     mainContent.innerHTML += `
-      <h3 class="section-heading" > GPS/GSM Antenna </h3>
+      <h3 class="section-heading" > Outdoor cabling </h3>
        <div  class="table-container">
       <table class="observations" id="observations-section-12_0">
         <thead>
@@ -4600,7 +4600,7 @@ Segregation of power & communication cables</td>
   else if(section==="13.0"){
       // For all other sections, add Save Observation button
     mainContent.innerHTML += `
-      <h3 class="section-heading" > RELAY RACK INSTALLATION AND WIRING VERIFICATION </h3>
+      <h3 class="section-heading" >  RFID Tags </h3>
        <div  class="table-container">
       <table class="observations" id="observations-section-13_0">
         <thead>
