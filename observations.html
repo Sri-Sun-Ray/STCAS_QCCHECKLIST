@@ -5,11 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Observations</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <script src="libs/jquery-3.6.0.min.js"></script>
   <script src="libs/zxing-browser.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  <script src="libs/jspdf.umd.min.js"></script>
+  <script src="libs/jspdf.plugin.autotable.min.js"></script>
   <script>
     function formatDescription(description) {
       if (!description) return "";
@@ -26,12 +25,11 @@
     }
 
     const specificOptions = {
-      "1.38,1.39,1.40,1.41,1.42,1.43,1.50,1.44,1.45,1.46,1.47,1.48,1.49,1.51": ["Matching", "Not Matching", "Not Installed"],
-      "1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37": ["Matching", "Not Matching", "Not Installed"],
-      "2.1,2.2,2.3,2.4,2.5,2.6,2.7,3.1,3.2,3.3,3.4,3.5,3.6,4.1.1,4.1.2,4.1.3,4.1.4,4.2.1,4.2.2,4.2.3,4.2.4,4.3.1,4.3.2,4.3.3,4.3.3.4,5.1.1,5.1.2,5.1.3,5.1.4,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.3.1,5.3.2,5.4.1,5.4.2,5.4.3,5.4.4,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.2.1,7.1,7.2,7.3,7.4,7.5,8.1,8.2,8.3,8.4,9.1,9.2,9.3,9.4,9.5,10.1,10.2,10.3,10.4,10.5,10.6,10.7,10.8,11.1,11.2,11.3,12.1,12.2,12.3": ["Yes", "No"],
-
+      "1.38,1.40,1.41,1.42,1.43,1.44": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
+      "1.39,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37,1.1": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
+      "3.1,3.3,3.4,3.4.1,3.4.2,3.5,3.6,3.2,2.1,2.2,2.3,2.3.1,2.4,2.5,2.6,2.7": ["Yes", "No", "Not Applicable"],
+      "4.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.2,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,4.2.6,4.2.7,4.2.8,4.2.9,4.3,4.3.1,4.3.2,4.3.3,4.3.4,4.3.5,5.1,5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,5.1.7,5.1.8,5.1.9,5.1.10,5.1.11,5.1.12,5.2,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.5,5.3,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.3.6,5.3.7,5.3.8,5.4,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.1.11,6.1.12,6.1.13,6.2,6.2.1,7.1,7.1.1,7.1.2,7.2,7.2.1,7.3,7.3.1,7.3.2,7.4,7.4.1,7.4.2,7.5,8.1,8.1.1,8.1.2,8.2,8.2.1,8.2.2,8.2.3,8.2.4,8.2.5,8.2.6,8.2.7,8.3,8.4,9.1,9.2,9.3,9.4,9.5,10.1,10.2,10.3,10.4,10.5,10.6,10.7,10.8,11.1,11.2,11.3,12.1,12.2,12.3,13.1": ["Yes", "No"],
     };
-
 
   </script>
   <style>
@@ -265,29 +263,30 @@
 
     function createObservationsTable(observations) {
       const sectionMetadata = {
-        "1": { name: "Serial Number verification", base: 25 },
-        "2": { name: "Building", base: 7 },
-        "3": { name: "Tower", base: 6 },
-        "4": { name: "Power Supply", base: 12 },
-        "5": { name: "Kavach & RIU equipment", base: 15 },
-        "6": { name: "RF Communication equipment on tower", base: 6 },
-        "7": { name: "OFC Networking rack", base: 5 },
-        "8": { name: "Relay rack", base: 4 },
+        "1": { name: "Serial Number verification", base: 44 },
+        "2": { name: "Building", base: 8 },
+        "3": { name: "Tower", base: 8 },
+        "4": { name: "Power Supply", base: 22 },
+        "5": { name: "Kavach  Equipment", base: 36 },
+        "6": { name: "RF Communication equipment on tower", base: 16 },
+        "7": { name: "OFC Networking rack", base: 12 },
+        "8": { name: "Relay rack", base: 13 },
         "9": { name: "Earthing", base: 5 },
         "10": { name: "Indoor wiring / cabling", base: 8 },
         "11": { name: "Outdoor cabling", base: 3 },
-        "12": { name: "RFID Tags", base: 3 }
+        "12": { name: "RFID Tags", base: 3 },
+        "13": { name: "Components Inspection", base: 1 },
       };
 
       const subSectionMetadata = {
-        "4.1": "4.1 IPS",
-        "4.2": "4.2 PDU",
+        "4.1": "4.1 IPS(Integrated Power System)",
+        "4.2": "4.2 PDU(Power Distribution Unit)",
         "4.3": "4.3 DC-DC Converter",
         "5.1": "5.1 Kavach Unit",
-        "5.2": "5.2 SMOCIP",
+        "5.2": "5.2 SMOCIP(Station Master's Operation-Cum-Indication Panel)",
         "5.3": "5.3 GPS/GSM Antennas",
-        "5.4": "5.4 RIU",
-        "6.1": "6.1 RTU",
+        "5.4": "5.4 RIU(Remote Interface Unit)",
+        "6.1": "6.1 RTU(Radio Tower Unit)",
         "6.2": "6.2 RF Antenna Installation"
       };
 
@@ -318,7 +317,7 @@
         sectionRows.forEach(obs => {
           const snoParts = obs.S_no.split('.');
           const lastPart = parseInt(snoParts[snoParts.length - 1]);
-          if (id === "1" && lastPart > 25) customCount++;
+          if (id === "1" && lastPart > 44) customCount++;
           if (id === "2" && lastPart > 7) customCount++;
         });
 
@@ -357,10 +356,10 @@
           <thead>
             <tr>
               <th style="text-align: center;">S_no</th>
-              <th>Description</th>
+              <th>Aspect</th>
               ${hasRequirement ? "<th>Requirement</th>" : ""}
               <th>Status</th>
-              <th>Remarks</th>
+              <th>Observation</th>
               <th>Image</th>
             </tr>
           </thead>
@@ -434,8 +433,8 @@
           }
           return 0;
         });
-
         sectionRows.forEach(obs => {
+          // Only show observations with a selected status (not "Select")
           if (!obs.observation_status || obs.observation_status.trim() === '' || obs.observation_status.trim() === 'Select') {
             return;
           }
@@ -458,7 +457,19 @@
           }
 
           const formattedDescription = formatDescription(obs.observation_text);
-          let statusText = obs.observation_status.trim();
+          let displayDescription = formattedDescription;
+          if (obs.barcode_kavach_main_unit && obs.barcode_kavach_main_unit.trim() !== '') {
+            const cleanBarcode = obs.barcode_kavach_main_unit.trim();
+            // Remove existing barcode occurrences
+            displayDescription = displayDescription.split(cleanBarcode).join('').trim();
+            // Clean up trailing hyphens
+            while (displayDescription.endsWith('-')) {
+              displayDescription = displayDescription.slice(0, -1).trim();
+            }
+            displayDescription += ` - ${cleanBarcode}`;
+          }
+
+          let statusText = (obs.observation_status || '').trim();
           let statusColor = '';
           const isGreen = ["Available", "Present", "Ok", "Yes", "Routing Done", "Fixed", "Secured", "Installed", "Connected", "Aligned", "Torquing done", "Positioning done", "Configured", "Welding done", "Earthing done", "Matching", "Not Applicable", "Coating done", "Applied", "Cables Connected", "Metal clamps implemented", "Locked", "Verified and ok"].includes(statusText);
 
@@ -479,7 +490,7 @@
           }
           tr.innerHTML = `
             <td style="text-align: center;">${obs.S_no}</td>
-            <td>${formattedDescription}</td>
+            <td>${displayDescription}</td>
             ${hasRequirement ? `<td>${obs.requirement_text || "N/A"}</td>` : ""}
             <td style="color: ${statusColor}; font-weight: bold;">${statusText}</td>
             <td>${obs.remarks}</td>
@@ -498,63 +509,12 @@
         detailedObservationsDiv.appendChild(sectionTable);
       });
 
-      // Create Section Summary Table
-      const summaryReportDiv = document.createElement("div");
-      summaryReportDiv.innerHTML = `<h2 style="margin-top: 30px; color: #007bff;"><i class="fas fa-chart-pie"></i> Section-wise Summary Report</h2>`;
-      const summaryReportTable = document.createElement("table");
-      summaryReportTable.style.border = "2px solid #007bff";
-      summaryReportTable.innerHTML = `
-        <thead style="background-color: #007bff; color: white;">
-          <tr>
-            <th>Section ID</th>
-            <th>Section Name</th>
-            <th style="text-align: center;">Total Points</th>
-            <th style="text-align: center;">Closed Points</th>
-            <th style="text-align: center;">Open Points</th>
-            <th style="text-align: center;">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-              ${Object.keys(sectionStats).map(id => {
-        const stat = sectionStats[id];
-        const openPoints = stat.total - stat.closed;
-        if (openPoints <= 0) return ''; // Hide completed sections
-
-        return `
-                  <tr>
-                    <td style="text-align: center;">${id}</td>
-                    <td>${stat.name}</td>
-                    <td style="text-align: center;">${stat.total}</td>
-                    <td style="text-align: center;">${stat.closed}</td>
-                    <td style="text-align: center; font-weight: bold; color: red;">${openPoints}</td>
-                    <td style="text-align: center;"><span class="red">Open</span></td>
-                  </tr>
-                `;
-      }).join('')}
-        </tbody>
-        <tfoot style="background-color: #f8f9fa; font-weight: bold;">
-          <tr>
-            <td colspan="2" style="text-align: right;">Overall Progress:</td>
-            <td style="text-align: center;">${totalPointsOverall}</td>
-            <td style="text-align: center;">${totalClosedPoints}</td>
-            <td style="text-align: center; color: red;">${totalPointsOverall - totalClosedPoints}</td>
-            <td style="text-align: center;">${totalPointsOverall > 0 ? ((totalClosedPoints / totalPointsOverall) * 100).toFixed(1) : 0}%</td>
-          </tr>
-        </tfoot>
-      `;
-
       const observationsContainer = document.getElementById("observations-container");
       observationsContainer.innerHTML = "";
 
-      const hasOpenPoints = Object.keys(sectionStats).some(id => (sectionStats[id].total - sectionStats[id].closed) > 0);
-
-      if (hasOpenPoints) {
-        observationsContainer.appendChild(summaryReportDiv);
-        observationsContainer.appendChild(summaryReportTable);
-        observationsContainer.appendChild(document.createElement("hr"));
-      }
       observationsContainer.appendChild(document.createElement("h2")).innerHTML = `<i class="fas fa-list-check"></i> Detailed Observations`;
       observationsContainer.appendChild(detailedObservationsDiv);
+
 
       return detailedObservationsDiv;
     }
@@ -583,7 +543,18 @@
     async function renderObservations() {
       const observationsData = await fetchObservations();
       if (observationsData.status === 'success' && Array.isArray(observationsData.data)) {
-        createObservationsTable(observationsData.data);
+        // Sort observations by S_no before passing to createObservationsTable
+        const sortedObservations = observationsData.data.sort((a, b) => {
+          const aParts = a.S_no.split('.').map(Number);
+          const bParts = b.S_no.split('.').map(Number);
+          for (let i = 0; i < Math.max(aParts.length, bParts.length); i++) {
+            const av = aParts[i] || 0;
+            const bv = bParts[i] || 0;
+            if (av !== bv) return av - bv;
+          }
+          return 0;
+        });
+        createObservationsTable(sortedObservations);
       } else {
         const container = document.getElementById('observations-container');
         container.innerHTML = `<p>${observationsData.message || 'No observations available for this station.'}</p>`;
@@ -664,6 +635,10 @@
         const pdfObservations = observationsArray.filter(obs =>
           obs.observation_status && obs.observation_status.trim() !== '' && obs.observation_status.trim() !== 'Select'
         );
+        // const pdfObservations = observationsArray;
+        // const pdfObservations = observationsArray.filter(obs =>
+        //   obs.observation_status && obs.observation_status.trim() !== '' && obs.observation_status.trim() !== 'Select'
+        // );
         console.log("📋 PDF Observations (Table Content): ", pdfObservations);
 
         // Load images only for displayed rows
@@ -711,7 +686,7 @@
         pdf.text("HBL Engineering Limited", pdf.internal.pageSize.width / 2, finalY + 5, { align: "center" });
         pdf.setFont("helvetica", "normal");
         pdf.setFontSize(12);
-        pdf.text("Electronics Group", pdf.internal.pageSize.width / 2, finalY + 12, { align: "center" });
+        pdf.text("Rail Signaling Group", pdf.internal.pageSize.width / 2, finalY + 12, { align: "center" });
         pdf.setFont("helvetica", "bold");
         pdf.text("In-Process QC Checklist for Stationary Kavach Installation", pdf.internal.pageSize.width / 2, finalY + 20, { align: "center" });
         pdf.setFont("helvetica", "normal");
@@ -774,29 +749,31 @@
 
         // Section-wise Summary calculation for PDF
         const sectionMetadata = {
-          "1": { name: "Serial Number verification", base: 25 },
-          "2": { name: "Building", base: 7 },
-          "3": { name: "Tower", base: 6 },
-          "4": { name: "Power Supply", base: 12 },
-          "5": { name: "Kavach & RIU equipment", base: 15 },
-          "6": { name: "RF Communication equipment on tower", base: 7 },
-          "7": { name: "OFC Networking rack", base: 5 },
-          "8": { name: "Relay rack", base: 4 },
+          "1": { name: "Serial Number verification", base: 44 },
+          "2": { name: "Building", base: 8 },
+          "3": { name: "Tower", base: 8 },
+          "4": { name: "Power Supply", base: 22 },
+          "5": { name: "Kavach  Equipment", base: 36 },
+          "6": { name: "RF Communication equipment on tower", base: 16 },
+          "7": { name: "OFC Networking rack", base: 12 },
+          "8": { name: "Relay rack", base: 13 },
           "9": { name: "Earthing", base: 5 },
           "10": { name: "Indoor wiring / cabling", base: 8 },
           "11": { name: "Outdoor cabling", base: 3 },
-          "12": { name: "RFID Tags", base: 3 }
+          "12": { name: "RFID Tags", base: 3 },
+          "13": { name: "Components Inspection", base: 1 },
         };
 
+
         const subSectionMetadata = {
-          "4.1": "4.1 IPS",
-          "4.2": "4.2 PDU",
+          "4.1": "4.1 IPS(Integrated Power System)",
+          "4.2": "4.2 PDU(Power Distribution Unit)",
           "4.3": "4.3 DC-DC Converter",
           "5.1": "5.1 Kavach Unit",
-          "5.2": "5.2 SMOCIP",
+          "5.2": "5.2 SMOCIP(Station Master's Operation-Cum-Indication Panel)",
           "5.3": "5.3 GPS/GSM Antennas",
-          "5.4": "5.4 RIU",
-          "6.1": "6.1 RTU",
+          "5.4": "5.4 RIU(Remote Interface Unit)",
+          "6.1": "6.1 RTU(Radio Tower Unit)",
           "6.2": "6.2 RF Antenna Installation"
         };
 
@@ -809,7 +786,7 @@
           sectionRows.forEach(obs => {
             const snoParts = obs.S_no.split('.');
             const lastPart = parseInt(snoParts[snoParts.length - 1]);
-            if (id === "1" && lastPart > 25) customCount++;
+            if (id === "1" && lastPart > 44) customCount++;
             if (id === "2" && lastPart > 7) customCount++;
           });
 
@@ -848,111 +825,12 @@
           return;
         }
 
-        if (hasAnyOpenPoints) {
-          const sectionTableBody = Object.keys(sectionStats)
-            .filter(id => (sectionStats[id].total - sectionStats[id].closed) > 0)
-            .map(id => {
-              const stat = sectionStats[id];
-              const open = stat.total - stat.closed;
-              return [id, stat.name, stat.total, stat.closed, open, "Open"];
-            });
+        // --- Timings Table ---
 
-          pdf.setFontSize(14);
-          pdf.setTextColor(0, 51, 153);
-          pdf.text("Section-wise Summary Report", 14, finalY);
-          finalY += 6;
+        // Time table removed
 
-          pdf.autoTable({
-            startY: finalY,
-            head: [["ID", "Section Name", "Total", "Closed", "Open", "Status"]],
-            body: sectionTableBody,
-            theme: "grid",
-            styles: {
-              fontSize: 8,
-              halign: 'center',
-              lineWidth: 0.1,
-              lineColor: [0, 0, 0]
-            },
-            headStyles: {
-              fillColor: [0, 102, 204],
-              lineWidth: 0.5,
-              lineColor: [0, 0, 0]
-            },
-            bodyStyles: {
-              lineWidth: 0.5,
-              lineColor: [0, 0, 0]
-            },
-            columnStyles: {
-              1: { halign: 'left', cellWidth: 80 }
-            }
-          });
-          finalY = pdf.lastAutoTable.finalY + 10;
-        }
 
-        if (finalY > pageHeight - footerHeight - bottomMargin - 40) {
-          pdf.addPage();
-          finalY = 10;
-        }
-
-        pdf.setFontSize(14);
-        pdf.setTextColor(0, 51, 153);
-        pdf.text("Overall Summary Statistics", 14, finalY);
-        finalY += 6;
-
-        pdf.autoTable({
-          startY: finalY,
-          head: [["Total Points", "Closed Points", "Open Points"]],
-          body: [[totalPointsOverallNum, totalClosedOverallNum, openPointsNum]],
-          margin: { right: 10 },
-          theme: "grid",
-          styles: {
-            fontSize: 10,
-            cellPadding: 2,
-            halign: 'center',
-            valign: 'middle',
-            lineWidth: 0.1,
-            lineColor: [0, 0, 0]
-          },
-          headStyles: {
-            fillColor: [0, 102, 204],
-            textColor: [255, 255, 255],
-            lineWidth: 0.5,
-            lineColor: [0, 0, 0]
-          },
-          bodyStyles: {
-            lineWidth: 0.5,
-            lineColor: [0, 0, 0]
-          }
-        });
-        finalY = pdf.lastAutoTable.finalY + 10;
-
-        pdf.autoTable({
-          startY: finalY,
-          head: [["Start Date & Time", "Completed Date & Time", "Total Time"]],
-          body: [[startTime, completedTime, totalTime]],
-          margin: { right: 10 },
-          theme: "grid",
-          styles: {
-            fontSize: 10,
-            cellPadding: 2,
-            halign: 'center',
-            valign: 'middle',
-            lineWidth: 0.1,
-            lineColor: [0, 0, 0]
-          },
-          headStyles: {
-            fillColor: [0, 102, 204],
-            textColor: [255, 255, 255],
-            lineWidth: 0.5,
-            lineColor: [0, 0, 0]
-          },
-          bodyStyles: {
-            lineWidth: 0.5,
-            lineColor: [0, 0, 0]
-          }
-        });
-        finalY = pdf.lastAutoTable.finalY + 10;
-
+        // --- Completion Status Table ---
         pdf.autoTable({
           startY: finalY,
           head: [],
@@ -1019,9 +897,50 @@
         });
         finalY = pdf.lastAutoTable.finalY + 10;
 
+        // Summary Table (Total, Closed, Open) - Replaces Section-wise Summary
+        pdf.autoTable({
+          startY: finalY,
+          head: [["Total Points", "Closed Points", "Open Points"]],
+          body: [[totalPointsOverallNum, totalClosedOverallNum, openPointsNum]],
+          theme: "grid",
+          styles: {
+            fontSize: 10,
+            cellPadding: 1,
+            halign: 'center',
+            valign: 'middle',
+            lineWidth: 0.1,
+            lineColor: [0, 0, 0]
+          },
+          headStyles: {
+            fillColor: [0, 108, 204],
+            textColor: [255, 255, 255],
+            fontStyle: 'bold',
+            lineWidth: 0.5,
+            lineColor: [0, 0, 0]
+          },
+          bodyStyles: {
+            lineWidth: 0.5,
+            lineColor: [0, 0, 0],
+            textColor: [0, 0, 0]
+          },
+          margin: { right: 10 },
+          columnStyles: {
+            0: { cellWidth: 61 },
+            1: { cellWidth: 62 },
+            2: { cellWidth: 62 }
+          }
+        });
+        finalY = pdf.lastAutoTable.finalY + 10;
+
+
+
+
+
+
+
         function calculateRowHeight(row, sectionId) {
           const imagesCount = imageData[row.S_no]?.length || 0;
-          const baseHeight = Math.max(30, imagesCount * 28);
+          const baseHeight = imagesCount > 0 ? Math.max(30, imagesCount * 28) : 10;
           const cellPadding = 2 * 2;
           const lineWidth = 0.1 * 2;
           const textHeight = 10;
@@ -1090,14 +1009,15 @@
             2: "2.0 Building",
             3: "3.0 Tower",
             4: "4.0 Power Supply",
-            5: "5.0 Kavach & RIU Equipment",
+            5: "5.0 Kavach Equipment",
             6: "6.0 RF Communication Equipment On Tower",
             7: "7.0 OFC Networking Rack",
             8: "8.0 Relay Rack",
             9: "9.0 Earthing",
             10: "10.0 Indoor Wiring / Cabling",
             11: "11.0 Outdoor Cabling",
-            12: "12.0 RFID Tags"
+            12: "12.0 RFID Tags",
+            13: "13.0 Components Inspection"
           };
           const sectionCaption = sectionCaptions[sectionId] || `Observations for Section ${sectionId}`;
           const sectionHeaderHeight = 8;
@@ -1108,62 +1028,19 @@
             .text(sectionCaption, 10, finalY);
           finalY += sectionHeaderHeight;
 
-          if (sectionId !== "1") {
-            pdf.autoTable({
-              startY: finalY,
-              margin: { right: 10 },
-              head: [["Start Date & Time", "Completed Date & Time", "Total Time"]],
-              body: [[sectionStartTime, sectionCompletedTime, sectionTotalTime]],
-              theme: "grid",
-              styles: {
-                fontSize: 10,
-                cellPadding: 2,
-                overflow: 'linebreak',
-                lineWidth: 0.1,
-                lineColor: [0, 0, 0],
-                halign: 'center',
-                valign: 'middle'
-              },
-              headStyles: {
-                textColor: [255, 255, 255],
-                fillColor: [0, 102, 204],
-                lineWidth: 0.5,
-                lineColor: [0, 0, 0]
-              },
-              bodyStyles: {
-                lineWidth: 0.5,
-                lineColor: [0, 0, 0],
-                valign: 'middle',
-                textColor: [0, 0, 0]
-              },
-              columnStyles: {
-                0: { cellWidth: 61 },
-                1: { cellWidth: 62 },
-                2: { cellWidth: 62 }
-              }
-            });
-            finalY = pdf.lastAutoTable.finalY + 4;
-          }
 
-          const imageData = {};
-          for (const obs of sectionObservations) {
-            imageData[obs.S_no] = [];
-            if (obs.image_paths && Array.isArray(obs.image_paths) && obs.image_paths.length > 0) {
-              for (const imgPath of obs.image_paths) {
-                const base64 = await getBase64Image(imgPath);
-                if (base64) {
-                  imageData[obs.S_no].push(base64);
-                }
-              }
-            }
-          }
+          // Time table removed as per user request
+
+
+          // Used pre-loaded imageData from outer scope for efficiency
           const rows = sectionObservations.map(obs => {
             const imagesCount = imageData[obs.S_no]?.length || 0;
-            const calculatedHeight = Math.max(30, imagesCount * 28);
+            const calculatedHeight = imagesCount > 0 ? Math.max(30, imagesCount * 28) : 0;
             return {
               S_no: obs.S_no,
-              Description: formatDescription(obs.observation_text),
-              Requirement: obs.requirement_text || "N/A",
+              Description: formatDescription(obs.observation_text).trim(),
+              barcode: obs.barcode_kavach_main_unit,
+              Requirement: (obs.requirement_text || "N/A").trim(),
               Status: obs.observation_status,
               Remarks: obs.remarks,
               imageBase64: imageData[obs.S_no][0] || "",
@@ -1211,20 +1088,33 @@
               }
             }
 
+            // Strip HTML and styles from status text
+            const cleanStatus = decodeHtmlEntities(String(r.Status || "").replace(/<[^>]*>/g, ""));
+
+            let desc = decodeHtmlEntities(String(r.Description || "").replace(/<\/?b>/g, ""));
+            if (r.barcode && r.barcode.trim() !== "") {
+              const cleanBarcode = r.barcode.trim();
+              desc = desc.split(cleanBarcode).join('').trim();
+              while (desc.endsWith('-')) {
+                desc = desc.slice(0, -1).trim();
+              }
+              desc += ` - ${cleanBarcode}`;
+            }
+
             tableBody.push([
               r.S_no,
-              decodeHtmlEntities(String(r.Description || "").replace(/<\/?b>/g, "")),
+              desc,
               ...(showRequirement ? [r.Requirement] : []),
-              r.Status,
+              cleanStatus,
               r.Remarks,
-              ...(sectionId === "0" ? [] : [{ content: "", raw: r.imageBase64, styles: { minCellHeight: r.calculatedHeight } }])
+              ...(sectionId === "0" ? [] : [{ content: "", raw: r.imageBase64, styles: r.calculatedHeight > 0 ? { minCellHeight: r.calculatedHeight } : {} }])
             ]);
           });
 
           pdf.autoTable({
             startY: finalY,
             margin: { right: 10 },
-            head: [["S.No", "Description", ...(showRequirement ? ["Requirement"] : []), "Status", "Remarks", ...(sectionId === "0" ? [] : ["Image"])]],
+            head: [["S.No", "Aspect", ...(showRequirement ? ["Requirement"] : []), "Status", "Observation", ...(sectionId === "0" ? [] : ["Image"])]],
             body: tableBody,
             theme: "grid",
             showHead: 'everyPage',
@@ -1265,10 +1155,10 @@
                 return {
                   0: { cellWidth: 15, halign: 'center' }, // S.No
                   1: { cellWidth: showRequirement ? 35 : 55, halign: 'left' }, // Description
-                  ...(showRequirement ? { 2: { cellWidth: 35, halign: 'left' } } : {}), // Requirement
+                  ...(showRequirement ? { 2: { cellWidth: 41, halign: 'left' } } : {}), // Requirement
                   [showRequirement ? 3 : 2]: { cellWidth: 25, halign: 'left' }, // Status
-                  [showRequirement ? 4 : 3]: { cellWidth: 33, halign: 'left' }, // Remarks
-                  [showRequirement ? 5 : 4]: { cellWidth: 43, halign: 'center' } // Image
+                  [showRequirement ? 4 : 3]: { cellWidth: 32, halign: 'left' }, // Remarks
+                  [showRequirement ? 5 : 4]: { cellWidth: 38, halign: 'center' } // Image
                 };
               }
             })()
@@ -1360,6 +1250,130 @@
             pdf.addPage();
             finalY = 10;
           }
+        }
+
+        // --- Pending Items Detailed Section (Moved to End) ---
+        // --- Pending Items Detailed Section (Moved to End) ---
+        const closedStatuses = ["Available", "Present", "Ok", "Yes", "Routing Done", "Fixed", "Secured", "Installed", "Connected", "Aligned", "Torquing done", "Positioning done", "Configured", "Welding done", "Earthing done", "Matching", "Not Applicable", "Coating done", "Applied", "Cables Connected", "Metal clamps implemented", "Locked", "Verified and ok"];
+
+        // Create a Set of closed S_nos for efficient lookup
+        const closedSet = new Set();
+        observationsArray.forEach(obs => {
+          const status = obs.observation_status ? obs.observation_status.trim() : "";
+          if (status && closedStatuses.includes(status)) {
+            closedSet.add(obs.S_no);
+          }
+        });
+
+        // Collect pending points per section
+        const pendingBySection = {};
+        Object.keys(sectionMetadata).forEach(id => pendingBySection[id] = new Set());
+
+        // 1. Build a master set of ALL expected S_nos from specificOptions
+        const requiredSnos = new Set();
+        if (typeof specificOptions !== 'undefined') {
+          Object.keys(specificOptions).forEach(keyGroup => {
+            // keyGroup is a comma-separated string of S_nos
+            keyGroup.split(',').forEach(sno => {
+              sno = sno.trim();
+              if (sno) requiredSnos.add(sno);
+            });
+          });
+        }
+
+        // 2. Add any S_nos that are actually present in the observations (custom points)
+        observationsArray.forEach(obs => {
+          if (obs.S_no) requiredSnos.add(obs.S_no);
+        });
+
+        // 3. Determine Pending: Required - Closed
+        requiredSnos.forEach(sno => {
+          if (!closedSet.has(sno)) {
+            // Determine section from S_no (assuming format Section.SubPoint)
+            const sectionId = sno.split('.')[0];
+            if (pendingBySection[sectionId]) {
+              pendingBySection[sectionId].add(sno);
+            } else {
+              // Fallback if sectionId is not standard
+              if (!pendingBySection["Other"]) pendingBySection["Other"] = new Set();
+              pendingBySection["Other"].add(sno);
+            }
+          }
+        });
+
+        const hasPendingItems = Object.keys(pendingBySection).some(id => pendingBySection[id].size > 0);
+
+        if (hasPendingItems) {
+          if (finalY > pageHeight - footerHeight - bottomMargin - 40) {
+            pdf.addPage();
+            finalY = 10;
+          } else {
+            finalY += 10;
+          }
+
+          pdf.setFontSize(12);
+          pdf.setTextColor(0, 0, 255); // Red color
+          pdf.setFont("helvetica", "bold");
+          pdf.text("The following are the pending items to be verified during the next inspection", 14, finalY);
+          finalY += 10;
+
+          const sortedSections = Object.keys(pendingBySection)
+            .filter(id => pendingBySection[id].size > 0)
+            .sort((a, b) => {
+              if (a === 'Other') return 1;
+              if (b === 'Other') return -1;
+              return Number(a) - Number(b);
+            });
+
+          // Use a simple table to list section and points for better alignment and wrapping
+          const pendingSummaryData = sortedSections.map(sectionId => {
+            const points = Array.from(pendingBySection[sectionId]).sort((a, b) => {
+              // Sort points nicely (1.1, 1.2, 1.10 etc)
+              const aParts = a.split('.').map(Number);
+              const bParts = b.split('.').map(Number);
+              for (let i = 0; i < Math.max(aParts.length, bParts.length); i++) {
+                const av = aParts[i] || 0;
+                const bv = bParts[i] || 0;
+                if (av !== bv) return av - bv;
+              }
+              return 0;
+            });
+            const sectionName = sectionMetadata[sectionId] ? sectionMetadata[sectionId].name : (sectionId === "Other" ? "Other" : "");
+            const title = `Section ${sectionId}: ${sectionName}`;
+            const pointsList = points.join(', ');
+            return [title, pointsList];
+          });
+
+          pdf.autoTable({
+            startY: finalY,
+            head: [["Section Name", "Pending Points"]],
+            body: pendingSummaryData,
+            theme: "grid",
+            styles: {
+              fontSize: 10,
+              cellPadding: 3,
+              overflow: 'linebreak',
+              lineColor: [0, 0, 0], // BLACK border
+              lineWidth: 0.5        // border thickness
+            },
+            headStyles: {
+              fillColor: [0, 112, 192],
+              textColor: [255, 255, 255],
+              lineColor: [0, 0, 0], // ensure header borders are black
+              lineWidth: 0.5
+            },
+            bodyStyles: {
+              textColor: [0, 0, 0],
+              lineColor: [0, 0, 0], // body borders
+              lineWidth: 0.5
+            },
+            columnStyles: {
+              0: { cellWidth: 60, fontStyle: 'bold' },
+              1: { cellWidth: 'auto' }
+            }
+          });
+
+          finalY = pdf.lastAutoTable.finalY + 10;
         }
         const totalPages = pdf.internal.getNumberOfPages();
         pdf.setPage(totalPages);

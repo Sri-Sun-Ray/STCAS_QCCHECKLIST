@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 
 $tableNames = [
     "verification_of_equipment_serial_numbers","tower", "rtu","rf_antennas","installation_of_kavach_equipment",
-    "networking_rack", "ips", "dc_convertor", "pdu","smocip","gps_gsm_antenna","relay_rack","riu","laying_of_sectional_ofc_cable","outdoor_cabling","rfid_tags","tag_to_tag_distance",
+    "networking_rack", "ips", "dc_convertor", "pdu","smocip","outdoor_cabling","relay_rack","riu","laying_of_sectional_ofc_cable","gps_gsm_antenna","rfid_tags","tag_to_tag_distance",
 
 ];
 

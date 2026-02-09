@@ -81,24 +81,48 @@ $stmt_check->close();
 
 $exists = $result['cnt'] > 0;
 
+$barcode = isset($_POST['barcode_kavach_main_unit']) ? $_POST['barcode_kavach_main_unit'] : null;
+$is_barcode_table = ($table_name === "verification_of_equipment_serial_numbers");
+
 if ($exists) {
     // UPDATE
-    $sql = "UPDATE $table_name SET observation_text = ?, requirement_text = ?, observation_status = ?, remarks = ?";
+    if ($is_barcode_table) {
+        $sql = "UPDATE $table_name SET observation_text = ?, requirement_text = ?, observation_status = ?, remarks = ?, barcode_kavach_main_unit = ?";
+    } else {
+        $sql = "UPDATE $table_name SET observation_text = ?, requirement_text = ?, observation_status = ?, remarks = ?";
+    }
+    
     if ($image_path !== null) $sql .= ", image_path = ?";
     $sql .= " WHERE S_no = ? AND station_id = ?";
 
     $stmt = $conn->prepare($sql);
-    if ($image_path !== null) {
-        $stmt->bind_param("ssssssi", $observation_text, $requirement_text, $observation_status, $remarks, $image_path, $S_no, $station_id);
+    
+    if ($is_barcode_table) {
+        if ($image_path !== null) {
+            $stmt->bind_param("sssssssi", $observation_text, $requirement_text, $observation_status, $remarks, $barcode, $image_path, $S_no, $station_id);
+        } else {
+            $stmt->bind_param("ssssssi", $observation_text, $requirement_text, $observation_status, $remarks, $barcode, $S_no, $station_id);
+        }
     } else {
-        $stmt->bind_param("sssssi", $observation_text, $requirement_text, $observation_status, $remarks, $S_no, $station_id);
+        if ($image_path !== null) {
+            $stmt->bind_param("ssssssi", $observation_text, $requirement_text, $observation_status, $remarks, $image_path, $S_no, $station_id);
+        } else {
+            $stmt->bind_param("sssssi", $observation_text, $requirement_text, $observation_status, $remarks, $S_no, $station_id);
+        }
     }
 } else {
     // INSERT
-    $sql = "INSERT INTO $table_name (S_no, station_id, observation_text, requirement_text, observation_status, remarks, image_path)
-            VALUES (?, ?, ?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sisssss", $S_no, $station_id, $observation_text, $requirement_text, $observation_status, $remarks, $image_path);
+    if ($is_barcode_table) {
+        $sql = "INSERT INTO $table_name (S_no, station_id, observation_text, requirement_text, observation_status, remarks, image_path, barcode_kavach_main_unit)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sissssss", $S_no, $station_id, $observation_text, $requirement_text, $observation_status, $remarks, $image_path, $barcode);
+    } else {
+        $sql = "INSERT INTO $table_name (S_no, station_id, observation_text, requirement_text, observation_status, remarks, image_path)
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sisssss", $S_no, $station_id, $observation_text, $requirement_text, $observation_status, $remarks, $image_path);
+    }
 }
 
 if ($stmt->execute()) {

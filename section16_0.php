@@ -44,8 +44,8 @@ try {
 
             // Loop through each observation
             foreach ($observations as $obs) {
-                // Insert into rfid_tags table
-                                $stmt = $pdo->prepare("INSERT INTO outdoor_cabling (
+                // Insert into gps_gsm_antenna table
+                                $stmt = $pdo->prepare("INSERT INTO gps_gsm_antenna (
                     station_id,     
                      observation_text, requirement_text, remarks, S_no,
                     observation_status,  created_at
@@ -67,7 +67,7 @@ try {
 
                     foreach ($obs['image_paths'] as $imgPath) {
                         $imgStmt = $pdo->prepare("INSERT INTO images (entity_type, station_id, s_no, image_path, created_at) VALUES (?, ?, ?, ?, NOW())");
-                        $imgStmt->execute(['rfid_tags', $stationId, $obs['S_no'], $imgPath]);
+                        $imgStmt->execute(['gps_gsm_antenna', $stationId, $obs['S_no'], $imgPath]);
                     }
                 }
             }

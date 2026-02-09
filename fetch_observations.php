@@ -24,14 +24,18 @@ $stationId = $conn->real_escape_string($_GET['station_id']);
 
 $tableNames = [
     "verification_of_equipment_serial_numbers","tower", "rtu","rf_antennas","installation_of_kavach_equipment",
-    "networking_rack", "ips", "dc_convertor", "pdu","smocip","gps_gsm_antenna","relay_rack","riu","laying_of_sectional_ofc_cable","outdoor_cabling","rfid_tags","tag_to_tag_distance",
-
+    "networking_rack", "ips", "dc_convertor", "pdu","smocip","outdoor_cabling","relay_rack","riu","laying_of_sectional_ofc_cable","gps_gsm_antenna","rfid_tags","tag_to_tag_distance",
 ];
 
 $observations = [];
 
 foreach ($tableNames as $tableName) {
-    $sql = "SELECT S_no, observation_text, requirement_text, observation_status, remarks, created_at, updated_at FROM $tableName WHERE station_id = ?";
+    if ($tableName === "verification_of_equipment_serial_numbers") {
+        $sql = "SELECT S_no, observation_text, requirement_text, observation_status, remarks, created_at, updated_at, barcode_kavach_main_unit FROM $tableName WHERE station_id = ?";
+    } else {
+        $sql = "SELECT S_no, observation_text, requirement_text, observation_status, remarks, created_at, updated_at FROM $tableName WHERE station_id = ?";
+    }
+    
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $stationId);
     $stmt->execute();
@@ -39,7 +43,7 @@ foreach ($tableNames as $tableName) {
 
     while ($row = $result->fetch_assoc()) {
         $s_no = $row['S_no'];
-
+        
         // Fetch associated images from `images` table for each S_no
         $imgStmt = $conn->prepare("SELECT image_path FROM images WHERE station_id = ? AND s_no = ? AND entity_type = ?");
         $imgStmt->bind_param("sss", $stationId, $s_no, $tableName);
@@ -58,6 +62,7 @@ foreach ($tableNames as $tableName) {
             'observation_status' => $row['observation_status'],
             'remarks' => $row['remarks'],
             'image_paths' => $imagePaths,
+            'barcode_kavach_main_unit' => isset($row['barcode_kavach_main_unit']) ? $row['barcode_kavach_main_unit'] : null,
             'created_at' => $row['created_at'],
             'updated_at' => $row['updated_at']
         ];

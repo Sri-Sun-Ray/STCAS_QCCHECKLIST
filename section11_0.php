@@ -62,12 +62,12 @@ try {
 
                 // Update images in images table:
                 if (!empty($obs['image_paths']) && is_array($obs['image_paths'])) {
-                    $deleteStmt = $pdo->prepare("DELETE FROM images WHERE station_id = ? AND s_no = ?");
-                    $deleteStmt->execute([$stationId, $obs['S_no']]);
+                    $deleteStmt = $pdo->prepare("DELETE FROM images WHERE station_id = ? AND s_no = ? AND entity_type = ?");
+                    $deleteStmt->execute([$stationId, $obs['S_no'], 'smocip']);
 
                     foreach ($obs['image_paths'] as $imgPath) {
                         $imgStmt = $pdo->prepare("INSERT INTO images (entity_type, station_id, s_no, image_path, created_at) VALUES (?, ?, ?, ?, NOW())");
-                        $imgStmt->execute(['rfid_tags', $stationId, $obs['S_no'], $imgPath]);
+                        $imgStmt->execute(['smocip', $stationId, $obs['S_no'], $imgPath]);
                     }
                 }
             }
