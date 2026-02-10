@@ -2087,7 +2087,7 @@ async function showSection(section, subsection) {
 </div>
           </tr>
 
-            <tr id="row-22435 , ">
+            <tr id="row-22435">
             <td>1.29</td>
            <td class = "observation_text"> FIU Termination Card 2
           <input 

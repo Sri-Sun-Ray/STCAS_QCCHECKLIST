@@ -44539,3 +44539,287 @@ Processing S_no: 6.1.9. Status: Yes, Remarks: . Existing: No
 Insert executed for S_no 6.1.9
 Processing S_no: 6.1.10. Status: Yes, Remarks: . Existing: No
 Insert executed for S_no 6.1.10
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 2.1
+            [observation_text] => Dimensions of building (LxWxH)
+            [requirement_text] => Building shall be constructed as per approved Building Diagram
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 2.2
+            [observation_text] => Construction Quality
+            [requirement_text] => Walls and steps shall be free from cracks.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 2.3
+            [observation_text] => Floor Quality
+            [requirement_text] => Floor surface shall be levelled properly.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 2.3.1
+            [observation_text] => Floor Quality
+            [requirement_text] => Tiles shall be laid after completion of concrete flooring.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 2.4
+            [observation_text] => Door Arrangement
+            [requirement_text] => Doors and Door locks shall be provided as per tender requirement
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [5] => Array
+        (
+            [S_no] => 2.5
+            [observation_text] => Ventilation
+            [requirement_text] => Adequate Lighting and ventilation / exhaust fan provided as per tender.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [6] => Array
+        (
+            [S_no] => 2.6
+            [observation_text] => Fire safety
+            [requirement_text] => Fire Alaram shall be installed ?
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [7] => Array
+        (
+            [S_no] => 2.7
+            [observation_text] => Cable entry sealing
+            [requirement_text] => All wall/floor cable entries sealed with fire-retardant compound
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [8] => Array
+        (
+            [S_no] => 2.8
+            [observation_text] => Lightning &amp; Surge Protection
+            [requirement_text] => Ensure lightning surge protection is installed as per tender
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 2.1. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 2.1
+Processing S_no: 2.2. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 2.2
+Processing S_no: 2.3. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 2.3
+Processing S_no: 2.3.1. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 2.3.1
+Processing S_no: 2.4. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 2.4
+Processing S_no: 2.5. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 2.5
+Processing S_no: 2.6. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 2.6
+Processing S_no: 2.7. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 2.7
+Processing S_no: 2.8. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 2.8
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 3.1
+            [observation_text] => Installation Location
+            [requirement_text] => Installation location must be according to the approved desktop RSSI survey report.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 3.2
+            [observation_text] => Soil test
+            [requirement_text] => Soil test report shall be available for the location.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 3.3
+            [observation_text] => Foundation work as per the SBC report
+            [requirement_text] => Foundation design shall be as per the SBC specified in the soil test report.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 3.4
+            [observation_text] => Erection of Tower
+            [requirement_text] => Verticality test shall be conducted as per RDSO drawing specifications.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 3.4.1
+            [observation_text] => Erection of Tower
+            [requirement_text] => Lightning protection rods and aviation lamp shall be installed at the top of the tower as per diagram 5 16 67 0983.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [5] => Array
+        (
+            [S_no] => 3.4.2
+            [observation_text] => Erection of Tower
+            [requirement_text] => Aviation lamp shall glow during night time only.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [6] => Array
+        (
+            [S_no] => 3.5
+            [observation_text] => Tower Painting.
+            [requirement_text] => One coat of yellow primer coating and two coats of orange and white color bands on each segment of tower.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [7] => Array
+        (
+            [S_no] => 3.6
+            [observation_text] => Earthing
+            [requirement_text] => Tower earthing shall be done per drawing: 5 16 76 0043.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 3.1. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 3.1
+Processing S_no: 3.2. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 3.2
+Processing S_no: 3.3. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 3.3
+Processing S_no: 3.4. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 3.4
+Processing S_no: 3.4.1. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 3.4.1
+Processing S_no: 3.4.2. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 3.4.2
+Processing S_no: 3.5. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 3.5
+Processing S_no: 3.6. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 3.6
