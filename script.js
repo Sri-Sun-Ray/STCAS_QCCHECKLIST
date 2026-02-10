@@ -335,9 +335,9 @@ async function showSection(section, subsection) {
   }
 
 
-  const exists = await checkExistingObservations(stationId, division, zone, backendSectionId, subsection);
+  const existsPromise = checkExistingObservations(stationId, division, zone, backendSectionId, subsection);
 
-  setTimeout(() => {
+  setTimeout(async () => {
     const actionButtons = document.querySelector('.action-buttons');
     if (actionButtons) {
       const saveBtn = actionButtons.querySelector('#save-btn');
@@ -377,6 +377,8 @@ async function showSection(section, subsection) {
           }
           return;
       }
+
+      const exists = await existsPromise;
 
       // If we don't have local data, but DB says exists:
       if (exists) {
@@ -1064,21 +1066,21 @@ async function showSection(section, subsection) {
     <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
   </td>
   <td>
-    <button class="add-image" onclick="showUploadOptions(10)">Add Image</button>
-    <div class="upload-options" id="upload-options-10" style="display: none;">
-      <button class="add-image" onclick="startCamera(10)">Camera</button>
-      <label for="file-input-10" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
-      <input type="file" id="file-input-10" accept="image/*" multiple onchange="displayImages(this, 10)">
+    <button class="add-image" onclick="showUploadOptions(18)">Add Image</button>
+    <div class="upload-options" id="upload-options-18" style="display: none;">
+      <button class="add-image" onclick="startCamera(18)">Camera</button>
+      <label for="file-input-18" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
+      <input type="file" id="file-input-18" accept="image/*" multiple onchange="displayImages(this, 18)">
    </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-10"></div>
+      <div id="image-container-18"></div>
       <!-- Camera Container -->
-    <div id="camera-container-10" style="display: none;">
-      <video id="camera-10" width="100%" height="auto" autoplay></video>
-      <button class="add-image" onclick="captureImage(10)">Capture Image</button>
-      <button class="add-image" onclick="stopCamera(10)">Stop Camera</button>
-      <button class="reverse-camera" onclick="switchCamera(10)">🔄 Switch Camera</button>
-      <canvas id="canvas-10" style="display: none;"></canvas>
+    <div id="camera-container-18" style="display: none;">
+      <video id="camera-18" width="100%" height="auto" autoplay></video>
+      <button class="add-image" onclick="captureImage(18)">Capture Image</button>
+      <button class="add-image" onclick="stopCamera(18)">Stop Camera</button>
+      <button class="reverse-camera" onclick="switchCamera(18)">🔄 Switch Camera</button>
+      <canvas id="canvas-18" style="display: none;"></canvas>
     </div>
   </td>
 </tr>
@@ -1167,21 +1169,21 @@ async function showSection(section, subsection) {
     <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
   </td>
   <td>
-       <button class="add-image" onclick="showUploadOptions(1110)">Add Image</button>
-<div class="upload-options" id="upload-options-1110" style="display: none;">
-  <button class="add-image" onclick="startCamera(1110)">Camera</button>
-  <label for="file-input-1110" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
-  <input type="file" id="file-input-1110" accept="image/*" multiple onchange="displayImages(this, 1110)">
+       <button class="add-image" onclick="showUploadOptions(110)">Add Image</button>
+<div class="upload-options" id="upload-options-110" style="display: none;">
+  <button class="add-image" onclick="startCamera(110)">Camera</button>
+  <label for="file-input-110" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
+  <input type="file" id="file-input-110" accept="image/*" multiple onchange="displayImages(this, 110)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-1110"></div>
+      <div id="image-container-110"></div>
       <!-- Camera Container -->
-<div id="camera-container-1110" style="display: none;">
-  <video id="camera-1110" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(1110)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(1110)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(1110)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-1110" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+<div id="camera-container-110" style="display: none;">
+  <video id="camera-110" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(110)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(110)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(110)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-110" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
 
           </tr>
@@ -1375,21 +1377,21 @@ async function showSection(section, subsection) {
               <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
             </td>
            <td>
-       <button class="add-image" onclick="showUploadOptions(1211)">Add Image</button>
-<div class="upload-options" id="upload-options-1211" style="display: none;">
-  <button class="add-image" onclick="startCamera(1211)">Camera</button>
-  <label for="file-input-1211" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
-  <input type="file" id="file-input-1211" accept="image/*" multiple onchange="displayImages(this, 1211)">
+       <button class="add-image" onclick="showUploadOptions(114)">Add Image</button>
+<div class="upload-options" id="upload-options-114" style="display: none;">
+  <button class="add-image" onclick="startCamera(114)">Camera</button>
+  <label for="file-input-114" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
+  <input type="file" id="file-input-114" accept="image/*" multiple onchange="displayImages(this, 114)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-1211"></div>
+      <div id="image-container-114"></div>
       <!-- Camera Container -->
-<div id="camera-container-1211" style="display: none;">
-  <video id="camera-1211" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(1211)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(1211)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(1211)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-1211" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+<div id="camera-container-114" style="display: none;">
+  <video id="camera-114" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(114)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(114)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(114)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-114" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
 
           </tr>
@@ -1671,21 +1673,21 @@ async function showSection(section, subsection) {
     <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
   </td>
            <td>
-       <button class="add-image" onclick="showUploadOptions(18)">Add Image</button>
-<div class="upload-options" id="upload-options-18" style="display: none;">
-  <button class="add-image" onclick="startCamera(18)">Camera</button>
-<label for="file-input-18" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
-  <input type="file" id="file-input-18" accept="image/*" onchange="displayImages(this, 18)">
+       <button class="add-image" onclick="showUploadOptions(116)">Add Image</button>
+<div class="upload-options" id="upload-options-116" style="display: none;">
+  <button class="add-image" onclick="startCamera(116)">Camera</button>
+<label for="file-input-116" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
+  <input type="file" id="file-input-116" accept="image/*" onchange="displayImages(this, 116)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-18"></div>
+      <div id="image-container-116"></div>
       <!-- Camera Container -->
-<div id="camera-container-18" style="display: none;">
-  <video id="camera-18" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(18)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(18)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(18)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-18" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+<div id="camera-container-116" style="display: none;">
+  <video id="camera-116" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(116)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(116)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(116)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-116" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
 
 
@@ -1769,21 +1771,21 @@ async function showSection(section, subsection) {
               <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
             </td>
             <td>
-       <button class="add-image" onclick="showUploadOptions(20)">Add Image</button>
-<div class="upload-options" id="upload-options-20" style="display: none;">
-  <button class="add-image" onclick="startCamera(20)">Camera</button>
- <label for="file-input-20" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
-  <input type="file" id="file-input-20" accept="image/*" multiple onchange="displayImages(this, 20)">
+       <button class="add-image" onclick="showUploadOptions(118)">Add Image</button>
+<div class="upload-options" id="upload-options-118" style="display: none;">
+  <button class="add-image" onclick="startCamera(118)">Camera</button>
+ <label for="file-input-118" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
+  <input type="file" id="file-input-118" accept="image/*" multiple onchange="displayImages(this, 118)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-20"></div>
+      <div id="image-container-118"></div>
       <!-- Camera Container -->
-<div id="camera-container-20" style="display: none;">
-  <video id="camera-20" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(20)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(20)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(20)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-20" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+<div id="camera-container-118" style="display: none;">
+  <video id="camera-118" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(118)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(118)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(118)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-118" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
 
 
@@ -1869,21 +1871,21 @@ async function showSection(section, subsection) {
               <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
             </td>
            <td>
-       <button class="add-image" onclick="showUploadOptions(22)">Add Image</button>
-<div class="upload-options" id="upload-options-22" style="display: none;">
-  <button class="add-image" onclick="startCamera(22)">Camera</button>
-  <label for="file-input-22" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-22" accept="image/*" multiple onchange="displayImages(this, 22)">
+       <button class="add-image" onclick="showUploadOptions(120)">Add Image</button>
+<div class="upload-options" id="upload-options-120" style="display: none;">
+  <button class="add-image" onclick="startCamera(120)">Camera</button>
+  <label for="file-input-120" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-120" accept="image/*" multiple onchange="displayImages(this, 120)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-22"></div>
+      <div id="image-container-120"></div>
       <!-- Camera Container -->
-<div id="camera-container-22" style="display: none;">
-  <video id="camera-22" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(22)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(22)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(22)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-22" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+<div id="camera-container-120" style="display: none;">
+  <video id="camera-120" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(120)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(120)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(120)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-120" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
 
@@ -1969,21 +1971,21 @@ async function showSection(section, subsection) {
               <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
             </td>
            <td>
-       <button class="add-image" onclick="showUploadOptions(223)">Add Image</button>
-<div class="upload-options" id="upload-options-223" style="display: none;">
-  <button class="add-image" onclick="startCamera(223)">Camera</button>
-  <label for="file-input-223" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-223" accept="image/*" multiple onchange="displayImages(this, 223)">
+       <button class="add-image" onclick="showUploadOptions(122)">Add Image</button>
+<div class="upload-options" id="upload-options-122" style="display: none;">
+  <button class="add-image" onclick="startCamera(122)">Camera</button>
+  <label for="file-input-122" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-122" accept="image/*" multiple onchange="displayImages(this, 122)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-223"></div>
+      <div id="image-container-122"></div>
       <!-- Camera Container -->
-<div id="camera-container-223" style="display: none;">
-  <video id="camera-223" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(223)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(223)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(223)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-223" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+<div id="camera-container-122" style="display: none;">
+  <video id="camera-122" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(122)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(122)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(122)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-122" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
 
@@ -2085,7 +2087,7 @@ async function showSection(section, subsection) {
 </div>
           </tr>
 
-            <tr id="row-124">
+            <tr id="row-225 , ">
             <td>1.29</td>
            <td class = "observation_text"> FIU Termination Card 2
           <input 
@@ -2418,7 +2420,7 @@ async function showSection(section, subsection) {
 </div>
           </tr>
 
-           <tr id="row-19798">
+           <tr id="row-10798">
             <td>1.36</td>
            <td class = "observation_text"> EMI Filter RTU-1
           <input 
@@ -2931,7 +2933,7 @@ async function showSection(section, subsection) {
   <canvas id="canvas-21" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
-    <tr id="row-22">
+    <tr id="row-38">
       <td>2.2</td>
       <td class="observation_text">Construction Quality</td>
       <td class="requirement_text">Walls and steps shall be free from cracks.</td>
@@ -3030,7 +3032,7 @@ async function showSection(section, subsection) {
   <canvas id="canvas-231" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
-    <tr id="row-24">
+    <tr id="row-39088">
       <td>2.4</td>
       <td class="observation_text">Door Arrangement</td>
       <td class="requirement_text">Doors and Door locks shall be provided as per tender requirement</td>
@@ -3066,7 +3068,7 @@ async function showSection(section, subsection) {
 <tr id="row-25">
       <td>2.5</td>
       <td class="observation_text">Ventilation</td>
-      <td class="requirement_text">Adequate ventilation / exhaust fan provided as per tender.</td>
+      <td class="requirement_text">Adequate Lighting and ventilation / exhaust fan provided as per tender.</td>
       <td class="select">
         <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -3097,10 +3099,10 @@ async function showSection(section, subsection) {
 </div>
     </tr>
 
-    <tr id="row-26">
+    <tr id="row-40">
       <td>2.6</td>
       <td class="observation_text">Fire safety</td>
-      <td class="requirement_text">Fire extinguisher provided</td>
+      <td class="requirement_text">Fire Alaram shall be installed ?</td>
       <td class="select">
         <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -3165,6 +3167,39 @@ async function showSection(section, subsection) {
   <canvas id="canvas-27" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>   
     </tr>
+    <tr id="row-28">
+      <td>2.8</td>
+      <td class="observation_text">Lightning & Surge Protection</td>
+      <td class="requirement_text">Ensure lightning surge protection is installed as per tender</td>
+      <td class="select">
+        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+                <option value="Select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
+              </select>
+      </td>
+      <td class="remarks">
+        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+      </td>
+      <td>
+       <button class="add-image" onclick="showUploadOptions(28)">Add Image</button>
+<div class="upload-options" id="upload-options-28" style="display: none;">
+  <button class="add-image" onclick="startCamera(28)">Camera</button>
+  <label for="file-input-28" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-28" accept="image/*" multiple onchange="displayImages(this, 28)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-28"></div>
+      <!-- Camera Container -->
+<div id="camera-container-28" style="display: none;">
+  <video id="camera-28" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(28)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(28)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(28)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-28" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>   
+    </tr>
     </tbody>
       </table>
       </div>
@@ -3208,7 +3243,7 @@ async function showSection(section, subsection) {
           <tr id="row-31">
       <td>3.1</td>
       <td class="observation_text">Installation Location</td>
-      <td class="requirement_text">Installation shall be at the approved Cable Route Plan</td>
+      <td class="requirement_text">Installation location must be according to the approved desktop RSSI survey report.</td>
       <td class="select">
         <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -3733,7 +3768,7 @@ async function showSection(section, subsection) {
     <tr id="row-421">
       <td>4.2.1</td>
       <td class="observation_text">Installation</td>
-      <td class="requirement_text">PDU units shall be mounted on insulators and secured to the wall by grouting.</td>
+      <td class="requirement_text">PDU units shall be mounted on insulators and secured with fasteners.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -3862,7 +3897,7 @@ async function showSection(section, subsection) {
     <tr id="row-425">
       <td>4.2.5</td>
       <td class="observation_text">Cabling</td>
-      <td class="requirement_text">Crimping of lugs and power cables to be done and insulation tape to be applied.</td>
+      <td class="requirement_text">Ensure lugs are properly crimped and inserted into the terminal; no loose strands shall be left.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -3927,7 +3962,7 @@ async function showSection(section, subsection) {
     <tr id="row-427">
       <td>4.2.7</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Bolts shall be tightened with appropriate torque, and torque marking shall be visible.</td>
+      <td class="requirement_text">Bolts shall be tightened and apply 8Nm torque.Torque marking shall be visible.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -3959,7 +3994,7 @@ async function showSection(section, subsection) {
     <tr id="row-428">
       <td>4.2.8</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Crimping of lugs on Earthing cables to be done and insulation tape to be applied.</td>
+      <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -3992,7 +4027,7 @@ async function showSection(section, subsection) {
     <tr id="row-429">
       <td>4.2.9</td>
       <td class="observation_text">Functionality</td>
-      <td class="requirement_text">Functional testing shall be performed as per the PDU test procedure.</td>
+      <td class="requirement_text">Functional testing shall be performed as per the PDU test procedure 5 53 69 0001.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4396,7 +4431,7 @@ async function showSection(section, subsection) {
     <tr id="row-514">
       <td>5.1.4</td>
       <td class="observation_text">Cabling</td>
-      <td class="requirement_text">Crimping of lugs and power cables to be done and insulation tape to be applied.</td>
+      <td class="requirement_text">Ensure lugs are properly crimped and inserted into the terminal; no loose strands shall be left..</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4428,7 +4463,7 @@ async function showSection(section, subsection) {
     <tr id="row-515">
       <td>5.1.5</td>
       <td class="observation_text">Cabling</td>
-      <td class="requirement_text">Dirty and clean cables to be seperated.</td>
+      <td class="requirement_text">Power supply cables and cables coming from outdoor shall be routed and separate cable ladder, segregated from cables coming from relay racks. The two cable runs shall not intersect or touch at any point.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4457,41 +4492,10 @@ async function showSection(section, subsection) {
   <canvas id="canvas-515" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
-    <tr id="row-516">
-      <td>5.1.6</td>
-      <td class="observation_text">Cabling</td>
-      <td class="requirement_text">Power supply cables and cables coming from outdoor shall be routed and separate cable ladder, segregated from cables coming from relay racks. The two cable runs shall not intersect or touch at any point.</td>
-       <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
-      </td>
-      <td class="remarks">
-        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
-      </td>
-     <td>
-       <button class="add-image" onclick="showUploadOptions(516)">Add Image</button>
-<div class="upload-options" id="upload-options-516" style="display: none;">
-  <button class="add-image" onclick="startCamera(516)">Camera</button>
-  <label for="file-input-516" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-516" accept="image/*" multiple onchange="displayImages(this, 516)">
-</div>
-      <!-- Container for multiple images -->
-      <div id="image-container-516"></div>
-      <!-- Camera Container -->
-<div id="camera-container-516" style="display: none;">
-  <video id="camera-516" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(516)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(516)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(516)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-516" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-    </tr>
+   
 
     <tr id="row-517">
-      <td>5.1.7</td>
+      <td>5.1.6</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Unit shall be connected to the ring earth using a 10 sq.mm green/yellow wire proper torque marking.</td>
        <td class="select">
@@ -4523,7 +4527,7 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-518">
-      <td>5.1.8</td>
+      <td>5.1.7</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Cabinet doors (front & rear) earthed using copper braid.</td>
        <td class="select">
@@ -4555,9 +4559,9 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-519">
-      <td>5.1.9</td>
+      <td>5.1.8</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Crimping of lugs on Earthing cables to be done and insulation tape to be applied.</td>
+      <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4588,7 +4592,7 @@ async function showSection(section, subsection) {
     </tr>
 
     <tr id="row-5110">
-      <td>5.1.10</td>
+      <td>5.1.9</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">This termination unit shall be wall-mounted near Kavach Unit with insulators.</td>
        <td class="select">
@@ -4620,7 +4624,7 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-5111">
-      <td>5.1.11</td>
+      <td>5.1.10</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">Power and OFC cables for SMOCIP and RTU shall be terminated as per drawing 5 16 76 0045. OFC splicing as per 5 16 49 0559</td>
        <td class="select">
@@ -4652,7 +4656,7 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-5112">
-      <td>5.1.12</td>
+      <td>5.1.11</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">Splicing on OFC Termination Box to be done carefully with proper fixing of splices in splice tray..</td>
        <td class="select">
@@ -4848,7 +4852,7 @@ async function showSection(section, subsection) {
     <tr id="row-525">
       <td>5.2.5</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Crimping of lugs on Earthing cables to be done and insulation tape to be applied.</td>
+      <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4881,7 +4885,7 @@ async function showSection(section, subsection) {
     <tr id="row-526">
       <td>5.2.6</td>
       <td class="observation_text">Functionality</td>
-      <td class="requirement_text">Check the mechanical Counter increments correctly and push buttons function correctly.</td>
+      <td class="requirement_text">Check the mechanical Counter increments correctly by generating SOS and push buttons function correctly by pressing buttons.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5365,7 +5369,7 @@ async function showSection(section, subsection) {
     <tr id="row-545">
       <td>5.4.4</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Bolts shall be tightened with appropriate torque, and torque marking shall be visible.</td>
+      <td class="requirement_text">Bolts shall be tightened with 8NM torque, and torque marking shall be visible.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5480,7 +5484,7 @@ async function showSection(section, subsection) {
     <tr id="row-61">
       <td>6.1</td>
       <td class="observation_text">RTU fixing</td>
-      <td class="requirement_text">Both RTUs shall be firmly secured to the tower platform using bolts as per diagram.Ensure RTU doors shall be fully closed and locked.</td>
+      <td class="requirement_text">Both RTUs shall be firmly secured to the tower platform using bolts as per diagram.Ensure RTU doors are fully closed and locked.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5578,7 +5582,7 @@ async function showSection(section, subsection) {
     <tr id="row-614">
       <td>6.1.3</td>
       <td class="observation_text">RTU earthing</td>
-      <td class="requirement_text">Crimping of lugs on Earthing cables to be done and insulation tape to be applied.</td>
+      <td class="requirement_text"> Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5769,42 +5773,10 @@ async function showSection(section, subsection) {
   <canvas id="canvas-619" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
-    <tr id="row-6110">
+    <tr id="row-6111">
       <td>6.1.9</td>
       <td class="observation_text">110V Power cable termination</td>
-      <td class="requirement_text">Check the 110V DC +/-</td>
-       <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
-      </td>
-      <td class="remarks">
-        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
-      </td>
-      <td>
-       <button class="add-image" onclick="showUploadOptions(6110)">Add Image</button>
-<div class="upload-options" id="upload-options-6110" style="display: none;">
-  <button class="add-image" onclick="startCamera(6110)">Camera</button>
-  <label for="file-input-6110" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-6110" accept="image/*" multiple onchange="displayImages(this, 6110)">
-</div>
-      <!-- Container for multiple images -->
-      <div id="image-container-6110"></div>
-      <!-- Camera Container -->
-<div id="camera-container-6110" style="display: none;">
-  <video id="camera-6110" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(6110)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(6110)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(6110)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-6110" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-    </tr>
-    <tr id="row-6111">
-      <td>6.1.10</td>
-      <td class="observation_text">110V Power cable termination</td>
-      <td class="requirement_text">Crimping of lugs and power cables to be done and insulation tape to be applied.</td>
+      <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5835,7 +5807,7 @@ async function showSection(section, subsection) {
     </tr>
 
     <tr id="row-6112">
-      <td>6.1.11</td>
+      <td>6.1.10</td>
       <td class="observation_text">Cabiling</td>
       <td class="requirement_text">LMR 600 connection with proper routing and clamping shall be done per Tower SOP.</td>
        <td class="select">
@@ -5864,70 +5836,6 @@ async function showSection(section, subsection) {
   <button class="add-image" onclick="stopCamera(6112)">Stop Camera</button>
   <button class="reverse-camera" onclick="switchCamera(6112)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
   <canvas id="canvas-6112" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-    </tr>
-    <tr id="row-6113">
-      <td>6.1.12</td>
-      <td class="observation_text">Cabiling</td>
-      <td class="requirement_text">Signaling Cable loop kept at 11.6 Metres RPF Platform to be Preserved.</td>
-       <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
-      </td>
-      <td class="remarks">
-        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
-      </td>
-      <td>
-       <button class="add-image" onclick="showUploadOptions(6113)">Add Image</button>
-<div class="upload-options" id="upload-options-6113" style="display: none;">
-  <button class="add-image" onclick="startCamera(6113)">Camera</button>
-  <label for="file-input-6113" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-6113" accept="image/*" multiple onchange="displayImages(this, 6113)">
-</div>
-      <!-- Container for multiple images -->
-      <div id="image-container-6113"></div>
-      <!-- Camera Container -->
-<div id="camera-container-6113" style="display: none;">
-  <video id="camera-6113" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(6113)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(6113)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(6113)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-6113" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-    </tr>
-    <tr id="row-6114">
-      <td>6.1.13</td>
-      <td class="observation_text">Cabiling</td>
-      <td class="requirement_text">Power Supply for Aviation lamp to be disrupted for minimum time.</td>
-       <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
-      </td>
-      <td class="remarks">
-        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
-      </td>
-      <td>
-       <button class="add-image" onclick="showUploadOptions(6114)">Add Image</button>
-<div class="upload-options" id="upload-options-6114" style="display: none;">
-  <button class="add-image" onclick="startCamera(6114)">Camera</button>
-  <label for="file-input-6114" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-6114" accept="image/*" multiple onchange="displayImages(this, 6114)">
-</div>
-      <!-- Container for multiple images -->
-      <div id="image-container-6114"></div>
-      <!-- Camera Container -->
-<div id="camera-container-6114" style="display: none;">
-  <video id="camera-6114" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(6114)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(6114)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(6114)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-6114" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
     <tr id="row-62">
@@ -7111,8 +7019,7 @@ else if(section==="10.0"){
           <tr id="row-101">
       <td>10.1</td>
       <td class="observation_text">Workmanship</td>
-      <td class="requirement_text">Cables shall be laid in conduits, trays, or cable truffes and properly secured. 
-Segregation of power & communication cables</td>
+      <td class="requirement_text">Cables shall be laid in conduits, trays, or cable truffes.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -7139,6 +7046,38 @@ Segregation of power & communication cables</td>
   <button class="add-image" onclick="stopCamera(101)">Stop Camera</button>
   <button class="reverse-camera" onclick="switchCamera(101)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
   <canvas id="canvas-101" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+    </tr>
+     <tr id="row-9101">
+      <td>10.1.1</td>
+      <td class="observation_text">Workmanship</td>
+      <td class="requirement_text">Ensure Segregation of power & communication cables[How?]</td>
+      <td class="select">
+       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+                <option value="Select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+      </td>
+      <td class="remarks">
+        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+      </td>
+     <td>
+       <button class="add-image" onclick="showUploadOptions(9101)">Add Image</button>
+<div class="upload-options" id="upload-options-9101" style="display: none;">
+  <button class="add-image" onclick="startCamera(9101)">Camera</button>
+  <label for="file-input-9101" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-9101" accept="image/*" multiple onchange="displayImages(this, 9101)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-9101"></div>
+      <!-- Camera Container -->
+<div id="camera-container-9101" style="display: none;">
+  <video id="camera-9101" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(9101)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(9101)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(9101)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-9101" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
      <tr id="row-1102">
@@ -7177,7 +7116,7 @@ Segregation of power & communication cables</td>
     <tr id="row-103">
       <td>10.3</td>
       <td class="observation_text">SMOCIP</td>
-      <td class="requirement_text">CAT-6 armoured cable used for communication</td>
+      <td class="requirement_text">12 Core Signaling cable shall be used for button, counter & power supply. OFC armoured cables shall be used for communication</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -7532,7 +7471,7 @@ Segregation of power & communication cables</td>
           <tr id="row-121">
       <td>12.1</td>
       <td class="observation_text">Visual Inspection</td>
-       <td class="requirement_text">Verify visual inspection, No gaps, No play, Tags shall be placing centre of the sleeper and Duplicate tag spacing (3–5 m)</td>
+       <td class="requirement_text">Verify visual inspection, No gaps, No play and ensure main tag to Duplicate tag distance is (3–5 m)</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -9384,9 +9323,9 @@ function getDropdownOptions(sno, observationStatus, sectionID = null) {
   // We check this first to honor specific mappings
   const specificOptions = {
     "1.38,1.40,1.41,1.42,1.43,1.50,1.44,1.45,1.46,1.47,1.48,1.49,1.51" : ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
-    "1.39,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
-    "3.1,3.,3.3,3.4,3.5,3.6,3.2,2.1,2.2,2.3,2.3.1,2.4,2.5,2.6,2.7" : ["Yes", "No", "Not Applicable"],
-    "4.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.2,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,4.2.6,4.2.7,4.2.8,4.2.9,4.3,4.3.1,4.3.2,4.3.3,4.3.3.4,4.3.5,5.1,5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,5.1.7,5.1.8,5.1.9,5.1.10,5.1.11,5.1.12,5.2,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.5,5.3,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.3.6,5.3.7,5.3.8,5.4,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.1.11,6.1.12,6.1.13,6.2,6.2.1,7.1,7.1.1,7.1.2,7.2,7.2.1,7.3,7.3.1,7.3.2,7.4,7.4.1,7.4.2,7.5,8.1,8.1.1,8.1.2,8.2,8.2.1,8.2.2,8.2.3,8.2.4,8.2.5,8.2.6,8.2.7,8.3,8.4,9.1,9.2,9.3,9.4,9.5,10.1,10.2,10.3,10.4,10.5,10.6,10.7,10.8,11.1,11.2,11.3,12.1,12.2,12.3,13.1": ["Yes", "No"],
+    "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
+    "3.1,3.2,3.3,3.4,3.4.1,3.4.2,3.5,3.6,2.1,2.2,2.3,2.3.1,2.4,2.5,2.6,2.7,2.8" : ["Yes", "No", "Not Applicable"],
+    "4.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.2,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,4.2.6,4.2.7,4.2.8,4.2.9,4.3,4.3.1,4.3.2,4.3.3,4.3.4,4.3.5,5.1,5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,5.1.7,5.1.8,5.1.9,5.1.10,5.1.11,5.2,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.3,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.3.6,5.3.7,5.3.8,5.4,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,6.1,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.2,6.2.1,7.1,7.1.1,7.1.2,7.2,7.2.1,7.3,7.3.1,7.3.2,7.4,7.4.1,7.4.2,7.5,8.1,8.1.1,8.1.2,8.2,8.2.1,8.2.2,8.2.3,8.2.4,8.2.5,8.2.6,8.2.7,8.3,8.4,9.1,9.2,9.3,9.4,9.5,10.1,10.1.1,10.2,10.3,10.4,10.5,10.6,10.7,10.8,11.1,11.2,11.3,12.1,12.2,12.3,13.1": ["Yes", "No"],
   };
 
   for (const [key, values] of Object.entries(specificOptions)) {
