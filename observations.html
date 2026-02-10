@@ -1200,15 +1200,15 @@
               try {
                 const imageColIndex = showRequirement ? 5 : 4;
                 if (data.row.section === 'body' && data.column.index === imageColIndex) {
-                  const row = rows[data.row.index];
-                  if (!row || !row.S_no) {
-                    console.warn(`No valid row or S_no at index ${data.row.index}`);
-                    return;
-                  }
-                  const S_no = row.S_no;
+                  // Use data.row.raw[0] to get S_no directly, avoiding index mismatch caused by subsection headers
+                  const S_no = data.row.raw[0];
+
+                  // Subsection headers have an object at index 0, so ignore them
+                  if (!S_no || typeof S_no === 'object') return;
+
                   const images = Array.isArray(imageData[S_no]) ? imageData[S_no] : [];
                   if (images.length === 0) {
-                    console.log(`No images for S_no: ${S_no}`);
+                    // console.log(`No images for S_no: ${S_no}`);
                     return;
                   }
                   const imgX = data.cell.x + 2;
@@ -1232,7 +1232,11 @@
             didCalculateCellHeight: function (data) {
               const imageColIndex = showRequirement ? 5 : 4;
               if (data.row.section === 'body' && data.column.index === imageColIndex) {
-                const images = Array.isArray(imageData[data.row.raw[0]]) ? imageData[data.row.raw[0]] : [];
+                // Ensure S_no is valid (skip header rows which are objects)
+                const S_no = data.row.raw[0];
+                if (!S_no || typeof S_no === 'object') return;
+
+                const images = Array.isArray(imageData[S_no]) ? imageData[S_no] : [];
                 if (images.length === 0) return;
                 const imageHeight = 25;
                 const spacing = 2;

@@ -44175,3 +44175,367 @@ Processing S_no: 3.5. Status: Select, Remarks: . Existing: No
 Insert executed for S_no 3.5
 Processing S_no: 3.6. Status: Select, Remarks: . Existing: No
 Insert executed for S_no 3.6
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 6.1
+            [observation_text] => RTU fixing
+            [requirement_text] => Both RTUs shall be firmly secured to the tower platform using bolts as per diagram.Ensure RTU doors are fully closed and locked.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 6.1.1
+            [observation_text] => RTU earthing
+            [requirement_text] => RTU shall be properly earthed by connecting a 35 sq.mm green/yellow earthing conductor from the RTU earthing bolt to the designated earth pit. (Ref. Drawing: 516760043)
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 6.1.2
+            [observation_text] => RTU earthing
+            [requirement_text] => The earthing conductor shall be routed inside a GI pipe and firmly secured to the tower structure by welding.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 6.1.3
+            [observation_text] => RTU earthing
+            [requirement_text] => Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 6.1.4
+            [observation_text] => OFC cable termination
+            [requirement_text] => OFC cable from the Relay Room shall be spliced and terminated in the splice holder inside the RTU. (Ref. Drawing: 5 16 49 0559)
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [5] => Array
+        (
+            [S_no] => 6.1.5
+            [observation_text] => OFC cable termination
+            [requirement_text] => Splicing on OFC Termination Box to be done carefully with proper fixing of splices in splice tray.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [6] => Array
+        (
+            [S_no] => 6.1.6
+            [observation_text] => 110V Power cable termination
+            [requirement_text] => Cable glands used for 110 V DC power cable entry into RTU shall be firmly tightened.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [7] => Array
+        (
+            [S_no] => 6.1.7
+            [observation_text] => 110V Power cable termination
+            [requirement_text] => 110 V DC power cables shall be terminated inside RTU as per approved drawing.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [8] => Array
+        (
+            [S_no] => 6.1.8
+            [observation_text] => 110V Power cable termination
+            [requirement_text] => Inter-connection cable between RTUs shall be installed and terminated as per approved drawing.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [9] => Array
+        (
+            [S_no] => 6.1.9
+            [observation_text] => 110V Power cable termination
+            [requirement_text] => Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [10] => Array
+        (
+            [S_no] => 6.1.10
+            [observation_text] => Cabiling
+            [requirement_text] => LMR 600 connection with proper routing and clamping shall be done per Tower SOP.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 6.1. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 6.1
+Processing S_no: 6.1.1. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 6.1.1
+Processing S_no: 6.1.2. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 6.1.2
+Processing S_no: 6.1.3. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 6.1.3
+Processing S_no: 6.1.4. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 6.1.4
+Processing S_no: 6.1.5. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 6.1.5
+Processing S_no: 6.1.6. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 6.1.6
+Processing S_no: 6.1.7. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 6.1.7
+Processing S_no: 6.1.8. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 6.1.8
+Processing S_no: 6.1.9. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 6.1.9
+Processing S_no: 6.1.10. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 6.1.10
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 6.1
+            [observation_text] => RTU fixing
+            [requirement_text] => Both RTUs shall be firmly secured to the tower platform using bolts as per diagram.Ensure RTU doors are fully closed and locked.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 6.1.1
+            [observation_text] => RTU earthing
+            [requirement_text] => RTU shall be properly earthed by connecting a 35 sq.mm green/yellow earthing conductor from the RTU earthing bolt to the designated earth pit. (Ref. Drawing: 516760043)
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 6.1.2
+            [observation_text] => RTU earthing
+            [requirement_text] => The earthing conductor shall be routed inside a GI pipe and firmly secured to the tower structure by welding.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 6.1.3
+            [observation_text] => RTU earthing
+            [requirement_text] => Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 6.1.4
+            [observation_text] => OFC cable termination
+            [requirement_text] => OFC cable from the Relay Room shall be spliced and terminated in the splice holder inside the RTU. (Ref. Drawing: 5 16 49 0559)
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [5] => Array
+        (
+            [S_no] => 6.1.5
+            [observation_text] => OFC cable termination
+            [requirement_text] => Splicing on OFC Termination Box to be done carefully with proper fixing of splices in splice tray.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [6] => Array
+        (
+            [S_no] => 6.1.6
+            [observation_text] => 110V Power cable termination
+            [requirement_text] => Cable glands used for 110 V DC power cable entry into RTU shall be firmly tightened.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [7] => Array
+        (
+            [S_no] => 6.1.7
+            [observation_text] => 110V Power cable termination
+            [requirement_text] => 110 V DC power cables shall be terminated inside RTU as per approved drawing.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [8] => Array
+        (
+            [S_no] => 6.1.8
+            [observation_text] => 110V Power cable termination
+            [requirement_text] => Inter-connection cable between RTUs shall be installed and terminated as per approved drawing.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [9] => Array
+        (
+            [S_no] => 6.1.9
+            [observation_text] => 110V Power cable termination
+            [requirement_text] => Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [10] => Array
+        (
+            [S_no] => 6.1.10
+            [observation_text] => Cabiling
+            [requirement_text] => LMR 600 connection with proper routing and clamping shall be done per Tower SOP.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 6.1. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 6.1
+Processing S_no: 6.1.1. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 6.1.1
+Processing S_no: 6.1.2. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 6.1.2
+Processing S_no: 6.1.3. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 6.1.3
+Processing S_no: 6.1.4. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 6.1.4
+Processing S_no: 6.1.5. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 6.1.5
+Processing S_no: 6.1.6. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 6.1.6
+Processing S_no: 6.1.7. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 6.1.7
+Processing S_no: 6.1.8. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 6.1.8
+Processing S_no: 6.1.9. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 6.1.9
+Processing S_no: 6.1.10. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 6.1.10

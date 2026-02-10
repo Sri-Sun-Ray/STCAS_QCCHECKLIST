@@ -2087,7 +2087,7 @@ async function showSection(section, subsection) {
 </div>
           </tr>
 
-            <tr id="row-225 , ">
+            <tr id="row-22435 , ">
             <td>1.29</td>
            <td class = "observation_text"> FIU Termination Card 2
           <input 
@@ -2118,21 +2118,21 @@ async function showSection(section, subsection) {
               <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
             </td>
            <td>
-       <button class="add-image" onclick="showUploadOptions(225)">Add Image</button>
-<div class="upload-options" id="upload-options-225" style="display: none;">
-  <button class="add-image" onclick="startCamera(225)">Camera</button>
-  <label for="file-input-225" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-225" accept="image/*" multiple onchange="displayImages(this, 225)">
+       <button class="add-image" onclick="showUploadOptions(22435)">Add Image</button>
+<div class="upload-options" id="upload-options-22435" style="display: none;">
+  <button class="add-image" onclick="startCamera(22435)">Camera</button>
+  <label for="file-input-22435" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-22435" accept="image/*" multiple onchange="displayImages(this, 22435)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-225"></div>
+      <div id="image-container-22435"></div>
       <!-- Camera Container -->
-<div id="camera-container-225" style="display: none;">
-  <video id="camera-225" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(225)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(225)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(225)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-225" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+<div id="camera-container-22435" style="display: none;">
+  <video id="camera-22435" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(22435)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(22435)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(22435)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-22435" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
 
