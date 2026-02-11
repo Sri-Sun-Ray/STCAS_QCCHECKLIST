@@ -1144,8 +1144,8 @@
               if (sectionId === "1") {
                 return {
                   0: { cellWidth: 15, halign: 'center' }, // S.No
-                  1: { cellWidth: showRequirement ? 35 : 50, halign: 'left' }, // Description
-                  ...(showRequirement ? { 2: { cellWidth: 35, halign: 'left' } } : {}), // Requirement
+                  1: { cellWidth: showRequirement ? 20 : 50, halign: 'left' }, // Description
+                  ...(showRequirement ? { 2: { cellWidth: 56, halign: 'left' } } : {}), // Requirement
                   [showRequirement ? 3 : 2]: { cellWidth: 33, halign: 'left' }, // Status
                   [showRequirement ? 4 : 3]: { cellWidth: 38, halign: 'left' }, // Remarks
                   [showRequirement ? 5 : 4]: { cellWidth: 49, halign: 'center' } // Image
@@ -1154,8 +1154,8 @@
                 // Original column widths for other sections
                 return {
                   0: { cellWidth: 15, halign: 'center' }, // S.No
-                  1: { cellWidth: showRequirement ? 35 : 55, halign: 'left' }, // Description
-                  ...(showRequirement ? { 2: { cellWidth: 41, halign: 'left' } } : {}), // Requirement
+                  1: { cellWidth: showRequirement ? 20 : 55, halign: 'left' }, // Description
+                  ...(showRequirement ? { 2: { cellWidth: 56, halign: 'left' } } : {}), // Requirement
                   [showRequirement ? 3 : 2]: { cellWidth: 25, halign: 'left' }, // Status
                   [showRequirement ? 4 : 3]: { cellWidth: 32, halign: 'left' }, // Remarks
                   [showRequirement ? 5 : 4]: { cellWidth: 38, halign: 'center' } // Image
