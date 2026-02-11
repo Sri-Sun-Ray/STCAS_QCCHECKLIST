@@ -35,15 +35,40 @@ foreach ($tableNames as $tableName) {
     } else {
         $sql = "SELECT S_no, observation_text, requirement_text, observation_status, remarks, created_at, updated_at FROM $tableName WHERE station_id = ?";
     }
-    
+
+    // ATTEMPT 1: Try fetching with timestamps
     $stmt = $conn->prepare($sql);
+
+    if (!$stmt) {
+        // If prepare failed (likely due to missing columns), try fallback immediately
+        error_log("Prepare failed for table $tableName (Attempt 1): " . $conn->error . ". Trying fallback...");
+
+        // ATTEMPT 2: Fallback without timestamps
+        if ($tableName === "verification_of_equipment_serial_numbers") {
+            $sql = "SELECT S_no, observation_text, requirement_text, observation_status, remarks, NULL as created_at, NULL as updated_at, barcode_kavach_main_unit FROM $tableName WHERE station_id = ?";
+        } else {
+            $sql = "SELECT S_no, observation_text, requirement_text, observation_status, remarks, NULL as created_at, NULL as updated_at FROM $tableName WHERE station_id = ?";
+        }
+
+        $stmt = $conn->prepare($sql);
+        if (!$stmt) {
+             error_log("Prepare failed for table $tableName (Attempt 2 - Fallback): " . $conn->error);
+             continue; // Skip this table if both attempts fail
+        }
+    }
+
     $stmt->bind_param("s", $stationId);
-    $stmt->execute();
+
+    if (!$stmt->execute()) {
+        error_log("Execute failed for table $tableName: " . $stmt->error);
+        continue;
+    }
+
     $result = $stmt->get_result();
 
     while ($row = $result->fetch_assoc()) {
         $s_no = $row['S_no'];
-        
+
         // Fetch associated images from `images` table for each S_no
         $imgStmt = $conn->prepare("SELECT image_path FROM images WHERE station_id = ? AND s_no = ? AND entity_type = ?");
         $imgStmt->bind_param("sss", $stationId, $s_no, $tableName);
@@ -66,6 +91,55 @@ foreach ($tableNames as $tableName) {
             'created_at' => $row['created_at'],
             'updated_at' => $row['updated_at']
         ];
+    }
+}
+
+// Special check for 13.1 (Section 14.0) if not already found
+$found13_1 = false;
+foreach ($observations as $obs) {
+    if ($obs['S_no'] == '13.1') {
+        $found13_1 = true;
+        break;
+    }
+}
+
+if (!$found13_1) {
+    // Try finding it in rfid_tags or relay_rack
+    $fallbackTables = ['rfid_tags', 'relay_rack'];
+    foreach ($fallbackTables as $fbTable) {
+        $sql = "SELECT S_no, observation_text, requirement_text, observation_status, remarks, NULL as created_at, NULL as updated_at FROM $fbTable WHERE station_id = ? AND S_no = '13.1'";
+
+        if ($stmt = $conn->prepare($sql)) {
+            $stmt->bind_param("s", $stationId);
+            if ($stmt->execute()) {
+                $result = $stmt->get_result();
+                while ($row = $result->fetch_assoc()) {
+                    // Fetch images
+                    $imgStmt = $conn->prepare("SELECT image_path FROM images WHERE station_id = ? AND s_no = ? AND entity_type = ?");
+                    $imgStmt->bind_param("sss", $stationId, $row['S_no'], $fbTable);
+                    $imgStmt->execute();
+                    $imgResult = $imgStmt->get_result();
+                    $imagePaths = [];
+                    while ($imgRow = $imgResult->fetch_assoc()) {
+                        $imagePaths[] = $imgRow['image_path'];
+                    }
+
+                    $observations[] = [
+                        'S_no' => $row['S_no'],
+                        'observation_text' => $row['observation_text'],
+                        'requirement_text' => $row['requirement_text'],
+                        'observation_status' => $row['observation_status'],
+                        'remarks' => $row['remarks'],
+                        'image_paths' => $imagePaths,
+                        'barcode_kavach_main_unit' => null,
+                        'created_at' => null,
+                        'updated_at' => null
+                    ];
+                    $found13_1 = true;
+                }
+            }
+        }
+        if ($found13_1) break;
     }
 }
 

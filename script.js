@@ -7596,7 +7596,7 @@ Segregation of power & communication cables</td>
             <th>Image</th>
           </tr>
         </thead>
-        <tbody id="observations-tbody-13_0">
+        <tbody id="observations-tbody-14_0">
           <tr id="row-17621">
       <td>13.1</td>
       <td class="observation_text">Materials Inspection (Which are not Inspected by RDSO or Consignee)</td>

@@ -45817,3 +45817,183 @@ Processing S_no: 3.5. Status: Not Applicable, Remarks: . Existing: No
 Insert executed for S_no 3.5
 Processing S_no: 3.6. Status: Not Applicable, Remarks: . Existing: No
 Insert executed for S_no 3.6
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 13.1
+            [observation_text] => Materials Inspection (Which are not Inspected by RDSO or Consignee)
+            [requirement_text] => Verify that all subcontractors and HBL personnel use only approved make and part numbers as per the List of Acceptable I&C Materials.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => No
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 13.1. Status: No, Remarks: . Existing: No
+Insert executed for S_no 13.1
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 13.1
+            [observation_text] => Materials Inspection (Which are not Inspected by RDSO or Consignee)
+            [requirement_text] => Verify that all subcontractors and HBL personnel use only approved make and part numbers as per the List of Acceptable I&C Materials.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 13.1. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 13.1
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 12.1
+            [observation_text] => Visual Inspection
+            [requirement_text] => Verify visual inspection, No gaps, No play and ensure main tag to Duplicate tag distance is (3–5 m)
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 12.2
+            [observation_text] => RFID Tags installation
+            [requirement_text] => RFID placement verification report shall be available and confirm placement within ±5 m of design location.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 12.3
+            [observation_text] => RFID Tag data Validation and Placement verification
+            [requirement_text] => System-generated RFID data validation report and Placement verification report shall available.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 12.1. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 12.1
+Processing S_no: 12.2. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 12.2
+Processing S_no: 12.3. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 12.3
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 11.1
+            [observation_text] => Cable route plan for OFC &amp; Power cable (Relay Room to Tower)
+            [requirement_text] => Railway-approved outdoor signaling cable route plan shall be available, if applicable.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 11.2
+            [observation_text] => Cable route markers
+            [requirement_text] => Route markers shall be installed and clearly visible.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => No
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 11.3
+            [observation_text] => Cable route markers
+            [requirement_text] => Where contractually required, underground RFID markers shall be installed and verified.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 11.1. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 11.1
+Processing S_no: 11.2. Status: No, Remarks: . Existing: No
+Insert executed for S_no 11.2
+Processing S_no: 11.3. Status: Yes, Remarks: . Existing: No
+Insert executed for S_no 11.3
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 13.1
+            [observation_text] => Materials Inspection (Which are not Inspected by RDSO or Consignee)
+            [requirement_text] => Verify that all subcontractors and HBL personnel use only approved make and part numbers as per the List of Acceptable I&C Materials.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Yes
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 13.1. Status: Yes, Remarks: . Existing: Yes
+Update executed for S_no 13.1. Rows affected: 1
+SQL: UPDATE riu SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Yes","","354654","13.1"]
