@@ -1,9 +1,9 @@
 <?php
 // Database connection
-$servername = "localhost";  
-$username = "root";  
-$password = "Hbl@1234";  
-$dbname = "station_info";  
+$servername = "localhost";
+$username = "root";
+$password = "Hbl@1234";
+$dbname = "station_info";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Check if we're inserting observations and if the image is provided
     if (isset($_POST['station-id'], $_POST['section-id'], $_POST['observations'], $_POST['station-name'], $_POST['zone'], $_POST['division'])) {
-        
+
         // Get data from POST
         $stationID = $_POST['station-id'];
         $sectionID = $_POST['section-id'];
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $zone = $_POST['zone'];
         $division = $_POST['division'];
         $observations = json_decode($_POST['observations'], true);  // Decode the observations array
-        
+
         // Process each observation
         foreach ($observations as $index => $observation) {
             $observationText = $observation['observation_text'];
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     // Handle base64 encoding
                     $imageData = str_replace('data:image/jpeg;base64,', '', $imageData);
                     $decodedImageData = base64_decode($imageData);
-                    
+
                     // Generate a default filename for camera images
                     $newFileName = 'file-' . ($index + 1) . '.jpg';
                     $uploadDir = 'uploads/';
