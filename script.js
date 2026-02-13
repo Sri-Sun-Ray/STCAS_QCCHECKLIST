@@ -2422,7 +2422,7 @@ async function showSection(section, subsection) {
 
            <tr id="row-10798">
             <td>1.36</td>
-           <td class = "observation_text"> EMI Filter RTU-1
+           <td class = "observation_text"> RTU-1
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2469,7 +2469,7 @@ async function showSection(section, subsection) {
           </tr>
             <tr id="row-24324">
             <td>1.37</td>
-           <td class = "observation_text"> EMI Filter RTU-2
+           <td class = "observation_text"> RTU-2
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2514,102 +2514,9 @@ async function showSection(section, subsection) {
   <canvas id="canvas-24324" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
-          <tr id="row-456545">
-            <td>1.38</td>
-           <td class = "observation_text"> RTU 1
-          <input 
-  type="text" 
-  id="kavach-main-unit" 
-  name="barcode_kavach_main_unit" 
-  pattern="^\d{10,15}$" 
-  title="Enter a number between 10 to 15 digits" 
-  placeholder="Scan Barcode" 
-  style="width: 180px; padding: 5px; font-size: 14px;" 
-  oninput="
-    if(this.value.length > 15) {
-      this.value = this.value.slice(-15);
-    }
-    toggleNotInstalledOption(this);
-  "
-/> <td class="select" style="padding-right: 10px;">
-    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
-      <option value="Select">Select</option>
-      <option value="Matching">Matching</option>
-      <option value="Not Matching">Not Matching</option>
-      <option value="Not Installed">Not Installed</option>
-      <option value="Not Applicable">Not Applicable</option>
-    </select>
-  </td>
-             <td class="remarks">
-    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
-  </td>
-           <td>
-       <button class="add-image" onclick="showUploadOptions(456545)">Add Image</button>
-<div class="upload-options" id="upload-options-456545" style="display: none;">
-  <button class="add-image" onclick="startCamera(456545)">Camera</button>
-  <label for="file-input-456545" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-456545" accept="image/*" multiple onchange="displayImages(this, 456545)">
-</div>
-      <!-- Container for multiple images --> 
-      <div id="image-container-456545"></div>
-      <!-- Camera Container -->
-<div id="camera-container-456545" style="display: none;">
-  <video id="camera-456545" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(456545)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(456545)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(456545)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-456545" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-          </tr>
-          <tr id="row-463456">
-            <td>1.39</td>
-           <td class = "observation_text"> RTU 2
-          <input 
-  type="text" 
-  id="kavach-main-unit" 
-  name="barcode_kavach_main_unit" 
-  pattern="^\d{10,15}$" 
-  title="Enter a number between 10 to 15 digits" 
-  placeholder="Scan Barcode" 
-  style="width: 180px; padding: 5px; font-size: 14px;" 
-  oninput="
-    if(this.value.length > 15) {
-      this.value = this.value.slice(-15);
-    }
-    toggleNotInstalledOption(this);
-  "
-/> <td class="select" style="padding-right: 10px;">
-    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
-      <option value="Select">Select</option>
-      <option value="Matching">Matching</option>
-      <option value="Not Matching">Not Matching</option>
-      <option value="Not Installed">Not Installed</option>
-      <option value="Not Applicable">Not Applicable</option>
-    </select>
-  </td>
-             <td class="remarks">
-    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
-  </td>
-           <td>
-       <button class="add-image" onclick="showUploadOptions(463456)">Add Image</button>
-<div class="upload-options" id="upload-options-463456" style="display: none;">
-  <button class="add-image" onclick="startCamera(463456)">Camera</button>
-  <label for="file-input-463456" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-463456" accept="image/*" multiple onchange="displayImages(this, 463456)">
-</div>
-      <!-- Container for multiple images --> 
-      <div id="image-container-463456"></div>
-      <!-- Camera Container -->
-<div id="camera-container-463456" style="display: none;">
-  <video id="camera-463456" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(463456)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(463456)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(463456)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-463456" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-          </tr>
+         
            <tr id="row-57657">
-            <td>1.40</td>
+            <td>1.38</td>
            <td class = "observation_text"> RIU COM
           <input 
   type="text" 
@@ -2656,7 +2563,7 @@ async function showSection(section, subsection) {
 </div>
           </tr>
            <tr id="row-255467">
-            <td>1.41</td>
+            <td>1.39</td>
            <td class = "observation_text"> Media Converter STCAS-1
           <input 
   type="text" 
@@ -2703,7 +2610,7 @@ async function showSection(section, subsection) {
 </div>
           </tr>
            <tr id="row-76576">
-            <td>1.42</td>
+            <td>1.40</td>
            <td class = "observation_text"> Media Converter STCAS-2
           <input 
   type="text" 
@@ -2750,7 +2657,7 @@ async function showSection(section, subsection) {
 </div>
           </tr>
            <tr id="row-35454">
-            <td>1.43</td>
+            <td>1.41</td>
            <td class = "observation_text"> Media Converter STCAS-3
           <input 
   type="text" 
@@ -2797,7 +2704,7 @@ async function showSection(section, subsection) {
 </div>
           </tr>
            <tr id="row-86664765">
-            <td>1.44</td>
+            <td>1.42</td>
            <td class = "observation_text"> DC-DC Converter 
           <input 
   type="text" 
@@ -2879,11 +2786,12 @@ async function showSection(section, subsection) {
     // For all other sections, add Save Observation button
     mainContent.innerHTML += `
       <h3 class="section-heading"> Building</h3>
+      <h4 style="color: red; font-style: italic; margin-bottom: 10px;">Following table must be filled up, if a new building is constructed, by HBL, for Kavach installation</h4>
        <div class="section-action-container">
           <label class="section-action-label">Section Action: </label>
           <select class="section-action-dropdown" onchange="if(this.value === 'Not Applicable') { setSectionNA('observations-tbody-3_0'); this.value='Select'; }">
             <option value="Select">Select Option...</option>
-            <option value="Not Applicable">Mark Whole Section Not Applicable</option>
+            <option value="Not Applicable">Mark Whole As Section Not Applicable</option>
           </select>
        </div>
        <div class="table-container">
@@ -3067,7 +2975,7 @@ async function showSection(section, subsection) {
     </tr>
 <tr id="row-25">
       <td>2.5</td>
-      <td class="observation_text">Ventilation</td>
+      <td class="observation_text">Lighting and Ventilation</td>
       <td class="requirement_text">Adequate Lighting and ventilation / exhaust fan provided as per tender.</td>
       <td class="select">
         <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
@@ -3170,7 +3078,7 @@ async function showSection(section, subsection) {
     <tr id="row-28">
       <td>2.8</td>
       <td class="observation_text">Lightning & Surge Protection</td>
-      <td class="requirement_text">Ensure lightning surge protection is installed as per tender</td>
+      <td class="requirement_text">Ensure lightning surge protection is installed (Class A)</td>
       <td class="select">
         <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -3220,6 +3128,7 @@ async function showSection(section, subsection) {
     // For all other sections, add Save Observation button
     mainContent.innerHTML += `
       <h3 class="section-heading" > Tower </h3>
+      <h4 style="color: red; font-style: italic; margin-bottom: 10px;">Following table must be filled up, if a new tower is constructed, by HBL, for Kavach project.</h4>
        <div class="section-action-container">
           <label class="section-action-label">Section Action: </label>
           <select class="section-action-dropdown" onchange="if(this.value === 'Not Applicable') { setSectionNA('observations-tbody-4_0'); this.value='Select'; }">
@@ -3672,7 +3581,7 @@ async function showSection(section, subsection) {
      <tr id="row-414">
       <td>4.1.4</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Bolts shall be tightened with appropriate torque and torque marking shall be visible.</td>
+      <td class="requirement_text">Bolts shall be tightened to a torque of 8 Nm, and torque marking shall be applied using yellow paint.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -3865,7 +3774,7 @@ async function showSection(section, subsection) {
     <tr id="row-424">
       <td>4.2.4</td>
       <td class="observation_text">Cabling</td>
-      <td class="requirement_text">Output connections shall be maintained as per the Station PDU schematic (Ref drawing: 5 16 49 0671)</td>
+      <td class="requirement_text">Output connections shall be maintained as per the Station PDU schematic.<br> (Ref drawing: 5 16 49 0671)</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -3897,7 +3806,7 @@ async function showSection(section, subsection) {
     <tr id="row-425">
       <td>4.2.5</td>
       <td class="observation_text">Cabling</td>
-      <td class="requirement_text">Ensure lugs are properly crimped and inserted into the terminal; no loose strands shall be left.</td>
+      <td class="requirement_text">Ensure lugs with sleeves / Ferrules are properly crimped and inserted into the terminal; no loose strands shall be left.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -3962,7 +3871,7 @@ async function showSection(section, subsection) {
     <tr id="row-427">
       <td>4.2.7</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Bolts shall be tightened and apply 8Nm torque.Torque marking shall be visible.</td>
+      <td class="requirement_text">Bolts shall be tightened to a torque of 8 Nm, and torque marking shall be applied using yellow paint.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4189,7 +4098,7 @@ async function showSection(section, subsection) {
     <tr id="row-434">
       <td>4.3.4</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Unit shall be connected to the ring earth conductor using a 10 sq.mm green/yellow earthing wire and Bolts shall be tightened with appropriate torque marking.</td>
+      <td class="requirement_text">Unit shall be connected to the ring earth conductor using a 10 sq.mm green/yellow earthing wire; the connection shall be tightened to a torque of 8 Nm and marked with yellow paint.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4334,7 +4243,7 @@ async function showSection(section, subsection) {
     <tr id="row-511">
       <td>5.1.1</td>
       <td class="observation_text">Installation</td>
-      <td class="requirement_text">Sufficient free space to be kept on all four sides of S-Kavach rack for maintenance and heat dissipation.</td>
+      <td class="requirement_text">No unused cable entries left open.</td>
        <td class="select">
       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4364,8 +4273,43 @@ async function showSection(section, subsection) {
 </div>
     </tr>
 
-    <tr id="row-512">
+    </tr>
+    <tr id="row-5111">
       <td>5.1.2</td>
+      <td class="observation_text">Installation</td>
+      <td class="requirement_text">Sufficient free space to be kept on all four sides of S-Kavach rack for maintenance and heat dissipation.</td>
+       <td class="select">
+      <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+                <option value="Select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+      </td>
+      <td class="remarks">
+        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+      </td>
+     <td>
+       <button class="add-image" onclick="showUploadOptions(5111)">Add Image</button>
+<div class="upload-options" id="upload-options-5111" style="display: none;">
+  <button class="add-image" onclick="startCamera(5111)">Camera</button>
+  <label for="file-input-5111" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-5111" accept="image/*" multiple onchange="displayImages(this, 5111)">
+</div>
+      <!-- Container for multiple images -->
+      <div id="image-container-5111"></div>
+      <!-- Camera Container -->
+<div id="camera-container-5111" style="display: none;">
+  <video id="camera-5111" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(5111)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(5111)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(5111)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-5111" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+    </tr>
+  
+  
+    <tr id="row-512">
+      <td>5.1.3</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">All external cables shall enter through cable glands only.</td>
        <td class="select">
@@ -4397,7 +4341,7 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-513">
-      <td>5.1.3</td>
+      <td>5.1.4</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">No unused cable entries left open.</td>
        <td class="select">
@@ -4429,7 +4373,7 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-514">
-      <td>5.1.4</td>
+      <td>5.1.5</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">Ensure lugs are properly crimped and inserted into the terminal; no loose strands shall be left..</td>
        <td class="select">
@@ -4461,9 +4405,9 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-515">
-      <td>5.1.5</td>
+      <td>5.1.6</td>
       <td class="observation_text">Cabling</td>
-      <td class="requirement_text">Power supply cables and cables coming from outdoor shall be routed and separate cable ladder, segregated from cables coming from relay racks. The two cable runs shall not intersect or touch at any point.</td>
+      <td class="requirement_text">Power Supply cables and outdoor cables are run with separate cable truff on ladder.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4495,9 +4439,9 @@ async function showSection(section, subsection) {
    
 
     <tr id="row-517">
-      <td>5.1.6</td>
+      <td>5.1.7</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Unit shall be connected to the ring earth using a 10 sq.mm green/yellow wire proper torque marking.</td>
+      <td class="requirement_text">Unit shall be connected to the ring earth using a 10 sq.mm yellow/green wire; the connection shall be tightened to a torque of 8 Nm and marked with yellow paint.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4527,7 +4471,7 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-518">
-      <td>5.1.7</td>
+      <td>5.1.8</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Cabinet doors (front & rear) earthed using copper braid.</td>
        <td class="select">
@@ -4559,7 +4503,7 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-519">
-      <td>5.1.8</td>
+      <td>5.1.9</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
        <td class="select">
@@ -4592,7 +4536,7 @@ async function showSection(section, subsection) {
     </tr>
 
     <tr id="row-5110">
-      <td>5.1.9</td>
+      <td>5.1.10</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">This termination unit shall be wall-mounted near Kavach Unit with insulators.</td>
        <td class="select">
@@ -4624,7 +4568,7 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-5111">
-      <td>5.1.10</td>
+      <td>5.1.11</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">Power and OFC cables for SMOCIP and RTU shall be terminated as per drawing 5 16 76 0045. OFC splicing as per 5 16 49 0559</td>
        <td class="select">
@@ -4656,9 +4600,9 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-5112">
-      <td>5.1.11</td>
+      <td>5.1.12</td>
       <td class="observation_text">Termination Unit</td>
-      <td class="requirement_text">Splicing on OFC Termination Box to be done carefully with proper fixing of splices in splice tray..</td>
+      <td class="requirement_text">Splicing on OFC Termination Box to be done carefully with proper fixing of splices in splice tray.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4722,7 +4666,7 @@ async function showSection(section, subsection) {
     <tr id="row-521">
       <td>5.2.1</td>
       <td class="observation_text">Installation</td>
-      <td class="requirement_text">Panel shall be securely fixed and ensure no vibration or loose mounting (Ref: 5 16 76 0049).</td>
+      <td class="requirement_text">Panel shall be securely fixed and ensure no vibration or loose mounting<br>(Ref: 5 16 76 0049).</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4755,7 +4699,7 @@ async function showSection(section, subsection) {
     <tr id="row-522">
       <td>5.2.2</td>
       <td class="observation_text">Termination Unit</td>
-      <td class="requirement_text">Wall-mounted near SMOCIP. Power and OFC cables from Kavach termination unit shall be terminated as per drawings. (Installation Ref drawing:5 16 76 0046)</td>
+      <td class="requirement_text">Wall-mounted near SMOCIP. Power and OFC cables from Kavach termination unit shall be terminated as per drawings 5 16 49 0559.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4787,7 +4731,7 @@ async function showSection(section, subsection) {
     <tr id="row-523">
       <td>5.2.3</td>
       <td class="observation_text">Termination Unit</td>
-      <td class="requirement_text">Splicing on OFC Termination Box to be done carefully with proper fixing of splices in splice tray. PVC Cable tray to be used for lead in of power cables and excess cable to be properly folded and kept in tray.</td>
+      <td class="requirement_text">Splicing on OFC Termination Box to be done carefully with proper fixing of splices in splice tray.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4817,10 +4761,43 @@ async function showSection(section, subsection) {
 </div>
     </tr>
 
-    <tr id="row-524">
+    <tr id="row-5230">
       <td>5.2.4</td>
+      <td class="observation_text">Termination Unit</td>
+      <td class="requirement_text">PVC Cable tray to be used for lead in of power cables and excess cable to be properly folded and kept in tray.</td>
+       <td class="select">
+       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+                <option value="Select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+      </td>
+      <td class="remarks">
+        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+      </td>
+     <td>
+       <button class="add-image" onclick="showUploadOptions(5230)">Add Image</button>
+<div class="upload-options" id="upload-options-5230" style="display: none;">
+  <button class="add-image" onclick="startCamera(5230)">Camera</button>
+  <label for="file-input-5230" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-5230" accept="image/*" multiple onchange="displayImages(this, 5230)">
+</div>
+      <!-- Container for multiple images -->
+      <div id="image-container-5230"></div>
+      <!-- Camera Container -->
+<div id="camera-container-5230" style="display: none;">
+  <video id="camera-5230" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(5230)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(5230)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(5230)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-5230" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+    </tr>
+
+    <tr id="row-524">
+      <td>5.2.5</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">SMOCIP shall be Connected to earth using a 10 sq.mm green/yellow wire with torque marking.</td>
+      <td class="requirement_text">SMOCIP shall be Connected to earth using a 10 sq.mm green/yellow wire; the connection shall be tightened to a torque of 8 Nm and marked with yellow paint.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4850,7 +4827,7 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-525">
-      <td>5.2.5</td>
+      <td>5.2.6</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
        <td class="select">
@@ -4883,9 +4860,9 @@ async function showSection(section, subsection) {
     </tr>
 
     <tr id="row-526">
-      <td>5.2.6</td>
+      <td>5.2.7</td>
       <td class="observation_text">Functionality</td>
-      <td class="requirement_text">Check the mechanical Counter increments correctly by generating SOS and push buttons function correctly by pressing buttons.</td>
+      <td class="requirement_text">System Health LED shall blink.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4914,8 +4891,72 @@ async function showSection(section, subsection) {
   <canvas id="canvas-526" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
+       <tr id="row-5262">
+      <td>5.2.8</td>
+      <td class="observation_text">Functionality</td>
+      <td class="requirement_text">Ensure SYSTEM OK along with the respective station name shall be displayed on the Display.</td>
+       <td class="select">
+       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+                <option value="Select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+      </td>
+      <td class="remarks">
+        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+      </td>
+     <td>
+       <button class="add-image" onclick="showUploadOptions(5262)">Add Image</button>
+<div class="upload-options" id="upload-options-5262" style="display: none;">
+  <button class="add-image" onclick="startCamera(5262)">Camera</button>
+  <label for="file-input-5262" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-5262" accept="image/*" multiple onchange="displayImages(this, 5262)">
+</div>
+      <!-- Container for multiple images -->
+      <div id="image-container-5262"></div>
+      <!-- Camera Container -->
+<div id="camera-container-5262" style="display: none;">
+  <video id="camera-5262" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(5262)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(5262)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(5262)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-5262" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+    </tr>
+     <tr id="row-51262">
+      <td>5.2.9</td>
+      <td class="observation_text">Functionality</td>
+      <td class="requirement_text">Verify that pressing the SOS and Common buttons on the SM-OCIP increments the mechanical counter by one.</td>
+       <td class="select">
+       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+                <option value="Select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+      </td>
+      <td class="remarks">
+        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+      </td>
+     <td>
+       <button class="add-image" onclick="showUploadOptions(51262)">Add Image</button>
+<div class="upload-options" id="upload-options-51262" style="display: none;">
+  <button class="add-image" onclick="startCamera(51262)">Camera</button>
+  <label for="file-input-51262" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-51262" accept="image/*" multiple onchange="displayImages(this, 51262)">
+</div>
+      <!-- Container for multiple images -->
+      <div id="image-container-51262"></div>
+      <!-- Camera Container -->
+<div id="camera-container-51262" style="display: none;">
+  <video id="camera-51262" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(51262)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(51262)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(51262)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-51262" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+    </tr>
     <tr id="row-527">
-      <td>5.2.7</td>
+      <td>5.2.10</td>
       <td class="observation_text">Checksum</td>
       <td class="requirement_text">Verify the checksums as per the FAT certificate.</td>
        <td class="select">
@@ -4949,7 +4990,7 @@ async function showSection(section, subsection) {
     <tr id="row-53">
       <td>5.3</td>
       <td class="observation_text">Installation</td>
-      <td class="requirement_text">Two antennas shall be installed 5 m apart on the Kavach Room roof-top and grouted firmly (Ref:  5 16 67 0039).</td>
+      <td class="requirement_text">Two antennas shall be installed 5 m apart on the Kavach Room roof-top and grouted firmly<br>(Ref:  5 16 67 0039).</td>
        <td class="select">
       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5175,7 +5216,7 @@ async function showSection(section, subsection) {
     <tr id="row-537">
       <td>5.3.7</td>
       <td class="observation_text">Cabling</td>
-      <td class="requirement_text">Flexible pipe provided for co-axial cables for antenna to be of good quality, robust and fit for outdoor use. (PE to define the Spec.)</td>
+      <td class="requirement_text">Flexible pipe provided for co-axial cables for antenna to be of good quality, robust and fit for outdoor use.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5369,7 +5410,7 @@ async function showSection(section, subsection) {
     <tr id="row-545">
       <td>5.4.4</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Bolts shall be tightened with 8NM torque, and torque marking shall be visible.</td>
+      <td class="requirement_text">Bolts shall be tightened to a torque of 8 Nm, and torque marking shall be applied using yellow paint.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5483,8 +5524,8 @@ async function showSection(section, subsection) {
         <tbody id="observations-tbody-7_0">
     <tr id="row-61">
       <td>6.1</td>
-      <td class="observation_text">RTU fixing</td>
-      <td class="requirement_text">Both RTUs shall be firmly secured to the tower platform using bolts as per diagram.Ensure RTU doors are fully closed and locked.</td>
+      <td class="observation_text">RTU Fixing</td>
+      <td class="requirement_text">Both RTUs shall be firmly secured to the tower platform using bolts as per diagram.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5514,11 +5555,42 @@ async function showSection(section, subsection) {
 </div>
     </tr>
   
-
-    <tr id="row-612">
+<tr id="row-601">
       <td>6.1.1</td>
-      <td class="observation_text">RTU earthing</td>
-      <td class="requirement_text">RTU shall be properly earthed by connecting a 35 sq.mm green/yellow earthing conductor from the RTU earthing bolt to the designated earth pit. (Ref. Drawing: 516760043)</td>
+      <td class="observation_text">RTU Fixing</td>
+      <td class="requirement_text">Ensure RTU doors are fully closed and locked.</td>
+       <td class="select">
+       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+                <option value="Select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+      </td>
+      <td class="remarks">
+        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+      </td>
+      <td>
+       <button class="add-image" onclick="showUploadOptions(601)">Add Image</button>
+<div class="upload-options" id="upload-options-601" style="display: none;">
+  <button class="add-image" onclick="startCamera(601)">Camera</button>
+  <label for="file-input-601" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-601" accept="image/*" multiple onchange="displayImages(this, 601)">
+</div>
+      <!-- Container for multiple images -->
+      <div id="image-container-601"></div>
+      <!-- Camera Container -->
+<div id="camera-container-601" style="display: none;">
+  <video id="camera-601" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(601)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(601)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(601)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-601" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+    </tr>
+    <tr id="row-612">
+      <td>6.1.2</td>
+      <td class="observation_text">RTU Earthing</td>
+      <td class="requirement_text">RTU shall be properly earthed by connecting a 35 sq.mm green/yellow earthing conductor from the RTU earthing bolt to the designated earth pit.<br>(Ref. Drawing: 516760043)</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5548,8 +5620,8 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-613">
-      <td>6.1.2</td>
-      <td class="observation_text">RTU earthing</td>
+      <td>6.1.3</td>
+      <td class="observation_text">RTU Earthing</td>
       <td class="requirement_text">The earthing conductor shall be routed inside a GI pipe and firmly secured to the tower structure by welding.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
@@ -5580,8 +5652,8 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-614">
-      <td>6.1.3</td>
-      <td class="observation_text">RTU earthing</td>
+      <td>6.1.4</td>
+      <td class="observation_text">RTU Earthing</td>
       <td class="requirement_text"> Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
@@ -5613,9 +5685,9 @@ async function showSection(section, subsection) {
     </tr>
 
     <tr id="row-615">
-      <td>6.1.4</td>
+      <td>6.1.5</td>
       <td class="observation_text">OFC cable termination</td>
-      <td class="requirement_text">OFC cable from the Relay Room shall be spliced and terminated in the splice holder inside the RTU. (Ref. Drawing: 5 16 49 0559)</td>
+      <td class="requirement_text">OFC cable from the Relay Room shall be spliced and terminated in the splice holder inside the RTU.<br>(Ref. Drawing: 5 16 49 0559)</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5645,7 +5717,7 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-616">
-      <td>6.1.5</td>
+      <td>6.1.6</td>
       <td class="observation_text">OFC cable termination</td>
       <td class="requirement_text">Splicing on OFC Termination Box to be done carefully with proper fixing of splices in splice tray.</td>
        <td class="select">
@@ -5678,7 +5750,7 @@ async function showSection(section, subsection) {
     </tr>
 
     <tr id="row-617">
-      <td>6.1.6</td>
+      <td>6.1.7</td>
       <td class="observation_text">110V Power cable termination</td>
       <td class="requirement_text">Cable glands used for 110 V DC power cable entry into RTU shall be firmly tightened.</td>
        <td class="select">
@@ -5710,7 +5782,7 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-618">
-      <td>6.1.7</td>
+      <td>6.1.8</td>
       <td class="observation_text">110V Power cable termination</td>
       <td class="requirement_text">110 V DC power cables shall be terminated inside RTU as per approved drawing.</td>
        <td class="select">
@@ -5742,7 +5814,7 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-619">
-      <td>6.1.8</td>
+      <td>6.1.9</td>
       <td class="observation_text">110V Power cable termination</td>
       <td class="requirement_text">Inter-connection cable between RTUs shall be installed and terminated as per approved drawing.</td>
        <td class="select">
@@ -5774,9 +5846,9 @@ async function showSection(section, subsection) {
 </div>
     </tr>
     <tr id="row-6111">
-      <td>6.1.9</td>
+      <td>6.1.10</td>
       <td class="observation_text">110V Power cable termination</td>
-      <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied</td>
+      <td class="requirement_text">Ensure lugs with sleeves/Ferrules are properly crimped and inserted into the terminal;no loose strands shall be left.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5807,7 +5879,7 @@ async function showSection(section, subsection) {
     </tr>
 
     <tr id="row-6112">
-      <td>6.1.10</td>
+      <td>6.1.11</td>
       <td class="observation_text">Cabiling</td>
       <td class="requirement_text">LMR 600 connection with proper routing and clamping shall be done per Tower SOP.</td>
        <td class="select">
@@ -6176,7 +6248,7 @@ async function showSection(section, subsection) {
      <tr id="row-733">
       <td>7.3.2</td>
       <td class="observation_text">Earthing</td>
-       <td class="requirement_text">Bolts shall be tightened with appropriate torque and torque marking shall be visible.</td>
+       <td class="requirement_text">Bolts shall be tightened to a torque of 8 Nm, and torque marking shall be applied using yellow paint.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -6695,8 +6767,8 @@ async function showSection(section, subsection) {
     <tr id="row-822344">
       <td>8.2.7</td>
       <td class="observation_text">Wiring</td>
-      <td class="requirement_text">WAGO terminal details shall be as per interface circuit diagram.
-(Ref. Drawing : 516490685)</td>
+      <td class="requirement_text">WAGO terminal details shall be as per interface circuit diagram.<br>
+(Ref.Drawing: 5 16 49 0685)</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -6761,7 +6833,7 @@ async function showSection(section, subsection) {
     <tr id="row-914">
       <td>8.4</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Relay rack shall be connected to ring earth using a 10 sq.mm green/yellow earthing wire with torque marking</td>
+      <td class="requirement_text">Relay rack shall be connected to ring earth using a 10 sq.mm green/yellow earthing wire; the connection shall be tightened to a torque of 10 Nm and marked with yellow paint</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -7019,7 +7091,7 @@ else if(section==="10.0"){
           <tr id="row-101">
       <td>10.1</td>
       <td class="observation_text">Workmanship</td>
-      <td class="requirement_text">Cables shall be laid in conduits, trays, or cable truffes.</td>
+      <td class="requirement_text">Wiring and cabling shall be laid in trays, conduits, or truffs.All terminations shall be crimped using approved lugs and ferrules and securely tightened; no loose strands or exposed conductors shall be present.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -7048,42 +7120,11 @@ else if(section==="10.0"){
   <canvas id="canvas-101" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
-     <tr id="row-9101">
-      <td>10.1.1</td>
-      <td class="observation_text">Workmanship</td>
-      <td class="requirement_text">Ensure Segregation of power & communication cables[How?]</td>
-      <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
-      </td>
-      <td class="remarks">
-        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
-      </td>
-     <td>
-       <button class="add-image" onclick="showUploadOptions(9101)">Add Image</button>
-<div class="upload-options" id="upload-options-9101" style="display: none;">
-  <button class="add-image" onclick="startCamera(9101)">Camera</button>
-  <label for="file-input-9101" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-9101" accept="image/*" multiple onchange="displayImages(this, 9101)">
-</div>
-      <!-- Container for multiple images --> 
-      <div id="image-container-9101"></div>
-      <!-- Camera Container -->
-<div id="camera-container-9101" style="display: none;">
-  <video id="camera-9101" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(9101)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(9101)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(9101)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-9101" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-    </tr>
+    
      <tr id="row-1102">
       <td>10.2</td>
       <td class="observation_text">Redundant cabling</td>
-      <td class="requirement_text">Cabeling shall be done as per Power Supply diagram and Load Calulation
+      <td class="requirement_text">Cabling shall be done as per Power Supply diagram and Load Calulation.
 Segregation of power & communication cables</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
@@ -7179,7 +7220,7 @@ Segregation of power & communication cables</td>
     </tr>
      <tr id="row-1104">
       <td>10.5</td>
-      <td class="observation_text">Color Coding</td>
+      <td class="observation_text">Colour Coding</td>
       <td class="requirement_text">Colour codes shall be followed for phase, neutral, and earth.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
@@ -7326,6 +7367,13 @@ Segregation of power & communication cables</td>
       // For all other sections, add Save Observation button
     mainContent.innerHTML += `
       <h3 class="section-heading" > Outdoor cabling </h3>
+       <div class="section-action-container">
+          <label class="section-action-label">Section Action: </label>
+          <select class="section-action-dropdown" onchange="if(this.value === 'Not Applicable') { setSectionNA('observations-tbody-12_0'); this.value='Select'; }">
+            <option value="Select">Select</option>
+            <option value="Not Applicable">Mark Whole Section As Not Applicable</option>
+          </select>
+       </div>
        <div  class="table-container">
       <table class="observations" id="observations-section-12_0">
         <thead>
@@ -7348,6 +7396,7 @@ Segregation of power & communication cables</td>
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7380,6 +7429,7 @@ Segregation of power & communication cables</td>
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7412,6 +7462,7 @@ Segregation of power & communication cables</td>
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7471,7 +7522,7 @@ Segregation of power & communication cables</td>
           <tr id="row-121">
       <td>12.1</td>
       <td class="observation_text">Visual Inspection</td>
-       <td class="requirement_text">Verify visual inspection, No gaps, No play and ensure main tag to Duplicate tag distance is (3–5 m)</td>
+       <td class="requirement_text">Verify that there are no gaps or play. Ensure the main tag is placed at the centre of the sleeper, and the duplicate RFID tag is installed at a distance of 3–5 meters from the main tag.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -7535,7 +7586,7 @@ Segregation of power & communication cables</td>
     <tr id="row-123">
       <td>12.3</td>
       <td class="observation_text">RFID Tag data Validation and Placement verification</td>
-      <td class="requirement_text">System-generated RFID data validation report and Placement verification report shall available.</td>
+      <td class="requirement_text">System-generated RFID data validation report and Placement verification report shall be available.</td>
       <td class="select">
       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -9322,10 +9373,10 @@ function getDropdownOptions(sno, observationStatus, sectionID = null) {
   // 1. Explicitly defined options for standard rows
   // We check this first to honor specific mappings
   const specificOptions = {
-    "1.38,1.40,1.41,1.42,1.43,1.50,1.44,1.45,1.46,1.47,1.48,1.49,1.51" : ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
+    "1.38,1.40,1.41,1.42" : ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
     "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
-    "3.1,3.2,3.3,3.4,3.4.1,3.4.2,3.5,3.6,2.1,2.2,2.3,2.3.1,2.4,2.5,2.6,2.7,2.8" : ["Yes", "No", "Not Applicable"],
-    "4.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.2,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,4.2.6,4.2.7,4.2.8,4.2.9,4.3,4.3.1,4.3.2,4.3.3,4.3.4,4.3.5,5.1,5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,5.1.7,5.1.8,5.1.9,5.1.10,5.1.11,5.2,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.3,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.3.6,5.3.7,5.3.8,5.4,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,6.1,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.2,6.2.1,7.1,7.1.1,7.1.2,7.2,7.2.1,7.3,7.3.1,7.3.2,7.4,7.4.1,7.4.2,7.5,8.1,8.1.1,8.1.2,8.2,8.2.1,8.2.2,8.2.3,8.2.4,8.2.5,8.2.6,8.2.7,8.3,8.4,9.1,9.2,9.3,9.4,9.5,10.1,10.1.1,10.2,10.3,10.4,10.5,10.6,10.7,10.8,11.1,11.2,11.3,12.1,12.2,12.3,13.1": ["Yes", "No"],
+    "3.1,3.2,3.3,3.4,3.4.1,3.4.2,3.5,3.6,2.1,2.2,2.3,2.3.1,2.4,2.5,2.6,2.7,2.8,11.1,11.2,11.3" : ["Yes", "No", "Not Applicable"],
+    "4.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.2,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,4.2.6,4.2.7,4.2.8,4.2.9,4.3,4.3.1,4.3.2,4.3.3,4.3.4,4.3.5,5.1,5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,5.1.7,5.1.8,5.1.9,5.1.10,5.1.11,5.1.12,5.2,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.2.9,5.2.10,5.3,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.3.6,5.3.7,5.3.8,5.4,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,6.1,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.1.11,6.2,6.2.1,7.1,7.1.1,7.1.2,7.2,7.2.1,7.3,7.3.1,7.3.2,7.4,7.4.1,7.4.2,7.5,8.1,8.1.1,8.1.2,8.2,8.2.1,8.2.2,8.2.3,8.2.4,8.2.5,8.2.6,8.2.7,8.3,8.4,9.1,9.2,9.3,9.4,9.5,10.1,10.2,10.3,10.4,10.5,10.6,10.7,10.8,12.1,12.2,12.3,13.1": ["Yes", "No"],
   };
 
   for (const [key, values] of Object.entries(specificOptions)) {

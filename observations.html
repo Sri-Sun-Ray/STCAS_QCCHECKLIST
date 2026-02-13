@@ -25,10 +25,10 @@
     }
 
     const specificOptions = {
-      "1.38,1.40,1.41,1.42,1.43,1.44": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
+    "1.38,1.40,1.41,1.42" : ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
       "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
-      "3.1,3.2,3.3,3.4,3.4.1,3.4.2,3.5,3.6,2.1,2.2,2.3,2.3.1,2.4,2.5,2.6,2.7,2.8": ["Yes", "No", "Not Applicable"],
-      "4.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.2,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,4.2.6,4.2.7,4.2.8,4.2.9,4.3,4.3.1,4.3.2,4.3.3,4.3.4,4.3.5,5.1,5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,5.1.7,5.1.8,5.1.9,5.1.10,5.1.11,5.2,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.3,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.3.6,5.3.7,5.3.8,5.4,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,6.1,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.2,6.2.1,7.1,7.1.1,7.1.2,7.2,7.2.1,7.3,7.3.1,7.3.2,7.4,7.4.1,7.4.2,7.5,8.1,8.1.1,8.1.2,8.2,8.2.1,8.2.2,8.2.3,8.2.4,8.2.5,8.2.6,8.2.7,8.3,8.4,9.1,9.2,9.3,9.4,9.5,10.1,10.1.1,10.2,10.3,10.4,10.5,10.6,10.7,10.8,11.1,11.2,11.3,12.1,12.2,12.3,13.1": ["Yes", "No"],
+    "3.1,3.2,3.3,3.4,3.4.1,3.4.2,3.5,3.6,2.1,2.2,2.3,2.3.1,2.4,2.5,2.6,2.7,2.8,11.1,11.2,11.3" : ["Yes", "No", "Not Applicable"],
+      "4.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.2,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,4.2.6,4.2.7,4.2.8,4.2.9,4.3,4.3.1,4.3.2,4.3.3,4.3.4,4.3.5,5.1,5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,5.1.7,5.1.8,5.1.9,5.1.10,5.1.11,5.1.12,5.2,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.2.9,5.2.10,5.3,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.3.6,5.3.7,5.3.8,5.4,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,6.1,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.1.11,6.2,6.2.1,7.1,7.1.1,7.1.2,7.2,7.2.1,7.3,7.3.1,7.3.2,7.4,7.4.1,7.4.2,7.5,8.1,8.1.1,8.1.2,8.2,8.2.1,8.2.2,8.2.3,8.2.4,8.2.5,8.2.6,8.2.7,8.3,8.4,9.1,9.2,9.3,9.4,9.5,10.1,10.2,10.3,10.4,10.5,10.6,10.7,10.8,12.1,12.2,12.3,13.1": ["Yes", "No"],
     };
 
   </script>
@@ -263,16 +263,16 @@
 
     function createObservationsTable(observations) {
       const sectionMetadata = {
-        "1": { name: "Serial Number verification", base: 44 },
+        "1": { name: "Serial Number verification", base: 42 },
         "2": { name: "Building", base: 9 },
         "3": { name: "Tower", base: 8 },
         "4": { name: "Power Supply", base: 22 },
-        "5": { name: "Kavach  Equipment", base: 35 },
-        "6": { name: "RF Communication equipment on tower", base: 13 },
+        "5": { name: "Kavach  Equipment", base: 39 },
+        "6": { name: "RF Communication equipment on tower", base: 14 },
         "7": { name: "OFC Networking rack", base: 12 },
         "8": { name: "Relay rack", base: 13 },
         "9": { name: "Earthing", base: 5 },
-        "10": { name: "Indoor wiring / cabling", base: 9 },
+        "10": { name: "Indoor wiring / cabling", base: 8 },
         "11": { name: "Outdoor cabling", base: 3 },
         "12": { name: "RFID Tags", base: 3 },
         "13": { name: "Components Inspection", base: 1 },
@@ -317,7 +317,7 @@
         sectionRows.forEach(obs => {
           const snoParts = obs.S_no.split('.');
           const lastPart = parseInt(snoParts[snoParts.length - 1]);
-          if (id === "1" && lastPart > 44) customCount++;
+          if (id === "1" && lastPart > 42) customCount++;
           if (id === "2" && lastPart > 8) customCount++;
         });
 
@@ -350,20 +350,65 @@
         sectionTable.className = "observations-table";
         sectionTable.style.marginBottom = "20px";
 
+        // Check if Section 2, 3, or 11 is fully "Not Applicable"
+        if ((section === "2" || section === "3" || section === "11") && sectionRows.length > 0 && sectionRows.every(obs => obs.observation_status === "Not Applicable")) {
+          const naDiv = document.createElement("div");
+          naDiv.style.marginBottom = "20px";
+
+          // Add Header (similar to table header style but simpler)
+          const headerTable = document.createElement("table");
+          headerTable.style.width = "100%";
+          headerTable.style.borderCollapse = "collapse";
+          headerTable.style.marginBottom = "5px";
+          const sectionName = sectionMetadata[section] ? sectionMetadata[section].name : `Section ${section}`;
+          headerTable.innerHTML = `
+                <tr style="background: #f0f8ff;">
+                    <td style="font-weight:bold; padding: 10px; border: 1px solid black;">
+                        ${section}.0 ${sectionName}
+                    </td>
+                </tr>
+            `;
+          naDiv.appendChild(headerTable);
+
+          const p = document.createElement("p");
+          p.style.padding = "10px";
+          p.style.fontWeight = "bold";
+          p.style.color = "red";
+          p.textContent = "Not Applicable";
+          naDiv.appendChild(p);
+
+          detailedObservationsDiv.appendChild(naDiv);
+          return; // Skip table generation
+        }
+
         const hasRequirement = section !== "1";
 
+
+
         let headerHTML = `
+
           <thead>
+
             <tr>
+
               <th style="text-align: center;">S_no</th>
-              <th>Aspect</th>
+
+              <th>${section === "1" ? "Units" : "Aspect"}</th>
+
               ${hasRequirement ? "<th>Requirement</th>" : ""}
+
               <th>Status</th>
+
               <th>Observation</th>
+
               <th>Image</th>
+
             </tr>
+
           </thead>
+
           <tbody></tbody>
+
         `;
         sectionTable.innerHTML = headerHTML;
         const tbody = sectionTable.querySelector("tbody");
@@ -691,7 +736,7 @@
         pdf.text("In-Process QC Checklist for Stationary Kavach Installation", pdf.internal.pageSize.width / 2, finalY + 20, { align: "center" });
         pdf.setFont("helvetica", "normal");
         pdf.text(`QC Engineer Name: ${employeeName}`, 10, finalY + 26);
-        pdf.text("v1.0", pdf.internal.pageSize.width - 10, finalY + 26, { align: "right" });
+        pdf.text("v1.1", pdf.internal.pageSize.width - 10, finalY + 26, { align: "right" });
         pdf.line(10, finalY + 28, pdf.internal.pageSize.width - 10, finalY + 28);
         finalY += 30;
 
@@ -749,16 +794,16 @@
 
         // Section-wise Summary calculation for PDF
         const sectionMetadata = {
-          "1": { name: "Serial Number verification", base: 44 },
+          "1": { name: "Serial Number verification", base: 42 },
           "2": { name: "Building", base: 9 },
           "3": { name: "Tower", base: 8 },
           "4": { name: "Power Supply", base: 22 },
-          "5": { name: "Kavach  Equipment", base: 35 },
-          "6": { name: "RF Communication equipment on tower", base: 13 },
+          "5": { name: "Kavach  Equipment", base: 39 },
+          "6": { name: "RF Communication equipment on tower", base: 14 },
           "7": { name: "OFC Networking rack", base: 12 },
           "8": { name: "Relay rack", base: 13 },
           "9": { name: "Earthing", base: 5 },
-          "10": { name: "Indoor wiring / cabling", base: 9 },
+          "10": { name: "Indoor wiring / cabling", base: 8 },
           "11": { name: "Outdoor cabling", base: 3 },
           "12": { name: "RFID Tags", base: 3 },
           "13": { name: "Components Inspection", base: 1 },
@@ -786,7 +831,7 @@
           sectionRows.forEach(obs => {
             const snoParts = obs.S_no.split('.');
             const lastPart = parseInt(snoParts[snoParts.length - 1]);
-            if (id === "1" && lastPart > 44) customCount++;
+            if (id === "1" && lastPart > 42) customCount++;
             if (id === "2" && lastPart > 8) customCount++;
           });
 
@@ -863,7 +908,7 @@
               if (column.index === 0) {
                 pdf.setFont("helvetica", "bold");
                 pdf.setFontSize(10);
-                pdf.text("Completion Status", cell.x + 5, cell.y + cell.height / 2 + 3);
+                pdf.text("Installation Status", cell.x + 5, cell.y + cell.height / 2 + 3);
               }
               const boxSize = 6;
               const imgSize = 5;
@@ -1019,6 +1064,45 @@
             12: "12.0 RFID Tags",
             13: "13.0 Components Inspection"
           };
+          // Check if Section 2, 3 or 11 is fully "Not Applicable"
+          if ((sectionId === "2" || sectionId === "3" || sectionId === "11") && sectionObservations.length > 0 && sectionObservations.every(obs => obs.observation_status === "Not Applicable")) {
+            let description = "";
+            if (sectionId === "2") description = "(New Building Constructed by HBL)";
+            else if (sectionId === "3") description = "(New Tower Constructed by HBL)";
+            else if (sectionId === "11") description = "(New Cabling by HBL)";
+
+            const title = sectionCaptions[sectionId] || `Observations for Section ${sectionId}`;
+
+            pdf.autoTable({
+              startY: finalY,
+              head: [],
+              body: [
+                [
+                  { content: `${title} ${description}`, styles: { textColor: [0, 0, 255], halign: 'left' } },
+                  { content: "Not Applicable", styles: { textColor: [255, 0, 0], halign: 'right' } }
+                ]
+              ],
+              theme: 'grid',
+              styles: {
+                font: 'helvetica',
+                fontStyle: 'bold',
+                fontSize: 12,
+                cellPadding: 2, // Decrease padding to reduce height
+                valign: 'middle',
+                lineColor: [0, 0, 0],
+                lineWidth: 0.5
+              },
+              columnStyles: {
+                0: { cellWidth: 'auto' },
+                1: { cellWidth: 40 }
+              },
+              margin: { left: 14, right: 10 } // Adjust left margin to align with standard tables
+            });
+
+            finalY = pdf.lastAutoTable.finalY + 10;
+            continue;
+          }
+
           const sectionCaption = sectionCaptions[sectionId] || `Observations for Section ${sectionId}`;
           const sectionHeaderHeight = 8;
 
@@ -1114,7 +1198,7 @@
           pdf.autoTable({
             startY: finalY,
             margin: { right: 10 },
-            head: [["S.No", "Aspect", ...(showRequirement ? ["Requirement"] : []), "Status", "Observation", ...(sectionId === "0" ? [] : ["Image"])]],
+            head: [["S.No", sectionId === "1" ? "Units" : "Aspect", ...(showRequirement ? ["Requirement"] : []), "Status", "Observation", ...(sectionId === "0" ? [] : ["Image"])]],
             body: tableBody,
             theme: "grid",
             showHead: 'everyPage',
@@ -1144,18 +1228,18 @@
               if (sectionId === "1") {
                 return {
                   0: { cellWidth: 15, halign: 'center' }, // S.No
-                  1: { cellWidth: showRequirement ? 20 : 50, halign: 'left' }, // Description
+                  1: { cellWidth: showRequirement ? 20 : 65, halign: 'left' }, // Description
                   ...(showRequirement ? { 2: { cellWidth: 56, halign: 'left' } } : {}), // Requirement
-                  [showRequirement ? 3 : 2]: { cellWidth: 33, halign: 'left' }, // Status
-                  [showRequirement ? 4 : 3]: { cellWidth: 38, halign: 'left' }, // Remarks
-                  [showRequirement ? 5 : 4]: { cellWidth: 49, halign: 'center' } // Image
+                  [showRequirement ? 3 : 2]: { cellWidth: 30, halign: 'left' }, // Status
+                  [showRequirement ? 4 : 3]: { cellWidth: 35, halign: 'left' }, // Remarks
+                  [showRequirement ? 5 : 4]: { cellWidth: 40, halign: 'center' } // Image
                 };
               } else {
                 // Original column widths for other sections
                 return {
                   0: { cellWidth: 15, halign: 'center' }, // S.No
-                  1: { cellWidth: showRequirement ? 22 : 55, halign: 'left' }, // Description
-                  ...(showRequirement ? { 2: { cellWidth: 48, halign: 'left' } } : {}), // Requirement
+                  1: { cellWidth: showRequirement ? 31 : 52, halign: 'left' }, // Description
+                  ...(showRequirement ? { 2: { cellWidth: 51, halign: 'left' } } : {}), // Requirement
                   [showRequirement ? 3 : 2]: { cellWidth: 25, halign: 'left' }, // Status
                   [showRequirement ? 4 : 3]: { cellWidth: 30, halign: 'left' }, // Remarks
                   [showRequirement ? 5 : 4]: { cellWidth: 34, halign: 'center' } // Image
