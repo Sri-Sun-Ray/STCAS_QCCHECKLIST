@@ -6833,7 +6833,7 @@ async function showSection(section, subsection) {
     <tr id="row-914">
       <td>8.4</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Relay rack shall be connected to ring earth using a 10 sq.mm green/yellow earthing wire; the connection shall be tightened to a torque of 10 Nm and marked with yellow paint</td>
+      <td class="requirement_text">Relay rack shall be connected to ring earth using a 8 sq.mm green/yellow earthing wire; the connection shall be tightened to a torque of 10 Nm and marked with yellow paint</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
