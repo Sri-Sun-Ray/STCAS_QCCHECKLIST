@@ -10242,6 +10242,11 @@ function markDataAsUnsaved() {
 
 // Function to set entire section as Not Applicable
 function setSectionNA(tbodyId) {
+  // Add confirmation dialog
+  if (!confirm("Are you sure you want to mark the entire section as 'Not Applicable'?")) {
+      return; 
+  }
+
   const tbody = document.getElementById(tbodyId);
   if (!tbody) return;
 

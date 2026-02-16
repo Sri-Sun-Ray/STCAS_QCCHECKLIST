@@ -1251,30 +1251,20 @@
               const statusColIndex = showRequirement ? 3 : 2;
               if (data.row.section === 'body' && data.column.index === statusColIndex) {
                 const statusText = String(data.cell.raw).trim();
-                const s_no = String(data.row.raw[0]);
-                function matchesSno(sno, pattern) {
-                  return pattern.split(',').some(part => {
-                    if (part.includes('-')) {
-                      const [start, end] = part.split('-').map(p => parseFloat(p));
-                      const num = parseFloat(sno);
-                      return !isNaN(num) && num >= start && num <= end;
-                    }
-                    return sno === part.trim();
-                  });
-                }
-                let textColor = [0, 0, 0];
-                for (const key in specificOptions) {
-                  if (matchesSno(s_no, key)) {
-                    const values = specificOptions[key];
-                    if (values.includes(statusText)) {
-                      if (statusText.includes("Not") || statusText.includes("No")) {
-                        textColor = [255, 0, 0];
-                      } else if (statusText.includes("NA")) {
-                        textColor = [128, 128, 128];
-                      } else {
-                        textColor = [0, 128, 0];
-                      }
-                    }
+
+                const greenStatuses = ["Available", "Present", "Ok", "Yes", "Routing Done", "Fixed", "Secured", "Installed", "Connected", "Aligned", "Torquing done", "Positioning done", "Configured", "Welding done", "Earthing done", "Matching", "Not Applicable", "Coating done", "Applied", "Cables Connected", "Metal clamps implemented", "Locked", "Verified and ok"];
+                const redStatuses = ["Not Present", "No", "Not Matching", "Not Installed", "Found Not Ok", "Not Implemented", "Not Fixed", "Not Connected", "Routing Not done", "Voltage found not Ok", "Torquing Not done", "Not Done", "Not Ok", "PCCL Not Done", "Earthing Not done", "Not Functioning", "Identification Not Done", "Cable ties not implemented", "Not Joined", "Quantity Not Matched"];
+
+                let textColor = [0, 0, 0]; // Default black
+
+                if (greenStatuses.includes(statusText)) {
+                  textColor = [0, 128, 0]; // Green
+                } else if (redStatuses.includes(statusText)) {
+                  textColor = [255, 0, 0]; // Red
+                } else {
+                  // Fallback for partial matches if needed, or keeping it strictly matched to lists
+                  if (statusText.includes("Not") || statusText.includes("No")) {
+                    textColor = [255, 0, 0];
                   }
                 }
                 data.cell.styles.textColor = textColor;
