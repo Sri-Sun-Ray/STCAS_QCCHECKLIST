@@ -64876,3 +64876,605 @@ SQL: UPDATE verification_of_equipment_serial_numbers SET observation_status = ?,
 Params: ["Matching","","","647854","1.42"]
 Processing S_no: 1.43. Status: Matching, Remarks: . Existing: No
 Insert executed for S_no 1.43
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 4.3
+            [observation_text] => Installation
+            [requirement_text] => DC-DC converter Unit shall be installed as per approved floor plan drawing.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 4.3.1
+            [observation_text] => Installation
+            [requirement_text] => Unit shall be mounted on insulators and secured to the floor by grouting.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 4.3.2
+            [observation_text] => Installation
+            [requirement_text] => Segregation of input & output cabling to easy identify.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 4.3.3
+            [observation_text] => Cabling
+            [requirement_text] => All external cables entering the unit shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 4.3.4
+            [observation_text] => Earthing
+            [requirement_text] => Unit shall be connected to the ring earth conductor using a 10 sq.mm green/yellow earthing wire; the connection shall be tightened to a torque of 8 Nm and marked with yellow paint.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [5] => Array
+        (
+            [S_no] => 4.3.5
+            [observation_text] => Functionality
+            [requirement_text] => DC-DC converter output voltage shall be minimum 24 V DC, +/-1% VDC Input voltage range shall be verified 110V
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 4.3. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 4.3
+Processing S_no: 4.3.1. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 4.3.1
+Processing S_no: 4.3.2. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 4.3.2
+Processing S_no: 4.3.3. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 4.3.3
+Processing S_no: 4.3.4. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 4.3.4
+Processing S_no: 4.3.5. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 4.3.5
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 5.2
+            [observation_text] => Installation
+            [requirement_text] => SMOCIP shall be installed in Station Master’s room only and mounted at ergonomic height and easily accessible to SM.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 5.2.1
+            [observation_text] => Installation
+            [requirement_text] => Panel shall be securely fixed and ensure no vibration or loose mounting
+(Ref: 5 16 76 0049).
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 5.2.2
+            [observation_text] => Termination Unit
+            [requirement_text] => Wall-mounted near SMOCIP. Power and OFC cables from Kavach termination unit shall be terminated as per drawings 5 16 49 0559.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 5.2.3
+            [observation_text] => Termination Unit
+            [requirement_text] => Splicing on OFC Termination Box to be done carefully with proper fixing of splices in splice tray.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 5.2.4
+            [observation_text] => Termination Unit
+            [requirement_text] => PVC Cable tray to be used for lead in of power cables and excess cable to be properly folded and kept in tray.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [5] => Array
+        (
+            [S_no] => 5.2.5
+            [observation_text] => Earthing
+            [requirement_text] => SMOCIP shall be Connected to earth using a 10 sq.mm green/yellow wire; the connection shall be tightened to a torque of 8 Nm and marked with yellow paint.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [6] => Array
+        (
+            [S_no] => 5.2.6
+            [observation_text] => Earthing
+            [requirement_text] => Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [7] => Array
+        (
+            [S_no] => 5.2.7
+            [observation_text] => Functionality
+            [requirement_text] => System Health LED shall blink.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [8] => Array
+        (
+            [S_no] => 5.2.8
+            [observation_text] => Functionality
+            [requirement_text] => Ensure SYSTEM OK along with the respective station name shall be displayed on the Display.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [9] => Array
+        (
+            [S_no] => 5.2.9
+            [observation_text] => Functionality
+            [requirement_text] => Verify that pressing the SOS and Common buttons on the SM-OCIP increments the mechanical counter by one.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [10] => Array
+        (
+            [S_no] => 5.2.10
+            [observation_text] => Checksum
+            [requirement_text] => Verify the checksums as per the FAT certificate.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 5.2. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 5.2
+Processing S_no: 5.2.1. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 5.2.1
+Processing S_no: 5.2.2. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 5.2.2
+Processing S_no: 5.2.3. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 5.2.3
+Processing S_no: 5.2.4. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 5.2.4
+Processing S_no: 5.2.5. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 5.2.5
+Processing S_no: 5.2.6. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 5.2.6
+Processing S_no: 5.2.7. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 5.2.7
+Processing S_no: 5.2.8. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 5.2.8
+Processing S_no: 5.2.9. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 5.2.9
+Processing S_no: 5.2.10. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 5.2.10
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 5.4
+            [observation_text] => Installation
+            [requirement_text] => RIU shall be installed as per approved drawing and secured with insulators. Default & standby OFC paths verified.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 5.4.1
+            [observation_text] => Cabling
+            [requirement_text] => All external cables entering into the RIU unit shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 5.4.2
+            [observation_text] => Cabling
+            [requirement_text] => OFC patch cords shall be properly tagged to identify default and standby links.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 5.4.3
+            [observation_text] => Earthing
+            [requirement_text] => RIU unit shall be Connected to ring earth using 10 sq.mm green/yellow wire.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 5.4.4
+            [observation_text] => Earthing
+            [requirement_text] => Bolts shall be tightened to a torque of 8 Nm, and torque marking shall be applied using yellow paint.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [5] => Array
+        (
+            [S_no] => 5.4.5
+            [observation_text] => FDMS Box installation
+            [requirement_text] => FDMS Box shall be installed on wall with insulators and OFC cables terminated as per network drawing.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 5.4. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 5.4
+Processing S_no: 5.4.1. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 5.4.1
+Processing S_no: 5.4.2. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 5.4.2
+Processing S_no: 5.4.3. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 5.4.3
+Processing S_no: 5.4.4. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 5.4.4
+Processing S_no: 5.4.5. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 5.4.5
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 8.1
+            [observation_text] => Installation
+            [requirement_text] => Relay rack shall be installed as per approved Floor Plan drawing.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 8.1.1
+            [observation_text] => Installation
+            [requirement_text] => Relay rack shall be mounted on insulators and secured to the floor by grouting.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 8.1.2
+            [observation_text] => Installation
+            [requirement_text] => Ensure correct rating Fuse is being used as per approved PSD.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 8.2
+            [observation_text] => Wiring
+            [requirement_text] => Labeling sleeve shall be used to identify wiring with rack number, row number, relay number & contact type.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 8.2.1
+            [observation_text] => Wiring
+            [requirement_text] => Labelling shall be provided to relay contact wires at FTC PCBA of Station Kavach.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [5] => Array
+        (
+            [S_no] => 8.2.2
+            [observation_text] => Wiring
+            [requirement_text] => Inputs shall be connected from the top and outputs from the bottom.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [6] => Array
+        (
+            [S_no] => 8.2.3
+            [observation_text] => Wiring
+            [requirement_text] => Direction of wiring shall be maintained consistently from top to bottom.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [7] => Array
+        (
+            [S_no] => 8.2.4
+            [observation_text] => Wiring
+            [requirement_text] => Black wires shall be used for negative supply.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [8] => Array
+        (
+            [S_no] => 8.2.5
+            [observation_text] => Wiring
+            [requirement_text] => For EI Stations, verify all connections as per the approved EI Interface Diagrams.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [9] => Array
+        (
+            [S_no] => 8.2.6
+            [observation_text] => Wiring
+            [requirement_text] => All wires/Cables shall be proper crimped with suitable lugs and terminated on Modular terminal blocks.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [10] => Array
+        (
+            [S_no] => 8.2.7
+            [observation_text] => Wiring
+            [requirement_text] => WAGO terminal details shall be as per interface circuit diagram.
+(Ref.Drawing: 5 16 49 0685)
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [11] => Array
+        (
+            [S_no] => 8.3
+            [observation_text] => Continuity Test / Bell Test
+            [requirement_text] => Completed Station Analyser and Bell Test reports shall be available.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [12] => Array
+        (
+            [S_no] => 8.4
+            [observation_text] => Earthing
+            [requirement_text] => Relay rack shall be connected to ring earth using a 8 sq.mm green/yellow earthing wire; the connection shall be tightened to a torque of 10 Nm and marked with yellow paint
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 8.1. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 8.1
+Processing S_no: 8.1.1. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 8.1.1
+Processing S_no: 8.1.2. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 8.1.2
+Processing S_no: 8.2. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 8.2
+Processing S_no: 8.2.1. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 8.2.1
+Processing S_no: 8.2.2. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 8.2.2
+Processing S_no: 8.2.3. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 8.2.3
+Processing S_no: 8.2.4. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 8.2.4
+Processing S_no: 8.2.5. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 8.2.5
+Processing S_no: 8.2.6. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 8.2.6
+Processing S_no: 8.2.7. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 8.2.7
+Processing S_no: 8.3. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 8.3
+Processing S_no: 8.4. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 8.4
