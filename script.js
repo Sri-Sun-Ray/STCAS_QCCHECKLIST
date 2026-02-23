@@ -4573,7 +4573,7 @@ async function showSection(section, subsection) {
   <canvas id="canvas-5110" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
-    <tr id="row-5111">
+    <tr id="row-51110">
       <td>5.1.11</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">Power and OFC cables for SMOCIP and RTU shall be terminated as per drawing 5 16 76 0045. OFC splicing as per 5 16 49 0559</td>
@@ -4588,21 +4588,21 @@ async function showSection(section, subsection) {
         <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
       </td>
      <td>
-       <button class="add-image" onclick="showUploadOptions(5111)">Add Image</button>
-<div class="upload-options" id="upload-options-5111" style="display: none;">
-  <button class="add-image" onclick="startCamera(5111)">Camera</button>
-  <label for="file-input-5111" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-5111" accept="image/*" multiple onchange="displayImages(this, 5111)">
+       <button class="add-image" onclick="showUploadOptions(51110)">Add Image</button>
+<div class="upload-options" id="upload-options-51110" style="display: none;">
+  <button class="add-image" onclick="startCamera(51110)">Camera</button>
+  <label for="file-input-51110" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-51110" accept="image/*" multiple onchange="displayImages(this, 51110)">
 </div>
       <!-- Container for multiple images -->
-      <div id="image-container-5111"></div>
+      <div id="image-container-51110"></div>
       <!-- Camera Container -->
-<div id="camera-container-5111" style="display: none;">
-  <video id="camera-5111" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(5111)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(5111)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(5111)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-5111" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+<div id="camera-container-51110" style="display: none;">
+  <video id="camera-51110" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(51110)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(51110)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(51110)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-51110" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
     <tr id="row-5112">
