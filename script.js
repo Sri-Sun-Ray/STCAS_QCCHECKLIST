@@ -52,7 +52,7 @@ function updateDivisionNames() {
     { name: "Nagpur", zone: "CR" },
     { name: "Bhusawal", zone: "CR" },
     { name: "Pune", zone: "CR" },
-    { name: "Sholapur", zone: "CR" },
+    { name: "Solapur", zone: "CR" },
     { name: "Howrah-COO", zone: "ER" },
     { name: "Pt Deendayal Upadhy - Pradhankhnta", zone: "ECR" },
     { name: "Matura-Palwal", zone: "NCR" },
@@ -118,7 +118,7 @@ function updateSectionNames() {
     { name: "Nagpur", zone: "CR" },
     { name: "Bhusawal", zone: "CR" },
     { name: "Pune", zone: "CR" },
-    { name: "Sholapur", zone: "CR" },
+    { name: "Solapur", zone: "CR" },
     { name: "Howrah-COO", zone: "ER" },
     { name: "Pt Deendayal Upadhy - Pradhankhnta", zone: "ECR" },
     { name: "Matura-Palwal", zone: "NCR" },
@@ -500,7 +500,7 @@ async function showSection(section, subsection) {
                   <option value="Nagpur" data-zone="CR" ${stationInfo && stationInfo.division === "Nagpur" ? "selected" : ""}>Nagpur</option>
                   <option value="Bhusawal" data-zone="CR" ${stationInfo && stationInfo.division === "Bhusawal" ? "selected" : ""}>Bhusawal</option>
                   <option value="Pune" data-zone="CR" ${stationInfo && stationInfo.division === "Pune" ? "selected" : ""}>Pune</option>
-                  <option value="Sholapur" data-zone="CR" ${stationInfo && stationInfo.division === "Sholapur" ? "selected" : ""}>Sholapur</option>
+                  <option value="Solapur" data-zone="CR" ${stationInfo && stationInfo.division === "Solapur" ? "selected" : ""}>Solapur</option>
                   <option value="Howrah-COO" data-zone="ER" ${stationInfo && stationInfo.division === "Howrah-COO" ? "selected" : ""}>Howrah-COO</option>
                   <option value="Pt Deendayal Upadhy - Pradhankhnta" data-zone="ECR" ${stationInfo && stationInfo.division === "Pt Deendayal Upadhy - Pradhankhnta" ? "selected" : ""}>Pt Deendayal Upadhy - Pradhankhnta</option>
                   <option value="Matura-Palwal" data-zone="NCR" ${stationInfo && stationInfo.division === "Matura-Palwal" ? "selected" : ""}>Matura-Palwal</option>
@@ -523,7 +523,7 @@ async function showSection(section, subsection) {
                   <option value="Nagpur" data-zone="CR" ${stationInfo && stationInfo.sectionName === "Nagpur" ? "selected" : ""}>Nagpur</option>
                   <option value="Bhusawal" data-zone="CR" ${stationInfo && stationInfo.sectionName === "Bhusawal" ? "selected" : ""}>Bhusawal</option>
                   <option value="Pune" data-zone="CR" ${stationInfo && stationInfo.sectionName === "Pune" ? "selected" : ""}>Pune</option>
-                  <option value="Sholapur" data-zone="CR" ${stationInfo && stationInfo.sectionName === "Sholapur" ? "selected" : ""}>Sholapur</option>
+                  <option value="Solapur" data-zone="CR" ${stationInfo && stationInfo.sectionName === "Solapur" ? "selected" : ""}>Solapur</option>
                   <option value="Howrah-COO" data-zone="ER" ${stationInfo && stationInfo.sectionName === "Howrah-COO" ? "selected" : ""}>Howrah-COO</option>
                   <option value="Pt Deendayal Upadhy - Pradhankhnta" data-zone="ECR" ${stationInfo && stationInfo.sectionName === "Pt Deendayal Upadhy - Pradhankhnta" ? "selected" : ""}>Pt Deendayal Upadhy - Pradhankhnta</option>
                   <option value="Matura-Palwal" data-zone="NCR" ${stationInfo && stationInfo.sectionName === "Matura-Palwal" ? "selected" : ""}>Matura-Palwal</option>
