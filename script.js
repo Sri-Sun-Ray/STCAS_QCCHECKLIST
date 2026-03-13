@@ -514,6 +514,7 @@ async function showSection(section, subsection) {
                   <option value="Rajkot" data-zone="WR" ${stationInfo && stationInfo.division === "Rajkot" ? "selected" : ""}>Rajkot</option>
                   <option value="Bhopal" data-zone="WCR" ${stationInfo && stationInfo.division === "Bhopal" ? "selected" : ""}>Bhopal</option>
                   <option value="Matura-Nagda" data-zone="WCR" ${stationInfo && stationInfo.division === "Matura-Nagda" ? "selected" : ""}>Matura-Nagda</option>
+                  <option value="Kota_Ruthiyai Jn" data-zone="WCR" ${stationInfo && stationInfo.division === "Kota_Ruthiyai Jn" ? "selected" : ""}>Kota_Ruthiyai Jn</option>
                 </select>
               </td>
               <td><strong>Section :</strong>
@@ -537,6 +538,7 @@ async function showSection(section, subsection) {
                   <option value="Rajkot" data-zone="WR" ${stationInfo && stationInfo.sectionName === "Rajkot" ? "selected" : ""}>Rajkot</option>
                   <option value="Bhopal" data-zone="WCR" ${stationInfo && stationInfo.sectionName === "Bhopal" ? "selected" : ""}>Bhopal</option>
                   <option value="Matura-Nagda" data-zone="WCR" ${stationInfo && stationInfo.sectionName === "Matura-Nagda" ? "selected" : ""}>Matura-Nagda</option>
+                  <option value="Kota_Ruthiyai Jn" data-zone="WCR" ${stationInfo && stationInfo.sectionName === "Kota_Ruthiyai Jn" ? "selected" : ""}>Kota_Ruthiyai Jn</option>
                 </select>
               </td>
               <td><strong>Initial Date:</strong><input type="date" id="initial-date" style="font-family: inherit; font-size: inherit; color: inherit; border: 1px solid #ccc; padding: 5px 10px;" /></td>
