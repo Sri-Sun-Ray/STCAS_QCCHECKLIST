@@ -503,6 +503,10 @@ async function showSection(section, subsection) {
                   <option value="Solapur" data-zone="CR" ${stationInfo && stationInfo.division === "Solapur" ? "selected" : ""}>Solapur</option>
                   <option value="Howrah-COO" data-zone="ER" ${stationInfo && stationInfo.division === "Howrah-COO" ? "selected" : ""}>Howrah-COO</option>
                   <option value="Pt Deendayal Upadhy - Pradhankhnta" data-zone="ECR" ${stationInfo && stationInfo.division === "Pt Deendayal Upadhy - Pradhankhnta" ? "selected" : ""}>Pt Deendayal Upadhy - Pradhankhnta</option>
+                  <option value="Fly-over Cabin to Bhabua Road" data-zone="ECR" ${stationInfo && stationInfo.division === "Fly-over Cabin to Bhabua Road" ? "selected" : ""}>Fly-over Cabin to Bhabua Road</option>
+                  <option value="Yadudih to Nimiyaghat" data-zone="ECR" ${stationInfo && stationInfo.division === "Yadudih to Nimiyaghat" ? "selected" : ""}>Yadudih to Nimiyaghat</option>
+                  <option value="Sasaram to Rafigunj" data-zone="ECR" ${stationInfo && stationInfo.division === "Sasaram to Rafigunj" ? "selected" : ""}>Sasaram to Rafigunj</option>
+                  <option value="Manpur to Sharmantnar" data-zone="ECR" ${stationInfo && stationInfo.division === "Manpur to Sharmantnar" ? "selected" : ""}>Manpur to Sharmantnar</option>
                   <option value="Matura-Palwal" data-zone="NCR" ${stationInfo && stationInfo.division === "Matura-Palwal" ? "selected" : ""}>Matura-Palwal</option>
                   <option value="Jhansi" data-zone="NCR" ${stationInfo && stationInfo.division === "Jhansi" ? "selected" : ""}>Jhansi</option>
                   <option value="Nanded-Aurangabad" data-zone="SCR" ${stationInfo && stationInfo.division === "Nanded-Aurangabad" ? "selected" : ""}>Nanded-Aurangabad</option>
@@ -527,6 +531,10 @@ async function showSection(section, subsection) {
                   <option value="Solapur" data-zone="CR" ${stationInfo && stationInfo.sectionName === "Solapur" ? "selected" : ""}>Solapur</option>
                   <option value="Howrah-COO" data-zone="ER" ${stationInfo && stationInfo.sectionName === "Howrah-COO" ? "selected" : ""}>Howrah-COO</option>
                   <option value="Pt Deendayal Upadhy - Pradhankhnta" data-zone="ECR" ${stationInfo && stationInfo.sectionName === "Pt Deendayal Upadhy - Pradhankhnta" ? "selected" : ""}>Pt Deendayal Upadhy - Pradhankhnta</option>
+                  <option value="Fly-over Cabin to Bhabua Road" data-zone="ECR" ${stationInfo && stationInfo.sectionName === "Fly-over Cabin to Bhabua Road" ? "selected" : ""}>Fly-over Cabin to Bhabua Road</option>
+                  <option value="Yadudih to Nimiyaghat" data-zone="ECR" ${stationInfo && stationInfo.sectionName === "Yadudih to Nimiyaghat" ? "selected" : ""}>Yadudih to Nimiyaghat</option>
+                  <option value="Sasaram to Rafigunj" data-zone="ECR" ${stationInfo && stationInfo.sectionName === "Sasaram to Rafigunj" ? "selected" : ""}>Sasaram to Rafigunj</option>
+                  <option value="Manpur to Sharmantnar" data-zone="ECR" ${stationInfo && stationInfo.sectionName === "Manpur to Sharmantnar" ? "selected" : ""}>Manpur to Sharmantnar</option>
                   <option value="Matura-Palwal" data-zone="NCR" ${stationInfo && stationInfo.sectionName === "Matura-Palwal" ? "selected" : ""}>Matura-Palwal</option>
                   <option value="Jhansi" data-zone="NCR" ${stationInfo && stationInfo.sectionName === "Jhansi" ? "selected" : ""}>Jhansi</option>
                   <option value="Nanded-Aurangabad" data-zone="SCR" ${stationInfo && stationInfo.sectionName === "Nanded-Aurangabad" ? "selected" : ""}>Nanded-Aurangabad</option>
