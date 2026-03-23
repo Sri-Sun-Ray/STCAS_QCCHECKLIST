@@ -5814,8 +5814,8 @@ Ensure mill connector shall be locked properly.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -5846,8 +5846,8 @@ Ensure mill connector shall be locked properly.</td>
         <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -5878,8 +5878,8 @@ Ensure mill connector shall be locked properly.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -5908,11 +5908,11 @@ Ensure mill connector shall be locked properly.</td>
       <td>7.2.1</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">OFC cables shall be marked using naming tie-tags for easy identification of default and standby links.</td>
-       <td class="select">
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -5944,8 +5944,8 @@ Ensure mill connector shall be locked properly.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -5976,8 +5976,8 @@ Ensure mill connector shall be locked properly.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6008,8 +6008,8 @@ Ensure mill connector shall be locked properly.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6041,8 +6041,8 @@ Ensure mill connector shall be locked properly.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6073,8 +6073,8 @@ Ensure mill connector shall be locked properly.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6102,11 +6102,11 @@ Ensure mill connector shall be locked properly.</td>
       <td>7.5</td>
       <td class="observation_text">OFC cable continuity check, after splicing</td>
       <td class="requirement_text">OTDR test reports shall be available.</td>
-       <td class="select">
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6169,8 +6169,8 @@ Ensure mill connector shall be locked properly.</td>
      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6201,8 +6201,8 @@ Ensure mill connector shall be locked properly.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6233,8 +6233,8 @@ Ensure mill connector shall be locked properly.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6266,8 +6266,8 @@ Ensure mill connector shall be locked properly.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6295,11 +6295,11 @@ Ensure mill connector shall be locked properly.</td>
       <td>8.3</td>
       <td class="observation_text">Continuity Test / Bell Test</td>
       <td class="requirement_text">Completed Station Analyser and Bell Test reports shall be available.</td>
-      <td class="select">
+     <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6330,8 +6330,8 @@ Ensure mill connector shall be locked properly.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6360,11 +6360,11 @@ Ensure mill connector shall be locked properly.</td>
       <td>8.4.1</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
-      <td class="select">
+     <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6428,8 +6428,8 @@ else if(section==="10.0"){
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6461,8 +6461,8 @@ The measured value shall be ≤1 Ohm for Stationary Kavach equipment earth pit.<
      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6493,9 +6493,8 @@ The measured value shall be ≤1 Ohm for Stationary Kavach equipment earth pit.<
      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>
-            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6558,9 +6557,8 @@ The measured value shall be ≤1 Ohm for Stationary Kavach equipment earth pit.<
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>
-            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6625,9 +6623,8 @@ The measured value shall be ≤1 Ohm for Stationary Kavach equipment earth pit.<
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>
-            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6691,12 +6688,11 @@ OFC armoured cables shall be used for communication.</td>
       <td>10.3</td>
       <td class="observation_text">No Joints</td>
       <td class="requirement_text">No joints permitted except inside junction boxes or panels.</td>
-     <td class="select">
+    <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>
-            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6757,12 +6753,11 @@ OFC armoured cables shall be used for communication.</td>
       <td>10.5</td>
       <td class="observation_text">Tagging/Labeling</td>
       <td class="requirement_text">Cables shall be tagged at both ends.</td>
-      <td class="select">
+     <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>
-            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6790,12 +6785,11 @@ OFC armoured cables shall be used for communication.</td>
       <td>10.6</td>
       <td class="observation_text">Termination & Connection</td>
       <td class="requirement_text">Proper lugs/ferrules shall be used and terminals tightened correctly.</td>
-      <td class="select">
+     <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>
-            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6867,9 +6861,8 @@ OFC armoured cables shall be used for communication.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>
-            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6900,9 +6893,8 @@ OFC armoured cables shall be used for communication.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>
-            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6930,11 +6922,11 @@ OFC armoured cables shall be used for communication.</td>
       <td>11.3</td>
       <td class="observation_text">Cable route markers</td>
       <td class="requirement_text">Where contractually required, underground RFID markers shall be installed and verified.</td>
-      <td class="select">
+     <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6998,9 +6990,8 @@ OFC armoured cables shall be used for communication.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>
-            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -7031,8 +7022,8 @@ OFC armoured cables shall be used for communication.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -7129,8 +7120,8 @@ OFC armoured cables shall be used for communication.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
