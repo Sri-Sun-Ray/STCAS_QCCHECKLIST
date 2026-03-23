@@ -4234,11 +4234,11 @@ async function showSection(section, subsection) {
       <td>5.1</td>
       <td class="observation_text">Installation</td>
       <td class="requirement_text">Kavach unit shall be installed as per the approved floor plan drawing, mounted on the floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0056.</td>
-       <td class="select">
-      <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+      <td class="select">
+       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -4263,7 +4263,7 @@ async function showSection(section, subsection) {
 </div>
     </tr>  
     <tr id="row-512">
-      <td>5.1.2</td>
+      <td>5.1.1</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">All external cables shall enter through cable glands only.
 No unused cable entries left open.
@@ -4271,8 +4271,8 @@ Ensure mill connector shall be locked properly.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -4298,14 +4298,14 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-517">
-      <td>5.1.3</td>
+      <td>5.1.2</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -4330,14 +4330,14 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-518">
-      <td>5.1.4</td>
+      <td>5.1.3</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -4362,14 +4362,14 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-519">
-      <td>5.1.5</td>
+      <td>5.1.4</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -4395,14 +4395,14 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-5110">
-      <td>5.1.6</td>
+      <td>5.1.5</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">Station Kavach Termination Unit shall be wall-mounted near the Kavach unit using insulators, secured with M8 bolts, and tightened to a torque of 20 Nm as per diagram 5 16 76 0045.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -4427,14 +4427,14 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-51110">
-      <td>5.1.7</td>
+      <td>5.1.6</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">OFC cables for SMOCIP and RTU shall be spliced as per diagram 5 16 49 0559, and proper bunching and routing shall be ensured.</td>
-       <td class="select">
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -4465,8 +4465,8 @@ Ensure mill connector shall be locked properly.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4496,11 +4496,11 @@ Ensure mill connector shall be locked properly.</td>
       <td>5.2.1</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">SMOCIP Termination Unit shall be wall-mounted near the SMOCIP unit, using insulators, secured with M6 bolts, and tightened to a torque of 8 Nm as per diagram  5 16 76 0046</td>
-       <td class="select">
+        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4526,14 +4526,14 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-523">
-      <td>5.2.3</td>
+      <td>5.2.2</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">Power and OFC cables from Kavach termination unit shall be terminated as per diagram 5 16 49 0559.</td>
-       <td class="select">
+        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4560,14 +4560,14 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-5230">
-      <td>5.2.4</td>
+      <td>5.2.3</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">OFC cables of SMOCIP shall be spliced as per diagram 5 16 49 0559, and proper bunching and routing shall be ensured.</td>
-       <td class="select">
+        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4594,14 +4594,14 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-524">
-      <td>5.2.5</td>
+      <td>5.2.4</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
-       <td class="select">
+        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4627,14 +4627,14 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-525">
-      <td>5.2.6</td>
+      <td>5.2.5</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4661,14 +4661,14 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-526">
-      <td>5.2.7</td>
+      <td>5.2.6</td>
       <td class="observation_text">Functionality</td>
       <td class="requirement_text">System Health LED shall blink and ensure SYSTEM OK along with the respective station name shall be displayed on the Display.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4694,14 +4694,14 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
        <tr id="row-5262">
-      <td>5.2.8</td>
+      <td>5.2.7</td>
       <td class="observation_text">Functionality</td>
       <td class="requirement_text">Verify that pressing the SOS and Common buttons on the SM-OCIP increments the mechanical counter by one.</td>
-       <td class="select">
+        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4726,51 +4726,18 @@ Ensure mill connector shall be locked properly.</td>
   <canvas id="canvas-5262" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
-     <tr id="row-51262">
-      <td>5.2.9</td>
-      <td class="observation_text">Functionality</td>
-      <td class="requirement_text">Verify that pressing the SOS and Common buttons on the SM-OCIP increments the mechanical counter by one.</td>
-       <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-                <option value="Not Applicable">Not Applicable</option>
-              </select>
-      </td>
-      <td class="remarks">
-        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
-      </td>
-     <td>
-       <button class="add-image" onclick="showUploadOptions(51262)">Add Image</button>
-<div class="upload-options" id="upload-options-51262" style="display: none;">
-  <button class="add-image" onclick="startCamera(51262)">Camera</button>
-  <label for="file-input-51262" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-51262" accept="image/*" multiple onchange="displayImages(this, 51262)">
-</div>
-      <!-- Container for multiple images -->
-      <div id="image-container-51262"></div>
-      <!-- Camera Container -->
-<div id="camera-container-51262" style="display: none;">
-  <video id="camera-51262" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(51262)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(51262)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(51262)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-51262" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-    </tr>
     <tr id="row-527">
-      <td>5.2.10</td>
+      <td>5.2.8</td>
       <td class="observation_text">Checksum</td>
       <td class="requirement_text">Verify the checksums as per the FAT certificate.</td>
-       <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-                <option value="Not Applicable">Not Applicable</option>
-              </select>
-      </td>
+       <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
       <td class="remarks">
         <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
       </td>
@@ -4795,12 +4762,12 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-53">
       <td>5.3</td>
       <td class="observation_text">Installation</td>
-      <td class="requirement_text">Two antennas shall be installed 5 m apart on the Kavach Room roof-top and grouted firmly<br>(Ref:  5 16 67 0039).</td>
+      <td class="requirement_text">Two antennas shall be installed on the Kavach room rooftop with a minimum separation of 3 meters, grouting shall be carried out as per diagram 5 16 67 0039, and torque of 10 Nm shall be applied for M6 fasteners with torque marking provided.</td>
        <td class="select">
-      <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4828,12 +4795,12 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-531">
       <td>5.3.1</td>
       <td class="observation_text">Installation</td>
-      <td class="requirement_text">No obstruction above antennas like tree branches, sun-shades etc.</td>
-       <td class="select">
+      <td class="requirement_text">No obstruction above antennas like tree branches, sun-shades, and ensure open to sky etc.</td>
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4859,82 +4826,15 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
 
-    <tr id="row-532">
-      <td>5.3.2</td>
-      <td class="observation_text">Installation</td>
-      <td class="requirement_text">No water accumulation around antennas or cable conduits.</td>
-       <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-                <option value="Not Applicable">Not Applicable</option>
-              </select>
-      </td>
-      <td class="remarks">
-        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
-      </td>
-     <td>
-       <button class="add-image" onclick="showUploadOptions(532)">Add Image</button>
-<div class="upload-options" id="upload-options-532" style="display: none;">
-  <button class="add-image" onclick="startCamera(532)">Camera</button>
-  <label for="file-input-532" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-532" accept="image/*" multiple onchange="displayImages(this, 532)">
-</div>
-      <!-- Container for multiple images -->
-      <div id="image-container-532"></div>
-      <!-- Camera Container -->
-<div id="camera-container-532" style="display: none;">
-  <video id="camera-532" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(532)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(532)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(532)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-532" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-    </tr>
-    <tr id="row-533">
-      <td>5.3.3</td>
-      <td class="observation_text">Installation</td>
-      <td class="requirement_text">Weather-proofing at connectors</td>
-       <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-                <option value="Not Applicable">Not Applicable</option>
-              </select>
-      </td>
-      <td class="remarks">
-        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
-      </td>
-     <td>
-       <button class="add-image" onclick="showUploadOptions(533)">Add Image</button>
-<div class="upload-options" id="upload-options-533" style="display: none;">
-  <button class="add-image" onclick="startCamera(533)">Camera</button>
-  <label for="file-input-533" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-533" accept="image/*" multiple onchange="displayImages(this, 533)">
-</div>
-      <!-- Container for multiple images -->
-      <div id="image-container-533"></div>
-      <!-- Camera Container -->
-<div id="camera-container-533" style="display: none;">
-  <video id="camera-533" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(533)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(533)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(533)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-533" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-    </tr>
-
     <tr id="row-534">
-      <td>5.3.4</td>
+      <td>5.3.2</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">Antenna cables shall be routed via diverse paths.</td>
-       <td class="select">
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4960,14 +4860,14 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-535">
-      <td>5.3.5</td>
+      <td>5.3.3</td>
       <td class="observation_text">Cabling</td>
-      <td class="requirement_text">Separate conduits shall be used.</td>
-       <td class="select">
+      <td class="requirement_text">Separate conduits shall be used and Roof conduits shall be sealed against dust, water, and insects.</td>
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4993,14 +4893,14 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-536">
-      <td>5.3.6</td>
+      <td>5.3.4</td>
       <td class="observation_text">Cabling</td>
-      <td class="requirement_text">Roof conduits shall be sealed against dust, water, and insects.</td>
+      <td class="requirement_text">In each antenna, the GPS and GSM cables shall be connected to their respective connectors as per the labels provided on the antenna.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -5025,81 +4925,15 @@ Ensure mill connector shall be locked properly.</td>
   <canvas id="canvas-536" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
-    <tr id="row-537">
-      <td>5.3.7</td>
-      <td class="observation_text">Cabling</td>
-      <td class="requirement_text">Flexible pipe provided for co-axial cables for antenna to be of good quality, robust and fit for outdoor use.</td>
-       <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-                <option value="Not Applicable">Not Applicable</option>
-              </select>
-      </td>
-      <td class="remarks">
-        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
-      </td>
-     <td>
-       <button class="add-image" onclick="showUploadOptions(537)">Add Image</button>
-<div class="upload-options" id="upload-options-537" style="display: none;">
-  <button class="add-image" onclick="startCamera(537)">Camera</button>
-  <label for="file-input-537" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-537" accept="image/*" multiple onchange="displayImages(this, 537)">
-</div>
-      <!-- Container for multiple images -->
-      <div id="image-container-537"></div>
-      <!-- Camera Container -->
-<div id="camera-container-537" style="display: none;">
-  <video id="camera-537" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(537)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(537)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(537)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-537" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-    </tr>
-    <tr id="row-538">
-      <td>5.3.8</td>
-      <td class="observation_text">Cabling</td>
-      <td class="requirement_text">In each antenna, the GSM and GPS cables shall be connected to their respective connectors as per the labels provided on the antenna.</td>
-       <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-                <option value="Not Applicable">Not Applicable</option>
-              </select>
-      </td>
-      <td class="remarks">
-        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
-      </td>
-     <td>
-       <button class="add-image" onclick="showUploadOptions(538)">Add Image</button>
-<div class="upload-options" id="upload-options-538" style="display: none;">
-  <button class="add-image" onclick="startCamera(538)">Camera</button>
-  <label for="file-input-538" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-538" accept="image/*" multiple onchange="displayImages(this, 538)">
-</div>
-      <!-- Container for multiple images -->
-      <div id="image-container-538"></div>
-      <!-- Camera Container -->
-<div id="camera-container-538" style="display: none;">
-  <video id="camera-538" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(538)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(538)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(538)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-538" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-    </tr>
     <tr id="row-54">
       <td>5.4</td>
       <td class="observation_text">Installation</td>
-      <td class="requirement_text">RIU shall be installed as per approved drawing and secured with insulators. Default & standby OFC paths verified.</td>
-       <td class="select">
-      <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+      <td class="requirement_text">RIU shall be installed on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0057.</td>
+      <td class="select">
+       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -5163,10 +4997,10 @@ Ensure mill connector shall be locked properly.</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">OFC patch cords shall be properly tagged to identify default and standby links.</td>
        <td class="select">
-      <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -5195,12 +5029,12 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-544">
       <td>5.4.3</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">RIU unit shall be Connected to ring earth using 10 sq.mm green/yellow wire.</td>
+      <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -5228,12 +5062,12 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-545">
       <td>5.4.4</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Bolts shall be tightened to a torque of 8 Nm, and torque marking shall be applied using yellow paint.</td>
-       <td class="select">
+      <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -5262,12 +5096,12 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-546">
       <td>5.4.5</td>
       <td class="observation_text">FDMS Box installation</td>
-      <td class="requirement_text">FDMS Box shall be installed on wall with insulators and OFC cables terminated as per network drawing.</td>
-       <td class="select">
+      <td class="requirement_text">FDMS Box shall be installed in the 15U/17U rack of the RIU with proper wall mounting, and OFC splicing shall be carried out as per the network drawing.</td>
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -5350,7 +5184,8 @@ Ensure mill connector shall be locked properly.</td>
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>            
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -5379,11 +5214,12 @@ Ensure mill connector shall be locked properly.</td>
       <td>6.1.1</td>
       <td class="observation_text">RTU Fixing</td>
       <td class="requirement_text">Ensure RTU doors are fully closed and locked.</td>
-       <td class="select">
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>            
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -5411,11 +5247,12 @@ Ensure mill connector shall be locked properly.</td>
       <td>6.1.2</td>
       <td class="observation_text">RTU Earthing</td>
       <td class="requirement_text">RTU shall be properly earthed by connecting a 35 sq.mm green to GI strip earthing conductor from the RTU earthing bolt to the designated earth pit-4, as per diagram 5 16 76 0043.</td>
-       <td class="select">
+     <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>            
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -5443,11 +5280,12 @@ Ensure mill connector shall be locked properly.</td>
       <td>6.1.3</td>
       <td class="observation_text">RTU Earthing</td>
       <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
-       <td class="select">
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>            
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -5473,14 +5311,15 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-615">
-      <td>6.1.5</td>
+      <td>6.1.4</td>
       <td class="observation_text">OFC cable termination</td>
       <td class="requirement_text">OFC cable from the Relay Room shall be spliced and terminated in the splice holder inside the RTU.<br>(Ref. Drawing: 5 16 49 0559)</td>
-       <td class="select">
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>            
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -5505,14 +5344,15 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-616">
-      <td>6.1.6</td>
+      <td>6.1.5</td>
       <td class="observation_text">OFC cable termination</td>
       <td class="requirement_text">OFC cables for RTU shall be spliced as per diagram 5 16 49 0559 and ensure bunching and routing shall be done properly.</td>
-       <td class="select">
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>            
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -5538,14 +5378,15 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-617">
-      <td>6.1.7</td>
+      <td>6.1.6</td>
       <td class="observation_text">110V Power cable termination</td>
       <td class="requirement_text">Cable glands used for 110 V DC power cable entry into RTU shall be firmly tightened.</td>
-        <td class="select">
+       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>            
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -5570,14 +5411,15 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-618">
-      <td>6.1.8</td>
+      <td>6.1.7</td>
       <td class="observation_text">110V Power cable termination</td>
       <td class="requirement_text">110 V DC power cables shall be terminated inside RTU as per approved drawing 5 16 49 0672.</td>
-        <td class="select">
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>            
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -5602,14 +5444,15 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-619">
-      <td>6.1.9</td>
+      <td>6.1.8</td>
       <td class="observation_text">110V Power cable termination</td>
       <td class="requirement_text">Ensure lugs with sleeves / Ferrules are  properly crimped and inserted into the terminal; no loose strands shall be left.</td>
-        <td class="select">
+     <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>            
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -5633,48 +5476,16 @@ Ensure mill connector shall be locked properly.</td>
   <canvas id="canvas-619" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
-    <tr id="row-6111">
-      <td>6.1.10</td>
-      <td class="observation_text">110V Power cable termination</td>
-      <td class="requirement_text">Ensure lugs with sleeves/Ferrules are properly crimped and inserted into the terminal;no loose strands shall be left.</td>
-        <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>            
-              </select>
-      </td>
-      <td class="remarks">
-        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
-      </td>
-      <td>
-       <button class="add-image" onclick="showUploadOptions(6111)">Add Image</button>
-<div class="upload-options" id="upload-options-6111" style="display: none;">
-  <button class="add-image" onclick="startCamera(6111)">Camera</button>
-  <label for="file-input-6111" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-6111" accept="image/*" multiple onchange="displayImages(this, 6111)">
-</div>
-      <!-- Container for multiple images -->
-      <div id="image-container-6111"></div>
-      <!-- Camera Container -->
-<div id="camera-container-6111" style="display: none;">
-  <video id="camera-6111" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(6111)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(6111)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(6111)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-6111" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-    </tr>
-
     <tr id="row-6112">
-      <td>6.1.11</td>
+      <td>6.1.9</td>
       <td class="observation_text">Cabiling</td>
       <td class="requirement_text">LMR 600 connection with proper routing; and clamping; No Joints shall be done, as per Tower SOP 5 16 90 0018.</td>
-       <td class="select">
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>            
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -5706,7 +5517,8 @@ Ensure mill connector shall be locked properly.</td>
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>            
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -5734,11 +5546,12 @@ Ensure mill connector shall be locked properly.</td>
       <td>6.2.1</td>
       <td class="observation_text">RF antenna installation and Audit</td>
       <td class="requirement_text">RF antenna installation audit report from the installation contractor shall be available in WFMS and there shall be no open points in the audit report.</td>
-       <td class="select">
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Available">Available</option>
-                <option value="Not Available">Not Available</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -5816,6 +5629,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -5843,11 +5657,12 @@ Ensure mill connector shall be locked properly.</td>
       <td>7.1.1</td>
       <td class="observation_text">Installation</td>
       <td class="requirement_text">Patch cord routing shall be neat & bend radius to be maintained.</td>
-        <td class="select">
+       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -5880,6 +5695,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -5908,11 +5724,12 @@ Ensure mill connector shall be locked properly.</td>
       <td>7.2.1</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">OFC cables shall be marked using naming tie-tags for easy identification of default and standby links.</td>
-      <td class="select">
+     <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -5946,6 +5763,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -5973,11 +5791,12 @@ Ensure mill connector shall be locked properly.</td>
       <td>7.3.1</td>
       <td class="observation_text">Earthing</td>
        <td class="requirement_text">Network rack shall be connected to ring earth using a 10 sq.mm green/yellow earthing wire.</td>
-       <td class="select">
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6010,6 +5829,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6038,11 +5858,12 @@ Ensure mill connector shall be locked properly.</td>
       <td>7.4</td>
       <td class="observation_text">FDMS Box Installation in Network Rack</td>
       <td class="requirement_text">OFC cables shall be spliced in the FDMS box as per network drawing.</td>
-      <td class="select">
+     <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6070,11 +5891,12 @@ Ensure mill connector shall be locked properly.</td>
       <td>7.4.1</td>
       <td class="observation_text">FDMS Box Installation in Network Rack</td>
       <td class="requirement_text">FDMS boxes shall be clearly marked to identify up and down links.</td>
-       <td class="select">
+     <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6107,6 +5929,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6166,11 +5989,12 @@ Ensure mill connector shall be locked properly.</td>
       <td class="observation_text">Installation</td>
       <td class="requirement_text">Relay rack shall be installed as per the approved Floor Plan drawing, mounted on insulators, and secured to the floor by grouting as per diagram 5 16 76 0059.
 </td>
-     <td class="select">
+    <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6203,6 +6027,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6235,6 +6060,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6263,11 +6089,12 @@ Ensure mill connector shall be locked properly.</td>
       <td class="observation_text">Wiring</td>
       <td class="requirement_text">WAGO terminal details shall be as per interface circuit diagram 5 16 49 0685.
 </td>
-      <td class="select">
+     <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6295,11 +6122,12 @@ Ensure mill connector shall be locked properly.</td>
       <td>8.3</td>
       <td class="observation_text">Continuity Test / Bell Test</td>
       <td class="requirement_text">Completed Station Analyser and Bell Test reports shall be available.</td>
-     <td class="select">
+   <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6327,11 +6155,12 @@ Ensure mill connector shall be locked properly.</td>
       <td>8.4</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
-      <td class="select">
+     <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6365,6 +6194,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6655,12 +6485,11 @@ The measured value shall be ≤1 Ohm for Stationary Kavach equipment earth pit.<
       <td class="requirement_text">12 Core Signaling cable shall be used for
 button, counter & power supply.<br>
 OFC armoured cables shall be used for communication.</td>
-     <td class="select">
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>
-            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6688,7 +6517,7 @@ OFC armoured cables shall be used for communication.</td>
       <td>10.3</td>
       <td class="observation_text">No Joints</td>
       <td class="requirement_text">No joints permitted except inside junction boxes or panels.</td>
-    <td class="select">
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
@@ -6723,9 +6552,8 @@ OFC armoured cables shall be used for communication.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Yes</option>
-                <option value="Not Ok">No</option>
-            
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
               </select>
       </td>
       <td class="remarks">
@@ -6890,7 +6718,7 @@ OFC armoured cables shall be used for communication.</td>
       <td>11.2</td>
       <td class="observation_text">Cable route markers</td>
       <td class="requirement_text">Route markers shall be installed and clearly visible.</td>
-      <td class="select">
+       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
@@ -7016,7 +6844,7 @@ OFC armoured cables shall be used for communication.</td>
 </div>
     </tr>
       <tr id="row-1302">
-      <td>12.1.2</td>
+      <td>12.2</td>
       <td class="observation_text">RFID Tag Installation</td>
        <td class="requirement_text">RFID tag mounting shall be firm and secure, ensuring no gap or mechanical play as per RFID tag installation procedure 5 53 76 0055.</td>
       <td class="select">
@@ -7048,7 +6876,7 @@ OFC armoured cables shall be used for communication.</td>
 </div>
     </tr>
     <tr id="row-123">
-      <td>12.2</td>
+      <td>12.3</td>
       <td class="observation_text">RFID Tag data Validation and Placement verification</td>
       <td class="requirement_text">System-generated RFID data validation report and Placement verification report shall be available.</td>
       <td class="select">
@@ -8840,8 +8668,9 @@ function getDropdownOptions(sno, observationStatus, sectionID = null) {
   const specificOptions = {
     "1.38,1.40,1.41,1.42" : ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
     "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
-    "3.1,3.2,3.3,3.4,3.4.1,3.4.2,3.5,3.6,2.1,2.2,2.3,2.3.1,2.4,2.5,2.6,2.7,2.8,11.1,11.2,11.3,4.3,4.3.1,4.3.2,4.3.3,4.3.4,4.3.5,5.2,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.2.9,5.2.10,5.4,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,8.1,8.1.1,8.1.2,8.2,8.2.1,8.2.2,8.2.3,8.2.4,8.2.5,8.2.6,8.2.7,8.3,8.4," : ["Yes", "No", "Not Applicable"],
-    "4.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.2,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,4.2.6,4.2.7,4.2.8,4.2.9,5.1,5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,5.1.7,5.1.8,5.1.9,5.1.10,5.1.11,5.1.12,5.3,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.3.6,5.3.7,5.3.8,6.1,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.1.11,6.2,6.2.1,7.1,7.1.1,7.1.2,7.2,7.2.1,7.3,7.3.1,7.3.2,7.4,7.4.1,7.4.2,7.5,9.1,9.2,9.3,9.4,9.5,10.1,10.2,10.3,10.4,10.5,10.6,10.7,10.8,12.1,12.2,12.3,13.1": ["Yes", "No"],
+    "3.1,3.2,3.3,3.4,3.4.1,3.4.2,3.5,3.6,2.1,2.2,2.3,2.3.1,2.4,2.5,2.6,2.7,2.8,4.3,4.3.1,4.3.2,4.3.3,4.3.4,4.3.5,5.2,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.3,5.3.1,5.3.2,5.3.3,5.3.4,5.4,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,8.1,8.2,8.2.1,8.2.2,8.3,8.4,8.4.1,7.1,7.1.1,7.2,7.2.1,7.3,7.3.1,7.3.2,7.4,7.4.1,7.5,6.1,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.2,6.2.1" : ["Ok", "Not Ok", "Not Applicable"],
+    "4.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.2,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,4.2.6,4.2.7,4.2.8,4.2.9,5.1,5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1,9.2,9.3,9.5,10.1,10.2,10.3,10.4,10.5,10.6,12.1,12.2,13.1,11.1,11.2,11.3": ["Ok", "Not Ok"],
+    "9.4,12.3" : ["Available", "Not Available"]
   };
 
   for (const [key, values] of Object.entries(specificOptions)) {
