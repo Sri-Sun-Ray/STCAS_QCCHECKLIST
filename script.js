@@ -1252,7 +1252,7 @@ async function showSection(section, subsection) {
           </tr>
           <tr id="row-14">
             <td >1.12</td>
-           <td class="observation_text"> Field Scanner Card 1
+           <td class="observation_text"> EI Gateway-1
            <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1304,7 +1304,7 @@ async function showSection(section, subsection) {
           </tr>
           <tr id="row-113">
             <td>1.13</td>
-           <td class="observation_text"> Field Scanner Card 2
+           <td class="observation_text"> EI Gateway-2
         <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1355,7 +1355,7 @@ async function showSection(section, subsection) {
           <tr id="row-114">
             <td>1.14</td>
            <td class="observation_text">
- Field Scanner Card 3
+Field Scanner Card 1
   <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1407,7 +1407,7 @@ async function showSection(section, subsection) {
           </tr>
           <tr id="row-115">
             <td>1.15</td>
-           <td class="observation_text">Field Scanner Card 4
+           <td class="observation_text">Field Scanner Card 2
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1456,7 +1456,7 @@ async function showSection(section, subsection) {
           </tr>
           <tr id="row-1150">
             <td>1.16</td>
-           <td class="observation_text">Field Scanner Card 5
+           <td class="observation_text">Field Scanner Card 3
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1505,7 +1505,7 @@ async function showSection(section, subsection) {
           </tr>
           <tr id="row-11554">
             <td>1.17</td>
-           <td class="observation_text">Field Scanner Card 6
+           <td class="observation_text">Field Scanner Card 4
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1555,7 +1555,7 @@ async function showSection(section, subsection) {
            </tr>
           <tr id="row-11550">
             <td>1.18</td>
-           <td class="observation_text">Field Scanner Card 7
+           <td class="observation_text">Field Scanner Card 5
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1605,7 +1605,7 @@ async function showSection(section, subsection) {
           </tr>
           <tr id="row-11458">
             <td>1.19</td>
-           <td class="observation_text">Field Scanner Card 8
+           <td class="observation_text">Field Scanner Card 6
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1654,7 +1654,7 @@ async function showSection(section, subsection) {
           </tr>
           <tr id="row-116">
             <td>1.20</td>
-           <td class="observation_text"> Station Radio Power Supply card-1
+           <td class="observation_text"> Field Scanner Card 7
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1704,7 +1704,7 @@ async function showSection(section, subsection) {
           </tr>
           <tr id="row-117">
             <td>1.21</td>
-           <td class="observation_text"> Next Gen/. Cal Amp Radio Modem
+           <td class="observation_text"> Field Scanner Card 8
            <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1753,7 +1753,7 @@ async function showSection(section, subsection) {
           </tr>
           <tr id="row-118">
             <td>1.22</td>
-           <td class="observation_text"> GPS & GSM Antenna-1
+           <td class="observation_text"> RIU communication card 1-Host
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1802,7 +1802,7 @@ async function showSection(section, subsection) {
           </tr>
           <tr id="row-119">
             <td>1.23</td>
-           <td class="observation_text"> GPS & GSM Antenna-2
+           <td class="observation_text"> RIU communication card 2-Host
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1852,7 +1852,7 @@ async function showSection(section, subsection) {
 
           <tr id="row-120">
             <td>1.24</td>
-           <td class = "observation_text"> SMOCIP Unit
+           <td class = "observation_text"> RS 232-OFC converter 1 (STATION)
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1902,7 +1902,7 @@ async function showSection(section, subsection) {
           
           <tr id="row-121">
             <td>1.25</td>
-           <td class = "observation_text">SMOCIP Termination Box
+           <td class = "observation_text">RS 232-OFC converter 2 (STATION)
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1952,7 +1952,7 @@ async function showSection(section, subsection) {
           
           <tr id="row-122">
             <td>1.26</td>
-           <td class = "observation_text"> PDU Box
+           <td class = "observation_text"> RS 485-OFC converter (STATION)
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2001,7 +2001,7 @@ async function showSection(section, subsection) {
 
            <tr id="row-12232">
             <td>1.27</td>
-           <td class = "observation_text"> DPS Card
+           <td class = "observation_text"> FIU Termination Card 1
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2050,7 +2050,7 @@ async function showSection(section, subsection) {
 
             <tr id="row-123">
             <td>1.28</td>
-           <td class = "observation_text"> FIU Termination Card 1
+           <td class = "observation_text"> FIU Termination Card 2
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2099,7 +2099,7 @@ async function showSection(section, subsection) {
 
             <tr id="row-22435">
             <td>1.29</td>
-           <td class = "observation_text"> FIU Termination Card 2
+           <td class = "observation_text"> FIU Termination Card 3
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2148,7 +2148,7 @@ async function showSection(section, subsection) {
 
            <tr id="row-125">
             <td>1.30</td>
-           <td class = "observation_text"> FIU Termination Card 3
+           <td class = "observation_text"> FIU Termination Card 4
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2196,7 +2196,7 @@ async function showSection(section, subsection) {
           </tr>
            <tr id="row-1335">
             <td>1.31</td>
-           <td class = "observation_text"> FIU Termination Card 4
+           <td class = "observation_text"> FIU Termination Card 5
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2243,7 +2243,7 @@ async function showSection(section, subsection) {
           </tr>
            <tr id="row-1385">
             <td>1.32</td>
-           <td class = "observation_text"> FIU Termination Card 5
+           <td class = "observation_text"> FIU Termination Card 6
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2290,7 +2290,7 @@ async function showSection(section, subsection) {
           </tr>
            <tr id="row-1657">
             <td>1.33</td>
-           <td class = "observation_text"> FIU Termination Card 6
+           <td class = "observation_text"> FIU Termination Card 7
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2337,7 +2337,7 @@ async function showSection(section, subsection) {
           </tr>
            <tr id="row-1979">
             <td>1.34</td>
-           <td class = "observation_text"> FIU Termination Card 7
+           <td class = "observation_text"> FIU Termination Card 8
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2384,7 +2384,7 @@ async function showSection(section, subsection) {
           </tr>
           <tr id="row-19798">
             <td>1.35</td>
-           <td class = "observation_text"> FIU Termination Card 8
+           <td class = "observation_text"> DPS Card 1
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2432,7 +2432,7 @@ async function showSection(section, subsection) {
 
            <tr id="row-10798">
             <td>1.36</td>
-           <td class = "observation_text"> RTU-1
+           <td class = "observation_text"> DPS Card 2
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2479,7 +2479,7 @@ async function showSection(section, subsection) {
           </tr>
             <tr id="row-24324">
             <td>1.37</td>
-           <td class = "observation_text"> RTU-2
+           <td class = "observation_text"> GPS & GSM Antenna-1
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2527,7 +2527,7 @@ async function showSection(section, subsection) {
          
            <tr id="row-57657">
             <td>1.38</td>
-           <td class = "observation_text"> RIU COM
+           <td class = "observation_text"> GPS & GSM Antenna-2
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2574,7 +2574,7 @@ async function showSection(section, subsection) {
           </tr>
            <tr id="row-255467">
             <td>1.39</td>
-           <td class = "observation_text"> Media Converter STCAS-1
+           <td class = "observation_text"> SMOCIP Unit
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2621,7 +2621,7 @@ async function showSection(section, subsection) {
           </tr>
            <tr id="row-76576">
             <td>1.40</td>
-           <td class = "observation_text"> Media Converter STCAS-2
+           <td class = "observation_text"> SMOCIP Termination Panel
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2668,7 +2668,7 @@ async function showSection(section, subsection) {
           </tr>
            <tr id="row-35454">
             <td>1.41</td>
-           <td class = "observation_text"> Media Converter STCAS-3
+           <td class = "observation_text"> Station Termination Panel
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2715,7 +2715,7 @@ async function showSection(section, subsection) {
           </tr>
            <tr id="row-86664765">
             <td>1.42</td>
-           <td class = "observation_text"> DC-DC Converter 
+           <td class = "observation_text"> Stationary PDU Box
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2761,6 +2761,1061 @@ async function showSection(section, subsection) {
 </div>
           </tr>
 
+          <tr id="row-86664766">
+            <td>1.43</td>
+           <td class = "observation_text"> IPS PDU Box
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664766
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664766)">Add Image</button>
+<div class="upload-options" id="upload-options-86664766" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664766)">Camera</button>
+  <label for="file-input-86664766" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664766" accept="image/*" multiple onchange="displayImages(this, 86664766)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-86664766"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664766" style="display: none;">
+  <video id="camera-86664766" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664766)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664766)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664766)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664766" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664767">
+            <td>1.44</td>
+           <td class = "observation_text"> DC-DC Converter (Relay racks)
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664767
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664767)">Add Image</button>
+<div class="upload-options" id="upload-options-86664767" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664767)">Camera</button>
+  <label for="file-input-86664767" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664767" accept="image/*" multiple onchange="displayImages(this, 86664767)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666477"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664767" style="display: none;">
+  <video id="camera-86664767" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664767)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664767)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664767)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664767" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664768">
+            <td>1.45</td>
+           <td class = "observation_text"> RTU-1
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664768
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664768)">Add Image</button>
+<div class="upload-options" id="upload-options-86664768" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664768)">Camera</button>
+  <label for="file-input-86664768" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664768" accept="image/*" multiple onchange="displayImages(this, 86664768)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666478"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664768" style="display: none;">
+  <video id="camera-86664768" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664768)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664768)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664768)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664768" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664769">
+            <td>1.46</td>
+           <td class = "observation_text"> RTU-2
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664769
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664769)">Add Image</button>
+<div class="upload-options" id="upload-options-86664769" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664769)">Camera</button>
+  <label for="file-input-86664769" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664769" accept="image/*" multiple onchange="displayImages(this, 86664769)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666479"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664769" style="display: none;">
+  <video id="camera-86664769" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664769)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664769)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664769)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664769" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664770">
+            <td>1.47</td>
+           <td class = "observation_text"> Station Radio Power Supply card-1
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664770
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664770)">Add Image</button>
+<div class="upload-options" id="upload-options-86664770" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664770)">Camera</button>
+  <label for="file-input-86664770" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664770" accept="image/*" multiple onchange="displayImages(this, 86664770)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666470"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664770" style="display: none;">
+  <video id="camera-86664770" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664770)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664770)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664770)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664770" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664771">
+            <td>1.48</td>
+           <td class = "observation_text"> Station Radio Power Supply card-2
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664771
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664771)">Add Image</button>
+<div class="upload-options" id="upload-options-86664771" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664771)">Camera</button>
+  <label for="file-input-86664771" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664771" accept="image/*" multiple onchange="displayImages(this, 86664771)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666471"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664771" style="display: none;">
+  <video id="camera-86664771" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664771)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664771)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664771)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664771" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664772">
+            <td>1.49</td>
+           <td class = "observation_text"> Next Gen/. Cal Amp Radio Modem-1
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664772
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664772)">Add Image</button>
+<div class="upload-options" id="upload-options-86664772" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664772)">Camera</button>
+  <label for="file-input-86664772" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664772" accept="image/*" multiple onchange="displayImages(this, 86664772)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666472"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664772" style="display: none;">
+  <video id="camera-86664772" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664772)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664772)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664772)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664772" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664773">
+            <td>1.50</td>
+           <td class = "observation_text"> Next Gen/. Cal Amp Radio Modem-2
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664773
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664773)">Add Image</button>
+<div class="upload-options" id="upload-options-86664773" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664773)">Camera</button>
+  <label for="file-input-86664773" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664773" accept="image/*" multiple onchange="displayImages(this, 86664773)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666473"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664773" style="display: none;">
+  <video id="camera-86664773" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664773)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664773)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664773)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664773" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664774">
+            <td>1.51</td>
+           <td class = "observation_text"> RS 232-OFC converter 1 (RTU-1)
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664774
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664774)">Add Image</button>
+<div class="upload-options" id="upload-options-86664774" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664774)">Camera</button>
+  <label for="file-input-86664774" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664774" accept="image/*" multiple onchange="displayImages(this, 86664774)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666474"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664774" style="display: none;">
+  <video id="camera-86664774" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664774)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664774)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664774)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664774" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664775">
+            <td>1.52</td>
+           <td class = "observation_text"> RS 232-OFC converter 2 (RTU-2)
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664775
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664775)">Add Image</button>
+<div class="upload-options" id="upload-options-86664775" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664775)">Camera</button>
+  <label for="file-input-86664775" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664775" accept="image/*" multiple onchange="displayImages(this, 86664775)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666475"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664775" style="display: none;">
+  <video id="camera-86664775" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664775)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664775)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664775)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664775" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664776">
+            <td>1.53</td>
+           <td class = "observation_text"> RS 485-OFC converter (SM-OCIP) 
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664776
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664776)">Add Image</button>
+<div class="upload-options" id="upload-options-86664776" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664776)">Camera</button>
+  <label for="file-input-86664776" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664776" accept="image/*" multiple onchange="displayImages(this, 86664776)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666476"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664776" style="display: none;">
+  <video id="camera-86664776" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664776)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664776)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664776)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664776" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664777">
+            <td>1.54</td>
+           <td class = "observation_text"> RIU
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664777
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664777)">Add Image</button>
+<div class="upload-options" id="upload-options-86664777" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664777)">Camera</button>
+  <label for="file-input-86664777" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664777" accept="image/*" multiple onchange="displayImages(this, 86664777)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666477"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664777" style="display: none;">
+  <video id="camera-86664777" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664777)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664777)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664777)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664777" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664778">
+            <td>1.55</td>
+           <td class = "observation_text"> RIU Power Supply Card-1
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664778
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664778)">Add Image</button>
+<div class="upload-options" id="upload-options-86664778" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664778)">Camera</button>
+  <label for="file-input-86664778" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664778" accept="image/*" multiple onchange="displayImages(this, 86664778)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666478"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664778" style="display: none;">
+  <video id="camera-86664778" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664778)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664778)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664778)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664778" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664779">
+            <td>1.56</td>
+           <td class = "observation_text"> RIU Power Supply Card-2
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664779
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664779)">Add Image</button>
+<div class="upload-options" id="upload-options-86664779" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664779)">Camera</button>
+  <label for="file-input-86664779" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664779" accept="image/*" multiple onchange="displayImages(this, 86664779)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666479"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664779" style="display: none;">
+  <video id="camera-86664779" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664779)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664779)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664779)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664779" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664780">
+            <td>1.57</td>
+           <td class = "observation_text"> RIU communication card 1-Remote
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664780
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664780)">Add Image</button>
+<div class="upload-options" id="upload-options-86664780" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664780)">Camera</button>
+  <label for="file-input-86664780" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664780" accept="image/*" multiple onchange="displayImages(this, 86664780)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666480"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664780" style="display: none;">
+  <video id="camera-86664780" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664780)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664780)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664780)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664780" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664781">
+            <td>1.58</td>
+           <td class = "observation_text"> RIU communication card 2-Remote
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664781
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664781)">Add Image</button>
+<div class="upload-options" id="upload-options-86664781" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664781)">Camera</button>
+  <label for="file-input-86664781" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664781" accept="image/*" multiple onchange="displayImages(this, 86664781)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666481"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664781" style="display: none;">
+  <video id="camera-86664781" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664781)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664781)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664781)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664781" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664782">
+            <td>1.59</td>
+           <td class = "observation_text"> Field Scanner Card 1
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664782
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664782)">Add Image</button>
+<div class="upload-options" id="upload-options-86664782" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664782)">Camera</button>
+  <label for="file-input-86664782" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664782" accept="image/*" multiple onchange="displayImages(this, 86664782)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666482"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664782" style="display: none;">
+  <video id="camera-86664782" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664782)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664782)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664782)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664782" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664783">
+            <td>1.60</td>
+           <td class = "observation_text"> Field Scanner Card 2
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664783
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664783)">Add Image</button>
+<div class="upload-options" id="upload-options-86664783" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664783)">Camera</button>
+  <label for="file-input-86664783" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664783" accept="image/*" multiple onchange="displayImages(this, 86664783)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666483"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664783" style="display: none;">
+  <video id="camera-86664783" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664783)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664783)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664783)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664783" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664784">
+            <td>1.61</td>
+           <td class = "observation_text"> Field Scanner Card 3
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664784
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664784)">Add Image</button>
+<div class="upload-options" id="upload-options-86664784" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664784)">Camera</button>
+  <label for="file-input-86664784" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664784" accept="image/*" multiple onchange="displayImages(this, 86664784)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666484"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664784" style="display: none;">
+  <video id="camera-86664784" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664784)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664784)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664784)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664784" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664785">
+            <td>1.62</td>
+           <td class = "observation_text"> Field Scanner Card 4
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664785
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664785)">Add Image</button>
+<div class="upload-options" id="upload-options-86664785" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664785)">Camera</button>
+  <label for="file-input-86664785" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664785" accept="image/*" multiple onchange="displayImages(this, 86664785)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666485"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664785" style="display: none;">
+  <video id="camera-86664785" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664785)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664785)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664785)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664785" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664786">
+            <td>1.63</td>
+           <td class = "observation_text"> RIU Battery Charge Cum Filter-1
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664786
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664786)">Add Image</button>
+<div class="upload-options" id="upload-options-86664786" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664786)">Camera</button>
+  <label for="file-input-86664786" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664786" accept="image/*" multiple onchange="displayImages(this, 86664786)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666486"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664786" style="display: none;">
+  <video id="camera-86664786" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664786)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664786)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664786)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664786" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+
+          <tr id="row-86664787">
+            <td>1.64</td>
+           <td class = "observation_text"> RIU Battery Charge Cum Filter-2
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);86664787
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(86664787)">Add Image</button>
+<div class="upload-options" id="upload-options-86664787" style="display: none;">
+  <button class="add-image" onclick="startCamera(86664787)">Camera</button>
+  <label for="file-input-86664787" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-86664787" accept="image/*" multiple onchange="displayImages(this, 86664787)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-8666487"></div>
+      <!-- Camera Container -->
+<div id="camera-container-86664787" style="display: none;">
+  <video id="camera-86664787" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(86664787)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(86664787)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(86664787)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-86664787" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
 
           
         </tbody>
@@ -2820,13 +3875,13 @@ async function showSection(section, subsection) {
 
     <tr id="row-21">
       <td>2.1</td>
-      <td class="observation_text">Dimensions of building (LxWxH)</td>
-      <td class="requirement_text">Building shall be constructed as per approved Building Diagram</td>
+      <td class="observation_text">KAVACH Building Works</td>
+      <td class="requirement_text">Building Commissioning Report from the contractor shall be available with the customer's sign-off, and there shall be no open points in the report.</td>
       <td class = "select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Available">Available</option>
+                <option value="Not Available">Not Available</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -2851,7 +3906,7 @@ async function showSection(section, subsection) {
   <canvas id="canvas-21" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
-    <tr id="row-38">
+    <!-- <tr id="row-38">
       <td>2.2</td>
       <td class="observation_text">Construction Quality</td>
       <td class="requirement_text">Walls and steps shall be free from cracks.</td>
@@ -3117,7 +4172,7 @@ async function showSection(section, subsection) {
   <button class="reverse-camera" onclick="switchCamera(28)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
   <canvas id="canvas-28" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>   
-    </tr>
+    </tr> -->
     </tbody>
       </table>
       </div>
@@ -3161,13 +4216,13 @@ async function showSection(section, subsection) {
         <tbody id="observations-tbody-4_0">
           <tr id="row-31">
       <td>3.1</td>
-      <td class="observation_text">Installation Location</td>
-      <td class="requirement_text">Installation location must be according to the approved desktop RSSI survey report.</td>
+      <td class="observation_text">Tower Installation</td>
+      <td class="requirement_text">Tower Commissioning Report from the contractor shall be available with the customer's sign-off, and there shall be no open points in the report.</td>
       <td class="select">
         <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Available">Available</option>
+                <option value="Not Available">Not Available</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -3192,7 +4247,7 @@ async function showSection(section, subsection) {
   <canvas id="canvas-31" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
- <tr id="row-4265">
+ <!-- <tr id="row-4265">
       <td>3.2</td>
       <td class="observation_text">Soil test</td>
       <td class="requirement_text">Soil test report shall be available for the location.</td>
@@ -3424,7 +4479,7 @@ async function showSection(section, subsection) {
   <button class="reverse-camera" onclick="switchCamera(45098)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
   <canvas id="canvas-45098" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
-    </tr>
+    </tr> -->
     </tbody>
       </table>
       </div>
@@ -3463,12 +4518,12 @@ async function showSection(section, subsection) {
           <tr id="row-41">
       <td>4.1</td>
       <td class="observation_text">Installation</td>
-      <td class="requirement_text">IPS unit shall be installed as per approved floor plan drawing.</td>
+      <td class="requirement_text">IPS PDU unit shall be mounted on the wall using M8 insulators, secured with M8 bolts, and tightened to a torque of 20 Nm as per diagram 5 16 76 0053</td>
        <td class="select">
         <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Yes">Ok</option>
+                <option value="No">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -3496,12 +4551,12 @@ async function showSection(section, subsection) {
     <tr id="row-411">
       <td>4.1.1</td>
       <td class="observation_text">Installation</td>
-      <td class="requirement_text">IPS unit shall be mounted on insulators and secured to the floor by grouting.</td>
+      <td class="requirement_text">Station PDU unit shall be mounted on the wall using M8 insulators, secured with M8 bolts, and tightened to a torque of 20 Nm as per diagram 5 16 76 0054</td>
        <td class="select">
         <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Yes">Ok</option>
+                <option value="No">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -3529,12 +4584,12 @@ async function showSection(section, subsection) {
     <tr id="row-412">
       <td>4.1.2</td>
       <td class="observation_text">Cabling</td>
-      <td class="requirement_text">All external cables entering the IPS unit shall pass through cable glands and ensure no cable entry shall be left open without a cable gland.</td>
+      <td class="requirement_text">All external cables entering the PDU shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.</td>
       <td class="select">
         <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Yes">Ok</option>
+                <option value="No">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -3561,13 +4616,13 @@ async function showSection(section, subsection) {
     </tr>
     <tr id="row-413">
       <td>4.1.3</td>
-      <td class="observation_text">Earthing</td>
-      <td class="requirement_text">IPS unit shall be connected to the ring earth conductor using a 10 sq.mm green/yellow earthing wire.</td>
+      <td class="observation_text">Cabling</td>
+      <td class="requirement_text">Output connections shall be maintained as per the Station PDU schematic diagram 5 16 49 0671</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Yes">Ok</option>
+                <option value="No">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -3594,8 +4649,8 @@ async function showSection(section, subsection) {
     </tr>
      <tr id="row-414">
       <td>4.1.4</td>
-      <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Bolts shall be tightened to a torque of 8 Nm, and torque marking shall be applied using yellow paint.</td>
+      <td class="observation_text">Cabling</td>
+      <td class="requirement_text">Ensure lugs with sleeves / Ferrules are properly crimped and inserted into the terminal; no loose strands shall be left.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -3627,8 +4682,8 @@ async function showSection(section, subsection) {
     </tr>
     <tr id="row-415">
       <td>4.1.5</td>
-      <td class="observation_text">Functionality</td>
-      <td class="requirement_text">110VDC +/-1% output shall be in the range of 108.9 V DC to 111.1 V DC.</td>
+      <td class="observation_text">Earthing</td>
+      <td class="requirement_text">PDU units shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -3658,15 +4713,82 @@ async function showSection(section, subsection) {
   <canvas id="canvas-415" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
-    <tr id="row-42">
-      <td>4.2</td>
-      <td class="observation_text">Installation</td>
-      <td class="requirement_text">One PDU shall be installed near IPS and a second PDU shall be installed close to Stationary Kavach unit (Ref: Power supply diagram and Load Calculations).</td>
-      <td class="select">
+    <tr id="row-416">
+      <td>4.1.6</td>
+      <td class="observation_text">Earthing</td>
+      <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
+       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
+              </select>
+      </td>
+      <td class="remarks">
+        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+      </td>
+     <td>
+       <button class="add-image" onclick="showUploadOptions(416)">Add Image</button>
+<div class="upload-options" id="upload-options-416" style="display: none;">
+  <button class="add-image" onclick="startCamera(416)">Camera</button>
+  <label for="file-input-416" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-416" accept="image/*" multiple onchange="displayImages(this, 416)">
+</div>
+      <!-- Container for multiple images -->
+      <div id="image-container-416"></div>
+      <!-- Camera Container -->
+<div id="camera-container-416" style="display: none;">
+  <video id="camera-416" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(416)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(416)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(416)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-416" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+    </tr>
+    <tr id="row-417">
+      <td>4.1.7</td>
+      <td class="observation_text">Functionality</td>
+      <td class="requirement_text">Functional testing shall be performed as per the PDU test procedure 5 53 69 0001.</td>
+       <td class="select">
+       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+                <option value="Select">Select</option>
+                <option value="Yes">Ok</option>
+                <option value="No">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
+              </select>
+      </td>
+      <td class="remarks">
+        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+      </td>
+     <td>
+       <button class="add-image" onclick="showUploadOptions(417)">Add Image</button>
+<div class="upload-options" id="upload-options-417" style="display: none;">
+  <button class="add-image" onclick="startCamera(417)">Camera</button>
+  <label for="file-input-417" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-417" accept="image/*" multiple onchange="displayImages(this, 417)">
+</div>
+      <!-- Container for multiple images -->
+      <div id="image-container-417"></div>
+      <!-- Camera Container -->
+<div id="camera-container-417" style="display: none;">
+  <video id="camera-417" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(417)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(417)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(417)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-417" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+    </tr>
+    <tr id="row-42">
+      <td>4.2</td>
+      <td class="observation_text">Installation</td>
+      <td class="requirement_text">DC-DC Converter unit shall be installed as per the approved floor plan drawing, mounted on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0055</td>
+      <td class="select">
+       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+                <option value="Select">Select</option>
+                <option value="Yes">Ok</option>
+                <option value="No">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -3692,13 +4814,14 @@ async function showSection(section, subsection) {
     </tr>
     <tr id="row-421">
       <td>4.2.1</td>
-      <td class="observation_text">Installation</td>
-      <td class="requirement_text">PDU units shall be mounted on insulators and secured with fasteners.</td>
+      <td class="observation_text">Cabling</td>
+      <td class="requirement_text">All external cables entering the unit shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Yes">Ok</option>
+                <option value="No">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -3724,13 +4847,14 @@ async function showSection(section, subsection) {
     </tr>
     <tr id="row-422">
       <td>4.2.2</td>
-      <td class="observation_text">Installation</td>
-      <td class="requirement_text">MCB and Fuse ratings shall be verified as per load calculation (Ref: Power supply diagram and Load Calculations)</td>
+      <td class="observation_text">Earthing</td>
+      <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Yes">Ok</option>
+                <option value="No">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -3757,13 +4881,14 @@ async function showSection(section, subsection) {
 
     <tr id="row-423">
       <td>4.2.3</td>
-      <td class="observation_text">Cabling</td>
-      <td class="requirement_text">All external cables entering the PDU shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.</td>
+      <td class="observation_text">Earthing</td>
+      <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Yes">Ok</option>
+                <option value="No">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -3789,13 +4914,16 @@ async function showSection(section, subsection) {
     </tr>
     <tr id="row-424">
       <td>4.2.4</td>
-      <td class="observation_text">Cabling</td>
-      <td class="requirement_text">Output connections shall be maintained as per the Station PDU schematic.<br> (Ref drawing: 5 16 49 0671)</td>
+      <td class="observation_text">Functionality</td>
+      <td class="requirement_text">DC-DC converter output voltage shall be minimum 24 V DC, +/- 5% 
+(22.8 VDC to 25.2 VDC)
+</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Yes">Ok</option>
+                <option value="No">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
