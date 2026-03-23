@@ -1098,7 +1098,7 @@ async function showSection(section, subsection) {
 <tr id="row-19">
   <td>1.9</td>
   <td class="observation_text">
-    Vital Gateway Card 1<input 
+    Vital Gateway Card 1 (S2S) <input 
   type="text" 
   id="kavach-main-unit" 
   name="barcode_kavach_main_unit" 
@@ -1149,7 +1149,7 @@ async function showSection(section, subsection) {
 <tr id="row-110">
   <td>1.10</td>
   <td class="observation_text">      
-   Vital Gateway Card 2 <input 
+   Vital Gateway Card 2 (S2S) <input 
   type="text" 
   id="kavach-main-unit" 
   name="barcode_kavach_main_unit" 
@@ -2846,7 +2846,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664767" accept="image/*" multiple onchange="displayImages(this, 86664767)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666477"></div>
+      <div id="image-container-86664767"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664767" style="display: none;">
   <video id="camera-86664767" width="100%" height="auto" autoplay></video>
@@ -2894,7 +2894,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664768" accept="image/*" multiple onchange="displayImages(this, 86664768)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666478"></div>
+      <div id="image-container-86664768"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664768" style="display: none;">
   <video id="camera-86664768" width="100%" height="auto" autoplay></video>
@@ -2942,7 +2942,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664769" accept="image/*" multiple onchange="displayImages(this, 86664769)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666479"></div>
+      <div id="image-container-86664769"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664769" style="display: none;">
   <video id="camera-86664769" width="100%" height="auto" autoplay></video>
@@ -2990,7 +2990,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664770" accept="image/*" multiple onchange="displayImages(this, 86664770)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666470"></div>
+      <div id="image-container-86664770"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664770" style="display: none;">
   <video id="camera-86664770" width="100%" height="auto" autoplay></video>
@@ -3038,7 +3038,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664771" accept="image/*" multiple onchange="displayImages(this, 86664771)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666471"></div>
+      <div id="image-container-86664771"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664771" style="display: none;">
   <video id="camera-86664771" width="100%" height="auto" autoplay></video>
@@ -3086,7 +3086,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664772" accept="image/*" multiple onchange="displayImages(this, 86664772)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666472"></div>
+      <div id="image-container-86664772"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664772" style="display: none;">
   <video id="camera-86664772" width="100%" height="auto" autoplay></video>
@@ -3134,7 +3134,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664773" accept="image/*" multiple onchange="displayImages(this, 86664773)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666473"></div>
+      <div id="image-container-86664773"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664773" style="display: none;">
   <video id="camera-86664773" width="100%" height="auto" autoplay></video>
@@ -3182,7 +3182,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664774" accept="image/*" multiple onchange="displayImages(this, 86664774)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666474"></div>
+      <div id="image-container-86664774"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664774" style="display: none;">
   <video id="camera-86664774" width="100%" height="auto" autoplay></video>
@@ -3230,7 +3230,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664775" accept="image/*" multiple onchange="displayImages(this, 86664775)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666475"></div>
+      <div id="image-container-86664775"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664775" style="display: none;">
   <video id="camera-86664775" width="100%" height="auto" autoplay></video>
@@ -3278,7 +3278,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664776" accept="image/*" multiple onchange="displayImages(this, 86664776)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666476"></div>
+      <div id="image-container-86664776"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664776" style="display: none;">
   <video id="camera-86664776" width="100%" height="auto" autoplay></video>
@@ -3326,7 +3326,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664777" accept="image/*" multiple onchange="displayImages(this, 86664777)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666477"></div>
+      <div id="image-container-86664777"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664777" style="display: none;">
   <video id="camera-86664777" width="100%" height="auto" autoplay></video>
@@ -3374,7 +3374,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664778" accept="image/*" multiple onchange="displayImages(this, 86664778)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666478"></div>
+      <div id="image-container-86664778"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664778" style="display: none;">
   <video id="camera-86664778" width="100%" height="auto" autoplay></video>
@@ -3422,7 +3422,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664779" accept="image/*" multiple onchange="displayImages(this, 86664779)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666479"></div>
+      <div id="image-container-86664779"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664779" style="display: none;">
   <video id="camera-86664779" width="100%" height="auto" autoplay></video>
@@ -3470,7 +3470,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664780" accept="image/*" multiple onchange="displayImages(this, 86664780)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666480"></div>
+      <div id="image-container-86664780"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664780" style="display: none;">
   <video id="camera-86664780" width="100%" height="auto" autoplay></video>
@@ -3518,7 +3518,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664781" accept="image/*" multiple onchange="displayImages(this, 86664781)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666481"></div>
+      <div id="image-container-86664781"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664781" style="display: none;">
   <video id="camera-86664781" width="100%" height="auto" autoplay></video>
@@ -3566,7 +3566,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664782" accept="image/*" multiple onchange="displayImages(this, 86664782)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666482"></div>
+      <div id="image-container-86664782"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664782" style="display: none;">
   <video id="camera-86664782" width="100%" height="auto" autoplay></video>
@@ -3614,7 +3614,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664783" accept="image/*" multiple onchange="displayImages(this, 86664783)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666483"></div>
+      <div id="image-container-86664783"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664783" style="display: none;">
   <video id="camera-86664783" width="100%" height="auto" autoplay></video>
@@ -3662,7 +3662,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664784" accept="image/*" multiple onchange="displayImages(this, 86664784)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666484"></div>
+      <div id="image-container-86664784"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664784" style="display: none;">
   <video id="camera-86664784" width="100%" height="auto" autoplay></video>
@@ -3710,7 +3710,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664785" accept="image/*" multiple onchange="displayImages(this, 86664785)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666485"></div>
+      <div id="image-container-86664785"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664785" style="display: none;">
   <video id="camera-86664785" width="100%" height="auto" autoplay></video>
@@ -3758,7 +3758,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664786" accept="image/*" multiple onchange="displayImages(this, 86664786)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666486"></div>
+      <div id="image-container-86664786"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664786" style="display: none;">
   <video id="camera-86664786" width="100%" height="auto" autoplay></video>
@@ -3806,7 +3806,7 @@ Field Scanner Card 1
   <input type="file" id="file-input-86664787" accept="image/*" multiple onchange="displayImages(this, 86664787)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-8666487"></div>
+      <div id="image-container-86664787"></div>
       <!-- Camera Container -->
 <div id="camera-container-86664787" style="display: none;">
   <video id="camera-86664787" width="100%" height="auto" autoplay></video>
@@ -3852,13 +3852,7 @@ Field Scanner Card 1
     mainContent.innerHTML += `
       <h3 class="section-heading"> Building</h3>
       <h4 style="color: red; font-style: italic; margin-bottom: 10px;">Following table must be filled up, if a new building is constructed, by HBL, for Kavach installation</h4>
-       <div class="section-action-container">
-          <label class="section-action-label">Section Action: </label>
-          <select class="section-action-dropdown" onchange="if(this.value === 'Not Applicable') { setSectionNA('observations-tbody-3_0'); this.value='Select'; }">
-            <option value="Select">Select Option...</option>
-            <option value="Not Applicable">Mark Whole As Section Not Applicable</option>
-          </select>
-       </div>
+
        <div class="table-container">
       <table class="observations" id="observations-section-3_0">
         <thead>
@@ -4194,13 +4188,7 @@ Field Scanner Card 1
     mainContent.innerHTML += `
       <h3 class="section-heading" > Tower </h3>
       <h4 style="color: red; font-style: italic; margin-bottom: 10px;">Following table must be filled up, if a new tower is constructed, by HBL, for Kavach project.</h4>
-       <div class="section-action-container">
-          <label class="section-action-label">Section Action: </label>
-          <select class="section-action-dropdown" onchange="if(this.value === 'Not Applicable') { setSectionNA('observations-tbody-4_0'); this.value='Select'; }">
-            <option value="Select">Select Option...</option>
-            <option value="Not Applicable">Mark Whole Section Not Applicable</option>
-          </select>
-       </div>
+
        <div  class="table-container">
       <table class="observations" id="observations-section-4_0">
         <thead>
@@ -4516,7 +4504,7 @@ Field Scanner Card 1
         </thead>
         <tbody id="observations-tbody-5_0">
           <tr id="row-41">
-      <td>4.1</td>
+      <td>4.1.1</td>
       <td class="observation_text">Installation</td>
       <td class="requirement_text">IPS PDU unit shall be mounted on the wall using M8 insulators, secured with M8 bolts, and tightened to a torque of 20 Nm as per diagram 5 16 76 0053</td>
        <td class="select">
@@ -4549,7 +4537,7 @@ Field Scanner Card 1
 </div>
     </tr>
     <tr id="row-411">
-      <td>4.1.1</td>
+      <td>4.1.2</td>
       <td class="observation_text">Installation</td>
       <td class="requirement_text">Station PDU unit shall be mounted on the wall using M8 insulators, secured with M8 bolts, and tightened to a torque of 20 Nm as per diagram 5 16 76 0054</td>
        <td class="select">
@@ -4582,7 +4570,7 @@ Field Scanner Card 1
 </div>
     </tr>
     <tr id="row-412">
-      <td>4.1.2</td>
+      <td>4.1.3</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">All external cables entering the PDU shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.</td>
       <td class="select">
@@ -4615,7 +4603,7 @@ Field Scanner Card 1
 </div>
     </tr>
     <tr id="row-413">
-      <td>4.1.3</td>
+      <td>4.1.4</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">Output connections shall be maintained as per the Station PDU schematic diagram 5 16 49 0671</td>
        <td class="select">
@@ -4648,7 +4636,7 @@ Field Scanner Card 1
 </div>
     </tr>
      <tr id="row-414">
-      <td>4.1.4</td>
+      <td>4.1.5</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">Ensure lugs with sleeves / Ferrules are properly crimped and inserted into the terminal; no loose strands shall be left.</td>
        <td class="select">
@@ -4681,7 +4669,7 @@ Field Scanner Card 1
 </div>
     </tr>
     <tr id="row-415">
-      <td>4.1.5</td>
+      <td>4.1.6</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">PDU units shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
        <td class="select">
@@ -4714,7 +4702,7 @@ Field Scanner Card 1
 </div>
     </tr>
     <tr id="row-416">
-      <td>4.1.6</td>
+      <td>4.1.7</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
        <td class="select">
@@ -4747,7 +4735,7 @@ Field Scanner Card 1
 </div>
     </tr>
     <tr id="row-417">
-      <td>4.1.7</td>
+      <td>4.1.8</td>
       <td class="observation_text">Functionality</td>
       <td class="requirement_text">Functional testing shall be performed as per the PDU test procedure 5 53 69 0001.</td>
        <td class="select">
@@ -4780,7 +4768,7 @@ Field Scanner Card 1
 </div>
     </tr>
     <tr id="row-42">
-      <td>4.2</td>
+      <td>4.2.1</td>
       <td class="observation_text">Installation</td>
       <td class="requirement_text">DC-DC Converter unit shall be installed as per the approved floor plan drawing, mounted on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0055</td>
       <td class="select">
@@ -4813,7 +4801,7 @@ Field Scanner Card 1
 </div>
     </tr>
     <tr id="row-421">
-      <td>4.2.1</td>
+      <td>4.2.2</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">All external cables entering the unit shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.</td>
       <td class="select">
@@ -4846,7 +4834,7 @@ Field Scanner Card 1
 </div>
     </tr>
     <tr id="row-422">
-      <td>4.2.2</td>
+      <td>4.2.3</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
       <td class="select">
@@ -4880,7 +4868,7 @@ Field Scanner Card 1
     </tr>
 
     <tr id="row-423">
-      <td>4.2.3</td>
+      <td>4.2.4</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
       <td class="select">
@@ -4913,7 +4901,7 @@ Field Scanner Card 1
 </div>
     </tr>
     <tr id="row-424">
-      <td>4.2.4</td>
+      <td>4.2.5</td>
       <td class="observation_text">Functionality</td>
       <td class="requirement_text">DC-DC converter output voltage shall be minimum 24 V DC, +/- 5% 
 (22.8 VDC to 25.2 VDC)
@@ -4997,7 +4985,7 @@ Field Scanner Card 1
         </thead>
         <tbody id="observations-tbody-6_0">
     <tr id="row-51">
-      <td>5.1</td>
+      <td>5.1.1</td>
       <td class="observation_text">Installation</td>
       <td class="requirement_text">Kavach unit shall be installed as per the approved floor plan drawing, mounted on the floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0056.</td>
       <td class="select">
@@ -5029,7 +5017,7 @@ Field Scanner Card 1
 </div>
     </tr>  
     <tr id="row-512">
-      <td>5.1.1</td>
+      <td>5.1.2</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">All external cables shall enter through cable glands only.
 No unused cable entries left open.
@@ -5064,7 +5052,7 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-517">
-      <td>5.1.2</td>
+      <td>5.1.3</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
        <td class="select">
@@ -5096,7 +5084,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-518">
-      <td>5.1.3</td>
+      <td>5.1.4</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
        <td class="select">
@@ -5128,7 +5116,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-519">
-      <td>5.1.4</td>
+      <td>5.1.5</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
        <td class="select">
@@ -5161,7 +5149,7 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-5110">
-      <td>5.1.5</td>
+      <td>5.1.6</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">Station Kavach Termination Unit shall be wall-mounted near the Kavach unit using insulators, secured with M8 bolts, and tightened to a torque of 20 Nm as per diagram 5 16 76 0045.</td>
        <td class="select">
@@ -5193,7 +5181,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-51110">
-      <td>5.1.6</td>
+      <td>5.1.7</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">OFC cables for SMOCIP and RTU shall be spliced as per diagram 5 16 49 0559, and proper bunching and routing shall be ensured.</td>
       <td class="select">
@@ -5225,7 +5213,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-52">
-      <td>5.2</td>
+      <td>5.2.1</td>
       <td class="observation_text">Installation</td>
       <td class="requirement_text">SMOCIP shall be installed in the Station Master’s room at an ergonomic height. The panel shall be securely fixed using M6 screws and tightened to a torque of 8 Nm with torque marking applied, as per diagram 5 16 76 0040</td>
        <td class="select">
@@ -5259,7 +5247,7 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-522">
-      <td>5.2.1</td>
+      <td>5.2.2</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">SMOCIP Termination Unit shall be wall-mounted near the SMOCIP unit, using insulators, secured with M6 bolts, and tightened to a torque of 8 Nm as per diagram  5 16 76 0046</td>
         <td class="select">
@@ -5292,7 +5280,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-523">
-      <td>5.2.2</td>
+      <td>5.2.3</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">Power and OFC cables from Kavach termination unit shall be terminated as per diagram 5 16 49 0559.</td>
         <td class="select">
@@ -5326,7 +5314,7 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-5230">
-      <td>5.2.3</td>
+      <td>5.2.4</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">OFC cables of SMOCIP shall be spliced as per diagram 5 16 49 0559, and proper bunching and routing shall be ensured.</td>
         <td class="select">
@@ -5360,7 +5348,7 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-524">
-      <td>5.2.4</td>
+      <td>5.2.5</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
         <td class="select">
@@ -5393,7 +5381,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-525">
-      <td>5.2.5</td>
+      <td>5.2.6</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
        <td class="select">
@@ -5427,7 +5415,7 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-526">
-      <td>5.2.6</td>
+      <td>5.2.7</td>
       <td class="observation_text">Functionality</td>
       <td class="requirement_text">System Health LED shall blink and ensure SYSTEM OK along with the respective station name shall be displayed on the Display.</td>
        <td class="select">
@@ -5460,7 +5448,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
        <tr id="row-5262">
-      <td>5.2.7</td>
+      <td>5.2.8</td>
       <td class="observation_text">Functionality</td>
       <td class="requirement_text">Verify that pressing the SOS and Common buttons on the SM-OCIP increments the mechanical counter by one.</td>
         <td class="select">
@@ -5493,7 +5481,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-527">
-      <td>5.2.8</td>
+      <td>5.2.9</td>
       <td class="observation_text">Checksum</td>
       <td class="requirement_text">Verify the checksums as per the FAT certificate.</td>
        <td class="select" style="padding-right: 10px;">
@@ -5526,7 +5514,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-53">
-      <td>5.3</td>
+      <td>5.3.1</td>
       <td class="observation_text">Installation</td>
       <td class="requirement_text">Two antennas shall be installed on the Kavach room rooftop with a minimum separation of 3 meters, grouting shall be carried out as per diagram 5 16 67 0039, and torque of 10 Nm shall be applied for M6 fasteners with torque marking provided.</td>
        <td class="select">
@@ -5559,7 +5547,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-531">
-      <td>5.3.1</td>
+      <td>5.3.2</td>
       <td class="observation_text">Installation</td>
       <td class="requirement_text">No obstruction above antennas like tree branches, sun-shades, and ensure open to sky etc.</td>
       <td class="select">
@@ -5593,7 +5581,7 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-534">
-      <td>5.3.2</td>
+      <td>5.3.3</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">Antenna cables shall be routed via diverse paths.</td>
       <td class="select">
@@ -5626,7 +5614,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-535">
-      <td>5.3.3</td>
+      <td>5.3.4</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">Separate conduits shall be used and Roof conduits shall be sealed against dust, water, and insects.</td>
       <td class="select">
@@ -5659,7 +5647,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-536">
-      <td>5.3.4</td>
+      <td>5.3.5</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">In each antenna, the GPS and GSM cables shall be connected to their respective connectors as per the labels provided on the antenna.</td>
        <td class="select">
@@ -5692,7 +5680,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-54">
-      <td>5.4</td>
+      <td>5.4.1</td>
       <td class="observation_text">Installation</td>
       <td class="requirement_text">RIU shall be installed on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0057.</td>
       <td class="select">
@@ -5726,7 +5714,7 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-542">
-      <td>5.4.1</td>
+      <td>5.4.2</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">All external cables entering into the RIU unit shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.</td>
        <td class="select">
@@ -5759,7 +5747,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-543">
-      <td>5.4.2</td>
+      <td>5.4.3</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">OFC patch cords shall be properly tagged to identify default and standby links.</td>
        <td class="select">
@@ -5793,7 +5781,7 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-544">
-      <td>5.4.3</td>
+      <td>5.4.4</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
        <td class="select">
@@ -5826,7 +5814,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-545">
-      <td>5.4.4</td>
+      <td>5.4.5</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
       <td class="select">
@@ -5860,7 +5848,7 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-546">
-      <td>5.4.5</td>
+      <td>5.4.6</td>
       <td class="observation_text">FDMS Box installation</td>
       <td class="requirement_text">FDMS Box shall be installed in the 15U/17U rack of the RIU with proper wall mounting, and OFC splicing shall be carried out as per the network drawing.</td>
       <td class="select">
@@ -5943,7 +5931,7 @@ Ensure mill connector shall be locked properly.</td>
         </thead>
         <tbody id="observations-tbody-7_0">
     <tr id="row-61">
-      <td>6.1</td>
+      <td>6.1.1</td>
       <td class="observation_text">RTU Fixing</td>
       <td class="requirement_text">Both RTUs shall be firmly secured to the tower platform using M12 bolts and nuts, and a torque of 85 Nm shall be applied as per diagram 5 16 67 0983.</td>
        <td class="select">
@@ -5977,7 +5965,7 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
   
 <tr id="row-601">
-      <td>6.1.1</td>
+      <td>6.1.2</td>
       <td class="observation_text">RTU Fixing</td>
       <td class="requirement_text">Ensure RTU doors are fully closed and locked.</td>
       <td class="select">
@@ -6010,7 +5998,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-612">
-      <td>6.1.2</td>
+      <td>6.1.3</td>
       <td class="observation_text">RTU Earthing</td>
       <td class="requirement_text">RTU shall be properly earthed by connecting a 35 sq.mm green to GI strip earthing conductor from the RTU earthing bolt to the designated earth pit-4, as per diagram 5 16 76 0043.</td>
      <td class="select">
@@ -6043,7 +6031,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-613">
-      <td>6.1.3</td>
+      <td>6.1.4</td>
       <td class="observation_text">RTU Earthing</td>
       <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
       <td class="select">
@@ -6077,7 +6065,7 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-615">
-      <td>6.1.4</td>
+      <td>6.1.5</td>
       <td class="observation_text">OFC cable termination</td>
       <td class="requirement_text">OFC cable from the Relay Room shall be spliced and terminated in the splice holder inside the RTU.<br>(Ref. Drawing: 5 16 49 0559)</td>
       <td class="select">
@@ -6110,7 +6098,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-616">
-      <td>6.1.5</td>
+      <td>6.1.6</td>
       <td class="observation_text">OFC cable termination</td>
       <td class="requirement_text">OFC cables for RTU shall be spliced as per diagram 5 16 49 0559 and ensure bunching and routing shall be done properly.</td>
       <td class="select">
@@ -6144,7 +6132,7 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-617">
-      <td>6.1.6</td>
+      <td>6.1.7</td>
       <td class="observation_text">110V Power cable termination</td>
       <td class="requirement_text">Cable glands used for 110 V DC power cable entry into RTU shall be firmly tightened.</td>
        <td class="select">
@@ -6177,7 +6165,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-618">
-      <td>6.1.7</td>
+      <td>6.1.8</td>
       <td class="observation_text">110V Power cable termination</td>
       <td class="requirement_text">110 V DC power cables shall be terminated inside RTU as per approved drawing 5 16 49 0672.</td>
       <td class="select">
@@ -7428,13 +7416,7 @@ OFC armoured cables shall be used for communication.</td>
       // For all other sections, add Save Observation button
     mainContent.innerHTML += `
       <h3 class="section-heading" > Outdoor cabling </h3>
-       <div class="section-action-container">
-          <label class="section-action-label">Section Action: </label>
-          <select class="section-action-dropdown" onchange="if(this.value === 'Not Applicable') { setSectionNA('observations-tbody-12_0'); this.value='Select'; }">
-            <option value="Select">Select</option>
-            <option value="Not Applicable">Mark Whole Section As Not Applicable</option>
-          </select>
-       </div>
+
        <div  class="table-container">
       <table class="observations" id="observations-section-12_0">
         <thead>
@@ -9974,7 +9956,7 @@ const statusColors = {
   "Not Applicable": "green", "Fixed": "Green", "Connected": "green", "Routing done": "green",
   "Voltage found Ok": "green", "Done": "green", "Ok": "green", "Earth Connected": "green",
   "Functioning": "green", "Identification Done": "green", "Cable ties implemented": "green",
-  "Joined": "Green", "Installed": "green", "Not Available": "green", "Actual Rating:": "green",
+  "Joined": "Green", "Installed": "green", "Available": "green", "Actual Rating:": "green",
   "Compliance": "green", "Yes": "green",
 
   "Not Present": "red", "Not Matching": "red", "Not Installed": "red", "Found Not Ok": "red",
@@ -9982,6 +9964,7 @@ const statusColors = {
   "Not Done": "red", "Routing Not done": "red", "Not Ok": "red", "PCCL Not Done": "red",
   "Earth not connected": "red", "Not Functioning": "red", "Identification Not Done": "red",
   "Cable ties not implemented": "red", "Not Joined": "red", "Non-Compliance": "red", "No": "red",
+  "Not Available": "red",
 
   "Not Connected": "yellow"
 };

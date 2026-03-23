@@ -38,8 +38,8 @@
     const baseline = {
       // Section 1 baseline is 64 rows per metadata and business rule
       "1": new Set(Array.from({ length: 64 }, (_, i) => `1.${i + 1}`)),
-      // Section 2 baseline should include all expected 9 rows (not treated as extras)
-      "2": new Set(['2.1','2.2','2.3','2.4','2.5','2.6','2.7','2.8','2.9'])
+      // Section 2 baseline should include all expected rows (not treated as extras)
+      "2": new Set(['2.1','2.2','2.3','2.3.1','2.4','2.5','2.6','2.7','2.8','2.9'])
     };
 
     if (!baseline[sectionId]) return 0;
@@ -539,7 +539,7 @@
 
           if (isGreen) {
             statusColor = 'green';
-          } else if (["Not Present", "No", "Not Matching", "Not Installed", "Found Not Ok", "Not Implemented", "Not Fixed", "Not Connected", "Routing Not done", "Voltage found not Ok", "Torquing Not done", "Not Done", "Not Ok", "PCCL Not Done", "Earthing Not done", "Not Functioning", "Identification Not Done", "Cable ties not implemented", "Not Joined", "Quantity Not Matched"].includes(statusText)) {
+          } else if (["Not Present", "No", "Not Matching", "Not Installed", "Found Not Ok", "Not Implemented", "Not Fixed", "Not Connected", "Routing Not done", "Voltage found not Ok", "Torquing Not done", "Not Done", "Not Ok", "PCCL Not Done", "Earthing Not done", "Not Functioning", "Identification Not Done", "Cable ties not implemented", "Not Joined", "Quantity Not Matched", "Not Available"].includes(statusText)) {
             statusColor = 'red';
           } else {
             statusColor = 'yellow';
@@ -927,6 +927,41 @@
         // Time table removed
 
 
+        // Summary Table (Total, Closed, Open) - Replaces Section-wise Summary
+        pdf.autoTable({
+          startY: finalY,
+          head: [["Total Points", "Closed Points", "Open Points"]],
+          body: [[totalPointsOverallNum, totalClosedOverallNum, openPointsNum]],
+          theme: "grid",
+          styles: {
+            fontSize: 10,
+            cellPadding: 1,
+            halign: 'center',
+            valign: 'middle',
+            lineWidth: 0.1,
+            lineColor: [0, 0, 0]
+          },
+          headStyles: {
+            fillColor: [0, 108, 204],
+            textColor: [255, 255, 255],
+            fontStyle: 'bold',
+            lineWidth: 0.5,
+            lineColor: [0, 0, 0]
+          },
+          bodyStyles: {
+            lineWidth: 0.5,
+            lineColor: [0, 0, 0],
+            textColor: [0, 0, 0]
+          },
+          margin: { right: 10 },
+          columnStyles: {
+            0: { cellWidth: 61 },
+            1: { cellWidth: 62 },
+            2: { cellWidth: 62 }
+          }
+        });
+        finalY = pdf.lastAutoTable.finalY + 10;
+
         // --- Completion Status Table ---
         pdf.autoTable({
           startY: finalY,
@@ -990,41 +1025,6 @@
                 pdf.text("Not Completed", boxX + boxSize + 6, boxY + boxSize - 1);
               }
             }
-          }
-        });
-        finalY = pdf.lastAutoTable.finalY + 10;
-
-        // Summary Table (Total, Closed, Open) - Replaces Section-wise Summary
-        pdf.autoTable({
-          startY: finalY,
-          head: [["Total Points", "Closed Points", "Open Points"]],
-          body: [[totalPointsOverallNum, totalClosedOverallNum, openPointsNum]],
-          theme: "grid",
-          styles: {
-            fontSize: 10,
-            cellPadding: 1,
-            halign: 'center',
-            valign: 'middle',
-            lineWidth: 0.1,
-            lineColor: [0, 0, 0]
-          },
-          headStyles: {
-            fillColor: [0, 108, 204],
-            textColor: [255, 255, 255],
-            fontStyle: 'bold',
-            lineWidth: 0.5,
-            lineColor: [0, 0, 0]
-          },
-          bodyStyles: {
-            lineWidth: 0.5,
-            lineColor: [0, 0, 0],
-            textColor: [0, 0, 0]
-          },
-          margin: { right: 10 },
-          columnStyles: {
-            0: { cellWidth: 61 },
-            1: { cellWidth: 62 },
-            2: { cellWidth: 62 }
           }
         });
         finalY = pdf.lastAutoTable.finalY + 10;
@@ -1305,7 +1305,7 @@
                 const statusText = String(data.cell.raw).trim();
 
                 const greenStatuses = ["Available", "Present", "Ok", "Yes", "Routing Done", "Fixed", "Secured", "Installed", "Connected", "Aligned", "Torquing done", "Positioning done", "Configured", "Welding done", "Earthing done", "Matching", "Not Applicable", "Coating done", "Applied", "Cables Connected", "Metal clamps implemented", "Locked", "Verified and ok"];
-                const redStatuses = ["Not Present", "No", "Not Matching", "Not Installed", "Found Not Ok", "Not Implemented", "Not Fixed", "Not Connected", "Routing Not done", "Voltage found not Ok", "Torquing Not done", "Not Done", "Not Ok", "PCCL Not Done", "Earthing Not done", "Not Functioning", "Identification Not Done", "Cable ties not implemented", "Not Joined", "Quantity Not Matched"];
+                const redStatuses = ["Not Present", "No", "Not Matching", "Not Installed", "Found Not Ok", "Not Implemented", "Not Fixed", "Not Connected", "Routing Not done", "Voltage found not Ok", "Torquing Not done", "Not Done", "Not Ok", "PCCL Not Done", "Earthing Not done", "Not Functioning", "Identification Not Done", "Cable ties not implemented", "Not Joined", "Quantity Not Matched", "Not Available"];
 
                 let textColor = [0, 0, 0]; // Default black
 
@@ -1405,12 +1405,12 @@
           if (obs.S_no) requiredSnos.add(obs.S_no);
         });
 
-        // 2. Add any specificOptions items only if they are already in active observations
+        // 2. Add all specificOptions items so all expected points appear in the pending list
         if (typeof specificOptions !== 'undefined') {
           Object.keys(specificOptions).forEach(keyGroup => {
             keyGroup.split(',').forEach(sno => {
               sno = sno.trim();
-              if (sno && requiredSnos.has(sno)) {
+              if (sno) {
                 requiredSnos.add(sno);
               }
             });
