@@ -30,7 +30,7 @@ try {
     }
 
     $stmt->execute();
-    $reports = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+    $reports = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
     exit;
@@ -79,12 +79,12 @@ try {
 <div class="container">
     <!-- Back Button -->
     <a href="index.html" class="btn back-btn">Back to Home</a>
-    
+
     <!-- Search Bar on the Right -->
     <div style="text-align: right;">
       <input type="text" id="search-input" placeholder="Search by Station ID...">
     </div>
-    
+
     <h2>Your Uploaded Reports</h2>
     <?php if ($reports): ?>
         <table id="report-table">
@@ -101,9 +101,21 @@ try {
             <tbody>
             <?php foreach ($reports as $report): ?>
                 <?php
-                // Extract Station ID from the beginning of the file name (digits)
-                preg_match('/^\d+/', $report['file_name'], $stationMatches);
-                $station_id = $stationMatches[0] ?? null;
+                // Extract Station ID and Report Date from filename e.g. 6787_2026-03-17_Report_NotCompleted_Version-1.pdf
+                $station_id = null;
+                $report_date = null;
+
+                if (preg_match('/^(\d+)_([0-9]{4}-[0-9]{2}-[0-9]{2})_Report_/i', $report['file_name'], $matches)) {
+                    $station_id = $matches[1];
+                    $report_date = $matches[2];
+                } elseif (preg_match('/^\d+/', $report['file_name'], $stationMatches)) {
+                    $station_id = $stationMatches[0] ?? null;
+                }
+
+                // Values as fallbacks
+                if (!$report_date && isset($report['upload_date'])) {
+                    $report_date = substr($report['upload_date'], 0, 10);
+                }
 
                 // Modified regex to handle:
                 // - a dash after "Version" (e.g., _Version-1)
@@ -115,7 +127,7 @@ try {
                     ? '<span class="status-label completed">Completed</span>' 
                     : '<span class="status-label not-completed">Not Completed</span>';
                 ?>
-                <tr data-station-id="<?php echo htmlspecialchars($station_id); ?>">
+                <tr data-station-id="<?php echo htmlspecialchars($station_id); ?>" data-report-date="<?php echo htmlspecialchars($report_date); ?>">
                     <td><?php echo htmlspecialchars($report['file_name']); ?></td>
                     <td><?php echo htmlspecialchars(date('d/m/y', strtotime($report['upload_date']))); ?></td>
                     <td><?php echo htmlspecialchars($report['upload_time']); ?></td>

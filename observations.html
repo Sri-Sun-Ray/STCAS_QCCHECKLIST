@@ -25,13 +25,32 @@
     }
 
     const specificOptions = {
-    "1.38,1.40,1.41,1.42" : ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
+    "1.38,1.40,1.41,1.42,1.43,1.44,1.45,1.46,1.47,1.48,1.49,1.50,1.51,1.52,1.53,1.54,1.55,1.56,1.57,1.58,1.59,1.60,1.61,1.62,1.63,1.64" : ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
     "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
-    "3.1,3.2,3.3,3.4,3.4.1,3.4.2,3.5,3.6,2.1,2.2,2.3,2.3.1,2.4,2.5,2.6,2.7,2.8,4.3,4.3.1,4.3.2,4.3.3,4.3.4,4.3.5,5.2,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.3,5.3.1,5.3.2,5.3.3,5.3.4,5.4,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,8.1,8.2,8.2.1,8.2.2,8.3,8.4,8.4.1,7.1,7.1.1,7.2,7.2.1,7.3,7.3.1,7.3.2,7.4,7.4.1,7.5,6.1,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.2,6.2.1" : ["Ok", "Not Ok", "Not Applicable"],
-    "4.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.2,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,4.2.6,4.2.7,4.2.8,4.2.9,5.1,5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1,9.2,9.3,9.5,10.1,10.2,10.3,10.4,10.5,10.6,12.1,12.2,13.1,11.1,11.2,11.3": ["Ok", "Not Ok"],
+    "3.1,2.1,5.2,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.3,5.3.1,5.3.2,5.3.3,5.3.4,5.4,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,8.1,8.2,8.2.1,8.2.2,8.3,8.4,8.4.1,7.1,7.1.1,7.2,7.2.1,7.3,7.3.1,7.3.2,7.4,7.4.1,7.5,6.1,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.2,6.2.1,4.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.1.6,4.1.7,4.2,4.2.1,4.2.2,4.2.3,4.2.4" : ["Ok", "Not Ok", "Not Applicable"],
+    "5.1,5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1,9.2,9.3,9.5,10.1,10.2,10.3,10.4,10.5,10.6,12.1,12.2,13.1,11.1,11.2,11.3": ["Ok", "Not Ok"],
     "9.4,12.3" : ["Available", "Not Available"]
   };
 
+  function getCustomRowCount(sectionRows, sectionId) {
+    if (!Array.isArray(sectionRows)) return 0;
+
+    const baseline = {
+      // Section 1 baseline is 64 rows per metadata and business rule
+      "1": new Set(Array.from({ length: 64 }, (_, i) => `1.${i + 1}`)),
+      // Section 2 baseline should include all expected 9 rows (not treated as extras)
+      "2": new Set(['2.1','2.2','2.3','2.4','2.5','2.6','2.7','2.8','2.9'])
+    };
+
+    if (!baseline[sectionId]) return 0;
+
+    return sectionRows.reduce((extra, row) => {
+      if (!row || !row.S_no || !baseline[sectionId].has(row.S_no)) {
+        return extra + 1;
+      }
+      return extra;
+    }, 0);
+  }
 
   </script>
   <style>
@@ -229,8 +248,12 @@
       document.getElementById("zone").textContent = stationDetails.zone || 'N/A';
       document.getElementById("division").textContent = stationDetails.division || 'N/A';
       document.getElementById("section-name").textContent = stationDetails.sectionName || 'N/A';
-      document.getElementById("initial-date").textContent = stationDetails.initialDate || 'N/A';
-      document.getElementById("updated-date").textContent = stationDetails.updatedDate || 'N/A';
+      document.getElementById("initial-date").textContent = formatDateDDMMYYYY(stationDetails.initialDate) || 'N/A';
+      document.getElementById("updated-date").textContent = formatDateDDMMYYYY(stationDetails.updatedDate) || 'N/A';
+      // preserve raw date in session for filename use
+      stationDetails.rawInitialDate = normalizeDateToYYYYMMDD(stationDetails.initialDate);
+      stationDetails.rawUpdatedDate = normalizeDateToYYYYMMDD(stationDetails.updatedDate);
+      sessionStorage.setItem('stationInfo', JSON.stringify(stationDetails));
     } else {
       console.error('Station details not found in sessionStorage');
     }
@@ -265,25 +288,25 @@
 
     function createObservationsTable(observations) {
       const sectionMetadata = {
-        "1": { name: "Serial Number verification", base: 42 },
-        "2": { name: "Building", base: 9 },
-        "3": { name: "Tower", base: 8 },
-        "4": { name: "Power Supply", base: 22 },
-        "5": { name: "Kavach  Equipment", base: 39 },
-        "6": { name: "RF Communication equipment on tower", base: 14 },
-        "7": { name: "OFC Networking rack", base: 12 },
-        "8": { name: "Relay rack", base: 13 },
+        "1": { name: "Serial Number verification", base: 64 },
+        "2": { name: "Building", base: 1 },
+        "3": { name: "Tower", base: 1 },
+        "4": { name: "Power Supply", base: 13 },
+        "5": { name: "Kavach  Equipment", base: 27 },
+        "6": { name: "RF Communication equipment on tower", base: 12 },
+        "7": { name: "OFC Networking rack", base: 10 },
+        "8": { name: "Relay rack", base: 7 },
         "9": { name: "Earthing", base: 5 },
-        "10": { name: "Indoor wiring / cabling", base: 8 },
+        "10": { name: "Indoor wiring / cabling", base: 6 },
         "11": { name: "Outdoor cabling", base: 3 },
         "12": { name: "RFID Tags", base: 3 },
         "13": { name: "Components Inspection", base: 1 },
       };
 
       const subSectionMetadata = {
-        "4.1": "4.1 IPS(Integrated Power System)",
-        "4.2": "4.2 PDU(Power Distribution Unit)",
-        "4.3": "4.3 DC-DC Converter",
+
+        "4.1": "4.1 PDU(Power Distribution Unit)",
+        "4.2": "4.2 DC-DC Converter",
         "5.1": "5.1 Kavach Unit",
         "5.2": "5.2 SMOCIP(Station Master's Operation-Cum-Indication Panel)",
         "5.3": "5.3 GPS/GSM Antennas",
@@ -314,15 +337,9 @@
         const base = sectionMetadata[id].base;
         const sectionRows = grouped[id] || [];
 
-        // Count custom rows
-        let customCount = 0;
-        sectionRows.forEach(obs => {
-          const snoParts = obs.S_no.split('.');
-          const lastPart = parseInt(snoParts[snoParts.length - 1]);
-          if (id === "1" && lastPart > 42) customCount++;
-          if (id === "2" && lastPart > 8) customCount++;
-        });
-
+        // Count custom rows according to defined baseline S_no values.
+        // Base section totals remain fixed by sectionMetadata unless explicit non-baseline extras exist.
+        const customCount = getCustomRowCount(sectionRows, id);
         const sectionTotal = base + customCount;
 
         let closed = 0;
@@ -615,6 +632,33 @@
       return `${dateParts[0]}-${dateParts[1]}-${dateParts[2]}`;
     }
 
+    function formatDateDDMMYYYY(dateString) {
+      if (!dateString || typeof dateString !== 'string') return 'N/A';
+      const dateParts = dateString.split('-');
+      if (dateParts.length !== 3) return 'N/A';
+      return `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
+    }
+
+    function normalizeDateToYYYYMMDD(dateString) {
+      if (!dateString || typeof dateString !== 'string') return 'N/A';
+      if (/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
+        return dateString;
+      }
+      if (/^\d{2}\/\d{2}\/\d{4}$/.test(dateString)) {
+        const [dd, mm, yyyy] = dateString.split('/');
+        return `${yyyy}-${mm}-${dd}`;
+      }
+      // try convert if date object or other format
+      const parsed = new Date(dateString);
+      if (!isNaN(parsed.getTime())) {
+        const y = parsed.getFullYear();
+        const m = String(parsed.getMonth() + 1).padStart(2, '0');
+        const d = String(parsed.getDate()).padStart(2, '0');
+        return `${y}-${m}-${d}`;
+      }
+      return 'N/A';
+    }
+
     async function createNewReport() {
       const pdfButton = document.getElementById("convert-pdf-btn");
       pdfButton.disabled = true;
@@ -622,11 +666,23 @@
       pdfButton.style.opacity = "0.6";
       try {
         console.log("🚀 Starting createNewReport function...");
-        const stationId = document.getElementById("station-id")?.textContent.trim() || "N/A";
+        const stationFromStorage = JSON.parse(sessionStorage.getItem('stationInfo') || '{}');
+        const stationIdCandidate = stationFromStorage.stationId ?? document.getElementById("station-id")?.textContent ?? "";
+        const stationId = String(stationIdCandidate).trim() || "N/A";
+        const rawUpdatedDateCandidate = stationFromStorage.rawUpdatedDate ?? stationFromStorage.updatedDate ?? document.getElementById("updated-date")?.textContent ?? "";
+        const rawUpdatedDate = String(rawUpdatedDateCandidate).trim() || "N/A";
+        const formattedInspectionDate = normalizeDateToYYYYMMDD(rawUpdatedDate);
+
         if (!stationId || stationId === "N/A") {
           alert("⚠️ station ID not found. Cannot update completed time.");
           return;
         }
+
+        if (!formattedInspectionDate || formattedInspectionDate === "N/A") {
+          alert("⚠️ inspection date is invalid, cannot build filename.");
+          return;
+        }
+
         try {
           const response = await fetch('update_completed_time.php', {
             method: 'POST',
@@ -663,8 +719,9 @@
         }
         const observationsData = await fetchObservations();
         console.log('📦 Creating PDF with observations:', observationsData);
-        const updatedDate = document.getElementById("updated-date")?.textContent || "N/A";
-        const formattedInspectionDate = formatDateString(updatedDate);
+        const stationFromStorage2 = JSON.parse(sessionStorage.getItem('stationInfo') || '{}');
+        const rawUpdatedDate2 = stationFromStorage2.rawUpdatedDate || stationFromStorage2.updatedDate || document.getElementById("updated-date")?.textContent || "N/A";
+        const formattedInspectionDate2 = normalizeDateToYYYYMMDD(rawUpdatedDate2);
         const employeeName = localStorage.getItem("employee_name") || "N/A";
         console.log("Retrieved Employee Name:", employeeName);
         const jsPDF = window.jspdf ? window.jspdf.jsPDF : window.jsPDF;
@@ -738,7 +795,7 @@
         pdf.text("In-Process QC Checklist for Stationary Kavach Installation", pdf.internal.pageSize.width / 2, finalY + 20, { align: "center" });
         pdf.setFont("helvetica", "normal");
         pdf.text(`QC Engineer Name: ${employeeName}`, 10, finalY + 26);
-        pdf.text("v1.1", pdf.internal.pageSize.width - 10, finalY + 26, { align: "right" });
+        pdf.text("v1.2", pdf.internal.pageSize.width - 10, finalY + 26, { align: "right" });
         pdf.line(10, finalY + 28, pdf.internal.pageSize.width - 10, finalY + 28);
         finalY += 30;
 
@@ -748,8 +805,8 @@
           document.getElementById("zone")?.textContent || "N/A",
           document.getElementById("division")?.textContent || "N/A",
           document.getElementById("section-name")?.textContent || "N/A",
-          document.getElementById("initial-date")?.textContent || "N/A",
-          document.getElementById("updated-date")?.textContent || "N/A"
+          formatDateDDMMYYYY(stationDetails.initialDate) || "N/A",
+          formatDateDDMMYYYY(stationDetails.updatedDate) || "N/A"
         ];
         pdf.autoTable({
           head: [["Station ID", "Station Name", "Zone", "Division", "Section Name", "Initial Date", "Updated Date"]],
@@ -796,26 +853,26 @@
 
         // Section-wise Summary calculation for PDF
         const sectionMetadata = {
-          "1": { name: "Serial Number verification", base: 42 },
-          "2": { name: "Building", base: 9 },
-          "3": { name: "Tower", base: 8 },
-          "4": { name: "Power Supply", base: 22 },
-          "5": { name: "Kavach  Equipment", base: 39 },
-          "6": { name: "RF Communication equipment on tower", base: 14 },
-          "7": { name: "OFC Networking rack", base: 12 },
-          "8": { name: "Relay rack", base: 13 },
-          "9": { name: "Earthing", base: 5 },
-          "10": { name: "Indoor wiring / cabling", base: 8 },
-          "11": { name: "Outdoor cabling", base: 3 },
-          "12": { name: "RFID Tags", base: 3 },
-          "13": { name: "Components Inspection", base: 1 },
+        "1": { name: "Serial Number verification", base: 64 },
+        "2": { name: "Building", base: 1 },
+        "3": { name: "Tower", base: 1 },
+        "4": { name: "Power Supply", base: 13 },
+        "5": { name: "Kavach  Equipment", base: 27 },
+        "6": { name: "RF Communication equipment on tower", base: 12 },
+        "7": { name: "OFC Networking rack", base: 10 },
+        "8": { name: "Relay rack", base: 7 },
+        "9": { name: "Earthing", base: 5 },
+        "10": { name: "Indoor wiring / cabling", base: 6 },
+        "11": { name: "Outdoor cabling", base: 3 },
+        "12": { name: "RFID Tags", base: 3 },
+        "13": { name: "Components Inspection", base: 1 },
         };
 
 
         const subSectionMetadata = {
-          "4.1": "4.1 IPS(Integrated Power System)",
-          "4.2": "4.2 PDU(Power Distribution Unit)",
-          "4.3": "4.3 DC-DC Converter",
+
+          "4.1": "4.1 PDU(Power Distribution Unit)",
+          "4.2": "4.2 DC-DC Converter",
           "5.1": "5.1 Kavach Unit",
           "5.2": "5.2 SMOCIP(Station Master's Operation-Cum-Indication Panel)",
           "5.3": "5.3 GPS/GSM Antennas",
@@ -829,14 +886,7 @@
           const base = sectionMetadata[id].base;
           const sectionRows = observationsArray.filter(obs => obs.S_no && obs.S_no.split('.')[0] === id);
 
-          let customCount = 0;
-          sectionRows.forEach(obs => {
-            const snoParts = obs.S_no.split('.');
-            const lastPart = parseInt(snoParts[snoParts.length - 1]);
-            if (id === "1" && lastPart > 42) customCount++;
-            if (id === "2" && lastPart > 8) customCount++;
-          });
-
+          const customCount = getCustomRowCount(sectionRows, id);
           const total = base + customCount;
           let closed = 0;
           sectionRows.forEach(obs => {
@@ -863,7 +913,7 @@
         });
         const openPointsNum = totalPointsOverallNum - totalClosedOverallNum;
         const InstallationStatus = (openPointsNum === 0) ? "Completed" : "NotCompleted";
-        const fileName = await getVersionedFileName(stationId, formattedInspectionDate, InstallationStatus);
+        const fileName = await getVersionedFileName(stationId, formattedInspectionDate2, InstallationStatus);
 
         if (!fileName) {
           alert("File name is required to save the report.");
@@ -1349,25 +1399,33 @@
         const pendingBySection = {};
         Object.keys(sectionMetadata).forEach(id => pendingBySection[id] = new Set());
 
-        // 1. Build a master set of ALL expected S_nos from specificOptions
+        // 1. Build a set of S_nos from actual observations (only active points)
         const requiredSnos = new Set();
-        if (typeof specificOptions !== 'undefined') {
-          Object.keys(specificOptions).forEach(keyGroup => {
-            // keyGroup is a comma-separated string of S_nos
-            keyGroup.split(',').forEach(sno => {
-              sno = sno.trim();
-              if (sno) requiredSnos.add(sno);
-            });
-          });
-        }
-
-        // 2. Add any S_nos that are actually present in the observations (custom points)
         observationsArray.forEach(obs => {
           if (obs.S_no) requiredSnos.add(obs.S_no);
         });
 
+        // 2. Add any specificOptions items only if they are already in active observations
+        if (typeof specificOptions !== 'undefined') {
+          Object.keys(specificOptions).forEach(keyGroup => {
+            keyGroup.split(',').forEach(sno => {
+              sno = sno.trim();
+              if (sno && requiredSnos.has(sno)) {
+                requiredSnos.add(sno);
+              }
+            });
+          });
+        }
+
         // 3. Determine Pending: Required - Closed
+        const skipPendingSnos = new Set([
+          "2.2", "2.3", "2.3.1", "2.4", "2.5", "2.6", "2.7", "2.8",
+          "3.2", "3.3", "3.4", "3.4.1", "3.4.2", "3.5", "3.6",
+          "4.3", "4.3.1", "4.3.2", "4.3.3", "4.3.4", "4.3.5"
+        ]);
+
         requiredSnos.forEach(sno => {
+          if (skipPendingSnos.has(sno)) return;
           if (!closedSet.has(sno)) {
             // Determine section from S_no (assuming format Section.SubPoint)
             const sectionId = sno.split('.')[0];
