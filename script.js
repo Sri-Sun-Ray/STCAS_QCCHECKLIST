@@ -6061,6 +6061,7 @@ async function showSection(section, subsection) {
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6093,6 +6094,7 @@ async function showSection(section, subsection) {
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6125,6 +6127,7 @@ async function showSection(section, subsection) {
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6158,6 +6161,7 @@ async function showSection(section, subsection) {
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6190,6 +6194,7 @@ async function showSection(section, subsection) {
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6223,6 +6228,7 @@ async function showSection(section, subsection) {
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6255,6 +6261,7 @@ async function showSection(section, subsection) {
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6287,6 +6294,7 @@ async function showSection(section, subsection) {
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6320,6 +6328,7 @@ async function showSection(section, subsection) {
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6352,6 +6361,7 @@ async function showSection(section, subsection) {
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6384,6 +6394,7 @@ async function showSection(section, subsection) {
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6416,6 +6427,7 @@ async function showSection(section, subsection) {
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6950,6 +6962,7 @@ else if(section==="10.0"){
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6982,6 +6995,7 @@ else if(section==="10.0"){
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7014,6 +7028,7 @@ else if(section==="10.0"){
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7046,6 +7061,7 @@ else if(section==="10.0"){
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7078,6 +7094,7 @@ else if(section==="10.0"){
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7143,6 +7160,7 @@ else if(section==="10.0"){
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7177,6 +7195,7 @@ Segregation of power & communication cables</td>
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7209,6 +7228,7 @@ Segregation of power & communication cables</td>
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7241,6 +7261,7 @@ Segregation of power & communication cables</td>
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7273,6 +7294,7 @@ Segregation of power & communication cables</td>
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7305,6 +7327,7 @@ Segregation of power & communication cables</td>
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7337,6 +7360,7 @@ Segregation of power & communication cables</td>
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7369,6 +7393,7 @@ Segregation of power & communication cables</td>
                 <option value="Select">Select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
