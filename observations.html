@@ -27,30 +27,31 @@
     const specificOptions = {
     "1.38,1.40,1.41,1.42,1.43,1.44,1.45,1.46,1.47,1.48,1.49,1.50,1.51,1.52,1.53,1.54,1.55,1.56,1.57,1.58,1.59,1.60,1.61,1.62,1.63,1.64" : ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
     "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
-    "3.1,2.1,5.2,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.3,5.3.1,5.3.2,5.3.3,5.3.4,5.4,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,8.1,8.2,8.2.1,8.2.2,8.3,8.4,8.4.1,7.1,7.1.1,7.2,7.2.1,7.3,7.3.1,7.3.2,7.4,7.4.1,7.5,6.1,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.2,6.2.1,4.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.1.6,4.1.7,4.2,4.2.1,4.2.2,4.2.3,4.2.4" : ["Ok", "Not Ok", "Not Applicable"],
-    "5.1,5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1,9.2,9.3,9.5,10.1,10.2,10.3,10.4,10.5,10.6,12.1,12.2,13.1,11.1,11.2,11.3": ["Ok", "Not Ok"],
-    "9.4,12.3" : ["Available", "Not Available"]
+    "3.1,2.1,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.2.9,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,5.4.6,8.1,8.2,8.3,8.4,8.6,8.7,7.1,7.2,7.3,7.4,7.5,7.6,7.7,7.8,7.9,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.2.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.1.6,4.1.7,4.1.8,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5" : ["Ok", "Not Ok", "Not Applicable"],
+    "5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1,9.2,10.1,10.2,10.3,10.4,10.5,10.6,12.1,12.2,13.1,11.2,11.3": ["Ok", "Not Ok"],
+    "9.3,12.3,11.1" : ["Available", "Not Available"],
+    "6.2.2,7.10,8.5" : ["Available", "Not Available", "Not Applicable"]
   };
 
-  function getCustomRowCount(sectionRows, sectionId) {
-    if (!Array.isArray(sectionRows)) return 0;
+    function getCustomRowCount(sectionRows, sectionId) {
+      if (!Array.isArray(sectionRows)) return 0;
 
-    const baseline = {
-      // Section 1 baseline is 64 rows per metadata and business rule
-      "1": new Set(Array.from({ length: 64 }, (_, i) => `1.${i + 1}`)),
-      // Section 2 baseline should include all expected rows (not treated as extras)
-      "2": new Set(['2.1','2.2','2.3','2.3.1','2.4','2.5','2.6','2.7','2.8','2.9'])
-    };
+      const baseline = {
+        // Section 1 baseline is 64 rows per metadata and business rule
+        "1": new Set(Array.from({ length: 64 }, (_, i) => `1.${i + 1}`)),
+        // Section 2 baseline should include all expected rows (not treated as extras)
+        "2": new Set(['2.1', '2.2', '2.3', '2.3.1', '2.4', '2.5', '2.6', '2.7', '2.8', '2.9'])
+      };
 
-    if (!baseline[sectionId]) return 0;
+      if (!baseline[sectionId]) return 0;
 
-    return sectionRows.reduce((extra, row) => {
-      if (!row || !row.S_no || !baseline[sectionId].has(row.S_no)) {
-        return extra + 1;
-      }
-      return extra;
-    }, 0);
-  }
+      return sectionRows.reduce((extra, row) => {
+        if (!row || !row.S_no || !baseline[sectionId].has(row.S_no)) {
+          return extra + 1;
+        }
+        return extra;
+      }, 0);
+    }
 
   </script>
   <style>
@@ -292,11 +293,11 @@
         "2": { name: "Building", base: 1 },
         "3": { name: "Tower", base: 1 },
         "4": { name: "Power Supply", base: 13 },
-        "5": { name: "Kavach  Equipment", base: 27 },
+        "5": { name: "Kavach  Equipment", base: 26 },
         "6": { name: "RF Communication equipment on tower", base: 12 },
         "7": { name: "OFC Networking rack", base: 10 },
         "8": { name: "Relay rack", base: 7 },
-        "9": { name: "Earthing", base: 5 },
+        "9": { name: "Earthing", base: 4 },
         "10": { name: "Indoor wiring / cabling", base: 6 },
         "11": { name: "Outdoor cabling", base: 3 },
         "12": { name: "RFID Tags", base: 3 },
@@ -369,8 +370,9 @@
         sectionTable.className = "observations-table";
         sectionTable.style.marginBottom = "20px";
 
-        // Check if Section 2, 3, or 11 is fully "Not Applicable"
-        if ((section === "2" || section === "3" || section === "11") && sectionRows.length > 0 && sectionRows.every(obs => obs.observation_status === "Not Applicable")) {
+        // Check if various Sections are fully "Not Applicable" (but exclude section 6 subsection 5.1 if desired, though here we prioritize user's wish to collapse whole sections)
+        const isSection6Sub51 = section === "6" && sectionRows.length > 0 && sectionRows[0].S_no && sectionRows[0].S_no.startsWith("5.1");
+        if ((section === "2" || section === "3" || section === "4" || section === "5" || (section === "6" && !isSection6Sub51) || section === "7" || section === "8" || section === "9" || section === "10" || section === "11" || section === "12" || section === "13") && sectionRows.length > 0 && sectionRows.every(obs => obs.observation_status === "Not Applicable")) {
           const naDiv = document.createElement("div");
           naDiv.style.marginBottom = "20px";
 
@@ -410,7 +412,7 @@
 
             <tr>
 
-              <th style="text-align: center;">S_no</th>
+              <th style="text-align: center;">S.No</th>
 
               <th>${section === "1" ? "Units" : "Aspect"}</th>
 
@@ -483,83 +485,83 @@
           tbody.appendChild(summaryTr);
         }
 
+        // Group rows by subsection for independent NA checks
+        const rowsBySub = {};
+        sectionRows.forEach(obs => {
+          const parts = String(obs.S_no).split('.');
+          const subKey = parts.length >= 2 ? parts[0] + "." + parts[1] : "base";
+          if (!rowsBySub[subKey]) rowsBySub[subKey] = [];
+          rowsBySub[subKey].push(obs);
+        });
 
-
-        let lastSubsection = "";
-        sectionRows.sort((a, b) => {
-          // Basic sort by S_no string, assuming standard format
-          const aParts = a.S_no.split('.').map(Number);
-          const bParts = b.S_no.split('.').map(Number);
+        // Sort keys numerically
+        const sortedSubKeys = Object.keys(rowsBySub).sort((a, b) => {
+          if (a === "base") return 1; if (b === "base") return -1;
+          const aParts = a.split('.').map(Number); const bParts = b.split('.').map(Number);
           for (let i = 0; i < Math.max(aParts.length, bParts.length); i++) {
-            const av = aParts[i] || 0;
-            const bv = bParts[i] || 0;
+            const av = aParts[i] || 0; const bv = bParts[i] || 0;
             if (av !== bv) return av - bv;
           }
           return 0;
         });
-        sectionRows.forEach(obs => {
-          // Only show observations with a selected status (not "Select")
-          if (!obs.observation_status || obs.observation_status.trim() === '' || obs.observation_status.trim() === 'Select') {
-            return;
-          }
 
-          // Check for subsection change
-          const parts = obs.S_no.split('.');
-          if (parts.length >= 2) {
-            const currentSubsection = parts[0] + "." + parts[1];
-            if (currentSubsection !== lastSubsection && subSectionMetadata[currentSubsection]) {
-              const subTr = document.createElement("tr");
-              subTr.style.background = "#e6f2ff";
-              subTr.innerHTML = `
-                   <td colspan="${hasRequirement ? 6 : 5}" style="font-weight:bold; color: #0056b3; padding-left: 20px;">
-                      ${subSectionMetadata[currentSubsection]}
-                   </td>
-                `;
-              tbody.appendChild(subTr);
-              lastSubsection = currentSubsection;
-            }
-          }
+        sortedSubKeys.forEach(subKey => {
+          const subRows = rowsBySub[subKey];
+          const activeSubRows = subRows.filter(obs => obs.observation_status && obs.observation_status.trim() !== '' && obs.observation_status.trim() !== 'Select');
+          if (activeSubRows.length === 0) return;
 
-          const formattedDescription = formatDescription(obs.observation_text);
-          let displayDescription = formattedDescription;
-          if (obs.barcode_kavach_main_unit && obs.barcode_kavach_main_unit.trim() !== '') {
-            const cleanBarcode = obs.barcode_kavach_main_unit.trim();
-            // Remove existing barcode occurrences
-            displayDescription = displayDescription.split(cleanBarcode).join('').trim();
-            // Clean up trailing hyphens
-            while (displayDescription.endsWith('-')) {
-              displayDescription = displayDescription.slice(0, -1).trim();
-            }
-            displayDescription += ` - ${cleanBarcode}`;
-          }
+          const isSubAllNA = activeSubRows.every(obs => obs.observation_status === "Not Applicable");
+          const subTitle = subSectionMetadata[subKey] || subKey;
 
-          let statusText = (obs.observation_status || '').trim();
-          let statusColor = '';
-          const isGreen = ["Available", "Present", "Ok", "Yes", "Routing Done", "Fixed", "Secured", "Installed", "Connected", "Aligned", "Torquing done", "Positioning done", "Configured", "Welding done", "Earthing done", "Matching", "Not Applicable", "Coating done", "Applied", "Cables Connected", "Metal clamps implemented", "Locked", "Verified and ok"].includes(statusText);
-
-          if (isGreen) {
-            statusColor = 'green';
-          } else if (["Not Present", "No", "Not Matching", "Not Installed", "Found Not Ok", "Not Implemented", "Not Fixed", "Not Connected", "Routing Not done", "Voltage found not Ok", "Torquing Not done", "Not Done", "Not Ok", "PCCL Not Done", "Earthing Not done", "Not Functioning", "Identification Not Done", "Cable ties not implemented", "Not Joined", "Quantity Not Matched", "Not Available"].includes(statusText)) {
-            statusColor = 'red';
+          // SPECIAL RULE: Only collapse if it's a known subsection (part of 4, 5, or 6)
+          if (isSubAllNA && subSectionMetadata[subKey]) {
+            const subTr = document.createElement("tr");
+            subTr.style.background = "#e6f2ff";
+            subTr.innerHTML = `
+                 <td colspan="${hasRequirement ? 3 : 2}" style="font-weight:bold; color: #0056b3; padding: 10px;">${subTitle}</td>
+                 <td colspan="3" style="color: red; font-weight: bold; text-align: center;">Not Applicable</td>
+              `;
+            tbody.appendChild(subTr);
           } else {
-            statusColor = 'yellow';
-          }
+            if (subSectionMetadata[subKey]) {
+              const headTr = document.createElement("tr");
+              headTr.style.background = "#e6f2ff";
+              headTr.innerHTML = `<td colspan="${hasRequirement ? 6 : 5}" style="font-weight:bold; color: #0056b3; padding-left: 20px;">${subTitle}</td>`;
+              tbody.appendChild(headTr);
+            }
 
-          const tr = document.createElement("tr");
-          let imageHTML = 'No Image';
-          if (obs.image_paths && Array.isArray(obs.image_paths) && obs.image_paths.length > 0) {
-            imageHTML = obs.image_paths.map(path =>
-              `<img src="${path}" onclick="window.open('${path}', '_blank')" style="max-width: 100px; cursor: pointer; margin-right:5px;" />`
-            ).join('');
+            activeSubRows.forEach(obs => {
+              const formattedDescription = formatDescription(obs.observation_text);
+              let displayDescription = formattedDescription;
+              if (obs.barcode_kavach_main_unit && obs.barcode_kavach_main_unit.trim() !== '') {
+                const cleanBarcode = obs.barcode_kavach_main_unit.trim();
+                displayDescription = displayDescription.split(cleanBarcode).join('').trim();
+                while (displayDescription.endsWith('-')) { displayDescription = displayDescription.slice(0, -1).trim(); }
+                displayDescription += ` - ${cleanBarcode}`;
+              }
+
+              let statusText = (obs.observation_status || '').trim();
+              let statusColor = '';
+              const isGreen = ["Available", "Present", "Ok", "Yes", "Routing Done", "Fixed", "Secured", "Installed", "Connected", "Aligned", "Torquing done", "Positioning done", "Configured", "Welding done", "Earthing done", "Matching", "Not Applicable", "Coating done", "Applied", "Cables Connected", "Metal clamps implemented", "Locked", "Verified and ok"].includes(statusText);
+              if (isGreen) statusColor = 'green';
+              else if (["Not Present", "No", "Not Matching", "Not Installed", "Found Not Ok", "Not Implemented", "Not Fixed", "Not Connected", "Routing Not done", "Voltage found not Ok", "Torquing Not done", "Not Done", "Not Ok", "PCCL Not Done", "Earthing Not done", "Not Functioning", "Identification Not Done", "Cable ties not implemented", "Not Joined", "Quantity Not Matched", "Not Available"].includes(statusText)) statusColor = 'red';
+              else statusColor = 'yellow';
+
+              const tr = document.createElement("tr");
+              let imageHTML = 'No Image';
+              if (obs.image_paths && Array.isArray(obs.image_paths) && obs.image_paths.length > 0) {
+                imageHTML = obs.image_paths.map(path => `<img src="${path}" onclick="window.open('${path}', '_blank')" style="max-width: 100px; cursor: pointer; margin-right:5px;" />`).join('');
+              }
+              tr.innerHTML = `
+                <td style="text-align: center;">${obs.S_no}</td>
+                <td>${displayDescription}</td>
+                ${hasRequirement ? `<td>${obs.requirement_text || "N/A"}</td>` : ""}
+                <td style="color: ${statusColor}; font-weight: bold;">${statusText}</td>
+                <td>${obs.remarks}</td>
+                <td>${imageHTML}</td>`;
+              tbody.appendChild(tr);
+            });
           }
-          tr.innerHTML = `
-            <td style="text-align: center;">${obs.S_no}</td>
-            <td>${displayDescription}</td>
-            ${hasRequirement ? `<td>${obs.requirement_text || "N/A"}</td>` : ""}
-            <td style="color: ${statusColor}; font-weight: bold;">${statusText}</td>
-            <td>${obs.remarks}</td>
-            <td>${imageHTML}</td>`;
-          tbody.appendChild(tr);
         });
 
         if (section === "1") {
@@ -790,7 +792,7 @@
         pdf.text("HBL Engineering Limited", pdf.internal.pageSize.width / 2, finalY + 5, { align: "center" });
         pdf.setFont("helvetica", "normal");
         pdf.setFontSize(12);
-        pdf.text("Rail Signaling Group", pdf.internal.pageSize.width / 2, finalY + 12, { align: "center" });
+        pdf.text("Rail Signaling Division", pdf.internal.pageSize.width / 2, finalY + 12, { align: "center" });
         pdf.setFont("helvetica", "bold");
         pdf.text("In-Process QC Checklist for Stationary Kavach Installation", pdf.internal.pageSize.width / 2, finalY + 20, { align: "center" });
         pdf.setFont("helvetica", "normal");
@@ -853,19 +855,19 @@
 
         // Section-wise Summary calculation for PDF
         const sectionMetadata = {
-        "1": { name: "Serial Number verification", base: 64 },
-        "2": { name: "Building", base: 1 },
-        "3": { name: "Tower", base: 1 },
-        "4": { name: "Power Supply", base: 13 },
-        "5": { name: "Kavach  Equipment", base: 27 },
-        "6": { name: "RF Communication equipment on tower", base: 12 },
-        "7": { name: "OFC Networking rack", base: 10 },
-        "8": { name: "Relay rack", base: 7 },
-        "9": { name: "Earthing", base: 5 },
-        "10": { name: "Indoor wiring / cabling", base: 6 },
-        "11": { name: "Outdoor cabling", base: 3 },
-        "12": { name: "RFID Tags", base: 3 },
-        "13": { name: "Components Inspection", base: 1 },
+          "1": { name: "Serial Number verification", base: 64 },
+          "2": { name: "Building", base: 1 },
+          "3": { name: "Tower", base: 1 },
+          "4": { name: "Power Supply", base: 13 },
+          "5": { name: "Kavach  Equipment", base: 26 },
+          "6": { name: "RF Communication equipment on tower", base: 12 },
+          "7": { name: "OFC Networking rack", base: 10 },
+          "8": { name: "Relay rack", base: 7 },
+          "9": { name: "Earthing", base: 4 },
+          "10": { name: "Indoor wiring / cabling", base: 6 },
+          "11": { name: "Outdoor cabling", base: 3 },
+          "12": { name: "RFID Tags", base: 3 },
+          "13": { name: "Components Inspection", base: 1 },
         };
 
 
@@ -1116,12 +1118,22 @@
             12: "12.0 RFID Tags",
             13: "13.0 Components Inspection"
           };
-          // Check if Section 2, 3 or 11 is fully "Not Applicable"
-          if ((sectionId === "2" || sectionId === "3" || sectionId === "11") && sectionObservations.length > 0 && sectionObservations.every(obs => obs.observation_status === "Not Applicable")) {
+          // Check if Section is fully "Not Applicable" (but exclude section 6 subsection 5.1 as per old rule, unless user wants it collapsed too)
+          const isSec6Sub51 = sectionId === "6" && sectionObservations.length > 0 && sectionObservations[0].S_no && sectionObservations[0].S_no.startsWith("5.1");
+          if ((sectionId === "2" || sectionId === "3" || sectionId === "4" || sectionId === "5" || (sectionId === "6" && !isSec6Sub51) || sectionId === "7" || sectionId === "8" || sectionId === "9" || sectionId === "10" || sectionId === "11" || sectionId === "12" || sectionId === "13") && sectionObservations.length > 0 && sectionObservations.every(obs => obs.observation_status === "Not Applicable")) {
             let description = "";
             if (sectionId === "2") description = "(New Building Constructed by HBL)";
             else if (sectionId === "3") description = "(New Tower Constructed by HBL)";
-            else if (sectionId === "11") description = "(New Cabling by HBL)";
+            else if (sectionId === "4") description = "(Power Supply - DC-DC Converter)";
+            else if (sectionId === "5") description = "(Kavach Equipment)";
+            else if (sectionId === "6") description = "(RF Communication Equipment)";
+            else if (sectionId === "7") description = "(OFC Networking Rack)";
+            else if (sectionId === "8") description = "(Relay Rack)";
+            else if (sectionId === "9") description = "(Earthing)";
+            else if (sectionId === "10") description = "(Indoor Wiring / Cabling)";
+            else if (sectionId === "11") description = "(Outdoor Cabling)";
+            else if (sectionId === "12") description = "(RFID Tags)";
+            else if (sectionId === "13") description = "(Components Inspection)";
 
             const title = sectionCaptions[sectionId] || `Observations for Section ${sectionId}`;
 
@@ -1193,58 +1205,57 @@
 
 
 
-          // Build dynamic body with subsections
+          // Build dynamic body for PDF
           const tableBody = [];
-          let lastPdfSubsection = "";
 
-          // Sort rows similarly
-          rows.sort((a, b) => {
-            const aParts = String(a.S_no).split('.').map(Number);
-            const bParts = String(b.S_no).split('.').map(Number);
-            for (let i = 0; i < Math.max(aParts.length, bParts.length); i++) {
-              const av = aParts[i] || 0;
-              const bv = bParts[i] || 0;
-              if (av !== bv) return av - bv;
-            }
-            return 0;
-          });
-
+          // Group rows by subsection for PDF independent NA checks
+          const pdfBySub = {};
           rows.forEach(r => {
             const parts = String(r.S_no).split('.');
-            if (parts.length >= 2) {
-              const currentSubsection = parts[0] + "." + parts[1];
-              if (currentSubsection !== lastPdfSubsection && subSectionMetadata[currentSubsection]) {
-                // Add Title Row
+            const subKey = parts.length >= 2 ? parts[0] + "." + parts[1] : "base";
+            if (!pdfBySub[subKey]) pdfBySub[subKey] = [];
+            pdfBySub[subKey].push(r);
+          });
+
+
+          Object.keys(pdfBySub).forEach(subKey => {
+            const subRows = pdfBySub[subKey];
+            const isSubAllNA = subRows.every(r => r.Status === "Not Applicable");
+            const subTitle = subSectionMetadata[subKey] || subKey;
+
+            if (isSubAllNA && subSectionMetadata[subKey]) {
+              tableBody.push([{
+                content: `${subTitle}: Not Applicable`,
+                colSpan: showRequirement ? 6 : 5,
+                styles: { fillColor: [230, 242, 255], fontStyle: 'bold', textColor: [255, 0, 0] }
+              }]);
+            } else {
+              if (subSectionMetadata[subKey]) {
                 tableBody.push([{
-                  content: subSectionMetadata[currentSubsection],
+                  content: subTitle,
                   colSpan: showRequirement ? 6 : 5,
                   styles: { fillColor: [230, 242, 255], fontStyle: 'bold', textColor: [0, 86, 179] }
                 }]);
-                lastPdfSubsection = currentSubsection;
               }
+              subRows.forEach(r => {
+                const cleanStatus = decodeHtmlEntities(String(r.Status || "").replace(/<[^>]*>/g, ""));
+                let desc = decodeHtmlEntities(String(r.Description || "").replace(/<\/?b>/g, ""));
+                if (r.barcode && r.barcode.trim() !== "") {
+                  const cleanBarcode = r.barcode.trim();
+                  desc = desc.split(cleanBarcode).join('').trim();
+                  while (desc.endsWith('-')) { desc = desc.slice(0, -1).trim(); }
+                  desc += ` - ${cleanBarcode}`;
+                }
+                tableBody.push([
+                  r.S_no,
+                  desc,
+                  ...(showRequirement ? [r.Requirement] : []),
+                  cleanStatus,
+                  r.Remarks,
+                  ...(sectionId === "0" ? [] : [{ content: "", raw: r.imageBase64, styles: r.calculatedHeight > 0 ? { minCellHeight: r.calculatedHeight } : {} }])
+                ]);
+              });
             }
-
-            // Strip HTML and styles from status text
-            const cleanStatus = decodeHtmlEntities(String(r.Status || "").replace(/<[^>]*>/g, ""));
-
-            let desc = decodeHtmlEntities(String(r.Description || "").replace(/<\/?b>/g, ""));
-            if (r.barcode && r.barcode.trim() !== "") {
-              const cleanBarcode = r.barcode.trim();
-              desc = desc.split(cleanBarcode).join('').trim();
-              while (desc.endsWith('-')) {
-                desc = desc.slice(0, -1).trim();
-              }
-              desc += ` - ${cleanBarcode}`;
-            }
-
-            tableBody.push([
-              r.S_no,
-              desc,
-              ...(showRequirement ? [r.Requirement] : []),
-              cleanStatus,
-              r.Remarks,
-              ...(sectionId === "0" ? [] : [{ content: "", raw: r.imageBase64, styles: r.calculatedHeight > 0 ? { minCellHeight: r.calculatedHeight } : {} }])
-            ]);
           });
 
           pdf.autoTable({

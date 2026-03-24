@@ -250,8 +250,8 @@ table.observations td {
 }
 
 table.observations th {
-    text-align: center; /* Centers the text horizontally */
-    vertical-align: middle; /* Centers the text vertically */
+    text-align: center !important; /* Centers the text horizontally */
+    vertical-align: middle !important; /* Centers the text vertically */
     padding: 10px;  /* Optional: add padding for better spacing */
     font-size: 16px; /* Optional: adjust font size */
     background-color: #f1f1f1;  /* Optional: background color for headers */

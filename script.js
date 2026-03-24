@@ -672,7 +672,7 @@ async function showSection(section, subsection) {
       <table class="observations" id="observations-section-2_0">
         <thead>
           <tr>
-            <th>S_No</th>
+            <th>S.No</th>
             <th>Units/Serial Numbers</th>
             <th>Observation</th>
             <th>Remarks/Comments</th>
@@ -3850,14 +3850,21 @@ Field Scanner Card 1
   } else if (section === "3.0") {
     // For all other sections, add Save Observation button
     mainContent.innerHTML += `
-      <h3 class="section-heading"> Building</h3>
+      <div style="position: relative; margin-bottom: 20px;">
+        <h3 class="section-heading"> Building</h3>
+        <select id="section-na-dropdown-3_0" style="position: absolute; top: 0; right: 0; width: 140px; padding: 5px 8px; border: 1px solid #ccc; border-radius: 3px; font-size: 12px; background-color: white;" onchange="if(this.value) { markSectionAsNotApplicable('3_0', this.value); this.value=''; }">
+          <option value="">Mark Section As:</option>
+          <option value="mark">Mark All as Not Applicable</option>
+          <option value="clear">Clear All Selections</option>
+        </select>
+      </div>
       <h4 style="color: red; font-style: italic; margin-bottom: 10px;">Following table must be filled up, if a new building is constructed, by HBL, for Kavach installation</h4>
 
        <div class="table-container">
       <table class="observations" id="observations-section-3_0">
         <thead>
           <tr>
-            <th>S_No</th>
+            <th>S.No</th>
             <th>Aspect</th>
             <th>Requirement</th>
             <th>Observation</th>
@@ -4186,14 +4193,21 @@ Field Scanner Card 1
   } else if (section === "4.0") {
     // For all other sections, add Save Observation button
     mainContent.innerHTML += `
-      <h3 class="section-heading" > Tower </h3>
+      <div style="position: relative; margin-bottom: 20px;">
+        <h3 class="section-heading" > Tower </h3>
+        <select id="section-na-dropdown-4_0" style="position: absolute; top: 0; right: 0; width: 140px; padding: 5px 8px; border: 1px solid #ccc; border-radius: 3px; font-size: 12px; background-color: white;" onchange="if(this.value) { markSectionAsNotApplicable('4_0', this.value); this.value=''; }">
+          <option value="">Mark Section As:</option>
+          <option value="mark">Mark All as Not Applicable</option>
+          <option value="clear">Clear All Selections</option>
+        </select>
+      </div>
       <h4 style="color: red; font-style: italic; margin-bottom: 10px;">Following table must be filled up, if a new tower is constructed, by HBL, for Kavach project.</h4>
 
        <div  class="table-container">
       <table class="observations" id="observations-section-4_0">
         <thead>
           <tr>
-            <th>S_No</th>
+            <th>S.No</th>
             <th>Aspect</th>
             <th>Requirement</th>
             <th>Observation</th>
@@ -4489,12 +4503,19 @@ Field Scanner Card 1
     // Clear old section content but preserve station info
     clearSectionContent();
     mainContent.innerHTML += `
-      <h3 class="section-heading" id="section-heading-5_0"> Power Supply </h3>
+      <div style="position: relative; margin-bottom: 20px;">
+        <h3 class="section-heading" id="section-heading-5_0"> Power Supply </h3>
+        <select id="section-na-dropdown-5_0" style="position: absolute; top: 0; right: 0; width: 140px; padding: 5px 8px; border: 1px solid #ccc; border-radius: 3px; font-size: 12px; background-color: white;" onchange="if(this.value) { markSectionAsNotApplicable('5_0', this.value); this.value=''; }">
+          <option value="">Mark Section As:</option>
+          <option value="mark">Mark All as Not Applicable</option>
+          <option value="clear">Clear All Selections</option>
+        </select>
+      </div>
        <div  class="table-container">
       <table class="observations" id="observations-section-5_0">
         <thead>
          <tr>
-            <th>S_No</th>
+            <th>S.No</th>
             <th>Aspect</th>
             <th>Requirement</th>
             <th>Observation</th>
@@ -4510,8 +4531,8 @@ Field Scanner Card 1
        <td class="select">
         <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Ok</option>
-                <option value="No">Not Ok</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4543,8 +4564,8 @@ Field Scanner Card 1
        <td class="select">
         <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Ok</option>
-                <option value="No">Not Ok</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4576,8 +4597,8 @@ Field Scanner Card 1
       <td class="select">
         <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Ok</option>
-                <option value="No">Not Ok</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4609,8 +4630,8 @@ Field Scanner Card 1
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Ok</option>
-                <option value="No">Not Ok</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4642,8 +4663,8 @@ Field Scanner Card 1
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4675,8 +4696,8 @@ Field Scanner Card 1
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4708,8 +4729,8 @@ Field Scanner Card 1
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4738,11 +4759,11 @@ Field Scanner Card 1
       <td>4.1.8</td>
       <td class="observation_text">Functionality</td>
       <td class="requirement_text">Functional testing shall be performed as per the PDU test procedure 5 53 69 0001.</td>
-       <td class="select">
+      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Ok</option>
-                <option value="No">Not Ok</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4771,11 +4792,11 @@ Field Scanner Card 1
       <td>4.2.1</td>
       <td class="observation_text">Installation</td>
       <td class="requirement_text">DC-DC Converter unit shall be installed as per the approved floor plan drawing, mounted on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0055</td>
-      <td class="select">
+     <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Ok</option>
-                <option value="No">Not Ok</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4804,11 +4825,11 @@ Field Scanner Card 1
       <td>4.2.2</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">All external cables entering the unit shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.</td>
-      <td class="select">
+     <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Ok</option>
-                <option value="No">Not Ok</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4837,11 +4858,11 @@ Field Scanner Card 1
       <td>4.2.3</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
-      <td class="select">
+     <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Ok</option>
-                <option value="No">Not Ok</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4871,11 +4892,11 @@ Field Scanner Card 1
       <td>4.2.4</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
-      <td class="select">
+     <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Ok</option>
-                <option value="No">Not Ok</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -4907,15 +4928,17 @@ Field Scanner Card 1
 (22.8 VDC to 25.2 VDC)
 </td>
       <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+        <input type="number" min="0" step="0.1" placeholder="Enter voltage"
+         oninput="checkVoltage(this, 424)" style="margin-bottom:5px; width:100%;">
+       <select id="status-424" class="status-dropdown" disabled style="opacity:1; color:#000; background-color:#fff;">
                 <option value="Select">Select</option>
-                <option value="Yes">Ok</option>
-                <option value="No">Not Ok</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
-        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+        <textarea id="remarks-424" placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
       </td>
      <td>
        <button class="add-image" onclick="showUploadOptions(424)">Add Image</button>
@@ -4970,12 +4993,19 @@ Field Scanner Card 1
     // Clear old section content but preserve station info
     clearSectionContent();
     mainContent.innerHTML += `
-      <h3 class="section-heading" id="section-heading-6_0"> Kavach Equipment </h3>
+      <div style="position: relative; margin-bottom: 20px;">
+        <h3 class="section-heading" id="section-heading-6_0"> Kavach Equipment </h3>
+        <select id="section-na-dropdown-6_0" style="position: absolute; top: 0; right: 0; width: 140px; padding: 5px 8px; border: 1px solid #ccc; border-radius: 3px; font-size: 12px; background-color: white;" onchange="if(this.value) { markSectionAsNotApplicable('6_0', this.value); this.value=''; }">
+          <option value="">Mark Section As:</option>
+          <option value="mark">Mark All as Not Applicable</option>
+          <option value="clear">Clear All Selections</option>
+        </select>
+      </div>
        <div  class="table-container">
       <table class="observations" id="observations-section-6_0">
         <thead>
           <tr>
-            <th>S_No</th>
+            <th>S.No</th>
             <th>Aspect</th>
             <th>Requirement</th>
             <th>Observation</th>
@@ -5115,41 +5145,9 @@ Ensure mill connector shall be locked properly.</td>
   <canvas id="canvas-518" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
-    <tr id="row-519">
-      <td>5.1.5</td>
-      <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
-       <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>
-              </select>
-      </td>
-      <td class="remarks">
-        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
-      </td>
-     <td>
-       <button class="add-image" onclick="showUploadOptions(519)">Add Image</button>
-<div class="upload-options" id="upload-options-519" style="display: none;">
-  <button class="add-image" onclick="startCamera(519)">Camera</button>
-  <label for="file-input-519" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-519" accept="image/*" multiple onchange="displayImages(this, 519)">
-</div>
-      <!-- Container for multiple images -->
-      <div id="image-container-519"></div>
-      <!-- Camera Container -->
-<div id="camera-container-519" style="display: none;">
-  <video id="camera-519" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(519)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(519)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(519)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-519" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-    </tr>
 
     <tr id="row-5110">
-      <td>5.1.6</td>
+      <td>5.1.5</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">Station Kavach Termination Unit shall be wall-mounted near the Kavach unit using insulators, secured with M8 bolts, and tightened to a torque of 20 Nm as per diagram 5 16 76 0045.</td>
        <td class="select">
@@ -5181,7 +5179,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-51110">
-      <td>5.1.7</td>
+      <td>5.1.6</td>
       <td class="observation_text">Termination Unit</td>
       <td class="requirement_text">OFC cables for SMOCIP and RTU shall be spliced as per diagram 5 16 49 0559, and proper bunching and routing shall be ensured.</td>
       <td class="select">
@@ -5485,7 +5483,7 @@ Ensure mill connector shall be locked properly.</td>
       <td class="observation_text">Checksum</td>
       <td class="requirement_text">Verify the checksums as per the FAT certificate.</td>
        <td class="select" style="padding-right: 10px;">
-    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
@@ -5720,8 +5718,8 @@ Ensure mill connector shall be locked properly.</td>
        <td class="select">
       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -5903,7 +5901,11 @@ Ensure mill connector shall be locked properly.</td>
         filterTableRows('observations-section-6_0', subsection);
         const heading = document.getElementById('section-heading-6_0');
         if (heading) {
-           if (subsection.startsWith("5.1")) heading.textContent = "5.1 Kavach Unit";
+           if (subsection.startsWith("5.1")) {
+               heading.textContent = "5.1 Kavach Unit";
+               const dropdown = document.getElementById('section-na-dropdown-6_0');
+               if (dropdown) dropdown.style.display = 'none';
+           }
            else if (subsection.startsWith("5.2")) heading.textContent = "5.2 SMOCIP(Station Master's Operation-Cum-Indication Panel)";
            else if (subsection.startsWith("5.3")) heading.textContent = "5.3 GPS/GSM Antennas";
            else if (subsection.startsWith("5.4")) heading.textContent = "5.4 RIU(Remote Interface Unit)";
@@ -5921,7 +5923,7 @@ Ensure mill connector shall be locked properly.</td>
       <table class="observations" id="observations-section-7_0">
         <thead>
          <tr>
-            <th>S_No</th>
+            <th>S.No</th>
             <th>Aspect</th>
             <th>Requirement</th>
             <th>Observation</th>
@@ -6198,7 +6200,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-619">
-      <td>6.1.8</td>
+      <td>6.1.9</td>
       <td class="observation_text">110V Power cable termination</td>
       <td class="requirement_text">Ensure lugs with sleeves / Ferrules are  properly crimped and inserted into the terminal; no loose strands shall be left.</td>
      <td class="select">
@@ -6231,7 +6233,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-6112">
-      <td>6.1.9</td>
+      <td>6.1.10</td>
       <td class="observation_text">Cabiling</td>
       <td class="requirement_text">LMR 600 connection with proper routing; and clamping; No Joints shall be done, as per Tower SOP 5 16 90 0018.</td>
       <td class="select">
@@ -6264,7 +6266,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-62">
-      <td>6.2</td>
+      <td>6.2.1</td>
       <td class="observation_text">RF antenna installation and Audit</td>
       <td class="requirement_text">RF antenna installation and orientation shall be done as per 10.2dBi omni-directional anteena diagram 5 16 67 0983.</td>
         <td class="select">
@@ -6297,14 +6299,14 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-621">
-      <td>6.2.1</td>
+      <td>6.2.2</td>
       <td class="observation_text">RF antenna installation and Audit</td>
       <td class="requirement_text">RF antenna installation audit report from the installation contractor shall be available in WFMS and there shall be no open points in the audit report.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>
+                <option value="Available">Available</option>
+                <option value="Not Available">Not Available</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -6360,12 +6362,19 @@ Ensure mill connector shall be locked properly.</td>
   }else if (section === "8.0") {
     // For all other sections, add Save Observation button
     mainContent.innerHTML += `
-      <h3 class="section-heading" > OFC Networking rack </h3>
+      <div style="position: relative; margin-bottom: 20px;">
+        <h3 class="section-heading" > OFC Networking rack </h3>
+        <select id="section-na-dropdown-8_0" style="position: absolute; top: 0; right: 0; width: 140px; padding: 5px 8px; border: 1px solid #ccc; border-radius: 3px; font-size: 12px; background-color: white;" onchange="if(this.value) { markSectionAsNotApplicable('8_0', this.value); this.value=''; }">
+          <option value="">Mark Section As:</option>
+          <option value="mark">Mark All as Not Applicable</option>
+          <option value="clear">Clear All Selections</option>
+        </select>
+      </div>
        <div  class="table-container">
       <table class="observations" id="observations-section-8_0">
         <thead>
           <tr>
-            <th>S_No</th>
+            <th>S.No</th>
             <th>Aspect</th>
             <th>Requirement</th>
             <th>Observation</th>
@@ -6408,7 +6417,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-712">
-      <td>7.1.1</td>
+      <td>7.2</td>
       <td class="observation_text">Installation</td>
       <td class="requirement_text">Patch cord routing shall be neat & bend radius to be maintained.</td>
        <td class="select">
@@ -6441,7 +6450,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-713">
-      <td>7.2</td>
+      <td>7.3</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">All external cables entering the network rack shall pass through the grommets.</td>
        <td class="select">
@@ -6475,7 +6484,7 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
  <tr id="row-721">
-      <td>7.2.1</td>
+      <td>7.4</td>
       <td class="observation_text">Cabling</td>
       <td class="requirement_text">OFC cables shall be marked using naming tie-tags for easy identification of default and standby links.</td>
      <td class="select">
@@ -6509,7 +6518,7 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-731">
-      <td>7.3</td>
+      <td>7.5</td>
       <td class="observation_text">Earthing</td>
        <td class="requirement_text">All networking modules inside the rack shall be connected to the rack chassis using 2.5 sq.mm green/yellow earthing wire.</td>
        <td class="select">
@@ -6542,7 +6551,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-732">
-      <td>7.3.1</td>
+      <td>7.6</td>
       <td class="observation_text">Earthing</td>
        <td class="requirement_text">Network rack shall be connected to ring earth using a 10 sq.mm green/yellow earthing wire.</td>
       <td class="select">
@@ -6575,7 +6584,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
      <tr id="row-733">
-      <td>7.3.2</td>
+      <td>7.7</td>
       <td class="observation_text">Earthing</td>
        <td class="requirement_text">Bolts shall be tightened to a torque of 8 Nm, and torque marking shall be applied using yellow paint.</td>
        <td class="select">
@@ -6609,7 +6618,7 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
 
     <tr id="row-741">
-      <td>7.4</td>
+      <td>7.8</td>
       <td class="observation_text">FDMS Box Installation in Network Rack</td>
       <td class="requirement_text">OFC cables shall be spliced in the FDMS box as per network drawing.</td>
      <td class="select">
@@ -6642,7 +6651,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-742">
-      <td>7.4.1</td>
+      <td>7.9</td>
       <td class="observation_text">FDMS Box Installation in Network Rack</td>
       <td class="requirement_text">FDMS boxes shall be clearly marked to identify up and down links.</td>
      <td class="select">
@@ -6675,14 +6684,14 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-75">
-      <td>7.5</td>
+      <td>7.10</td>
       <td class="observation_text">OFC cable continuity check, after splicing</td>
       <td class="requirement_text">OTDR test reports shall be available.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>
+                <option value="Available">Available</option>
+                <option value="Not Available">Not Available</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -6724,12 +6733,19 @@ Ensure mill connector shall be locked properly.</td>
     ;`
   } else if (section === "9.0") {
  mainContent.innerHTML += `
-      <h3 class="section-heading" > Relay rack </h3>
+      <div style="position: relative; margin-bottom: 20px;">
+        <h3 class="section-heading" > Relay rack </h3>
+        <select id="section-na-dropdown-9_0" style="position: absolute; top: 0; right: 0; width: 140px; padding: 5px 8px; border: 1px solid #ccc; border-radius: 3px; font-size: 12px; background-color: white;" onchange="if(this.value) { markSectionAsNotApplicable('9_0', this.value); this.value=''; }">
+          <option value="">Mark Section As:</option>
+          <option value="mark">Mark All as Not Applicable</option>
+          <option value="clear">Clear All Selections</option>
+        </select>
+      </div>
        <div  class="table-container">
       <table class="observations" id="observations-section-9_0">
         <thead>
          <tr>
-            <th>S_No</th>
+            <th>S.No</th>
             <th>Aspect</th>
             <th>Requirement</th>
             <th>Observation</th>
@@ -6806,7 +6822,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-828756">
-      <td>8.2.1</td>
+      <td>8.3</td>
       <td class="observation_text">Wiring</td>
       <td class="requirement_text">For EI Stations, verify all connections as per the approved EI Interface diagrams (vendor specific).</td>
       <td class="select">
@@ -6839,7 +6855,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-8287967">
-      <td>8.2.2</td>
+      <td>8.4</td>
       <td class="observation_text">Wiring</td>
       <td class="requirement_text">WAGO terminal details shall be as per interface circuit diagram 5 16 49 0685.
 </td>
@@ -6873,14 +6889,14 @@ Ensure mill connector shall be locked properly.</td>
 </div>
 </tr>
    <tr id="row-83">
-      <td>8.3</td>
+      <td>8.5</td>
       <td class="observation_text">Continuity Test / Bell Test</td>
       <td class="requirement_text">Completed Station Analyser and Bell Test reports shall be available.</td>
    <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>
+                <option value="Available">Available</option>
+                <option value="Not Available">Not Available</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -6906,7 +6922,7 @@ Ensure mill connector shall be locked properly.</td>
 </div>
     </tr>
     <tr id="row-914">
-      <td>8.4</td>
+      <td>8.6</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
      <td class="select">
@@ -6940,7 +6956,7 @@ Ensure mill connector shall be locked properly.</td>
     </tr>
      </tr>
     <tr id="row-9134">
-      <td>8.4.1</td>
+      <td>8.7</td>
       <td class="observation_text">Earthing</td>
       <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
      <td class="select">
@@ -6996,7 +7012,7 @@ else if(section==="10.0"){
       <table class="observations" id="observations-section-10_0">
         <thead>
           <tr>
-            <th>S_No</th>
+            <th>S.No</th>
             <th>Aspect</th>
             <th>Requirement</th>
             <th>Observation</th>
@@ -7008,7 +7024,7 @@ else if(section==="10.0"){
           <tr id="row-91">
       <td>9.1</td>
       <td class="observation_text">Installation</td>
-      <td class="requirement_text">Earthing shall be done as per RDSO Spec RDSO/SPN/197/2008 and earth pit placement shall be done as per diagram 5 16 76 0043 .</td>
+      <td class="requirement_text">Earthing shall be done as per RDSO Spec RDSO/SPN/197/2008</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -7040,17 +7056,21 @@ else if(section==="10.0"){
      <tr id="row-1012">
       <td>9.2</td>
       <td class="observation_text">Earth Resistance Measurement</td>
-      <td class="requirement_text">Earth resistance shall be measured using a calibrated earth resistance tester. 
-The measured value shall be ≤1 Ohm for Stationary Kavach equipment earth pit.</td>
+      <td class="requirement_text">Earth resistance shall be measured using a calibrated earth resistance tester. The measured value shall be lessthan or equal to 1 Ohm.</td>
      <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>
-              </select>
+        <input type="number" min="0" step="0.01" placeholder="Enter resistance (Ohm)"
+              oninput="checkEarthResistance(this, 1012)"
+              style="margin-bottom:3px; width:70%; height: 30%">
+
+        <select id="status-1012" class="status-dropdown" disabled
+                style="opacity:1; color:#000; background-color:#fff;">
+          <option value="Select">Select</option>
+          <option value="Ok">Ok</option>
+          <option value="Not Ok">Not Ok</option>
+        </select>
       </td>
       <td class="remarks">
-        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+        <textarea id="remarks-1012" placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
       </td>
      <td>
        <button class="add-image" onclick="showUploadOptions(1012)">Add Image</button>
@@ -7072,13 +7092,13 @@ The measured value shall be ≤1 Ohm for Stationary Kavach equipment earth pit.<
     </tr>
      <tr id="row-93">
       <td>9.3</td>
-      <td class="observation_text">Earth Resistance Measurement</td>
-      <td class="requirement_text">Check the value of earth resistance at earth of the radio tower.</td>
+      <td class="observation_text">Test Reports</td>
+      <td class="requirement_text">Earth resistance test reports shall be available</td>
      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>
+                <option value="Available">Available</option>
+                <option value="Not Available">Not Available</option>
               </select>
       </td>
       <td class="remarks">
@@ -7104,8 +7124,8 @@ The measured value shall be ≤1 Ohm for Stationary Kavach equipment earth pit.<
     </tr>
     <tr id="row-1014">
       <td>9.4</td>
-      <td class="observation_text">Test Reports</td>
-      <td class="requirement_text">Earth resistance test reports shall be available.</td>
+      <td class="observation_text">Labeling</td>
+      <td class="requirement_text">All earth pits, earthing conductors, and earth points shall be clearly labelled and identifiable.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -7134,38 +7154,6 @@ The measured value shall be ≤1 Ohm for Stationary Kavach equipment earth pit.<
   <canvas id="canvas-1014" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
-    <tr id="row-95">
-      <td>9.5</td>
-      <td class="observation_text">Labeling</td>
-      <td class="requirement_text">All earth pits, earthing conductors, and earth points shall be clearly labelled and identifiable.</td>
-      <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>
-              </select>
-      </td>
-      <td class="remarks">
-        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
-      </td>
-     <td>
-       <button class="add-image" onclick="showUploadOptions(95)">Add Image</button>
-<div class="upload-options" id="upload-options-95" style="display: none;">
-  <button class="add-image" onclick="startCamera(95)">Camera</button>
-  <label for="file-input-95" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-95" accept="image/*" multiple onchange="displayImages(this, 95)">
-</div>
-      <!-- Container for multiple images --> 
-      <div id="image-container-95"></div>
-      <!-- Camera Container -->
-<div id="camera-container-95" style="display: none;">
-  <video id="camera-95" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(95)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(95)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(95)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-95" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-    </tr>
     </tbody>
       </table>
       </div>
@@ -7190,7 +7178,7 @@ The measured value shall be ≤1 Ohm for Stationary Kavach equipment earth pit.<
       <table class="observations" id="observations-section-11_0">
         <thead>
           <tr>
-            <th>S_No</th>
+            <th>S.No</th>
             <th>Aspect</th>
             <th>Requirement</th>
             <th>Observation</th>
@@ -7421,7 +7409,7 @@ OFC armoured cables shall be used for communication.</td>
       <table class="observations" id="observations-section-12_0">
         <thead>
           <tr>
-            <th>S_No</th>
+            <th>S.No</th>
             <th>Aspect</th>
             <th>Requirement</th>
             <th>Observation</th>
@@ -7437,8 +7425,8 @@ OFC armoured cables shall be used for communication.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>
+                <option value="Available">Available</option>
+                <option value="Not Available">Not Available</option>
               </select>
       </td>
       <td class="remarks">
@@ -7550,7 +7538,7 @@ OFC armoured cables shall be used for communication.</td>
       <table class="observations" id="observations-section-13_0">
         <thead>
          <tr>
-            <th>S_No</th>
+            <th>S.No</th>
             <th>Aspect</th>
             <th>Requirement</th>
             <th>Observation</th>
@@ -7680,7 +7668,7 @@ OFC armoured cables shall be used for communication.</td>
       <table class="observations" id="observations-section-14_0">
         <thead>
          <tr>
-            <th>S_No</th>
+            <th>S.No</th>
             <th>Aspect</th>
             <th>Requirement</th>
             <th>Observation</th>
@@ -8203,10 +8191,12 @@ async function checkAndHighlightSections(stationId, zone, division) {
         if (subBtn) {
           subBtn.disabled = false;
           if (subExists) {
-            subBtn.style.backgroundColor = "#b2ebf2"; // Light blue/green for filled
+            subBtn.style.backgroundColor = "#b2ebf2"; // Light cyan background
+            subBtn.style.color = "black"; // Ensuring text is visible on light background
             filledCount++;
           } else {
             subBtn.style.backgroundColor = "";
+            subBtn.style.color = "";
           }
         }
       }
@@ -8215,11 +8205,14 @@ async function checkAndHighlightSections(stationId, zone, division) {
       if (mainBtn) {
         mainBtn.disabled = false;
         if (filledCount === section.subsections.length) {
-          mainBtn.style.backgroundColor = "#b2ebf2"; // Fully filled (Light blue)
+          mainBtn.style.backgroundColor = "#b2ebf2"; // Fully filled (Light cyan)
+          mainBtn.style.color = "black"; // Black text on light cyan
         } else if (filledCount > 0) {
-          mainBtn.style.backgroundColor = "#5a96adff"; // Partially filled (Light yellow)
+          mainBtn.style.backgroundColor = "#4682b4"; // Steel Blue (Darker, so white text ok)
+          mainBtn.style.color = "white"; // White text on darker background
         } else {
           mainBtn.style.backgroundColor = "";
+          mainBtn.style.color = "";
         }
       }
     } else {
@@ -8229,8 +8222,10 @@ async function checkAndHighlightSections(stationId, zone, division) {
         btn.disabled = false;
         if (exists) {
           btn.style.backgroundColor = "#b2ebf2";
+          btn.style.color = "black"; // Ensure text is visible on light cyan
         } else {
           btn.style.backgroundColor = "";
+          btn.style.color = "";
         }
       }
     }
@@ -9413,13 +9408,15 @@ function getDropdownOptions(sno, observationStatus, sectionID = null) {
 
   // 1. Explicitly defined options for standard rows
   // We check this first to honor specific mappings
-  const specificOptions = {
+ const specificOptions = {
     "1.38,1.40,1.41,1.42,1.43,1.44,1.45,1.46,1.47,1.48,1.49,1.50,1.51,1.52,1.53,1.54,1.55,1.56,1.57,1.58,1.59,1.60,1.61,1.62,1.63,1.64" : ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
     "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
-    "3.1,2.1,5.2,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.3,5.3.1,5.3.2,5.3.3,5.3.4,5.4,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,8.1,8.2,8.2.1,8.2.2,8.3,8.4,8.4.1,7.1,7.1.1,7.2,7.2.1,7.3,7.3.1,7.3.2,7.4,7.4.1,7.5,6.1,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.2,6.2.1,4.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.1.6,4.1.7,4.2,4.2.1,4.2.2,4.2.3,4.2.4" : ["Ok", "Not Ok", "Not Applicable"],
-    "5.1,5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1,9.2,9.3,9.5,10.1,10.2,10.3,10.4,10.5,10.6,12.1,12.2,13.1,11.1,11.2,11.3": ["Ok", "Not Ok"],
-    "9.4,12.3" : ["Available", "Not Available"]
+    "3.1,2.1,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.2.9,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,5.4.6,8.1,8.2,8.3,8.4,8.6,8.7,7.1,7.2,7.3,7.4,7.5,7.6,7.7,7.8,7.9,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.2.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.1.6,4.1.7,4.1.8,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5" : ["Ok", "Not Ok", "Not Applicable"],
+    "5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1,9.2,10.1,10.2,10.3,10.4,10.5,10.6,12.1,12.2,13.1,11.2,11.3": ["Ok", "Not Ok"],
+    "9.3,12.3,11.1" : ["Available", "Not Available"],
+    "6.2.2,7.10,8.5" : ["Available", "Not Available", "Not Applicable"]
   };
+
 
   for (const [key, values] of Object.entries(specificOptions)) {
     const keys = key.split(",").map(k => k.trim().toLowerCase());
@@ -9982,6 +9979,46 @@ function highlightSelect(selectElement) {
   }
 }
 
+// Function to mark entire section as Not Applicable
+function markSectionAsNotApplicable(sectionId, action) {
+  if (action === "mark") {
+    const tbody = document.querySelector(`#observations-tbody-${sectionId}`);
+    if (!tbody) return;
+
+    const selects = tbody.querySelectorAll(".status-dropdown");
+    selects.forEach(select => {
+      select.value = "Not Applicable";
+      highlightSelect(select);
+    });
+    markDataAsUnsaved();
+
+    // Reset dropdown after action
+    const dropdown = document.getElementById(`section-na-dropdown-${sectionId}`);
+    if (dropdown) {
+      setTimeout(() => {
+        dropdown.value = "";
+      }, 100);
+    }
+  } else if (action === "clear") {
+    const tbody = document.querySelector(`#observations-tbody-${sectionId}`);
+    if (!tbody) return;
+
+    const selects = tbody.querySelectorAll(".status-dropdown");
+    selects.forEach(select => {
+      select.value = "Select";
+      highlightSelect(select);
+    });
+    markDataAsUnsaved();
+
+    // Reset dropdown after action
+    const dropdown = document.getElementById(`section-na-dropdown-${sectionId}`);
+    if (dropdown) {
+      setTimeout(() => {
+        dropdown.value = "";
+      }, 100);
+    }
+  }
+}
 
 const deletedImagesMap = {}; // Tracks deleted image URLs for each observationID
 
@@ -10224,6 +10261,56 @@ async function addRowWithPassword(sectionId) {
   }
 }
 
+async function checkVoltage(input, rowId) {
+
+    let value = parseFloat(input.value);
+    let dropdown = document.getElementById("status-" + rowId);
+    let remarks = document.getElementById("remarks-" + rowId);
+
+    if (!isNaN(value)) {
+        if (value >= 22.8 && value <= 25.2) {
+            dropdown.value = "Ok";
+        } else {
+            dropdown.value = "Not Ok";
+        }
+        remarks.value = value + " VDC"
+        remarks.readOnly = true;
+    } else {
+        dropdown.value = "Select";
+        remarks.value = ""
+        remarks.readOnly = false
+    }
+    highlightSelect(dropdown);
+    markDataAsUnsaved();
+
+}
+
+async function checkEarthResistance(input, rowId){
+    let value = parseFloat(input.value);
+    let dropdown = document.getElementById("status-" + rowId);
+    let remarks = document.getElementById("remarks-" + rowId);
+
+    if (!isNaN(value)) {
+        if (value <= 1) {
+            dropdown.value = "Ok";
+        } else {
+            dropdown.value = "Not Ok";
+        }
+
+        remarks.value = value + " Ohm";
+
+        remarks.readOnly = true;
+    } else {
+        dropdown.value = "Select";
+        remarks.value = "";
+        remarks.readOnly = false;
+    }
+
+    // Keep existing behavior
+    highlightSelect(dropdown);
+    markDataAsUnsaved();
+}
+
 async function deleteRowTemplate(span, s_no, sectionId) {
     const password = prompt("Enter password to DELETE this permanent row:");
     if(password !== "hbl@123") return;
@@ -10277,6 +10364,7 @@ async function loadCustomRows(sectionId) {
 function markDataAsUnsaved() {
     unsavedChanges = true;
 }
+
 
 
 
