@@ -109022,3 +109022,1365 @@ Processing S_no: 4.1.8. Status: Ok, Remarks: . Existing: Yes
 Update executed for S_no 4.1.8. Rows affected: 1
 SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
 Params: ["Ok","","454","4.1.8"]
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 4.2.1
+            [observation_text] => Installation
+            [requirement_text] => DC-DC Converter unit shall be installed as per the approved floor plan drawing, mounted on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0055
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 4.2.2
+            [observation_text] => Cabling
+            [requirement_text] => All external cables entering the unit shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 4.2.3
+            [observation_text] => Earthing
+            [requirement_text] => Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 4.2.4
+            [observation_text] => Earthing
+            [requirement_text] => Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 4.2.5
+            [observation_text] => Functionality
+            [requirement_text] => DC-DC converter output voltage shall be minimum 24 V DC, +/- 5% (22.8 VDC to 25.2 VDC)
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 4.2.1. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 4.2.1
+Processing S_no: 4.2.2. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 4.2.2
+Processing S_no: 4.2.3. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 4.2.3
+Processing S_no: 4.2.4. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 4.2.4
+Processing S_no: 4.2.5. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 4.2.5
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 4.2.1
+            [observation_text] => Installation
+            [requirement_text] => DC-DC Converter unit shall be installed as per the approved floor plan drawing, mounted on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0055
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 4.2.2
+            [observation_text] => Cabling
+            [requirement_text] => All external cables entering the unit shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 4.2.3
+            [observation_text] => Earthing
+            [requirement_text] => Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 4.2.4
+            [observation_text] => Earthing
+            [requirement_text] => Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 4.2.5
+            [observation_text] => Functionality
+            [requirement_text] => DC-DC converter output voltage shall be minimum 24 V DC, +/- 5% (22.8 VDC to 25.2 VDC)
+            [barcode_kavach_main_unit] => 
+            [remarks] => 23 VDC
+            [observation_status] => Ok
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 4.2.1. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 4.2.1
+Processing S_no: 4.2.2. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 4.2.2
+Processing S_no: 4.2.3. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 4.2.3
+Processing S_no: 4.2.4. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 4.2.4
+Processing S_no: 4.2.5. Status: Ok, Remarks: 23 VDC. Existing: No
+Insert executed for S_no 4.2.5
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 4.2.1
+            [observation_text] => Installation
+            [requirement_text] => DC-DC Converter unit shall be installed as per the approved floor plan drawing, mounted on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0055
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 4.2.2
+            [observation_text] => Cabling
+            [requirement_text] => All external cables entering the unit shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 4.2.3
+            [observation_text] => Earthing
+            [requirement_text] => Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 4.2.4
+            [observation_text] => Earthing
+            [requirement_text] => Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 4.2.5
+            [observation_text] => Functionality
+            [requirement_text] => DC-DC converter output voltage shall be minimum 24 V DC, +/- 5% (22.8 VDC to 25.2 VDC)
+            [barcode_kavach_main_unit] => 
+            [remarks] => 65 VDC
+            [observation_status] => Not Ok
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 4.2.1. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 4.2.1
+Processing S_no: 4.2.2. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 4.2.2
+Processing S_no: 4.2.3. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 4.2.3
+Processing S_no: 4.2.4. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 4.2.4
+Processing S_no: 4.2.5. Status: Not Ok, Remarks: 65 VDC. Existing: No
+Insert executed for S_no 4.2.5
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 4.2.1
+            [observation_text] => Installation
+            [requirement_text] => DC-DC Converter unit shall be installed as per the approved floor plan drawing, mounted on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0055
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 4.2.2
+            [observation_text] => Cabling
+            [requirement_text] => All external cables entering the unit shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 4.2.3
+            [observation_text] => Earthing
+            [requirement_text] => Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 4.2.4
+            [observation_text] => Earthing
+            [requirement_text] => Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 4.2.5
+            [observation_text] => Functionality
+            [requirement_text] => DC-DC converter output voltage shall be minimum 24 V DC, +/- 5% 
+(22.8 VDC to 25.2 VDC)
+            [barcode_kavach_main_unit] => 
+            [remarks] => 65 VDC
+            [observation_status] => Not Ok
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 4.2.1. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.1. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.1"]
+Processing S_no: 4.2.2. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.2. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.2"]
+Processing S_no: 4.2.3. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.3. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.3"]
+Processing S_no: 4.2.4. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.4. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.4"]
+Processing S_no: 4.2.5. Status: Not Ok, Remarks: 65 VDC. Existing: Yes
+Update executed for S_no 4.2.5. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Not Ok","65 VDC","985675","4.2.5"]
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 4.2.1
+            [observation_text] => Installation
+            [requirement_text] => DC-DC Converter unit shall be installed as per the approved floor plan drawing, mounted on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0055
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 4.2.2
+            [observation_text] => Cabling
+            [requirement_text] => All external cables entering the unit shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 4.2.3
+            [observation_text] => Earthing
+            [requirement_text] => Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 4.2.4
+            [observation_text] => Earthing
+            [requirement_text] => Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 4.2.5
+            [observation_text] => Functionality
+            [requirement_text] => DC-DC converter output voltage shall be minimum 24 V DC, +/- 5% 
+(22.8 VDC to 25.2 VDC)
+            [barcode_kavach_main_unit] => 
+            [remarks] => 65 VDC
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 4.2.1. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.1. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.1"]
+Processing S_no: 4.2.2. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.2. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.2"]
+Processing S_no: 4.2.3. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.3. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.3"]
+Processing S_no: 4.2.4. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.4. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.4"]
+Processing S_no: 4.2.5. Status: Not Applicable, Remarks: 65 VDC. Existing: Yes
+Update executed for S_no 4.2.5. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Not Applicable","65 VDC","985675","4.2.5"]
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 4.2.1
+            [observation_text] => Installation
+            [requirement_text] => DC-DC Converter unit shall be installed as per the approved floor plan drawing, mounted on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0055
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 4.2.2
+            [observation_text] => Cabling
+            [requirement_text] => All external cables entering the unit shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 4.2.3
+            [observation_text] => Earthing
+            [requirement_text] => Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Ok
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 4.2.4
+            [observation_text] => Earthing
+            [requirement_text] => Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Ok
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 4.2.5
+            [observation_text] => Functionality
+            [requirement_text] => DC-DC converter output voltage shall be minimum 24 V DC, +/- 5% 
+(22.8 VDC to 25.2 VDC)
+            [barcode_kavach_main_unit] => 
+            [remarks] => 65 VDC
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 4.2.1. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.1. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.1"]
+Processing S_no: 4.2.2. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.2. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.2"]
+Processing S_no: 4.2.3. Status: Ok, Remarks: . Existing: Yes
+Update executed for S_no 4.2.3. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Ok","","985675","4.2.3"]
+Processing S_no: 4.2.4. Status: Ok, Remarks: . Existing: Yes
+Update executed for S_no 4.2.4. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Ok","","985675","4.2.4"]
+Processing S_no: 4.2.5. Status: Not Applicable, Remarks: 65 VDC. Existing: Yes
+Update executed for S_no 4.2.5. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Not Applicable","65 VDC","985675","4.2.5"]
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 4.2.1
+            [observation_text] => Installation
+            [requirement_text] => DC-DC Converter unit shall be installed as per the approved floor plan drawing, mounted on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0055
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 4.2.2
+            [observation_text] => Cabling
+            [requirement_text] => All external cables entering the unit shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 4.2.3
+            [observation_text] => Earthing
+            [requirement_text] => Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 4.2.4
+            [observation_text] => Earthing
+            [requirement_text] => Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 4.2.5
+            [observation_text] => Functionality
+            [requirement_text] => DC-DC converter output voltage shall be minimum 24 V DC, +/- 5% 
+(22.8 VDC to 25.2 VDC)
+            [barcode_kavach_main_unit] => 
+            [remarks] => 65 VDC
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 4.2.1. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.1. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.1"]
+Processing S_no: 4.2.2. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.2. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.2"]
+Processing S_no: 4.2.3. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.3. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.3"]
+Processing S_no: 4.2.4. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.4. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.4"]
+Processing S_no: 4.2.5. Status: Not Applicable, Remarks: 65 VDC. Existing: Yes
+Update executed for S_no 4.2.5. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Not Applicable","65 VDC","985675","4.2.5"]
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 4.2.1
+            [observation_text] => Installation
+            [requirement_text] => DC-DC Converter unit shall be installed as per the approved floor plan drawing, mounted on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0055
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 4.2.2
+            [observation_text] => Cabling
+            [requirement_text] => All external cables entering the unit shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 4.2.3
+            [observation_text] => Earthing
+            [requirement_text] => Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 4.2.4
+            [observation_text] => Earthing
+            [requirement_text] => Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 4.2.5
+            [observation_text] => Functionality
+            [requirement_text] => DC-DC converter output voltage shall be minimum 24 V DC, +/- 5% 
+(22.8 VDC to 25.2 VDC)
+            [barcode_kavach_main_unit] => 
+            [remarks] => 65 VDC
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 4.2.1. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.1. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.1"]
+Processing S_no: 4.2.2. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.2. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.2"]
+Processing S_no: 4.2.3. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.3. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.3"]
+Processing S_no: 4.2.4. Status: Select, Remarks: . Existing: Yes
+Update executed for S_no 4.2.4. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Select","","985675","4.2.4"]
+Processing S_no: 4.2.5. Status: Not Applicable, Remarks: 65 VDC. Existing: Yes
+Update executed for S_no 4.2.5. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Not Applicable","65 VDC","985675","4.2.5"]
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 4.2.1
+            [observation_text] => Installation
+            [requirement_text] => DC-DC Converter unit shall be installed as per the approved floor plan drawing, mounted on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0055
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 4.2.2
+            [observation_text] => Cabling
+            [requirement_text] => All external cables entering the unit shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 4.2.3
+            [observation_text] => Earthing
+            [requirement_text] => Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 4.2.4
+            [observation_text] => Earthing
+            [requirement_text] => Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 4.2.5
+            [observation_text] => Functionality
+            [requirement_text] => DC-DC converter output voltage shall be minimum 24 V DC, +/- 5% 
+(22.8 VDC to 25.2 VDC)
+            [barcode_kavach_main_unit] => 
+            [remarks] => 65 VDC
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+            [deleted_images] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 4.2.1. Status: Not Applicable, Remarks: . Existing: Yes
+Update executed for S_no 4.2.1. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Not Applicable","","985675","4.2.1"]
+Processing S_no: 4.2.2. Status: Not Applicable, Remarks: . Existing: Yes
+Update executed for S_no 4.2.2. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Not Applicable","","985675","4.2.2"]
+Processing S_no: 4.2.3. Status: Not Applicable, Remarks: . Existing: Yes
+Update executed for S_no 4.2.3. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Not Applicable","","985675","4.2.3"]
+Processing S_no: 4.2.4. Status: Not Applicable, Remarks: . Existing: Yes
+Update executed for S_no 4.2.4. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Not Applicable","","985675","4.2.4"]
+Processing S_no: 4.2.5. Status: Not Applicable, Remarks: 65 VDC. Existing: Yes
+Update executed for S_no 4.2.5. Rows affected: 1
+SQL: UPDATE rf_antennas SET observation_status = ?, remarks = ?, updated_at = NOW() WHERE station_id = ? AND S_no = ?
+Params: ["Not Applicable","65 VDC","985675","4.2.5"]
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 9.1
+            [observation_text] => Installation
+            [requirement_text] => Earthing shall be done as per RDSO Spec RDSO/SPN/197/2008
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 9.2
+            [observation_text] => Earth Resistance Measurement
+            [requirement_text] => Earth resistance shall be measured using a calibrated earth resistance tester. The measured value shall be lessthan or equal to 1 Ohm.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 9.3
+            [observation_text] => Test Reports
+            [requirement_text] => Earth resistance test reports shall be available
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 9.4
+            [observation_text] => Labeling
+            [requirement_text] => All earth pits, earthing conductors, and earth points shall be clearly labelled and identifiable.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 9.1. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 9.1
+Processing S_no: 9.2. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 9.2
+Processing S_no: 9.3. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 9.3
+Processing S_no: 9.4. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 9.4
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 7.1
+            [observation_text] => Installation
+            [requirement_text] => Network rack shall be installed as per approved floor plan and installation shall be done as per diagram 5 16 76 0058.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Ok
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 7.2
+            [observation_text] => Installation
+            [requirement_text] => Patch cord routing shall be neat & bend radius to be maintained.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 7.3
+            [observation_text] => Cabling
+            [requirement_text] => All external cables entering the network rack shall pass through the grommets.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Ok
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 7.4
+            [observation_text] => Cabling
+            [requirement_text] => OFC cables shall be marked using naming tie-tags for easy identification of default and standby links.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 7.5
+            [observation_text] => Earthing
+            [requirement_text] => All networking modules inside the rack shall be connected to the rack chassis using 2.5 sq.mm green/yellow earthing wire.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [5] => Array
+        (
+            [S_no] => 7.6
+            [observation_text] => Earthing
+            [requirement_text] => Network rack shall be connected to ring earth using a 10 sq.mm green/yellow earthing wire.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [6] => Array
+        (
+            [S_no] => 7.7
+            [observation_text] => Earthing
+            [requirement_text] => Bolts shall be tightened to a torque of 8 Nm, and torque marking shall be applied using yellow paint.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [7] => Array
+        (
+            [S_no] => 7.8
+            [observation_text] => FDMS Box Installation in Network Rack
+            [requirement_text] => OFC cables shall be spliced in the FDMS box as per network drawing.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [8] => Array
+        (
+            [S_no] => 7.9
+            [observation_text] => FDMS Box Installation in Network Rack
+            [requirement_text] => FDMS boxes shall be clearly marked to identify up and down links.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [9] => Array
+        (
+            [S_no] => 7.10
+            [observation_text] => OFC cable continuity check, after splicing
+            [requirement_text] => OTDR test reports shall be available.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 7.1. Status: Ok, Remarks: . Existing: No
+Insert executed for S_no 7.1
+Processing S_no: 7.2. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 7.2
+Processing S_no: 7.3. Status: Ok, Remarks: . Existing: No
+Insert executed for S_no 7.3
+Processing S_no: 7.4. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 7.4
+Processing S_no: 7.5. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 7.5
+Processing S_no: 7.6. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 7.6
+Processing S_no: 7.7. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 7.7
+Processing S_no: 7.8. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 7.8
+Processing S_no: 7.9. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 7.9
+Processing S_no: 7.10. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 7.10
+Received Request:
+Array
+(
+    [0] => Array
+        (
+            [S_no] => 7.1
+            [observation_text] => Installation
+            [requirement_text] => Network rack shall be installed as per approved floor plan and installation shall be done as per diagram 5 16 76 0058.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Ok
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [S_no] => 7.2
+            [observation_text] => Installation
+            [requirement_text] => Patch cord routing shall be neat & bend radius to be maintained.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Not Applicable
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [2] => Array
+        (
+            [S_no] => 7.3
+            [observation_text] => Cabling
+            [requirement_text] => All external cables entering the network rack shall pass through the grommets.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [3] => Array
+        (
+            [S_no] => 7.4
+            [observation_text] => Cabling
+            [requirement_text] => OFC cables shall be marked using naming tie-tags for easy identification of default and standby links.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [S_no] => 7.5
+            [observation_text] => Earthing
+            [requirement_text] => All networking modules inside the rack shall be connected to the rack chassis using 2.5 sq.mm green/yellow earthing wire.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [5] => Array
+        (
+            [S_no] => 7.6
+            [observation_text] => Earthing
+            [requirement_text] => Network rack shall be connected to ring earth using a 10 sq.mm green/yellow earthing wire.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [6] => Array
+        (
+            [S_no] => 7.7
+            [observation_text] => Earthing
+            [requirement_text] => Bolts shall be tightened to a torque of 8 Nm, and torque marking shall be applied using yellow paint.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [7] => Array
+        (
+            [S_no] => 7.8
+            [observation_text] => FDMS Box Installation in Network Rack
+            [requirement_text] => OFC cables shall be spliced in the FDMS box as per network drawing.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [8] => Array
+        (
+            [S_no] => 7.9
+            [observation_text] => FDMS Box Installation in Network Rack
+            [requirement_text] => FDMS boxes shall be clearly marked to identify up and down links.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+    [9] => Array
+        (
+            [S_no] => 7.10
+            [observation_text] => OFC cable continuity check, after splicing
+            [requirement_text] => OTDR test reports shall be available.
+            [barcode_kavach_main_unit] => 
+            [remarks] => 
+            [observation_status] => Select
+            [image_paths] => Array
+                (
+                )
+
+        )
+
+)
+
+-----------------
+Processing S_no: 7.1. Status: Ok, Remarks: . Existing: No
+Insert executed for S_no 7.1
+Processing S_no: 7.2. Status: Not Applicable, Remarks: . Existing: No
+Insert executed for S_no 7.2
+Processing S_no: 7.3. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 7.3
+Processing S_no: 7.4. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 7.4
+Processing S_no: 7.5. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 7.5
+Processing S_no: 7.6. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 7.6
+Processing S_no: 7.7. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 7.7
+Processing S_no: 7.8. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 7.8
+Processing S_no: 7.9. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 7.9
+Processing S_no: 7.10. Status: Select, Remarks: . Existing: No
+Insert executed for S_no 7.10

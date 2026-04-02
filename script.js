@@ -4930,10 +4930,10 @@ Field Scanner Card 1
       <td class="select">
         <input type="number" min="0" step="0.1" placeholder="Enter voltage"
          oninput="checkVoltage(this, 424)" style="margin-bottom:5px; width:100%;">
-       <select id="status-424" class="status-dropdown" disabled style="opacity:1; color:#000; background-color:#fff;">
+       <select id="status-424" class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="opacity:1; color:#000; background-color:#fff;">
                 <option value="Select">Select</option>
-                <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>
+                <option value="Ok" style="display:none;">Ok</option>
+                <option value="Not Ok" style="display:none;">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
@@ -7030,6 +7030,7 @@ else if(section==="10.0"){
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7062,11 +7063,12 @@ else if(section==="10.0"){
               oninput="checkEarthResistance(this, 1012)"
               style="margin-bottom:3px; width:70%; height: 30%">
 
-        <select id="status-1012" class="status-dropdown" disabled
+        <select id="status-1012" class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();"
                 style="opacity:1; color:#000; background-color:#fff;">
           <option value="Select">Select</option>
-          <option value="Ok">Ok</option>
-          <option value="Not Ok">Not Ok</option>
+          <option value="Ok" style="display:none;">Ok</option>
+          <option value="Not Ok" style="display:none;">Not Ok</option>
+          <option value="Not Applicable">Not Applicable</option>
         </select>
       </td>
       <td class="remarks">
@@ -7556,6 +7558,7 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7588,6 +7591,7 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7620,7 +7624,7 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Select">Select</option>
                 <option value="Available">Available</option>
                 <option value="Not Available">Not Available</option>
-            
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -9411,10 +9415,10 @@ function getDropdownOptions(sno, observationStatus, sectionID = null) {
  const specificOptions = {
     "1.38,1.40,1.41,1.42,1.43,1.44,1.45,1.46,1.47,1.48,1.49,1.50,1.51,1.52,1.53,1.54,1.55,1.56,1.57,1.58,1.59,1.60,1.61,1.62,1.63,1.64" : ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
     "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
-    "3.1,2.1,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.2.9,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,5.4.6,8.1,8.2,8.3,8.4,8.6,8.7,7.1,7.2,7.3,7.4,7.5,7.6,7.7,7.8,7.9,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.2.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.1.6,4.1.7,4.1.8,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5" : ["Ok", "Not Ok", "Not Applicable"],
-    "5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1,9.2,10.1,10.2,10.3,10.4,10.5,10.6,12.1,12.2,13.1,11.2,11.3": ["Ok", "Not Ok"],
-    "9.3,12.3,11.1" : ["Available", "Not Available"],
-    "6.2.2,7.10,8.5" : ["Available", "Not Available", "Not Applicable"]
+    "3.1,2.1,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.2.9,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,5.4.6,8.1,8.2,8.3,8.4,8.6,8.7,7.1,7.2,7.3,7.4,7.5,7.6,7.7,7.8,7.9,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.2.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.1.6,4.1.7,4.1.8,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,9.2,12.1,12.2" : ["Ok", "Not Ok", "Not Applicable"],
+    "5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1,10.1,10.2,10.3,10.4,10.5,10.6,13.1,11.2,11.3": ["Ok", "Not Ok"],
+    "9.3,11.1" : ["Available", "Not Available"],
+    "6.2.2,7.10,8.5,12.3" : ["Available", "Not Available", "Not Applicable"]
   };
 
 
@@ -10268,6 +10272,11 @@ async function checkVoltage(input, rowId) {
     let remarks = document.getElementById("remarks-" + rowId);
 
     if (!isNaN(value)) {
+        // Hide Not Applicable, show Ok and Not Ok
+        dropdown.querySelector('option[value="Not Applicable"]').style.display = 'none';
+        dropdown.querySelector('option[value="Ok"]').style.display = '';
+        dropdown.querySelector('option[value="Not Ok"]').style.display = '';
+
         if (value >= 22.8 && value <= 25.2) {
             dropdown.value = "Ok";
         } else {
@@ -10275,10 +10284,17 @@ async function checkVoltage(input, rowId) {
         }
         remarks.value = value + " VDC"
         remarks.readOnly = true;
+        dropdown.disabled = true;
     } else {
+        // Show Not Applicable, hide Ok and Not Ok
+        dropdown.querySelector('option[value="Not Applicable"]').style.display = '';
+        dropdown.querySelector('option[value="Ok"]').style.display = 'none';
+        dropdown.querySelector('option[value="Not Ok"]').style.display = 'none';
+
         dropdown.value = "Select";
         remarks.value = ""
         remarks.readOnly = false
+        dropdown.disabled = false;
     }
     highlightSelect(dropdown);
     markDataAsUnsaved();
@@ -10291,6 +10307,11 @@ async function checkEarthResistance(input, rowId){
     let remarks = document.getElementById("remarks-" + rowId);
 
     if (!isNaN(value)) {
+        // Hide Not Applicable, show Ok and Not Ok
+        dropdown.querySelector('option[value="Not Applicable"]').style.display = 'none';
+        dropdown.querySelector('option[value="Ok"]').style.display = '';
+        dropdown.querySelector('option[value="Not Ok"]').style.display = '';
+
         if (value <= 1) {
             dropdown.value = "Ok";
         } else {
@@ -10300,10 +10321,16 @@ async function checkEarthResistance(input, rowId){
         remarks.value = value + " Ohm";
 
         remarks.readOnly = true;
+        dropdown.disabled = true;
     } else {
+        // Show Not Applicable, hide Ok and Not Ok
+        dropdown.querySelector('option[value="Not Applicable"]').style.display = '';
+        dropdown.querySelector('option[value="Ok"]').style.display = 'none';
+        dropdown.querySelector('option[value="Not Ok"]').style.display = 'none';
         dropdown.value = "Select";
         remarks.value = "";
         remarks.readOnly = false;
+        dropdown.disabled = false;
     }
 
     // Keep existing behavior
