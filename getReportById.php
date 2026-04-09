@@ -15,6 +15,17 @@ if (!isset($_GET['station_id']) || empty($_GET['station_id'])) {
 
 $stationId = $_GET['station_id'];
 
+// If station_id passed is the full filename like ' fdfdffdf_2026-04-09_Report...pdf', extract the station name
+if (strpos($stationId, '_Report_') !== false || substr(trim($stationId), -4) === '.pdf') {
+    if (preg_match('/^([^_]+)/', trim($stationId), $matches)) {
+        $stationIdClean = trim($matches[1]);
+    } else {
+        $stationIdClean = trim($stationId);
+    }
+} else {
+    $stationIdClean = trim($stationId);
+}
+
 try {
     // Connect to the database
     $pdo = new PDO("mysql:host=localhost;dbname=station_info;charset=utf8mb4", "root", "Hbl@1234", [
@@ -26,9 +37,10 @@ try {
     $stmt = $pdo->prepare("
         SELECT station_id, station_name, railway_zone, division, section_name, initial_date, updated_date 
         FROM station
-        WHERE station_id = :stationId
+        WHERE station_id = :stationId OR station_name = :stationId
+        LIMIT 1
     ");
-    $stmt->execute([':stationId' => $stationId]);
+    $stmt->execute([':stationId' => $stationIdClean]);
     $stationDetails = $stmt->fetch();
 
     if (!$stationDetails) {

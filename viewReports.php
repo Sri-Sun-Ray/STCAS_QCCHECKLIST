@@ -105,11 +105,11 @@ try {
                 $station_id = null;
                 $report_date = null;
 
-                if (preg_match('/^(\d+)_([0-9]{4}-[0-9]{2}-[0-9]{2})_Report_/i', $report['file_name'], $matches)) {
-                    $station_id = $matches[1];
+                if (preg_match('/^([^_]+)_([0-9]{4}-[0-9]{2}-[0-9]{2})_Report_/i', $report['file_name'], $matches)) {
+                    $station_id = trim($matches[1]);
                     $report_date = $matches[2];
-                } elseif (preg_match('/^\d+/', $report['file_name'], $stationMatches)) {
-                    $station_id = $stationMatches[0] ?? null;
+                } elseif (preg_match('/^([^_]+)/', $report['file_name'], $stationMatches)) {
+                    $station_id = trim($stationMatches[0]) ?? null;
                 }
 
                 // Values as fallbacks
