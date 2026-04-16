@@ -1654,7 +1654,7 @@ Field Scanner Card 1
           </tr>
           <tr id="row-116">
             <td>1.20</td>
-           <td class="observation_text"> Field Scanner Card 7
+           <td class="observation_text"> Field Scanner Card 77777
           <input 
   type="text" 
   id="kavach-main-unit" 
