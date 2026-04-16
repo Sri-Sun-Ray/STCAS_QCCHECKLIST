@@ -8129,7 +8129,7 @@ function updateObservationsTable(sectionID, observations, sno) {
               // Update Dropdown
               const select = row.querySelector("select.status-dropdown");
               if (select) {
-                  select.value = p.observation_status || 'Select';
+                  select.value = p.observation_status ? p.observation_status.trim() : 'Select';
                   select.setAttribute('data-initial', select.value);
                   highlightSelect(select);
               }
@@ -9880,6 +9880,14 @@ async function loadCustomRows(sectionId) {
                     renderCustomRow(sectionId, row.s_no, row.description);
                 }
             });
+            
+            // Re-run updateSections to populate the newly added custom rows with any saved data
+            if (window.allObservations && window.allObservations.length > 0) {
+                let renderSectionId = sectionId.replace('.', '_');
+                if (window.sectionWiseSno && window.sectionWiseSno[renderSectionId]) {
+                    updateSections(window.allObservations, renderSectionId, window.sectionWiseSno[renderSectionId]);
+                }
+            }
         }
     } catch(e) {
         console.error("Error loading custom rows", e);
