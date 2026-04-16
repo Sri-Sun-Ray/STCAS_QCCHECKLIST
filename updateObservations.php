@@ -45,7 +45,6 @@ try {
     $pdo->beginTransaction();
 
     $logData = "Received Request:\n" . print_r($observations, true) . "\n-----------------\n";
-    file_put_contents('debug_observations.log', $logData, FILE_APPEND);
 
     foreach ($observations as $obs) {
         $s_no = trim($obs['S_no']);
@@ -63,7 +62,6 @@ try {
         $existing = $check->fetch();
         
         $rowLog = "Processing S_no: $s_no. Status: $status, Remarks: $remarks. Existing: " . ($existing ? 'Yes' : 'No') . "\n";
-        file_put_contents('debug_observations.log', $rowLog, FILE_APPEND);
 
         if ($existing) {
             // Prepare UPDATE query
@@ -83,7 +81,6 @@ try {
             $update->execute($params);
             $count = $update->rowCount();
             $logMsg = "Update executed for S_no $s_no. Rows affected: $count\nSQL: $sql\nParams: " . json_encode($params) . "\n";
-            file_put_contents('debug_observations.log', $logMsg, FILE_APPEND);
         } else {
             // INSERT new record
             $sql = "INSERT INTO $tableName (station_id, S_no, observation_text, requirement_text, observation_status, remarks, created_at, updated_at";
@@ -99,7 +96,7 @@ try {
             $sql .= ") VALUES ($placeholders)";
             $insert = $pdo->prepare($sql);
             $insert->execute($params);
-            file_put_contents('debug_observations.log', "Insert executed for S_no $s_no\n", FILE_APPEND);
+
         }
 
         // Handle images
