@@ -128,4 +128,27 @@ exit /b 0
 :log
 set "ts=%date% %time%"
 >> "%LOG_FILE%" echo [%ts%] %~1
+
+:: Trim log file to last 200 lines
+call :trim_log
+
+exit /b
+
+:trim_log
+setlocal EnableDelayedExpansion
+
+set "TEMP_FILE=%LOG_FILE%.tmp"
+
+:: Count lines
+for /f %%c in ('find /c /v "" ^< "%LOG_FILE%"') do set LINECOUNT=%%c
+
+:: If more than 200 lines, trim
+if !LINECOUNT! GTR 200 (
+    set /a SKIP=!LINECOUNT!-200
+
+    more +!SKIP! "%LOG_FILE%" > "!TEMP_FILE!"
+    move /y "!TEMP_FILE!" "%LOG_FILE%" >nul
+)
+
+endlocal
 exit /b
