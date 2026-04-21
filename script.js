@@ -9942,3 +9942,81 @@ function setSectionNA(tbodyId) {
     alert("No applicable fields found to update.");
   }
 }
+
+function showLoader(show){
+  let loader = document.getElementById("loader");
+
+  if (!loader) {
+    loader = document.createElement("div");
+    loader.id = "loader";
+
+    loader.innerHTML = `
+      <div class="loader-box">
+        <div class="spinner"></div>
+        <p>Checking for updates...</p>
+      </div>
+    `;
+
+    document.body.appendChild(loader);
+  }
+
+  loader.style.display = show ? "flex" : "none";
+}
+function showMessage(msg){
+  let msgBox = document.getElementById("messageBox");
+
+  if (!msgBox) {
+    msgBox = document.createElement("div");
+    msgBox.id = "messageBox";
+
+    document.body.appendChild(msgBox);
+  }
+
+  msgBox.innerHTML = `<div class="message-content">${msg}</div>`;
+  msgBox.style.display = "flex";
+
+  setTimeout(() => {
+    msgBox.style.display = "none";
+  }, 2000);
+}
+async function checkForUpdates() {
+
+  if (!navigator.onLine)
+  {
+    showMessage("No internet Connection.");
+    return;
+  }
+
+  showLoader(true);
+  try{
+    const res = await fetch("update_version.php");
+    const data = await res.json();
+
+    showLoader(false);
+    if (data.status === "updated"){
+
+      showMessage("Software updated successfully");
+      setTimeout(() => location.reload(),1500);
+    }
+    else if(data.status === "uptodate"){
+      showMessage("Already upto Date");
+    }
+    else{
+      showMessage("Update Failed")
+    }
+  }
+  catch(err){
+    showLoader(false);
+    showMessage("Error connecting to server")
+  }
+
+
+}
+
+// Automatically check for updates when internet connection is restored
+window.addEventListener('online', checkForUpdates);
+
+// Also check immediately when the page loads if already online
+if (navigator.onLine) {
+  checkForUpdates();
+}
