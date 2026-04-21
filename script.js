@@ -10002,7 +10002,8 @@ async function checkForUpdates() {
       showMessage("Already upto Date");
     }
     else{
-      showMessage("Update Failed")
+      console.log(data); // 👈 IMPORTANT
+      showMessage("Update Failed: " + (data.step || ""));
     }
   }
   catch(err){

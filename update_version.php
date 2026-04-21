@@ -6,12 +6,19 @@ $git = '"C:\\Program Files\\Git\\bin\\git.exe"';
 
 chdir($repo);
 
-exec("$git fetch origin 2>&1", $out, $code);
-if ($code !== 0) {
-    echo json_encode(["status" => "error"]);
+// fetch
+exec("$git fetch origin 2>&1", $fetchOutput, $fetchCode);
+
+if ($fetchCode !== 0) {
+    echo json_encode([
+        "status" => "error",
+        "step" => "fetch",
+        "output" => $fetchOutput
+    ]);
     exit;
 }
 
+// compare
 $local = trim(shell_exec("$git rev-parse HEAD"));
 $remote = trim(shell_exec("$git rev-parse origin/main"));
 
@@ -20,12 +27,17 @@ if ($local === $remote) {
     exit;
 }
 
-exec("$git reset --hard 2>&1");
-exec("$git clean -fd 2>&1");
-exec("$git pull origin main 2>&1", $out, $code);
+// pull
+exec("$git reset --hard 2>&1", $r1, $c1);
+exec("$git clean -fd 2>&1", $r2, $c2);
+exec("$git pull origin main 2>&1", $pullOutput, $pullCode);
 
-if ($code === 0) {
+if ($pullCode === 0) {
     echo json_encode(["status" => "updated"]);
 } else {
-    echo json_encode(["status" => "error"]);
+    echo json_encode([
+        "status" => "error",
+        "step" => "pull",
+        "output" => $pullOutput
+    ]);
 }
