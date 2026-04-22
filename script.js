@@ -2574,7 +2574,7 @@ Field Scanner Card 1
           </tr>
            <tr id="row-255467">
             <td>1.39</td>
-           <td class = "observation_text"> SMOCIP Unit
+           <td class = "observation_text"> SMOCIP UnitSSSSSSSSSS
           <input 
   type="text" 
   id="kavach-main-unit" 
