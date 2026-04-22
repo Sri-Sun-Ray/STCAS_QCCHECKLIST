@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 
 $repo = "C:\\xampp\\htdocs\\STCAS_QCCHECKLIST";
-$git = '"C:\\Program Files\\Git\\cmd\\git.exe"';
+$git = 'git';
 
 chdir($repo);
 
