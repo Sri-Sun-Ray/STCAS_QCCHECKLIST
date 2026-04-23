@@ -161,6 +161,33 @@ try {
         $observations = array_merge($observations, $tableObservations);
     }
 
+    // Filter out removed rows (like 13.2) and sort the remaining observations numerically
+    $observations = array_filter($observations, function($obs) {
+        if ($obs['S_no'] == '13.2') {
+            return false;
+        }
+        return true;
+    });
+
+    usort($observations, function($a, $b) {
+        $partsA = explode('.', $a['S_no']);
+        $partsB = explode('.', $b['S_no']);
+        
+        $a_main = isset($partsA[0]) ? (int)$partsA[0] : 0;
+        $a_sub = isset($partsA[1]) ? (int)preg_replace('/[^0-9]/', '', $partsA[1]) : 0;
+        $a_subsub = isset($partsA[2]) ? (int)$partsA[2] : 0;
+        
+        $b_main = isset($partsB[0]) ? (int)$partsB[0] : 0;
+        $b_sub = isset($partsB[1]) ? (int)preg_replace('/[^0-9]/', '', $partsB[1]) : 0;
+        $b_subsub = isset($partsB[2]) ? (int)$partsB[2] : 0;
+        
+        if ($a_main != $b_main) return $a_main - $b_main;
+        if ($a_sub != $b_sub) return $a_sub - $b_sub;
+        return $a_subsub - $b_subsub;
+    });
+
+    $observations = array_values($observations);
+
     echo json_encode([
         'success' => true,
         'stationDetails' => $stationDetails,
