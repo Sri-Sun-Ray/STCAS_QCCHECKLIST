@@ -4257,7 +4257,7 @@ Field Scanner Card 1
     <tr id="row-417">
       <td>4.1.8</td>
       <td class="observation_text">Functionality</td>
-      <td class="requirement_text">Functional testing shall be performed as per the PDU test procedure 5 53 20 0024.</td>
+      <td class="requirement_text">Functional testing shall be performed as per the PDU test procedure 5 53 20 0042.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
