@@ -29,7 +29,7 @@ $tables = [
 // ==========================================
 // 1. DELETE POINTS
 // ==========================================
-$deleted_points = ["1.1"];
+$deleted_points = [""];
 
 if (!empty($deleted_points)) {
     $placeholders = implode(',', array_fill(0, count($deleted_points), '?'));
@@ -69,6 +69,27 @@ foreach ($renamed_points as $s_no => $new_text) {
     }
 }
 echo "Updated text for " . $total_updated . " observations.<br>";
+
+// ==========================================
+// 3. UPDATE REQUIREMENT TEXT
+// ==========================================
+$updated_requirements = [
+    "4.1.8" => "Functional testing shall be performed as per the PDU test procedure 5 53 20 0024."
+];
+
+$total_req_updated = 0;
+foreach ($updated_requirements as $s_no => $new_req) {
+    foreach ($tables as $table) {
+        $stmt = $conn->prepare("UPDATE $table SET requirement_text = ? WHERE S_no = ?");
+        if ($stmt) {
+            $stmt->bind_param("ss", $new_req, $s_no);
+            $stmt->execute();
+            $total_req_updated += $stmt->affected_rows;
+            $stmt->close();
+        }
+    }
+}
+echo "Updated requirement text for " . $total_req_updated . " observations.<br>";
 
 $conn->close();
 echo "<br><b>Database Migration Completed Successfully!</b><br>";
