@@ -74,7 +74,7 @@ echo "Updated text for " . $total_updated . " observations.<br>";
 // 3. UPDATE REQUIREMENT TEXT
 // ==========================================
 $updated_requirements = [
-    "4.1.8" => "Functional testing shall be performed as per the PDU test procedure 5 53 20 0042."
+    "4.1.8" => "Functional testing shall be performed as per the PDU test procedure 5 53 20 0024."
 ];
 
 $total_req_updated = 0;
