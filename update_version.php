@@ -6,6 +6,9 @@ $git = 'git';
 
 chdir($repo);
 
+// Fix git dubious ownership error for the web server user
+exec("$git config --global --add safe.directory C:/xampp/htdocs/STCAS_QCCHECKLIST");
+
 // fetch
 exec("$git fetch origin 2>&1", $fetchOutput, $fetchCode);
 
