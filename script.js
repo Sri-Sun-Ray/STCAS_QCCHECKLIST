@@ -680,6 +680,58 @@ async function showSection(section, subsection) {
           </tr>
         </thead>
         <tbody id="observations-tbody-2_0">
+        <tr id="row-11">
+        <td>1.1</td>
+      <td class="observation_text" style="padding-right: 10px;"> 
+      Stationary Kavach Unit
+  <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+    oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);
+    }
+    toggleNotInstalledOption(this);
+  "/>
+  </td>
+      
+      <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+  
+      <td class ="remarks">
+        <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+      </td>
+      <td style="padding-right: 10px;">
+    <button class="add-image" onclick="showUploadOptions(11)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Add Image</button>
+    <div class="upload-options" id="upload-options-11" style="display: none;">
+      <button class="add-image" onclick="startCamera(11)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Camera</button>
+      <label for="file-input-11" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
+      <input type="file" id="file-input-11" accept="image/*" multiple onchange="displayImages(this, 11)" style="display: none;">
+    </div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-11"></div>
+      <!-- Camera Container -->
+    <div id="camera-container-11" style="display: none;">
+      <video id="camera-11" width="100%" height="auto" autoplay></video>
+      <button class="add-image" onclick="captureImage(11)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Capture Image</button>
+      <button class="add-image" onclick="stopCamera(11)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Stop Camera</button>
+      <button class="reverse-camera" onclick="switchCamera(11)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">🔄 Switch Camera</button>
+      <canvas id="canvas-11" style="display: none;"></canvas>
+    </div>
+  </td>
+    </tr>
         <tr id="row-12">
         <td>1.2</td>
       <td class="observation_text" style="padding-right: 10px;">
@@ -7160,39 +7212,6 @@ OFC armoured cables shall be used for communication.</td>
   <canvas id="canvas-17621" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
-     <tr id="row-17621">
-      <td>13.2</td>
-      <td class="observation_text">Materials Inspection (Which are not Inspected by RDSO or Consignee)</td>
-       <td class="requirement_text">Verify that all subcontractors and HBL personnel use only approved make and part numbers as per the List of Acceptable I&C Materials EG-EN-FT-34.</td>
-      <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>
-              </select>
-      </td>
-      <td class="remarks">
-        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
-      </td>
-     <td>
-       <button class="add-image" onclick="showUploadOptions(17621)">Add Image</button>
-<div class="upload-options" id="upload-options-17621" style="display: none;">
-  <button class="add-image" onclick="startCamera(17621)">Camera</button>
-  <label for="file-input-17621" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-17621" accept="image/*" multiple onchange="displayImages(this, 17621)">
-</div>
-      <!-- Container for multiple images --> 
-      <div id="image-container-17621"></div>
-      <!-- Camera Container -->
-<div id="camera-container-17621" style="display: none;">
-  <video id="camera-17621" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(17621)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(17621)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(17621)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-17621" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-    </tr>
-
     </tbody>
       </table>
       </div>
@@ -8895,7 +8914,7 @@ function getDropdownOptions(sno, observationStatus, sectionID = null) {
     "1.38,1.40,1.41,1.42,1.43,1.44,1.45,1.46,1.47,1.48,1.49,1.50,1.51,1.52,1.53,1.54,1.55,1.56,1.57,1.58,1.59,1.60,1.61,1.62,1.63,1.64" : ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
     "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
     "3.1,2.1,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.2.9,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,5.4.6,8.1,8.2,8.3,8.4,8.6,8.7,7.1,7.2,7.3,7.4,7.5,7.6,7.7,7.8,7.9,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.2.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.1.6,4.1.7,4.1.8,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,9.2,12.1,12.2" : ["Ok", "Not Ok", "Not Applicable"],
-    "5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1,10.1,10.2,10.3,10.4,10.5,10.6,13.1,11.2,11.3,13.2": ["Ok", "Not Ok"],
+    "5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1,10.1,10.2,10.3,10.4,10.5,10.6,13.1,11.2,11.3": ["Ok", "Not Ok"],
     "9.3,11.1" : ["Available", "Not Available"],
     "6.2.2,7.10,8.5,12.3" : ["Available", "Not Available", "Not Applicable"]
   };
