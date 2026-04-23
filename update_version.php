@@ -36,6 +36,11 @@ exec("$git clean -fd 2>&1", $r2, $c2);
 exec("$git pull origin main 2>&1", $pullOutput, $pullCode);
 
 if ($pullCode === 0) {
+    // Automatically apply any database migrations silently!
+    ob_start();
+    include 'db_migration.php';
+    ob_end_clean();
+
     echo json_encode(["status" => "updated"]);
 } else {
     echo json_encode([
