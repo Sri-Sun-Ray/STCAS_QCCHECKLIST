@@ -803,7 +803,7 @@
         pdf.text("In-Process QC Checklist for Stationary Kavach Installation", pdf.internal.pageSize.width / 2, finalY + 20, { align: "center" });
         pdf.setFont("helvetica", "normal");
         pdf.text(`QC Engineer Name: ${employeeName}`, 10, finalY + 26);
-        pdf.text("v1.3", pdf.internal.pageSize.width - 10, finalY + 26, { align: "right" });
+        pdf.text("v1.2", pdf.internal.pageSize.width - 10, finalY + 26, { align: "right" });
         pdf.line(10, finalY + 28, pdf.internal.pageSize.width - 10, finalY + 28);
         finalY += 30;
 
@@ -1192,7 +1192,7 @@
             const calculatedHeight = imagesCount > 0 ? Math.max(30, imagesCount * 28) : 0;
             return {
               S_no: obs.S_no,
-              Description: formatDescription(obs.observation_text).trim(),
+              Description: decodeHtmlEntities(formatDescription(obs.observation_text)).trim(),
               barcode: obs.barcode_kavach_main_unit,
               Requirement: (obs.requirement_text || "N/A").trim(),
               Status: obs.observation_status,

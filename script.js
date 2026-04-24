@@ -8407,7 +8407,14 @@ function updateObservationsTable(sectionID, observations, sno) {
     `;
 
     // For the observation text cell, include the barcode input field only for section "2_0"
-    let observationContent = observation.observation_text || "N/A";
+    // Use a helper to decode any escaped HTML entities (like &lt;br&gt; becoming <br>)
+    function decodeHTMLEntities(text) {
+        const textArea = document.createElement('textarea');
+        textArea.innerHTML = text;
+        return textArea.value;
+    }
+
+    let observationContent = decodeHTMLEntities(observation.observation_text || "N/A");
     if (sectionID === "2_0" && S_no !== "2.1") {
       observationContent += `<br>
         <input
