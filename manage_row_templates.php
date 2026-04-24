@@ -97,6 +97,8 @@ elseif ($action === 'delete') {
     $stmt = $conn->prepare("DELETE FROM row_templates WHERE s_no = ? AND section_id = ?");
     $stmt->bind_param("ss", $s_no, $section_id);
     if ($stmt->execute()) {
+        // This is the logic that moves 1.70 to 1.69 automatically!
+        realignCustomRows($conn, $section_id);
         echo json_encode(["success" => true]);
     } else {
         echo json_encode(["success" => false, "message" => $stmt->error]);
@@ -104,6 +106,44 @@ elseif ($action === 'delete') {
 } 
 else {
     echo json_encode(["success" => false, "message" => "Invalid action"]);
+}
+
+function realignCustomRows($conn, $section_id) {
+    $limits = [
+        2 => 68, 3 => 1, 4 => 1, 5 => 13, 6 => 26, 7 => 12,
+        8 => 10, 9 => 7, 10 => 4, 11 => 6, 12 => 2, 13 => 3, 14 => 1
+    ];
+    $table_mapping = [
+        2 => "verification_of_equipment_serial_numbers", 3 => "tower", 4 => "rtu",
+        5 => "rf_antennas", 6 => "installation_of_kavach_equipment", 7 => "networking_rack",
+        8 => "ips", 9 => "dc_convertor", "10" => "pdu", "11" => "smocip",
+        12 => "gps_gsm_antenna", 13 => "relay_rack", 14 => "riu",
+        15 => "laying_of_sectional_ofc_cable", 16 => "outdoor_cabling",
+        17 => "rfid_tags", 18 => "tag_to_tag_distance"
+    ];
+    $clean_id = intval($section_id);
+    $limit = $limits[$clean_id] ?? 0;
+    $prefix = ($clean_id - 1) . ".";
+    $table_name = $table_mapping[$clean_id] ?? "";
+    $sql = "SELECT id, s_no FROM row_templates WHERE section_id = ? ORDER BY LENGTH(s_no), s_no ASC";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $section_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $next_available_index = $limit + 1;
+    while ($row = $result->fetch_assoc()) {
+        $old_sno = $row['s_no'];
+        $new_sno = $prefix . $next_available_index;
+        if ($old_sno !== $new_sno) {
+            $id = $row['id'];
+            $conn->query("UPDATE row_templates SET s_no = '$new_sno' WHERE id = $id");
+            if ($table_name) {
+                $conn->query("UPDATE $table_name SET S_no = '$new_sno' WHERE S_no = '$old_sno'");
+            }
+            $conn->query("UPDATE images SET s_no = '$new_sno' WHERE s_no = '$old_sno'");
+        }
+        $next_available_index++;
+    }
 }
 
 $conn->close();
