@@ -1,4 +1,4 @@
-let unsavedChanges=false;
+let unsavedChanges = false;
 const rowImages = new Map(); // Store images for each row
 // Delegated event listeners to track any changes and enable the Update button automatically
 document.addEventListener("change", function (event) {
@@ -11,13 +11,13 @@ document.addEventListener("input", function (event) {
     markDataAsUnsaved();
   }
 });
-const k=0
+const k = 0
 // Variables to store station info from session or none
 let stationId = "";
 let stationName = "";
 let zone = [];
 let division = [];
-let sectionName=[];
+let sectionName = [];
 let initialDate = "";
 let updatedDate = "";
 
@@ -302,10 +302,10 @@ async function showSection(section, subsection) {
 
   let stationInfo = {};
   if (storedLocal) {
-    stationInfo=JSON.parse(storedLocal);
+    stationInfo = JSON.parse(storedLocal);
   }
-  else if(storedSession){
-    stationInfo=JSON.parse(storedSession);
+  else if (storedSession) {
+    stationInfo = JSON.parse(storedSession);
   } else {
     stationInfo = {
       stationId: "",
@@ -324,13 +324,13 @@ async function showSection(section, subsection) {
   /*const stationId = document.getElementById("station-id")?.value;
   const division = document.getElementById("division")?.value;
   const zone = document.getElementById("zone")?.value;*/
-  const stationId=stationInfo.stationId;
-  const division=stationInfo.division;
-  const zone=stationInfo.zone;
+  const stationId = stationInfo.stationId;
+  const division = stationInfo.division;
+  const zone = stationInfo.zone;
 
 
-  let backendSectionId=section;
-    if (["0.0","2.0","3.0","4.0","5.0","6.0","7.0","8.0","9.0","10.0","11.0","12.0","13.0","14.0"].includes(section)) {
+  let backendSectionId = section;
+  if (["0.0", "2.0", "3.0", "4.0", "5.0", "6.0", "7.0", "8.0", "9.0", "10.0", "11.0", "12.0", "13.0", "14.0"].includes(section)) {
     backendSectionId = parseInt(section, 10);
   }
 
@@ -346,36 +346,36 @@ async function showSection(section, subsection) {
 
       // NEW: Check in-memory observations first to maintain state across subsection navigation
       if (window.allObservations && window.allObservations.length > 0) {
-          let hasDataForCurrentSection = false;
-          let renderSectionId = section.replace('.', '_');
+        let hasDataForCurrentSection = false;
+        let renderSectionId = section.replace('.', '_');
 
-          if (subsection) {
-              // Check if currently loaded data has entries for this specific subsection/prefix
-              hasDataForCurrentSection = window.allObservations.some(obs => obs.S_no && String(obs.S_no).startsWith(subsection));
-              console.log(`[showSection] In-memory check for subsection ${subsection}: ${hasDataForCurrentSection}`);
-          } else {
-             // If no subsection, check if we have data for this specific section ID
-             hasDataForCurrentSection = window.allObservations.some(obs => obs.section_id === renderSectionId);
-             console.log(`[showSection] In-memory check for section ${section} (${renderSectionId}): ${hasDataForCurrentSection}`);
+        if (subsection) {
+          // Check if currently loaded data has entries for this specific subsection/prefix
+          hasDataForCurrentSection = window.allObservations.some(obs => obs.S_no && String(obs.S_no).startsWith(subsection));
+          console.log(`[showSection] In-memory check for subsection ${subsection}: ${hasDataForCurrentSection}`);
+        } else {
+          // If no subsection, check if we have data for this specific section ID
+          hasDataForCurrentSection = window.allObservations.some(obs => obs.section_id === renderSectionId);
+          console.log(`[showSection] In-memory check for section ${section} (${renderSectionId}): ${hasDataForCurrentSection}`);
+        }
+
+        if (hasDataForCurrentSection) {
+          // RENDER DATA IF AVAILABLE to ensure form is populated
+          if (window.sectionWiseSno && window.sectionWiseSno[renderSectionId]) {
+            console.log("Rendering in-memory data for section:", renderSectionId);
+            updateSections(window.allObservations, renderSectionId, window.sectionWiseSno[renderSectionId]);
           }
 
-          if (hasDataForCurrentSection) {
-              // RENDER DATA IF AVAILABLE to ensure form is populated
-              if (window.sectionWiseSno && window.sectionWiseSno[renderSectionId]) {
-                 console.log("Rendering in-memory data for section:", renderSectionId);
-                 updateSections(window.allObservations, renderSectionId, window.sectionWiseSno[renderSectionId]);
-              }
-
-              if (saveBtn) saveBtn.style.display = 'none';
-              if (getDetailsBtn) getDetailsBtn.style.display = 'none';
-              if (updateBtn) updateBtn.style.display = 'inline-block';
-          } else {
-              // Current section has NO data, so show Save button (user can enter new data)
-              if (saveBtn) saveBtn.style.display = 'inline-block';
-              if (getDetailsBtn) getDetailsBtn.style.display = 'none';
-              if (updateBtn) updateBtn.style.display = 'none';
-          }
-          return;
+          if (saveBtn) saveBtn.style.display = 'none';
+          if (getDetailsBtn) getDetailsBtn.style.display = 'none';
+          if (updateBtn) updateBtn.style.display = 'inline-block';
+        } else {
+          // Current section has NO data, so show Save button (user can enter new data)
+          if (saveBtn) saveBtn.style.display = 'inline-block';
+          if (getDetailsBtn) getDetailsBtn.style.display = 'none';
+          if (updateBtn) updateBtn.style.display = 'none';
+        }
+        return;
       }
 
       const exists = await existsPromise;
@@ -385,11 +385,11 @@ async function showSection(section, subsection) {
         console.log("DB indicates data exists. Showing Get Details button...");
         // USER REQUEST: Show Get Details button instead of auto-fetching
         if (saveBtn) saveBtn.style.display = 'none';
-        if (section ==="0.0") {
-             // Section 0.0 might have different behavior, but keeping consistent
-             if (getDetailsBtn) getDetailsBtn.style.display = 'inline-block';
+        if (section === "0.0") {
+          // Section 0.0 might have different behavior, but keeping consistent
+          if (getDetailsBtn) getDetailsBtn.style.display = 'inline-block';
         } else {
-             if (getDetailsBtn) getDetailsBtn.style.display = 'inline-block';
+          if (getDetailsBtn) getDetailsBtn.style.display = 'inline-block';
         }
         if (updateBtn) updateBtn.style.display = 'none';
         return;
@@ -436,13 +436,13 @@ async function showSection(section, subsection) {
       updateSectionNames();
       // Set section value after a short delay to ensure dropdown is populated.
 
-      setTimeout(()=>{
-        const sectionNameElem=document.getElementById("section-name");
-        if(sectionNameElem && stationInfo.sectionName){
-          sectionNameElem.value=stationInfo.sectionName;
+      setTimeout(() => {
+        const sectionNameElem = document.getElementById("section-name");
+        if (sectionNameElem && stationInfo.sectionName) {
+          sectionNameElem.value = stationInfo.sectionName;
           console.log("Setting section value to:", stationInfo.sectionName);
         }
-      },50);
+      }, 50);
     }
 
     // Restore the onchange event
@@ -459,8 +459,8 @@ async function showSection(section, subsection) {
     const sectionNameElem = document.getElementById("section-name");
     if (sectionNameElem) {
       sectionNameElem.value = stationInfo.sectionName || "";
+    }
   }
-}
 
 
 
@@ -562,40 +562,40 @@ async function showSection(section, subsection) {
 
   // Function toggleNotInstalledOption if missing (adding it here globally or checking if it exists)
   if (typeof window.toggleNotInstalledOption === 'undefined') {
-      window.toggleNotInstalledOption = function(input) {
-          const row = input.closest('tr');
-          if (!row) return;
-          const select = row.querySelector('.status-dropdown');
-          if (!select) return;
+    window.toggleNotInstalledOption = function (input) {
+      const row = input.closest('tr');
+      if (!row) return;
+      const select = row.querySelector('.status-dropdown');
+      if (!select) return;
 
-          if (input.value.trim() === "") {
-              // If previously set to Not Installed automatically, maybe reset?
-              // But requirements are vague. For now, empty implementation to stop errors.
-          } else {
-              // If user enters barcode, maybe they expect status to update?
-              // Existing logic in other sections suggests:
-              // if (input.value.length >= 10) select.value = "Matching"; // Example logic
-          }
-      };
+      if (input.value.trim() === "") {
+        // If previously set to Not Installed automatically, maybe reset?
+        // But requirements are vague. For now, empty implementation to stop errors.
+      } else {
+        // If user enters barcode, maybe they expect status to update?
+        // Existing logic in other sections suggests:
+        // if (input.value.length >= 10) select.value = "Matching"; // Example logic
+      }
+    };
 
-      console.log("toggleNotInstalledOption function added to prevent errors.");
+    console.log("toggleNotInstalledOption function added to prevent errors.");
   }
 
   // Function enableUpdateButton if missing
   if (typeof window.enableUpdateButton === 'undefined') {
-      window.enableUpdateButton = function() {
-           const updateBtn = document.getElementById('update-btn');
-           if(updateBtn) {
-               updateBtn.style.display = 'inline-block';
-               updateBtn.disabled = false;
+    window.enableUpdateButton = function () {
+      const updateBtn = document.getElementById('update-btn');
+      if (updateBtn) {
+        updateBtn.style.display = 'inline-block';
+        updateBtn.disabled = false;
 
-               // Also hide save button if update is available?
-               // Based on context, usually one or the other.
-               const saveBtn = document.getElementById('save-btn');
-               if(saveBtn) saveBtn.style.display = 'none';
-           }
-      };
-      console.log("enableUpdateButton function added to prevent errors.");
+        // Also hide save button if update is available?
+        // Based on context, usually one or the other.
+        const saveBtn = document.getElementById('save-btn');
+        if (saveBtn) saveBtn.style.display = 'none';
+      }
+    };
+    console.log("enableUpdateButton function added to prevent errors.");
   }
 
 
@@ -664,7 +664,7 @@ async function showSection(section, subsection) {
         
       </div>
     `;
-  }else if (section === "2.0") {
+  } else if (section === "2.0") {
     // For all other sections, add Save Observation button
     mainContent.innerHTML += `
       <h3 class="section-heading">SERIAL NUMBER VERIFICATION</h3>
@@ -4004,6 +4004,7 @@ FIU Scanner Card 1
   <canvas id="canvas-765745" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
+          
         </tbody>
       </table>
       </div>
@@ -4184,8 +4185,8 @@ FIU Scanner Card 1
       </div>
     ;`
   }
-  else if(section==="5.0"){
-      // RF Antennas section with 3 subsections
+  else if (section === "5.0") {
+    // RF Antennas section with 3 subsections
     // Clear old section content but preserve station info
     clearSectionContent();
     mainContent.innerHTML += `
@@ -4674,8 +4675,8 @@ FIU Scanner Card 1
       }, 100);
     }
   }
-  else if(section==="6.0"){
-      // Installation of Kavach equipment - 4 subsections
+  else if (section === "6.0") {
+    // Installation of Kavach equipment - 4 subsections
     // Clear old section content but preserve station info
     clearSectionContent();
     mainContent.innerHTML += `
@@ -5587,19 +5588,19 @@ Ensure mill connector shall be locked properly.</td>
         filterTableRows('observations-section-6_0', subsection);
         const heading = document.getElementById('section-heading-6_0');
         if (heading) {
-           if (subsection.startsWith("5.1")) {
-               heading.textContent = "5.1 Kavach Unit";
-               const dropdown = document.getElementById('section-na-dropdown-6_0');
-               if (dropdown) dropdown.style.display = 'none';
-           }
-           else if (subsection.startsWith("5.2")) heading.textContent = "5.2 SMOCIP(Station Master's Operation-Cum-Indication Panel)";
-           else if (subsection.startsWith("5.3")) heading.textContent = "5.3 GPS/GSM Antennas";
-           else if (subsection.startsWith("5.4")) heading.textContent = "5.4 RIU(Remote Interface Unit)";
+          if (subsection.startsWith("5.1")) {
+            heading.textContent = "5.1 Kavach Unit";
+            const dropdown = document.getElementById('section-na-dropdown-6_0');
+            if (dropdown) dropdown.style.display = 'none';
+          }
+          else if (subsection.startsWith("5.2")) heading.textContent = "5.2 SMOCIP(Station Master's Operation-Cum-Indication Panel)";
+          else if (subsection.startsWith("5.3")) heading.textContent = "5.3 GPS/GSM Antennas";
+          else if (subsection.startsWith("5.4")) heading.textContent = "5.4 RIU(Remote Interface Unit)";
         }
       }, 100);
     }
   }
-    else if (section === "7.0") {
+  else if (section === "7.0") {
     // Networking Rack - 2 subsections
     // Clear old section content but preserve station info
     clearSectionContent();
@@ -6040,12 +6041,12 @@ Ensure mill connector shall be locked properly.</td>
         filterTableRows('observations-section-7_0', subsection);
         const heading = document.getElementById('section-heading-7_0');
         if (heading) {
-           if (subsection.startsWith("6.1")) heading.textContent = "6.1 RTU(Radio Tower Unit)";
-           else if (subsection.startsWith("6.2")) heading.textContent = "6.2 RF Antenna Installation";
+          if (subsection.startsWith("6.1")) heading.textContent = "6.1 RTU(Radio Tower Unit)";
+          else if (subsection.startsWith("6.2")) heading.textContent = "6.2 RF Antenna Installation";
         }
       }, 100);
     }
-  }else if (section === "8.0") {
+  } else if (section === "8.0") {
     // For all other sections, add Save Observation button
     mainContent.innerHTML += `
       <div style="position: relative; margin-bottom: 20px;">
@@ -6418,7 +6419,7 @@ Ensure mill connector shall be locked properly.</td>
       </div>
     ;`
   } else if (section === "9.0") {
- mainContent.innerHTML += `
+    mainContent.innerHTML += `
       <div style="position: relative; margin-bottom: 20px;">
         <h3 class="section-heading" > Relay rack </h3>
         <select id="section-na-dropdown-9_0" style="position: absolute; top: 0; right: 0; width: 140px; padding: 5px 8px; border: 1px solid #ccc; border-radius: 3px; font-size: 12px; background-color: white;" onchange="if(this.value) { markSectionAsNotApplicable('9_0', this.value); this.value=''; }">
@@ -6689,9 +6690,9 @@ Ensure mill connector shall be locked properly.</td>
          <button id="get-details-btn" onclick="getDetails()">Get Details</button>
       </div>
     ;`
-}
-else if(section==="10.0"){
-      // For all other sections, add Save Observation button
+  }
+  else if (section === "10.0") {
+    // For all other sections, add Save Observation button
     mainContent.innerHTML += `
       <h3 class="section-heading" > Earthing</h3>
        <div  class="table-container">
@@ -6858,8 +6859,8 @@ else if(section==="10.0"){
       </div>
     ;`
   }
-  else if(section==="11.0"){
-      // For all other sections, add Save Observation button
+  else if (section === "11.0") {
+    // For all other sections, add Save Observation button
     mainContent.innerHTML += `
       <h3 class="section-heading" > Indoor wiring / cabling </h3>
        <div  class="table-container">
@@ -7088,8 +7089,8 @@ OFC armoured cables shall be used for communication.</td>
       </div>
     ;`
   }
-  else if(section==="12.0"){
-      // For all other sections, add Save Observation button
+  else if (section === "12.0") {
+    // For all other sections, add Save Observation button
     mainContent.innerHTML += `
       <h3 class="section-heading" > Outdoor cabling </h3>
 
@@ -7186,8 +7187,8 @@ OFC armoured cables shall be used for communication.</td>
       </div>
     ;`
   }
-  else if(section==="13.0"){
-      // For all other sections, add Save Observation button
+  else if (section === "13.0") {
+    // For all other sections, add Save Observation button
     mainContent.innerHTML += `
       <h3 class="section-heading" >  RFID Tags </h3>
        <div  class="table-container">
@@ -7318,8 +7319,8 @@ OFC armoured cables shall be used for communication.</td>
       </div>
     ;`
   }
-  else if(section==="14.0"){
-      // For all other sections, add Save Observation button
+  else if (section === "14.0") {
+    // For all other sections, add Save Observation button
     mainContent.innerHTML += `
       <h3 class="section-heading" >  Components Inspection: </h3>
        <div  class="table-container">
@@ -7636,7 +7637,7 @@ document.addEventListener("DOMContentLoaded", function () {
 async function generateReport() {
   // Remove the beforeunload listener so that it won't trigger when clicking the button.
   window.removeEventListener("beforeunload", beforeUnloadHandler);
-  const stationInfo=JSON.parse(sessionStorage.getItem("stationInfo")||"{}");
+  const stationInfo = JSON.parse(sessionStorage.getItem("stationInfo") || "{}");
   const stationId = stationInfo.stationId;
   const division = stationInfo.division;
   const zone = stationInfo.zone;
@@ -7666,7 +7667,7 @@ async function generateReport() {
     // Store the fetched data in sessionStorage
     console.log("SOMETHING IS FISHYYYYYYYYYYYYYYYYYYYYYYYYYYYYY")
     sessionStorage.setItem("stationDetails", JSON.stringify(data.stationDetails));
-     sessionStorage.setItem(
+    sessionStorage.setItem(
       "observationsData",
       JSON.stringify(data.observations)
     );
@@ -7915,15 +7916,15 @@ async function checkExistingObservations(stationId, division, zone, sectionId, s
 }
 
 async function saveObservation(section, subsection) {
-  const stationInfo=JSON.parse(sessionStorage.getItem("stationInfo")||"{}");
+  const stationInfo = JSON.parse(sessionStorage.getItem("stationInfo") || "{}");
 
-  const stationId=stationInfo.stationId||"";
-  const stationName=stationInfo.stationName||"";
-  const zone=stationInfo.zone||"";
-  const division=stationInfo.division||"";
-  const sectionName=stationInfo.sectionName||"";
-  const initialDate=stationInfo.initialDate||"";
-  const updatedDate=stationInfo.updatedDate||"";
+  const stationId = stationInfo.stationId || "";
+  const stationName = stationInfo.stationName || "";
+  const zone = stationInfo.zone || "";
+  const division = stationInfo.division || "";
+  const sectionName = stationInfo.sectionName || "";
+  const initialDate = stationInfo.initialDate || "";
+  const updatedDate = stationInfo.updatedDate || "";
 
   const saveBtn = document.querySelector(`#save-btn`);
   if (saveBtn) saveBtn.disabled = true;
@@ -8045,8 +8046,8 @@ async function saveObservation(section, subsection) {
 
   let targetUrl = `section${section}.php`; // Fallback
   if (sectionMapping[section] !== undefined) {
-      formData.append("section_index", sectionMapping[section]);
-      targetUrl = "updateObservations.php";
+    formData.append("section_index", sectionMapping[section]);
+    targetUrl = "updateObservations.php";
   }
 
   formData.append("observations", JSON.stringify(uniqueObservations));
@@ -8116,7 +8117,7 @@ async function saveObservation(section, subsection) {
         updateBtn.disabled = false;
       }
 
-        sessionStorage.setItem("stationInfo", JSON.stringify({
+      sessionStorage.setItem("stationInfo", JSON.stringify({
         stationId,
         stationName,
         zone,
@@ -8141,30 +8142,30 @@ async function saveObservation(section, subsection) {
 
 // Function to populate station details
 function populateStationDetails(stationDetails) {
-  console.log("Station Details Response from DB:",stationDetails);
+  console.log("Station Details Response from DB:", stationDetails);
   sessionStorage.setItem("stationDetails", JSON.stringify(stationDetails));
 
-  const normalizedStationInfo={
+  const normalizedStationInfo = {
     stationId: stationDetails.station_id,
     stationName: stationDetails.station_name,
-    zone: stationDetails.railway_zone||stationDetails.zone||"",
-    division: stationDetails.division||stationDetails.railway_division||"",
+    zone: stationDetails.railway_zone || stationDetails.zone || "",
+    division: stationDetails.division || stationDetails.railway_division || "",
     sectionName: stationDetails.section_name,
     initialDate: stationDetails.initial_date,
     updatedDate: stationDetails.updated_date
   };
 
-  console.log("Normalized station Info to be stored:",normalizedStationInfo);
+  console.log("Normalized station Info to be stored:", normalizedStationInfo);
 
-  sessionStorage.setItem("stationInfo",JSON.stringify(normalizedStationInfo));
-  console.log("Stored in sessionStorage under 'stationInfo':",sessionStorage.getItem("stationInfo"));
+  sessionStorage.setItem("stationInfo", JSON.stringify(normalizedStationInfo));
+  console.log("Stored in sessionStorage under 'stationInfo':", sessionStorage.getItem("stationInfo"));
 
-   // Populate the form fields
+  // Populate the form fields
   const stationIdInput = document.getElementById("station-id");
   const stationNameInput = document.getElementById("station-name");
   const zoneInput = document.getElementById("zone");
   const divisionInput = document.getElementById("division");
-  const sectionNameInput=document.getElementById("section-name");
+  const sectionNameInput = document.getElementById("section-name");
   const initialDateInput = document.getElementById("initial-date");
   const updateDateInput = document.getElementById("updated-date");
 
@@ -8195,7 +8196,7 @@ function populateStationDetails(stationDetails) {
 
   // Dates (fallback to today if empty)
   const now = new Date();
-  const today = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")}`;
+  const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
 
   if (initialDateInput) {
     initialDateInput.value = normalizedStationInfo.initialDate || today;
@@ -8263,78 +8264,78 @@ function updateObservationsTable(sectionID, observations, sno) {
   // Check if the table already has rows (static template or previously rendered)
   const existingRows = tbody.querySelectorAll("tr");
   if (existingRows.length > 0) {
-      console.log(`Update existing rows for section ${sectionID} instead of rebuilding.`);
+    console.log(`Update existing rows for section ${sectionID} instead of rebuilding.`);
 
-      // Map observations by S_no for easy lookup
-      const obsMap = {};
-      observations.forEach(obs => { obsMap[obs.S_no] = obs; });
+    // Map observations by S_no for easy lookup
+    const obsMap = {};
+    observations.forEach(obs => { obsMap[obs.S_no] = obs; });
 
-      existingRows.forEach(row => {
-          // Identify S_no from the first cell
-          const firstCell = row.cells[0];
-          if (!firstCell) return;
-          const sNo = firstCell.innerText.trim().split(' ')[0]; // Handle cases like "1.1 (button)"
+    existingRows.forEach(row => {
+      // Identify S_no from the first cell
+      const firstCell = row.cells[0];
+      if (!firstCell) return;
+      const sNo = firstCell.innerText.trim().split(' ')[0]; // Handle cases like "1.1 (button)"
 
-          // If we have saved data for this S_no, update the UI
-          if (obsMap[sNo]) {
-              const p = obsMap[sNo];
+      // If we have saved data for this S_no, update the UI
+      if (obsMap[sNo]) {
+        const p = obsMap[sNo];
 
-              // Update Dropdown
-              const select = row.querySelector("select.status-dropdown");
-              if (select) {
-                  select.value = p.observation_status ? p.observation_status.trim() : 'Select';
-                  select.setAttribute('data-initial', select.value);
-                  highlightSelect(select);
-              }
+        // Update Dropdown
+        const select = row.querySelector("select.status-dropdown");
+        if (select) {
+          select.value = p.observation_status ? p.observation_status.trim() : 'Select';
+          select.setAttribute('data-initial', select.value);
+          highlightSelect(select);
+        }
 
-              // Update Remarks
-              const textarea = row.querySelector("td.remarks textarea");
-              if (textarea) {
-                  textarea.value = p.remarks || '';
-                  textarea.setAttribute('data-initial', textarea.value);
-              }
+        // Update Remarks
+        const textarea = row.querySelector("td.remarks textarea");
+        if (textarea) {
+          textarea.value = p.remarks || '';
+          textarea.setAttribute('data-initial', textarea.value);
+        }
 
-              // Update Images
-              // We need to find the image container. In static HTML, IDs might differ (row-411 vs rowId 4.1.1)
-              // But the image container is usually inside the last cell.
-              // Let's rely on the row structure or find container by ID pattern if possible.
-              // Static HTML uses id="image-container-411" (numeric).
-              // We can search for div[id^="image-container-"] within the row.
-              const imgContainer = row.querySelector('div[id^="image-container-"]');
-              if (imgContainer) {
-                  // Extract the numeric/string rowId suffix from the container ID
-                  const containerId = imgContainer.id;
-                  const rowIdPart = containerId.replace('image-container-', '');
+        // Update Images
+        // We need to find the image container. In static HTML, IDs might differ (row-411 vs rowId 4.1.1)
+        // But the image container is usually inside the last cell.
+        // Let's rely on the row structure or find container by ID pattern if possible.
+        // Static HTML uses id="image-container-411" (numeric).
+        // We can search for div[id^="image-container-"] within the row.
+        const imgContainer = row.querySelector('div[id^="image-container-"]');
+        if (imgContainer) {
+          // Extract the numeric/string rowId suffix from the container ID
+          const containerId = imgContainer.id;
+          const rowIdPart = containerId.replace('image-container-', '');
 
-                  if (p.images && p.images.length > 0) {
-                     imgContainer.innerHTML = p.images.map((imgPath, idx) => `
+          if (p.images && p.images.length > 0) {
+            imgContainer.innerHTML = p.images.map((imgPath, idx) => `
                         <div class="image-container" style="position: relative; display: inline-block;">
                             <img id="captured-image-${rowIdPart}-${idx}" src="${imgPath}" alt="Uploaded Image" width="100" style="margin:5px;" onerror="console.error('Error loading image')">
                             <span style="position:absolute; top:0; right:0; cursor:pointer; color:red; font-weight:bold;" onclick="deleteImage(event, '${sectionID}', '${sNo}', '${imgPath}')">&times;</span>
                         </div>
                      `).join("");
-                  } else {
-                      imgContainer.innerHTML = "";
-                  }
-              }
-
-              // Handle Barcode (Section 2.0 specific)
-              if (sectionID === "2_0") {
-                  const bcInput = row.querySelector("input[name='barcode_kavach_main_unit']");
-                  if (bcInput) {
-                       // Custom edited barcode logic
-                       let rowId = sNo; // Fallback
-                       // Try to guess match rowId used in static HTML? usually sNo
-                       if (window.editedBarcodes && window.editedBarcodes[rowId] !== undefined) {
-                           p.barcode_kavach_main_unit = window.editedBarcodes[rowId];
-                       }
-                       bcInput.value = p.barcode_kavach_main_unit || '';
-                       bcInput.setAttribute('data-initial', bcInput.value);
-                  }
-              }
+          } else {
+            imgContainer.innerHTML = "";
           }
-      });
-      return; // Done updating, skip rebuild
+        }
+
+        // Handle Barcode (Section 2.0 specific)
+        if (sectionID === "2_0") {
+          const bcInput = row.querySelector("input[name='barcode_kavach_main_unit']");
+          if (bcInput) {
+            // Custom edited barcode logic
+            let rowId = sNo; // Fallback
+            // Try to guess match rowId used in static HTML? usually sNo
+            if (window.editedBarcodes && window.editedBarcodes[rowId] !== undefined) {
+              p.barcode_kavach_main_unit = window.editedBarcodes[rowId];
+            }
+            bcInput.value = p.barcode_kavach_main_unit || '';
+            bcInput.setAttribute('data-initial', bcInput.value);
+          }
+        }
+      }
+    });
+    return; // Done updating, skip rebuild
   }
 
   // Fallback: Rebuild from scratch (Original Data-Driven Logic)
@@ -8448,19 +8449,19 @@ oninput="
     // Logic to determine if it is a custom row (Section 2.0 and s_no > 1.25)
     let isCustomRow = false;
     if (sectionID === "2_0") {
-        const parts = S_no.split('.');
-        if (parts.length === 2) {
-            const num = parseInt(parts[1], 10);
-            if (!isNaN(num) && num > 25) {
-                isCustomRow = true;
-            }
+      const parts = S_no.split('.');
+      if (parts.length === 2) {
+        const num = parseInt(parts[1], 10);
+        if (!isNaN(num) && num > 25) {
+          isCustomRow = true;
         }
+      }
     }
 
     // Prepare S_No cell content
     let sNoContent = S_no;
     if (isCustomRow) {
-        sNoContent += ` <button type="button" onclick="deleteRowTemplate(this, '${S_no}', '${sectionID}')" style="background: none; border: none; cursor: pointer; font-size: 14px;" title="Delete Row">🗑️</button>`;
+      sNoContent += ` <button type="button" onclick="deleteRowTemplate(this, '${S_no}', '${sectionID}')" style="background: none; border: none; cursor: pointer; font-size: 14px;" title="Delete Row">🗑️</button>`;
     }
 
     row.innerHTML = `
@@ -8477,7 +8478,7 @@ oninput="
       </td>
       <td>${imageUploadBlock}</td>
     `;
-        // ❌ Skip appending the row if description is empty or "N/A"
+    // ❌ Skip appending the row if description is empty or "N/A"
     if (!observationContent || observationContent.trim() === "N/A") {
       console.warn(`❌ Skipping row ${S_no} due to invalid description`);
       return;
@@ -8523,29 +8524,29 @@ function deleteImage(event, sectionID, s_no, imgPath) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ station_id: stationId, s_no, imgPath: relativePath })
   })
-  .then(response => response.json())
-  .then(data => {
-    if (data.success) {
-      alert("Image deleted successfully.");
-      markDataAsUnsaved();
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        alert("Image deleted successfully.");
+        markDataAsUnsaved();
 
-      // Remove the image element from DOM directly
-      const imgContainer = event.target.closest('.image-container');
-      if (imgContainer) {
-        imgContainer.remove();
+        // Remove the image element from DOM directly
+        const imgContainer = event.target.closest('.image-container');
+        if (imgContainer) {
+          imgContainer.remove();
+        }
+
+        // Also update the observation object to remove this image
+        const obs = observations.find(o => o.S_no === s_no && o.section_id === sectionID);
+        if (obs && obs.images) {
+          obs.images = obs.images.filter(path => path !== imgPath);
+        }
+
+      } else {
+        alert("Failed to delete image: " + data.message);
       }
-
-      // Also update the observation object to remove this image
-      const obs = observations.find(o => o.S_no === s_no && o.section_id === sectionID);
-      if (obs && obs.images) {
-        obs.images = obs.images.filter(path => path !== imgPath);
-      }
-
-    } else {
-      alert("Failed to delete image: " + data.message);
-    }
-  })
-  .catch(error => console.error('Error deleting image:', error));
+    })
+    .catch(error => console.error('Error deleting image:', error));
 }
 
 
@@ -8668,7 +8669,7 @@ function formatDescription(observationText) {
 
 // Function to fetch updated details when clicking "Get Details"
 function getDetails() {
-  let  stationId= document.getElementById("station-id").value.trim();
+  let stationId = document.getElementById("station-id").value.trim();
   let zone = document.getElementById("zone").value.trim();
   let division = document.getElementById("division").value.trim();
   let sectionName = document.getElementById("section-name").value.trim();
@@ -8692,8 +8693,8 @@ function getDetails() {
     method: "POST",
     body: formData
   })
-  .then(response => response.json())
-  .then(async function(response) {
+    .then(response => response.json())
+    .then(async function (response) {
       console.log("✅ Server Response:", response);
 
       if (!response.success) {
@@ -8710,7 +8711,7 @@ function getDetails() {
       window.allObservations = response.observations;
       let sectionWiseSno = {};
 
-       response.observations.forEach((observation) => {
+      response.observations.forEach((observation) => {
         let sectionID = observation.section_id;
         if (!sectionWiseSno[sectionID]) {
           sectionWiseSno[sectionID] = [];
@@ -8747,45 +8748,45 @@ function getDetails() {
       let hasDataForCurrentContext = false;
 
       if (typeof activeSubsection !== 'undefined' && activeSubsection) {
-          // Check if any fetched observation belongs to this subsection
-          hasDataForCurrentContext = response.observations.some(obs =>
-              obs.S_no && String(obs.S_no).startsWith(activeSubsection)
-          );
-          console.log(`[getDetails] Checking data for subsection ${activeSubsection}: ${hasDataForCurrentContext}`);
+        // Check if any fetched observation belongs to this subsection
+        hasDataForCurrentContext = response.observations.some(obs =>
+          obs.S_no && String(obs.S_no).startsWith(activeSubsection)
+        );
+        console.log(`[getDetails] Checking data for subsection ${activeSubsection}: ${hasDataForCurrentContext}`);
       } else {
-          // If no subsection active (main view), checking if *any* data returned suggests update mode is available
-          // FIX: Check if data exists for the CURRENTLY VISIBLE section specifically.
-          const visibleTable = document.querySelector('table[id^="observations-section-"]');
-          if (visibleTable) {
-              const currentSectionId = visibleTable.id.replace('observations-section-', '');
-              hasDataForCurrentContext = response.observations.some(obs => obs.section_id === currentSectionId);
-              console.log(`[getDetails] Checking data for section ${currentSectionId}: ${hasDataForCurrentContext}`);
-          } else {
-              // Fallback if we can't determine section (unlikely)
-              if (response.observations && response.observations.length > 0) {
-                  hasDataForCurrentContext = true;
-              }
+        // If no subsection active (main view), checking if *any* data returned suggests update mode is available
+        // FIX: Check if data exists for the CURRENTLY VISIBLE section specifically.
+        const visibleTable = document.querySelector('table[id^="observations-section-"]');
+        if (visibleTable) {
+          const currentSectionId = visibleTable.id.replace('observations-section-', '');
+          hasDataForCurrentContext = response.observations.some(obs => obs.section_id === currentSectionId);
+          console.log(`[getDetails] Checking data for section ${currentSectionId}: ${hasDataForCurrentContext}`);
+        } else {
+          // Fallback if we can't determine section (unlikely)
+          if (response.observations && response.observations.length > 0) {
+            hasDataForCurrentContext = true;
           }
+        }
       }
 
       if (hasDataForCurrentContext) {
-          if (saveBtn) saveBtn.style.display = 'none';
-          if (getDetailsBtn) getDetailsBtn.style.display = 'none';
-          if (updateBtn) {
-              updateBtn.style.display = 'inline-block';
-          }
+        if (saveBtn) saveBtn.style.display = 'none';
+        if (getDetailsBtn) getDetailsBtn.style.display = 'none';
+        if (updateBtn) {
+          updateBtn.style.display = 'inline-block';
+        }
       } else {
-          if (saveBtn) saveBtn.style.display = 'none';
-          if (getDetailsBtn) getDetailsBtn.style.display = 'inline-block';
-          if (updateBtn) updateBtn.style.display = 'none';
+        if (saveBtn) saveBtn.style.display = 'none';
+        if (getDetailsBtn) getDetailsBtn.style.display = 'inline-block';
+        if (updateBtn) updateBtn.style.display = 'none';
       }
 
       unsavedChanges = false;
-  })
-  .catch(error => {
+    })
+    .catch(error => {
       console.error("❌ Error fetching data from server:", error);
       alert("There was an error fetching the data.");
-  });
+    });
 }
 
 // Modified displayImages function to include delete icon
@@ -8822,16 +8823,16 @@ async function updateObservation(section, subsection, forceUpdate = false) {
 
   // 1) Section mapping
   const sectionMapping = {
-    "2_0": 0,  "3_0": 1,  "4_0": 2,
-    "5_0": 3,  "6_0": 4,  "7_0": 5, "8_0": 6,"9_0":7,"10_0":8,"11_0":9,
-    "12_0":10,"13_0":11,"14_0":12,"15_0":13,"16_0":14,"17_0":15,"18_0":16,
-    };
+    "2_0": 0, "3_0": 1, "4_0": 2,
+    "5_0": 3, "6_0": 4, "7_0": 5, "8_0": 6, "9_0": 7, "10_0": 8, "11_0": 9,
+    "12_0": 10, "13_0": 11, "14_0": 12, "15_0": 13, "16_0": 14, "17_0": 15, "18_0": 16,
+  };
 
   // 2) Section‐level fields
-  const stationId          = document.getElementById("station-id").value;
-  const zone       = document.getElementById("zone").value;
+  const stationId = document.getElementById("station-id").value;
+  const zone = document.getElementById("zone").value;
   const division = document.getElementById("division").value;
-  const sectionName=document.getElementById("section-name").value;
+  const sectionName = document.getElementById("section-name").value;
 
   if (sectionMapping[mappingSectionId] === undefined) {
     console.error(`Invalid section provided: ${section} (mapped: ${mappingSectionId})`);
@@ -8846,16 +8847,16 @@ async function updateObservation(section, subsection, forceUpdate = false) {
 
   // 4) Build base FormData
   const formData = new FormData();
-  formData.append("station-id",          stationId);
-  formData.append("station-name",        document.getElementById("station-name").value);
-  formData.append("initial-date",       document.getElementById("initial-date").value);
+  formData.append("station-id", stationId);
+  formData.append("station-name", document.getElementById("station-name").value);
+  formData.append("initial-date", document.getElementById("initial-date").value);
   formData.append("zone", zone);
-  formData.append("division",        division);
-  formData.append("section-name",       sectionName);
-  formData.append("updated-date",  document.getElementById("updated-date").value);
-  formData.append("section-id",       section);
-  formData.append("action",           "update");
-  formData.append("section_index",    sectionIndex);
+  formData.append("division", division);
+  formData.append("section-name", sectionName);
+  formData.append("updated-date", document.getElementById("updated-date").value);
+  formData.append("section-id", section);
+  formData.append("action", "update");
+  formData.append("section_index", sectionIndex);
 
   // 5) Gather per-row observations
   const observations = [];
@@ -8864,12 +8865,12 @@ async function updateObservation(section, subsection, forceUpdate = false) {
   // Try both formats to find the table body/rows
   let rows = document.querySelectorAll(`#observations-section-${section} tbody tr`);
   if (rows.length === 0 && section.includes('_')) {
-      const dotSection = section.replace('_', '.');
-      rows = document.querySelectorAll(`#observations-section-${dotSection} tbody tr`);
+    const dotSection = section.replace('_', '.');
+    rows = document.querySelectorAll(`#observations-section-${dotSection} tbody tr`);
   }
   if (rows.length === 0 && section.includes('.')) {
-      const underSection = section.replace('.', '_');
-      rows = document.querySelectorAll(`#observations-section-${underSection} tbody tr`);
+    const underSection = section.replace('.', '_');
+    rows = document.querySelectorAll(`#observations-section-${underSection} tbody tr`);
   }
 
   for (const row of rows) {
@@ -8891,17 +8892,17 @@ async function updateObservation(section, subsection, forceUpdate = false) {
       observationText = tagVal ? `Tag_No: ${tagVal}` : "";
       if (tagVal) hasChanges = true;
     }
-    const remarksArea       = row.querySelector(".remarks textarea");
-    const remarks           = remarksArea?.value.trim() || "";
-    const initialRemarks    = remarksArea?.getAttribute('data-initial') || "";
+    const remarksArea = row.querySelector(".remarks textarea");
+    const remarks = remarksArea?.value.trim() || "";
+    const initialRemarks = remarksArea?.getAttribute('data-initial') || "";
 
-    const statusDropdown    = row.querySelector(".status-dropdown") || row.querySelector("select");
+    const statusDropdown = row.querySelector(".status-dropdown") || row.querySelector("select");
     const observationStatus = statusDropdown?.value || "";
-    const initialStatus     = statusDropdown?.getAttribute('data-initial') || "";
+    const initialStatus = statusDropdown?.getAttribute('data-initial') || "";
 
-    const bcInput           = row.querySelector("input[name='barcode_kavach_main_unit']");
-    const barcodeValue      = bcInput ? bcInput.value.trim().slice(-15) : "";
-    const initialBarcode    = bcInput ? bcInput.getAttribute('data-initial') || "" : "";
+    const bcInput = row.querySelector("input[name='barcode_kavach_main_unit']");
+    const barcodeValue = bcInput ? bcInput.value.trim().slice(-15) : "";
+    const initialBarcode = bcInput ? bcInput.getAttribute('data-initial') || "" : "";
 
     // Check if anything changed in this row
     let rowChanged = false;
@@ -8910,13 +8911,13 @@ async function updateObservation(section, subsection, forceUpdate = false) {
     if (String(barcodeValue).trim() !== String(initialBarcode).trim()) rowChanged = true;
 
     console.log(`Row: ${S_no}`, {
-        observationStatus,
-        initialStatus,
-        remarks,
-        initialRemarks,
-        barcodeValue,
-        initialBarcode,
-        rowChanged
+      observationStatus,
+      initialStatus,
+      remarks,
+      initialRemarks,
+      barcodeValue,
+      initialBarcode,
+      rowChanged
     });
 
     // Set global hasChanges if this row has a modification
@@ -8940,7 +8941,7 @@ async function updateObservation(section, subsection, forceUpdate = false) {
 
     // ... (gathering images) ...
     const existingPaths = [];
-    const imgContainer  = document.getElementById(`image-container-${rowId}`);
+    const imgContainer = document.getElementById(`image-container-${rowId}`);
     if (imgContainer) {
       imgContainer.querySelectorAll("img").forEach(img => {
         // Skip base64 data URIs (previews of files to be uploaded)
@@ -8950,9 +8951,9 @@ async function updateObservation(section, subsection, forceUpdate = false) {
         // Otherwise, use the src as is (though it might be full URL).
         let rel = img.src;
         if (rel.includes('/uploads/')) {
-           rel = rel.substring(rel.indexOf('uploads/'));
+          rel = rel.substring(rel.indexOf('uploads/'));
         } else if (rel.includes('uploads/')) {
-             rel = rel.substring(rel.indexOf('uploads/'));
+          rel = rel.substring(rel.indexOf('uploads/'));
         }
 
         existingPaths.push(rel);
@@ -8985,13 +8986,13 @@ async function updateObservation(section, subsection, forceUpdate = false) {
 
     observations.push({
       S_no,
-      observation_text:  observationText,
-      requirement_text:  requirementText,
+      observation_text: observationText,
+      requirement_text: requirementText,
       barcode_kavach_main_unit: barcodeValue,
       remarks,
       observation_status: observationStatus,
-      image_paths:       allImages,
-      deleted_images:    deletedPaths
+      image_paths: allImages,
+      deleted_images: deletedPaths
     });
   }
 
@@ -9008,7 +9009,7 @@ async function updateObservation(section, subsection, forceUpdate = false) {
 
   // Log all formData entries for debugging
   for (var pair of formData.entries()) {
-      console.log(pair[0]+ ', ' + pair[1]);
+    console.log(pair[0] + ', ' + pair[1]);
   }
 
   // 8) Submit update
@@ -9065,24 +9066,24 @@ function getDropdownOptions(sno, observationStatus, sectionID = null) {
 
   // 1. Explicitly defined options for standard rows
   // We check this first to honor specific mappings
- const specificOptions = {
-    "1.38,1.40,1.41,1.42,1.43,1.45,1.46,1.47,1.48,1.49,1.50,1.51,1.52,1.53,1.54,1.55,1.56,1.57,1.58,1.59,1.60,1.61,1.62,1.63,1.64" : ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
+  const specificOptions = {
+    "1.38,1.40,1.41,1.42,1.43,1.45,1.46,1.47,1.48,1.49,1.50,1.51,1.52,1.53,1.54,1.55,1.56,1.57,1.58,1.59,1.60,1.61,1.62,1.63,1.64": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
     "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37,1.65,1.66,1.67,1.68": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
-    "3.1,2.1,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.2.9,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,5.4.6,8.1,8.2,8.3,8.4,8.6,8.7,7.1,7.2,7.3,7.4,7.5,7.6,7.7,7.8,7.9,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.2.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.1.6,4.1.7,4.1.8,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,9.2,12.1,12.2" : ["Ok", "Not Ok", "Not Applicable"],
+    "3.1,2.1,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.2.9,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,5.4.6,8.1,8.2,8.3,8.4,8.6,8.7,7.1,7.2,7.3,7.4,7.5,7.6,7.7,7.8,7.9,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.2.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.1.6,4.1.7,4.1.8,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,9.2,12.1,12.2": ["Ok", "Not Ok", "Not Applicable"],
     "5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1,10.1,10.2,10.3,10.4,10.5,10.6,13.1,11.2": ["Ok", "Not Ok"],
-    "9.3,11.1" : ["Available", "Not Available"],
-    "6.2.2,7.10,8.5,12.3" : ["Available", "Not Available", "Not Applicable"],
-    "1.44" : ["Verified", "Not Verified","Not Installed","Not Applicable"]
+    "9.3,11.1": ["Available", "Not Available"],
+    "6.2.2,7.10,8.5,12.3": ["Available", "Not Available", "Not Applicable"],
+    "1.44": ["Verified", "Not Verified", "Not Installed", "Not Applicable"]
   };
 
 
   for (const [key, values] of Object.entries(specificOptions)) {
     const keys = key.split(",").map(k => k.trim().toLowerCase());
     if (keys.includes(sNoStr)) {
-       const matchedOptions = values.map(value =>
-         `<option value="${value}" ${observationStatus?.trim().toLowerCase() === value.toLowerCase() ? "selected" : ""}>${value}</option>`
-       ).join("\n");
-       return defaultOption + "\n" + matchedOptions;
+      const matchedOptions = values.map(value =>
+        `<option value="${value}" ${observationStatus?.trim().toLowerCase() === value.toLowerCase() ? "selected" : ""}>${value}</option>`
+      ).join("\n");
+      return defaultOption + "\n" + matchedOptions;
     }
   }
 
@@ -9176,24 +9177,24 @@ async function startCamera(rowId) {
 
     // 1. If asking for environment (back), try to force it with 'exact' first
     if (currentCamera === 'environment') {
-        try {
-            stream = await navigator.mediaDevices.getUserMedia({
-                video: { facingMode: { exact: "environment" } },
-                audio: false
-            });
-            console.log("🎥 Camera started with exact environment mode.");
-        } catch (e) {
-            console.warn("⚠️ Exact environment mode failed, falling back to ideal/default...", e);
-        }
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: { exact: "environment" } },
+          audio: false
+        });
+        console.log("🎥 Camera started with exact environment mode.");
+      } catch (e) {
+        console.warn("⚠️ Exact environment mode failed, falling back to ideal/default...", e);
+      }
     }
 
     // 2. If 'exact' failed or we want 'user' (front), use standard constraints
     if (!stream) {
-        stream = await navigator.mediaDevices.getUserMedia({
-            video: { facingMode: currentCamera },
-            audio: false
-        });
-        console.log(`🎥 Camera started (Fallback/Normal Mode: ${currentCamera})`);
+      stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: currentCamera },
+        audio: false
+      });
+      console.log(`🎥 Camera started (Fallback/Normal Mode: ${currentCamera})`);
     }
 
     video.srcObject = stream;
@@ -9632,7 +9633,7 @@ function highlightSelect(selectElement) {
     const color = statusColors[selectElement.value] || "";
     selectElement.style.backgroundColor = color;
 
-  } catch(e) {
+  } catch (e) {
     console.error("highlightSelect error:", e);
   }
 }
@@ -9682,18 +9683,18 @@ const deletedImagesMap = {}; // Tracks deleted image URLs for each observationID
 
 // 1) define per‑section lists of S_no that require an image
 const mandatoryImageRowsBySection = {
-  "3_0": ["3.1","3.5","3.7","3.8","3.11"],
-  "4_0": ["4.1","4.2"],
-  "5_0": ["5.2","5.3","5.4","5.5"],
-  "6_0": ["6.2","6.3","6.6","6.8","6.9","6.10"],
-  "7_0": ["7.1","7.3"],
+  "3_0": ["3.1", "3.5", "3.7", "3.8", "3.11"],
+  "4_0": ["4.1", "4.2"],
+  "5_0": ["5.2", "5.3", "5.4", "5.5"],
+  "6_0": ["6.2", "6.3", "6.6", "6.8", "6.9", "6.10"],
+  "7_0": ["7.1", "7.3"],
 
 };
 
 function validateMandatoryImages(sectionID) {
   const mandatory = mandatoryImageRowsBySection[sectionID] || [];
-  const tbody     = document.querySelector(`#observations-tbody-${sectionID}`);
-  const missing   = [];
+  const tbody = document.querySelector(`#observations-tbody-${sectionID}`);
+  const missing = [];
 
   if (!tbody) return true;
 
@@ -9706,7 +9707,7 @@ function validateMandatoryImages(sectionID) {
 
     // IMAGE IS ALWAYS IN THE LAST CELL
     const imgCell = tr.cells[tr.cells.length - 1];
-    const imgs    = imgCell?.querySelectorAll("img") || [];
+    const imgs = imgCell?.querySelectorAll("img") || [];
 
     if (imgs.length === 0) {
       missing.push(sno);
@@ -9796,23 +9797,23 @@ function onlyOneChecked(checkbox, groupClass) {
 
 // Render a custom row (used by addRow and loadCustomRows)
 function renderCustomRow(sectionId, s_no, description) {
-    const tbodyId = `observations-tbody-${sectionId.replace('.', '_')}`;
-    const tbody = document.getElementById(tbodyId);
-    if (!tbody) return;
+  const tbodyId = `observations-tbody-${sectionId.replace('.', '_')}`;
+  const tbody = document.getElementById(tbodyId);
+  if (!tbody) return;
 
-    // Check if row already exists to avoid duplicates
-    const existingRowId = `row-${s_no}`;
-    if (document.getElementById(existingRowId)) {
-        console.log(`Row ${s_no} already exists, skipping duplicate.`);
-        return;
-    }
+  // Check if row already exists to avoid duplicates
+  const existingRowId = `row-${s_no}`;
+  if (document.getElementById(existingRowId)) {
+    console.log(`Row ${s_no} already exists, skipping duplicate.`);
+    return;
+  }
 
-    const tr = document.createElement("tr");
-    tr.id = `row-${s_no}`; // Keep dots to match updateObservationsTable
-    tr.className = "custom-row"; // Marker class
+  const tr = document.createElement("tr");
+  tr.id = `row-${s_no}`; // Keep dots to match updateObservationsTable
+  tr.className = "custom-row"; // Marker class
 
-    // Small delete icon in S_No column
-    tr.innerHTML = `
+  // Small delete icon in S_No column
+  tr.innerHTML = `
       <td>
         ${s_no} <button type="button" onclick="deleteRowTemplate(this, '${s_no}', '${sectionId}')" style="background: none; border: none; cursor: pointer; font-size: 14px;" title="Delete Row">🗑️</button>
       </td>
@@ -9823,24 +9824,24 @@ function renderCustomRow(sectionId, s_no, description) {
       </td>
       <td>
         <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
-          ${(function() {
-              const sId = String(sectionId).replace('_', '.');
-              // Label 1.0 is Section 2.0 (but ID passed is often "2_0")
-              if (sId.startsWith('1.') || sId === "2_0" || sId === "2.0") {
-                  return `
+          ${(function () {
+      const sId = String(sectionId).replace('_', '.');
+      // Label 1.0 is Section 2.0 (but ID passed is often "2_0")
+      if (sId.startsWith('1.') || sId === "2_0" || sId === "2.0") {
+        return `
                       <option value="Select">Select</option>
                       <option value="Matching">Matching</option>
                       <option value="Not Matching">Not Matching</option>
                       <option value="Not Installed">Not Installed</option>
                   `;
-              } else {
-                  return `
+      } else {
+        return `
                       <option value="Select">Select</option>
                       <option value="Yes">Yes</option>
                       <option value="No">No</option>
                   `;
-              }
-          })()}
+      }
+    })()}
         </select>
       </td>
       <td class="remarks">
@@ -9863,7 +9864,7 @@ function renderCustomRow(sectionId, s_no, description) {
         </div>
       </td>
     `;
-    tbody.appendChild(tr);
+  tbody.appendChild(tr);
 }
 
 // Add new row for section 2.0 with password protection and PERSISTENCE
@@ -9883,18 +9884,18 @@ async function addRowWithPassword(sectionId) {
   // Calculate next S_No
   let nextSno = "1.26";
   if (tbody) {
-      const rows = Array.from(tbody.querySelectorAll("tr"));
-      if (rows.length > 0) {
-        const lastRow = rows[rows.length - 1];
-        const lastSnoStr = lastRow.cells[0].innerText.trim().replace("🗑️", ""); // Remove icon if present
-        const lastSnoParts = lastSnoStr.split(".");
-        if (lastSnoParts.length === 2) {
-          const lastNum = parseInt(lastSnoParts[1]);
-          if (!isNaN(lastNum)) {
-             nextSno = `${lastSnoParts[0]}.${lastNum + 1}`;
-          }
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+    if (rows.length > 0) {
+      const lastRow = rows[rows.length - 1];
+      const lastSnoStr = lastRow.cells[0].innerText.trim().replace("🗑️", ""); // Remove icon if present
+      const lastSnoParts = lastSnoStr.split(".");
+      if (lastSnoParts.length === 2) {
+        const lastNum = parseInt(lastSnoParts[1]);
+        if (!isNaN(lastNum)) {
+          nextSno = `${lastSnoParts[0]}.${lastNum + 1}`;
         }
       }
+    }
   }
 
   // Save to backend
@@ -9905,153 +9906,153 @@ async function addRowWithPassword(sectionId) {
   formData.append("description", unitName);
 
   try {
-      const resp = await fetch("manage_row_templates.php", {method: "POST", body: formData});
-      const res = await resp.json();
-      if(res.success) {
-          renderCustomRow(sectionId, nextSno, unitName);
-          alert("Row added permanently.");
-      } else {
-          alert("Failed to save row: " + res.message);
-      }
-  } catch(e) {
-      console.error(e);
-      alert("Error saving row");
+    const resp = await fetch("manage_row_templates.php", { method: "POST", body: formData });
+    const res = await resp.json();
+    if (res.success) {
+      renderCustomRow(sectionId, nextSno, unitName);
+      alert("Row added permanently.");
+    } else {
+      alert("Failed to save row: " + res.message);
+    }
+  } catch (e) {
+    console.error(e);
+    alert("Error saving row");
   }
 }
 
 async function checkVoltage(input, rowId) {
 
-    let value = parseFloat(input.value);
-    let dropdown = document.getElementById("status-" + rowId);
-    let remarks = document.getElementById("remarks-" + rowId);
+  let value = parseFloat(input.value);
+  let dropdown = document.getElementById("status-" + rowId);
+  let remarks = document.getElementById("remarks-" + rowId);
 
-    if (!isNaN(value)) {
-        // Hide Not Applicable, show Ok and Not Ok
-        dropdown.querySelector('option[value="Not Applicable"]').style.display = 'none';
-        dropdown.querySelector('option[value="Ok"]').style.display = '';
-        dropdown.querySelector('option[value="Not Ok"]').style.display = '';
+  if (!isNaN(value)) {
+    // Hide Not Applicable, show Ok and Not Ok
+    dropdown.querySelector('option[value="Not Applicable"]').style.display = 'none';
+    dropdown.querySelector('option[value="Ok"]').style.display = '';
+    dropdown.querySelector('option[value="Not Ok"]').style.display = '';
 
-        if (value >= 22.8 && value <= 25.2) {
-            dropdown.value = "Ok";
-        } else {
-            dropdown.value = "Not Ok";
-        }
-        remarks.value = value + " VDC"
-        remarks.readOnly = true;
-        dropdown.disabled = true;
+    if (value >= 22.8 && value <= 25.2) {
+      dropdown.value = "Ok";
     } else {
-        // Show Not Applicable, hide Ok and Not Ok
-        dropdown.querySelector('option[value="Not Applicable"]').style.display = '';
-        dropdown.querySelector('option[value="Ok"]').style.display = 'none';
-        dropdown.querySelector('option[value="Not Ok"]').style.display = 'none';
-
-        dropdown.value = "Select";
-        remarks.value = ""
-        remarks.readOnly = false
-        dropdown.disabled = false;
+      dropdown.value = "Not Ok";
     }
-    highlightSelect(dropdown);
-    markDataAsUnsaved();
+    remarks.value = value + " VDC"
+    remarks.readOnly = true;
+    dropdown.disabled = true;
+  } else {
+    // Show Not Applicable, hide Ok and Not Ok
+    dropdown.querySelector('option[value="Not Applicable"]').style.display = '';
+    dropdown.querySelector('option[value="Ok"]').style.display = 'none';
+    dropdown.querySelector('option[value="Not Ok"]').style.display = 'none';
+
+    dropdown.value = "Select";
+    remarks.value = ""
+    remarks.readOnly = false
+    dropdown.disabled = false;
+  }
+  highlightSelect(dropdown);
+  markDataAsUnsaved();
 
 }
 
-async function checkEarthResistance(input, rowId){
-    let value = parseFloat(input.value);
-    let dropdown = document.getElementById("status-" + rowId);
-    let remarks = document.getElementById("remarks-" + rowId);
+async function checkEarthResistance(input, rowId) {
+  let value = parseFloat(input.value);
+  let dropdown = document.getElementById("status-" + rowId);
+  let remarks = document.getElementById("remarks-" + rowId);
 
-    if (!isNaN(value)) {
-        // Hide Not Applicable, show Ok and Not Ok
-        dropdown.querySelector('option[value="Not Applicable"]').style.display = 'none';
-        dropdown.querySelector('option[value="Ok"]').style.display = '';
-        dropdown.querySelector('option[value="Not Ok"]').style.display = '';
+  if (!isNaN(value)) {
+    // Hide Not Applicable, show Ok and Not Ok
+    dropdown.querySelector('option[value="Not Applicable"]').style.display = 'none';
+    dropdown.querySelector('option[value="Ok"]').style.display = '';
+    dropdown.querySelector('option[value="Not Ok"]').style.display = '';
 
-        if (value <= 1) {
-            dropdown.value = "Ok";
-        } else {
-            dropdown.value = "Not Ok";
-        }
-
-        remarks.value = value + " Ohm";
-
-        remarks.readOnly = true;
-        dropdown.disabled = true;
+    if (value <= 1) {
+      dropdown.value = "Ok";
     } else {
-        // Show Not Applicable, hide Ok and Not Ok
-        dropdown.querySelector('option[value="Not Applicable"]').style.display = '';
-        dropdown.querySelector('option[value="Ok"]').style.display = 'none';
-        dropdown.querySelector('option[value="Not Ok"]').style.display = 'none';
-        dropdown.value = "Select";
-        remarks.value = "";
-        remarks.readOnly = false;
-        dropdown.disabled = false;
+      dropdown.value = "Not Ok";
     }
 
-    // Keep existing behavior
-    highlightSelect(dropdown);
-    markDataAsUnsaved();
+    remarks.value = value + " Ohm";
+
+    remarks.readOnly = true;
+    dropdown.disabled = true;
+  } else {
+    // Show Not Applicable, hide Ok and Not Ok
+    dropdown.querySelector('option[value="Not Applicable"]').style.display = '';
+    dropdown.querySelector('option[value="Ok"]').style.display = 'none';
+    dropdown.querySelector('option[value="Not Ok"]').style.display = 'none';
+    dropdown.value = "Select";
+    remarks.value = "";
+    remarks.readOnly = false;
+    dropdown.disabled = false;
+  }
+
+  // Keep existing behavior
+  highlightSelect(dropdown);
+  markDataAsUnsaved();
 }
 
 async function deleteRowTemplate(span, s_no, sectionId) {
-    const password = prompt("Enter password to DELETE this permanent row:");
-    if(password !== "hbl@123") return;
+  const password = prompt("Enter password to DELETE this permanent row:");
+  if (password !== "hbl@123") return;
 
-    if(!confirm("Are you sure? This will remove the row for all future reports.")) return;
+  if (!confirm("Are you sure? This will remove the row for all future reports.")) return;
 
-    const formData = new FormData();
-    formData.append("action", "delete");
-    formData.append("section_id", sectionId);
-    formData.append("s_no", s_no);
+  const formData = new FormData();
+  formData.append("action", "delete");
+  formData.append("section_id", sectionId);
+  formData.append("s_no", s_no);
 
-    try {
-        const resp = await fetch("manage_row_templates.php", {method: "POST", body: formData});
-        const res = await resp.json();
-        if(res.success) {
-            span.closest("tr").remove();
-            alert("Row deleted permanently.");
-        } else {
-            alert("Failed to delete: " + res.message);
-        }
-    } catch(e) {
-        alert("Error deleting");
+  try {
+    const resp = await fetch("manage_row_templates.php", { method: "POST", body: formData });
+    const res = await resp.json();
+    if (res.success) {
+      span.closest("tr").remove();
+      alert("Row deleted permanently.");
+    } else {
+      alert("Failed to delete: " + res.message);
     }
+  } catch (e) {
+    alert("Error deleting");
+  }
 }
 
 // Load custom rows for a section
 async function loadCustomRows(sectionId) {
-    const formData = new FormData();
-    formData.append("action", "fetch");
-    formData.append("section_id", sectionId);
+  const formData = new FormData();
+  formData.append("action", "fetch");
+  formData.append("section_id", sectionId);
 
-    try {
-        const resp = await fetch("manage_row_templates.php", {method: "POST", body: formData});
-        const res = await resp.json();
-        if(res.success && res.data) {
-            res.data.forEach(row => {
-                // Check if row already exists to avoid duplication
-                const existingRowId = `row-${row.s_no}`;
-                if(!document.getElementById(existingRowId)) {
-                    renderCustomRow(sectionId, row.s_no, row.description);
-                }
-            });
-            
-            // Re-run updateSections to populate the newly added custom rows with any saved data
-            if (window.allObservations && window.allObservations.length > 0) {
-                let renderSectionId = sectionId.replace('.', '_');
-                if (window.sectionWiseSno && window.sectionWiseSno[renderSectionId]) {
-                    updateSections(window.allObservations, renderSectionId, window.sectionWiseSno[renderSectionId]);
-                }
-            }
+  try {
+    const resp = await fetch("manage_row_templates.php", { method: "POST", body: formData });
+    const res = await resp.json();
+    if (res.success && res.data) {
+      res.data.forEach(row => {
+        // Check if row already exists to avoid duplication
+        const existingRowId = `row-${row.s_no}`;
+        if (!document.getElementById(existingRowId)) {
+          renderCustomRow(sectionId, row.s_no, row.description);
         }
-    } catch(e) {
-        console.error("Error loading custom rows", e);
+      });
+
+      // Re-run updateSections to populate the newly added custom rows with any saved data
+      if (window.allObservations && window.allObservations.length > 0) {
+        let renderSectionId = sectionId.replace('.', '_');
+        if (window.sectionWiseSno && window.sectionWiseSno[renderSectionId]) {
+          updateSections(window.allObservations, renderSectionId, window.sectionWiseSno[renderSectionId]);
+        }
+      }
     }
+  } catch (e) {
+    console.error("Error loading custom rows", e);
+  }
 }
 
 /* Old delete function removed */
 
 function markDataAsUnsaved() {
-    unsavedChanges = true;
+  unsavedChanges = true;
 }
 
 
@@ -10064,7 +10065,7 @@ function markDataAsUnsaved() {
 function setSectionNA(tbodyId) {
   // Add confirmation dialog
   if (!confirm("Are you sure you want to mark the entire section as 'Not Applicable'?")) {
-      return;
+    return;
   }
 
   const tbody = document.getElementById(tbodyId);
@@ -10076,16 +10077,16 @@ function setSectionNA(tbodyId) {
     // Check if 'Not Applicable' is a valid option in this select
     let hasNA = false;
     for (let i = 0; i < select.options.length; i++) {
-        if (select.options[i].value === "Not Applicable") {
-            hasNA = true;
-            break;
-        }
+      if (select.options[i].value === "Not Applicable") {
+        hasNA = true;
+        break;
+      }
     }
 
     if (hasNA) {
-        select.value = "Not Applicable";
-        highlightSelect(select);
-        count++;
+      select.value = "Not Applicable";
+      highlightSelect(select);
+      count++;
     }
   });
 
@@ -10097,7 +10098,7 @@ function setSectionNA(tbodyId) {
   }
 }
 
-function showLoader(show){
+function showLoader(show) {
   let loader = document.getElementById("loader");
 
   if (!loader) {
@@ -10116,7 +10117,7 @@ function showLoader(show){
 
   loader.style.display = show ? "flex" : "none";
 }
-function showMessage(msg){
+function showMessage(msg) {
   let msgBox = document.getElementById("messageBox");
 
   if (!msgBox) {
@@ -10135,32 +10136,31 @@ function showMessage(msg){
 }
 async function checkForUpdates() {
 
-  if (!navigator.onLine)
-  {
+  if (!navigator.onLine) {
     showMessage("No internet Connection.");
     return;
   }
 
   showLoader(true);
-  try{
+  try {
     const res = await fetch("update_version.php");
     const data = await res.json();
 
     showLoader(false);
-    if (data.status === "updated"){
+    if (data.status === "updated") {
 
       showMessage("Software updated successfully");
-      setTimeout(() => location.reload(),1500);
+      setTimeout(() => location.reload(), 1500);
     }
-    else if(data.status === "uptodate"){
+    else if (data.status === "uptodate") {
       showMessage("Already upto Date");
     }
-    else{
+    else {
       console.log(data); // 👈 IMPORTANT
       showMessage("Update Failed: " + (data.step || ""));
     }
   }
-  catch(err){
+  catch (err) {
     showLoader(false);
     showMessage("Error connecting to server")
   }

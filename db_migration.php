@@ -109,12 +109,7 @@ $status_updates_by_sno = [
     "1.44" => [
         "Matching" => "Verified",
         "Not Matching" => "Not Verified"
-    ],
-    "1.64" => ["Matching" => "Verified", "Not Matching" => "Not Verified"],
-    "1.65" => ["Matching" => "Verified", "Not Matching" => "Not Verified"],
-    "1.66" => ["Matching" => "Verified", "Not Matching" => "Not Verified"],
-    "1.67" => ["Matching" => "Verified", "Not Matching" => "Not Verified"],
-    "1.68" => ["Matching" => "Verified", "Not Matching" => "Not Verified"]
+    ]
 ];
 
 $total_status_updated = 0;
@@ -146,6 +141,51 @@ foreach ($tables as $table) {
     }
 }
 echo "Moved 1.54 to 1.53 in $total_moved rows.<br>";
+
+// ==========================================
+// 7. AUTO-SHIFT CUSTOM ROWS (SECTION 2.0)
+// ==========================================
+// This section automatically pushes user-added rows to the end of the list
+// if they overlap with newly added standard rows (1.1 to 1.68).
+$STANDARD_LIMIT = 68; // CURRENT MAX STANDARD ROW INDEX
+$SECTION_ID = "2_0";
+
+$overlap_check = $conn->query("SELECT id, s_no FROM row_templates WHERE section_id = '$SECTION_ID' AND s_no LIKE '1.%'");
+$has_overlap = false;
+while ($row = $overlap_check->fetch_assoc()) {
+    $parts = explode('.', $row['s_no']);
+    if (count($parts) == 2) {
+        if (intval($parts[1]) <= $STANDARD_LIMIT) {
+            $has_overlap = true;
+            break;
+        }
+    }
+}
+
+if ($has_overlap) {
+    // Re-index all custom rows to start AFTER the standard limit
+    $all_custom = $conn->query("SELECT id, s_no FROM row_templates WHERE section_id = '$SECTION_ID' AND s_no LIKE '1.%' ORDER BY id ASC");
+    $next_available_index = $STANDARD_LIMIT + 1;
+    $shifted_count = 0;
+
+    while ($c_row = $all_custom->fetch_assoc()) {
+        $old_sno = $c_row['s_no'];
+        $new_sno = "1." . $next_available_index;
+
+        if ($old_sno !== $new_sno) {
+            $id = $c_row['id'];
+            // Update Template
+            $conn->query("UPDATE row_templates SET s_no = '$new_sno' WHERE id = $id");
+            // Update Observations
+            $conn->query("UPDATE verification_of_equipment_serial_numbers SET S_no = '$new_sno' WHERE S_no = '$old_sno'");
+            // Update Images
+            $conn->query("UPDATE images SET s_no = '$new_sno' WHERE s_no = '$old_sno'");
+            $shifted_count++;
+        }
+        $next_available_index++;
+    }
+    echo "Automatically shifted $shifted_count custom rows to avoid overlap with standard points (1.1 - 1.$STANDARD_LIMIT).<br>";
+}
 
 $conn->close();
 echo "<br><b>Database Migration Completed Successfully!</b><br>";
