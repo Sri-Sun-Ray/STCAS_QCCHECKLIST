@@ -1354,7 +1354,7 @@ async function showSection(section, subsection) {
           <tr id="row-114">
             <td>1.14</td>
            <td class="observation_text">
-Field Scanner Card 1
+FIU Scanner Card 1
   <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1406,7 +1406,7 @@ Field Scanner Card 1
           </tr>
           <tr id="row-115">
             <td>1.15</td>
-           <td class="observation_text">Field Scanner Card 2
+           <td class="observation_text">FIU Scanner Card 2
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1455,7 +1455,7 @@ Field Scanner Card 1
           </tr>
           <tr id="row-1150">
             <td>1.16</td>
-           <td class="observation_text">Field Scanner Card 3
+           <td class="observation_text">FIU Scanner Card 3
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1504,7 +1504,7 @@ Field Scanner Card 1
           </tr>
           <tr id="row-11554">
             <td>1.17</td>
-           <td class="observation_text">Field Scanner Card 4
+           <td class="observation_text">FIU Scanner Card 4
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1554,7 +1554,7 @@ Field Scanner Card 1
            </tr>
           <tr id="row-11550">
             <td>1.18</td>
-           <td class="observation_text">Field Scanner Card 5
+           <td class="observation_text">FIU Scanner Card 5
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1604,7 +1604,7 @@ Field Scanner Card 1
           </tr>
           <tr id="row-11458">
             <td>1.19</td>
-           <td class="observation_text">Field Scanner Card 6
+           <td class="observation_text">FIU Scanner Card 6
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1653,7 +1653,7 @@ Field Scanner Card 1
           </tr>
           <tr id="row-116">
             <td>1.20</td>
-           <td class="observation_text"> Field Scanner Card 7
+           <td class="observation_text"> FIU Scanner Card 7
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -1703,7 +1703,7 @@ Field Scanner Card 1
           </tr>
           <tr id="row-117">
             <td>1.21</td>
-           <td class="observation_text"> Field Scanner Card 8
+           <td class="observation_text"> FIU Scanner Card 8
            <input 
   type="text" 
   id="kavach-main-unit" 
@@ -2828,8 +2828,8 @@ Field Scanner Card 1
 /> <td class="select" style="padding-right: 10px;">
     <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
       <option value="Select">Select</option>
-      <option value="Matching">Matching</option>
-      <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
     </select>
@@ -3240,56 +3240,8 @@ Field Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664776">
-            <td>1.53</td>
-           <td class = "observation_text"> RS 485-OFC converter (SM-OCIP) 
-          <input 
-  type="text" 
-  id="kavach-main-unit" 
-  name="barcode_kavach_main_unit" 
-  pattern="^\d{10,15}$" 
-  title="Enter a number between 10 to 15 digits" 
-  placeholder="Scan Barcode" 
-  style="width: 180px; padding: 5px; font-size: 14px;" 
-  oninput="
-    if(this.value.length > 15) {
-      this.value = this.value.slice(-15);86664776
-    }
-    toggleNotInstalledOption(this);
-  "
-/> <td class="select" style="padding-right: 10px;">
-    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
-      <option value="Select">Select</option>
-      <option value="Matching">Matching</option>
-      <option value="Not Matching">Not Matching</option>
-      <option value="Not Installed">Not Installed</option>
-      <option value="Not Applicable">Not Applicable</option>
-    </select>
-  </td>
-             <td class="remarks">
-    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
-  </td>
-           <td>
-       <button class="add-image" onclick="showUploadOptions(86664776)">Add Image</button>
-<div class="upload-options" id="upload-options-86664776" style="display: none;">
-  <button class="add-image" onclick="startCamera(86664776)">Camera</button>
-  <label for="file-input-86664776" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-86664776" accept="image/*" multiple onchange="displayImages(this, 86664776)">
-</div>
-      <!-- Container for multiple images --> 
-      <div id="image-container-86664776"></div>
-      <!-- Camera Container -->
-<div id="camera-container-86664776" style="display: none;">
-  <video id="camera-86664776" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(86664776)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(86664776)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(86664776)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-86664776" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-          </tr>
-
           <tr id="row-86664777">
-            <td>1.54</td>
+            <td>1.53</td>
            <td class = "observation_text"> RIU
           <input 
   type="text" 
@@ -3337,7 +3289,7 @@ Field Scanner Card 1
           </tr>
 
           <tr id="row-86664778">
-            <td>1.55</td>
+            <td>1.54</td>
            <td class = "observation_text"> RIU Power Supply Card-1
           <input 
   type="text" 
@@ -3385,7 +3337,7 @@ Field Scanner Card 1
           </tr>
 
           <tr id="row-86664779">
-            <td>1.56</td>
+            <td>1.55</td>
            <td class = "observation_text"> RIU Power Supply Card-2
           <input 
   type="text" 
@@ -3433,7 +3385,7 @@ Field Scanner Card 1
           </tr>
 
           <tr id="row-86664780">
-            <td>1.57</td>
+            <td>1.56</td>
            <td class = "observation_text"> RIU communication card 1-Remote
           <input 
   type="text" 
@@ -3481,7 +3433,7 @@ Field Scanner Card 1
           </tr>
 
           <tr id="row-86664781">
-            <td>1.58</td>
+            <td>1.57</td>
            <td class = "observation_text"> RIU communication card 2-Remote
           <input 
   type="text" 
@@ -3529,8 +3481,8 @@ Field Scanner Card 1
           </tr>
 
           <tr id="row-86664782">
-            <td>1.59</td>
-           <td class = "observation_text"> Field Scanner Card 1
+            <td>1.58</td>
+           <td class = "observation_text"> FIU Scanner Card 1
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -3577,8 +3529,8 @@ Field Scanner Card 1
           </tr>
 
           <tr id="row-86664783">
-            <td>1.60</td>
-           <td class = "observation_text"> Field Scanner Card 2
+            <td>1.59</td>
+           <td class = "observation_text"> FIU Scanner Card 2
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -3625,8 +3577,8 @@ Field Scanner Card 1
           </tr>
 
           <tr id="row-86664784">
-            <td>1.61</td>
-           <td class = "observation_text"> Field Scanner Card 3
+            <td>1.60</td>
+           <td class = "observation_text"> FIU Scanner Card 3
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -3673,8 +3625,8 @@ Field Scanner Card 1
           </tr>
 
           <tr id="row-86664785">
-            <td>1.62</td>
-           <td class = "observation_text"> Field Scanner Card 4
+            <td>1.61</td>
+           <td class = "observation_text"> FIU Scanner Card 4
           <input 
   type="text" 
   id="kavach-main-unit" 
@@ -3721,7 +3673,7 @@ Field Scanner Card 1
           </tr>
 
           <tr id="row-86664786">
-            <td>1.63</td>
+            <td>1.62</td>
            <td class = "observation_text"> RIU Battery Charge Cum Filter-1
           <input 
   type="text" 
@@ -3769,7 +3721,7 @@ Field Scanner Card 1
           </tr>
 
           <tr id="row-86664787">
-            <td>1.64</td>
+            <td>1.63</td>
            <td class = "observation_text"> RIU Battery Charge Cum Filter-2
           <input 
   type="text" 
@@ -3815,8 +3767,243 @@ Field Scanner Card 1
   <canvas id="canvas-86664787" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
-
-          
+        <tr id="row-1783634">
+            <td>1.64</td>
+           <td class = "observation_text"> RTU EMI FILTER_1
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);1783634
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(1783634)">Add Image</button>
+<div class="upload-options" id="upload-options-1783634" style="display: none;">
+  <button class="add-image" onclick="startCamera(1783634)">Camera</button>
+  <label for="file-input-1783634" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-1783634" accept="image/*" multiple onchange="displayImages(this, 1783634)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-1783634"></div>
+      <!-- Camera Container -->
+<div id="camera-container-1783634" style="display: none;">
+  <video id="camera-1783634" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(1783634)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(1783634)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(1783634)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-1783634" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+        <tr id="row-17832634">
+            <td>1.65</td>
+           <td class = "observation_text"> RTU EMI FILTER_2
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);17832634
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(17832634)">Add Image</button>
+<div class="upload-options" id="upload-options-17832634" style="display: none;">
+  <button class="add-image" onclick="startCamera(17832634)">Camera</button>
+  <label for="file-input-17832634" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-17832634" accept="image/*" multiple onchange="displayImages(this, 17832634)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-17832634"></div>
+      <!-- Camera Container -->
+<div id="camera-container-17832634" style="display: none;">
+  <video id="camera-17832634" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(17832634)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(17832634)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(17832634)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-17832634" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+       <tr id="row-5437352">
+            <td>1.66</td>
+           <td class = "observation_text"> TCAS EMI FILTER _1
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);5437352
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(5437352)">Add Image</button>
+<div class="upload-options" id="upload-options-5437352" style="display: none;">
+  <button class="add-image" onclick="startCamera(5437352)">Camera</button>
+  <label for="file-input-5437352" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-5437352" accept="image/*" multiple onchange="displayImages(this, 5437352)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-5437352"></div>
+      <!-- Camera Container -->
+<div id="camera-container-5437352" style="display: none;">
+  <video id="camera-5437352" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(5437352)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(5437352)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(5437352)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-5437352" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+            </tr>
+       <tr id="row-342543">
+            <td>1.67</td>
+           <td class = "observation_text"> TCAS EMI FILTER _2
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);342543
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(342543)">Add Image</button>
+<div class="upload-options" id="upload-options-342543" style="display: none;">
+  <button class="add-image" onclick="startCamera(342543)">Camera</button>
+  <label for="file-input-342543" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-342543" accept="image/*" multiple onchange="displayImages(this, 342543)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-342543"></div>
+      <!-- Camera Container -->
+<div id="camera-container-342543" style="display: none;">
+  <video id="camera-342543" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(342543)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(342543)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(342543)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-342543" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
+  </tr>
+       <tr id="row-765745">
+            <td>1.68</td>
+           <td class = "observation_text"> TCAS Cable Extender
+          <input 
+  type="text" 
+  id="kavach-main-unit" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+  oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);765745
+    }
+    toggleNotInstalledOption(this);
+  "
+/> <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+             <td class="remarks">
+    <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+  </td>
+           <td>
+       <button class="add-image" onclick="showUploadOptions(765745)">Add Image</button>
+<div class="upload-options" id="upload-options-765745" style="display: none;">
+  <button class="add-image" onclick="startCamera(765745)">Camera</button>
+  <label for="file-input-765745" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-765745" accept="image/*" multiple onchange="displayImages(this, 765745)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-765745"></div>
+      <!-- Camera Container -->
+<div id="camera-container-765745" style="display: none;">
+  <video id="camera-765745" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(765745)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(765745)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(765745)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-765745" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+          </tr>
         </tbody>
       </table>
       </div>
@@ -6983,38 +7170,6 @@ OFC armoured cables shall be used for communication.</td>
   <canvas id="canvas-1202" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
-    <tr id="row-113">
-      <td>11.3</td>
-      <td class="observation_text">Cable route markers</td>
-      <td class="requirement_text">Where contractually required, underground RFID markers shall be installed and verified.</td>
-     <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>
-              </select>
-      </td>
-      <td class="remarks">
-        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
-      </td>
-     <td>
-       <button class="add-image" onclick="showUploadOptions(113)">Add Image</button>
-<div class="upload-options" id="upload-options-113" style="display: none;">
-  <button class="add-image" onclick="startCamera(113)">Camera</button>
-  <label for="file-input-113" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-113" accept="image/*" multiple onchange="displayImages(this, 113)">
-</div>
-      <!-- Container for multiple images --> 
-      <div id="image-container-113"></div>
-      <!-- Camera Container -->
-<div id="camera-container-113" style="display: none;">
-  <video id="camera-113" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(113)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(113)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(113)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-113" style="display: none;"></canvas> <!-- Canvas to capture the image -->
-</div>
-    </tr>
     </tbody>
       </table>
       </div>
@@ -8911,12 +9066,13 @@ function getDropdownOptions(sno, observationStatus, sectionID = null) {
   // 1. Explicitly defined options for standard rows
   // We check this first to honor specific mappings
  const specificOptions = {
-    "1.38,1.40,1.41,1.42,1.43,1.44,1.45,1.46,1.47,1.48,1.49,1.50,1.51,1.52,1.53,1.54,1.55,1.56,1.57,1.58,1.59,1.60,1.61,1.62,1.63,1.64" : ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
-    "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
+    "1.38,1.40,1.41,1.42,1.43,1.45,1.46,1.47,1.48,1.49,1.50,1.51,1.52,1.53,1.54,1.55,1.56,1.57,1.58,1.59,1.60,1.61,1.62,1.63,1.64" : ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
+    "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37,1.65,1.66,1.67,1.68": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
     "3.1,2.1,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.2.9,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,5.4.6,8.1,8.2,8.3,8.4,8.6,8.7,7.1,7.2,7.3,7.4,7.5,7.6,7.7,7.8,7.9,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.2.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.1.6,4.1.7,4.1.8,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,9.2,12.1,12.2" : ["Ok", "Not Ok", "Not Applicable"],
-    "5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1,10.1,10.2,10.3,10.4,10.5,10.6,13.1,11.2,11.3": ["Ok", "Not Ok"],
+    "5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1,10.1,10.2,10.3,10.4,10.5,10.6,13.1,11.2": ["Ok", "Not Ok"],
     "9.3,11.1" : ["Available", "Not Available"],
-    "6.2.2,7.10,8.5,12.3" : ["Available", "Not Available", "Not Applicable"]
+    "6.2.2,7.10,8.5,12.3" : ["Available", "Not Available", "Not Applicable"],
+    "1.44" : ["Verified", "Not Verified","Not Installed","Not Applicable"]
   };
 
 
@@ -9453,13 +9609,13 @@ function uploadImages(files) {
 const statusColors = {
   "Present": "green", "Matching": "green", "Found Ok": "green", "Implemented": "green",
   "Not Applicable": "green", "Fixed": "Green", "Connected": "green", "Routing done": "green",
-  "Voltage found Ok": "green", "Done": "green", "Ok": "green", "Earth Connected": "green",
+  "Verified": "green", "Done": "green", "Ok": "green", "Earth Connected": "green",
   "Functioning": "green", "Identification Done": "green", "Cable ties implemented": "green",
   "Joined": "Green", "Installed": "green", "Available": "green", "Actual Rating:": "green",
   "Compliance": "green", "Yes": "green",
 
   "Not Present": "red", "Not Matching": "red", "Not Installed": "red", "Found Not Ok": "red",
-  "Not Implemeneted": "red", "Not Fixed": "red", "Voltage found not Ok": "red",
+  "Not Verified": "red", "Not Fixed": "red", "Voltage found not Ok": "red",
   "Not Done": "red", "Routing Not done": "red", "Not Ok": "red", "PCCL Not Done": "red",
   "Earth not connected": "red", "Not Functioning": "red", "Identification Not Done": "red",
   "Cable ties not implemented": "red", "Not Joined": "red", "Non-Compliance": "red", "No": "red",

@@ -29,7 +29,7 @@ $tables = [
 // ==========================================
 // 1. DELETE POINTS
 // ==========================================
-$deleted_points = [""];
+$deleted_points = ["11.3", "1.53"];
 
 if (!empty($deleted_points)) {
     $placeholders = implode(',', array_fill(0, count($deleted_points), '?'));
@@ -49,11 +49,22 @@ if (!empty($deleted_points)) {
 }
 
 // ==========================================
-// 2. RENAME / UPDATE TEXT
+// 2. RENAME / UPDATE OBSERVATION TEXT
 // ==========================================
 $renamed_points = [
     "1.39" => "SMOCIP Unit",
-    "1.20" => "Field Scanner Card 7"
+    "1.14" => "FIU Scanner Card 1",
+    "1.15" => "FIU Scanner Card 2",
+    "1.16" => "FIU Scanner Card 3",
+    "1.17" => "FIU Scanner Card 4",
+    "1.18" => "FIU Scanner Card 5",
+    "1.19" => "FIU Scanner Card 6",
+    "1.20" => "FIU Scanner Card 7",
+    "1.21" => "FIU Scanner Card 8",
+    "1.58" => "FIU Scanner Card 1",
+    "1.59" => "FIU Scanner Card 2",
+    "1.60" => "FIU Scanner Card 3",
+    "1.61" => "FIU Scanner Card 4"
 ];
 
 $total_updated = 0;
@@ -68,7 +79,7 @@ foreach ($renamed_points as $s_no => $new_text) {
         }
     }
 }
-echo "Updated text for " . $total_updated . " observations.<br>";
+echo "Updated observation text for " . $total_updated . " observations.<br>";
 
 // ==========================================
 // 3. UPDATE REQUIREMENT TEXT
@@ -90,6 +101,51 @@ foreach ($updated_requirements as $s_no => $new_req) {
     }
 }
 echo "Updated requirement text for " . $total_req_updated . " observations.<br>";
+
+// ==========================================
+// 4. UPDATE STATUS VALUES (Specific Points)
+// ==========================================
+$status_updates_by_sno = [
+    "1.44" => [
+        "Matching" => "Verified",
+        "Not Matching" => "Not Verified"
+    ],
+    "1.64" => ["Matching" => "Verified", "Not Matching" => "Not Verified"],
+    "1.65" => ["Matching" => "Verified", "Not Matching" => "Not Verified"],
+    "1.66" => ["Matching" => "Verified", "Not Matching" => "Not Verified"],
+    "1.67" => ["Matching" => "Verified", "Not Matching" => "Not Verified"],
+    "1.68" => ["Matching" => "Verified", "Not Matching" => "Not Verified"]
+];
+
+$total_status_updated = 0;
+foreach ($status_updates_by_sno as $s_no => $updates) {
+    foreach ($updates as $old_status => $new_status) {
+        foreach ($tables as $table) {
+            $stmt = $conn->prepare("UPDATE $table SET observation_status = ? WHERE observation_status = ? AND S_no = ?");
+            if ($stmt) {
+                $stmt->bind_param("sss", $new_status, $old_status, $s_no);
+                $stmt->execute();
+                $total_status_updated += $stmt->affected_rows;
+                $stmt->close();
+            }
+        }
+    }
+}
+echo "Updated status values for $total_status_updated observations (filtered by S_no).<br>";
+
+// ==========================================
+// 5. RENAME S_NO (MOVE 1.54 TO 1.53)
+// ==========================================
+$total_moved = 0;
+foreach ($tables as $table) {
+    $stmt = $conn->prepare("UPDATE $table SET S_no = '1.53' WHERE S_no = '1.54'");
+    if ($stmt) {
+        $stmt->execute();
+        $total_moved += $stmt->affected_rows;
+        $stmt->close();
+    }
+}
+echo "Moved 1.54 to 1.53 in $total_moved rows.<br>";
 
 $conn->close();
 echo "<br><b>Database Migration Completed Successfully!</b><br>";
