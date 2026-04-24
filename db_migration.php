@@ -143,48 +143,37 @@ foreach ($tables as $table) {
 echo "Moved 1.54 to 1.53 in $total_moved rows.<br>";
 
 // ==========================================
-// 7. AUTO-SHIFT CUSTOM ROWS (SECTION 2.0)
+// 7. AUTO-ALIGN CUSTOM ROWS (SECTION 2.0)
 // ==========================================
-// This section automatically pushes user-added rows to the end of the list
-// if they overlap with newly added standard rows (1.1 to 1.68).
-$STANDARD_LIMIT = 68; // CURRENT MAX STANDARD ROW INDEX
+// This section ensures custom rows ALWAYS start immediately after standard rows.
+// If you add standard rows, custom rows shift forward.
+// If you delete standard rows, custom rows move back to fill the gap.
+$STANDARD_LIMIT = 68; // Update this whenever you add/remove rows in script.js
 $SECTION_ID = "2_0";
 
-$overlap_check = $conn->query("SELECT id, s_no FROM row_templates WHERE section_id = '$SECTION_ID' AND s_no LIKE '1.%'");
-$has_overlap = false;
-while ($row = $overlap_check->fetch_assoc()) {
-    $parts = explode('.', $row['s_no']);
-    if (count($parts) == 2) {
-        if (intval($parts[1]) <= $STANDARD_LIMIT) {
-            $has_overlap = true;
-            break;
-        }
+$all_custom = $conn->query("SELECT id, s_no FROM row_templates WHERE section_id = '$SECTION_ID' AND s_no LIKE '1.%' ORDER BY id ASC");
+$next_available_index = $STANDARD_LIMIT + 1;
+$changed_count = 0;
+
+while ($c_row = $all_custom->fetch_assoc()) {
+    $old_sno = $c_row['s_no'];
+    $new_sno = "1." . $next_available_index;
+
+    if ($old_sno !== $new_sno) {
+        $id = $c_row['id'];
+        // Update Template
+        $conn->query("UPDATE row_templates SET s_no = '$new_sno' WHERE id = $id");
+        // Update Observations
+        $conn->query("UPDATE verification_of_equipment_serial_numbers SET S_no = '$new_sno' WHERE S_no = '$old_sno'");
+        // Update Images
+        $conn->query("UPDATE images SET s_no = '$new_sno' WHERE s_no = '$old_sno'");
+        $changed_count++;
     }
+    $next_available_index++;
 }
 
-if ($has_overlap) {
-    // Re-index all custom rows to start AFTER the standard limit
-    $all_custom = $conn->query("SELECT id, s_no FROM row_templates WHERE section_id = '$SECTION_ID' AND s_no LIKE '1.%' ORDER BY id ASC");
-    $next_available_index = $STANDARD_LIMIT + 1;
-    $shifted_count = 0;
-
-    while ($c_row = $all_custom->fetch_assoc()) {
-        $old_sno = $c_row['s_no'];
-        $new_sno = "1." . $next_available_index;
-
-        if ($old_sno !== $new_sno) {
-            $id = $c_row['id'];
-            // Update Template
-            $conn->query("UPDATE row_templates SET s_no = '$new_sno' WHERE id = $id");
-            // Update Observations
-            $conn->query("UPDATE verification_of_equipment_serial_numbers SET S_no = '$new_sno' WHERE S_no = '$old_sno'");
-            // Update Images
-            $conn->query("UPDATE images SET s_no = '$new_sno' WHERE s_no = '$old_sno'");
-            $shifted_count++;
-        }
-        $next_available_index++;
-    }
-    echo "Automatically shifted $shifted_count custom rows to avoid overlap with standard points (1.1 - 1.$STANDARD_LIMIT).<br>";
+if ($changed_count > 0) {
+    echo "Automatically re-aligned $changed_count custom rows to follow standard points (1.1 - 1.$STANDARD_LIMIT).<br>";
 }
 
 $conn->close();
