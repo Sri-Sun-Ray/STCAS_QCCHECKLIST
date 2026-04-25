@@ -57,6 +57,7 @@ try {
     .view-btn { background-color: #17a2b8; }
     .edit-btn { background-color: #ffc107; }
     .download-btn { background-color: #28a745; }
+    .upload-btn { background-color: #6f42c1; }
     .back-btn { background-color: #6c757d; }
     .status-label { padding: 4px 8px; border-radius: 4px; font-weight: bold; }
     .completed { color: green; background-color: #d3ffd3; }
@@ -139,6 +140,7 @@ try {
                         <a href="uploads/reports/<?php echo htmlspecialchars($report['file_name']); ?>" class="btn view-btn">View</a>
                         <a href="create.html?station_id=<?php echo htmlspecialchars($station_id); ?>" class="btn edit-btn">Edit</a>
                         <a href="uploads/reports/<?php echo htmlspecialchars($report['file_name']); ?>" download class="btn download-btn">Download</a>
+                        <button class="btn upload-btn" onclick="uploadToWFMS(event, '<?php echo htmlspecialchars($report['id']); ?>', '<?php echo htmlspecialchars($station_id); ?>')">Upload</button>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -162,6 +164,49 @@ try {
       }
     });
   });
+
+  async function uploadToWFMS(event, reportId, stationId) {
+    if (!navigator.onLine) {
+        alert("No internet connection. Please check your connectivity and try again.");
+        return;
+    }
+
+    if (!confirm("Are you sure you want to upload this report to WFMS?")) {
+        return;
+    }
+
+    const btn = event.target;
+    const originalText = btn.innerText;
+    btn.innerText = "Uploading...";
+    btn.disabled = true;
+
+    try {
+        const formData = new FormData();
+        formData.append('reportId', reportId);
+        formData.append('stationId', stationId);
+
+        const response = await fetch('upload-to-wfms.php', {
+            method: 'POST',
+            body: formData
+        });
+
+        const result = await response.json();
+        alert(result.message);
+        
+        if (result.success) {
+            btn.innerText = "Uploaded";
+            btn.style.backgroundColor = "#28a745"; // Success color
+        } else {
+            btn.innerText = originalText;
+            btn.disabled = false;
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert("An error occurred during the upload process.");
+        btn.innerText = originalText;
+        btn.disabled = false;
+    }
+  }
 </script>
 
 </body>
