@@ -25,6 +25,10 @@ if ($conn->connect_error) {
 $conn->set_charset("utf8mb4");
 logMsg("DB CONNECTED SUCCESSFULLY");
 
+// ==========================================
+// CONFIG
+// ==========================================
+
 $tables = [
     "verification_of_equipment_serial_numbers",
     "tower",
@@ -46,6 +50,9 @@ $tables = [
 ];
 
 $SECTION_ID = "2_0";
+
+// Static rows are from 1.1 to 1.68.
+// If static rows later become 1.70, change this to 70.
 $STATIC_ROWS_COUNT = 68;
 
 logMsg("SECTION_ID = $SECTION_ID");
@@ -70,7 +77,7 @@ if (!empty($deleted_points)) {
         if ($stmt) {
             $stmt->bind_param($types, ...$deleted_points);
             $stmt->execute();
-            logMsg("DELETE $table affected_rows = " . $stmt->affected_rows);
+            logMsg("DELETE $table affected_rows=" . $stmt->affected_rows);
             $stmt->close();
         } else {
             logMsg("DELETE PREPARE FAILED $table: " . $conn->error);
@@ -86,28 +93,29 @@ if (!empty($deleted_points)) {
 
 $renamed_points = [
     // "1.39" => "SMOCIP Unit",
+    // "1.14" => "FIU Scanner Card 1",
 ];
 
-foreach ($renamed_points as $s_no => $new_text) {
-    foreach ($tables as $table) {
-        $stmt = $conn->prepare("
-            UPDATE `$table`
-            SET observation_text = ?
-            WHERE S_no = ?
-        ");
+if (!empty($renamed_points)) {
+    foreach ($renamed_points as $s_no => $new_text) {
+        foreach ($tables as $table) {
+            $stmt = $conn->prepare("
+                UPDATE `$table`
+                SET observation_text = ?
+                WHERE S_no = ?
+            ");
 
-        if ($stmt) {
-            $stmt->bind_param("ss", $new_text, $s_no);
-            $stmt->execute();
-            logMsg("RENAME $table S_no=$s_no affected_rows=" . $stmt->affected_rows);
-            $stmt->close();
-        } else {
-            logMsg("RENAME PREPARE FAILED $table: " . $conn->error);
+            if ($stmt) {
+                $stmt->bind_param("ss", $new_text, $s_no);
+                $stmt->execute();
+                logMsg("RENAME $table S_no=$s_no affected_rows=" . $stmt->affected_rows);
+                $stmt->close();
+            } else {
+                logMsg("RENAME PREPARE FAILED $table: " . $conn->error);
+            }
         }
     }
-}
-
-if (empty($renamed_points)) {
+} else {
     logMsg("No renamed_points configured");
 }
 
@@ -119,26 +127,26 @@ $updated_requirements = [
     // "4.1.8" => "Functional testing shall be performed as per the PDU test procedure 5 53 20 0024."
 ];
 
-foreach ($updated_requirements as $s_no => $new_req) {
-    foreach ($tables as $table) {
-        $stmt = $conn->prepare("
-            UPDATE `$table`
-            SET requirement_text = ?
-            WHERE S_no = ?
-        ");
+if (!empty($updated_requirements)) {
+    foreach ($updated_requirements as $s_no => $new_req) {
+        foreach ($tables as $table) {
+            $stmt = $conn->prepare("
+                UPDATE `$table`
+                SET requirement_text = ?
+                WHERE S_no = ?
+            ");
 
-        if ($stmt) {
-            $stmt->bind_param("ss", $new_req, $s_no);
-            $stmt->execute();
-            logMsg("REQ UPDATE $table S_no=$s_no affected_rows=" . $stmt->affected_rows);
-            $stmt->close();
-        } else {
-            logMsg("REQ PREPARE FAILED $table: " . $conn->error);
+            if ($stmt) {
+                $stmt->bind_param("ss", $new_req, $s_no);
+                $stmt->execute();
+                logMsg("REQ UPDATE $table S_no=$s_no affected_rows=" . $stmt->affected_rows);
+                $stmt->close();
+            } else {
+                logMsg("REQ PREPARE FAILED $table: " . $conn->error);
+            }
         }
     }
-}
-
-if (empty($updated_requirements)) {
+} else {
     logMsg("No updated_requirements configured");
 }
 
@@ -153,29 +161,29 @@ $status_updates_by_sno = [
     // ]
 ];
 
-foreach ($status_updates_by_sno as $s_no => $updates) {
-    foreach ($updates as $old_status => $new_status) {
-        foreach ($tables as $table) {
-            $stmt = $conn->prepare("
-                UPDATE `$table`
-                SET observation_status = ?
-                WHERE observation_status = ?
-                  AND S_no = ?
-            ");
+if (!empty($status_updates_by_sno)) {
+    foreach ($status_updates_by_sno as $s_no => $updates) {
+        foreach ($updates as $old_status => $new_status) {
+            foreach ($tables as $table) {
+                $stmt = $conn->prepare("
+                    UPDATE `$table`
+                    SET observation_status = ?
+                    WHERE observation_status = ?
+                      AND S_no = ?
+                ");
 
-            if ($stmt) {
-                $stmt->bind_param("sss", $new_status, $old_status, $s_no);
-                $stmt->execute();
-                logMsg("STATUS UPDATE $table S_no=$s_no $old_status->$new_status affected_rows=" . $stmt->affected_rows);
-                $stmt->close();
-            } else {
-                logMsg("STATUS PREPARE FAILED $table: " . $conn->error);
+                if ($stmt) {
+                    $stmt->bind_param("sss", $new_status, $old_status, $s_no);
+                    $stmt->execute();
+                    logMsg("STATUS UPDATE $table S_no=$s_no affected_rows=" . $stmt->affected_rows);
+                    $stmt->close();
+                } else {
+                    logMsg("STATUS PREPARE FAILED $table: " . $conn->error);
+                }
             }
         }
     }
-}
-
-if (empty($status_updates_by_sno)) {
+} else {
     logMsg("No status_updates_by_sno configured");
 }
 
@@ -187,76 +195,82 @@ $moved_sno_points = [
     // "1.54" => "1.53"
 ];
 
-foreach ($moved_sno_points as $old_sno => $new_sno) {
-    foreach ($tables as $table) {
-        $stmt = $conn->prepare("
-            UPDATE `$table`
-            SET S_no = ?
-            WHERE S_no = ?
+if (!empty($moved_sno_points)) {
+    foreach ($moved_sno_points as $old_sno => $new_sno) {
+        foreach ($tables as $table) {
+            $stmt = $conn->prepare("
+                UPDATE `$table`
+                SET S_no = ?
+                WHERE S_no = ?
+            ");
+
+            if ($stmt) {
+                $stmt->bind_param("ss", $new_sno, $old_sno);
+                $stmt->execute();
+                logMsg("MOVE S_NO $table $old_sno->$new_sno affected_rows=" . $stmt->affected_rows);
+                $stmt->close();
+            } else {
+                logMsg("MOVE PREPARE FAILED $table: " . $conn->error);
+            }
+        }
+
+        $stmtImg = $conn->prepare("
+            UPDATE images
+            SET s_no = ?
+            WHERE s_no = ?
         ");
 
-        if ($stmt) {
-            $stmt->bind_param("ss", $new_sno, $old_sno);
-            $stmt->execute();
-            logMsg("MOVE S_NO $table $old_sno->$new_sno affected_rows=" . $stmt->affected_rows);
-            $stmt->close();
-        } else {
-            logMsg("MOVE PREPARE FAILED $table: " . $conn->error);
+        if ($stmtImg) {
+            $stmtImg->bind_param("ss", $new_sno, $old_sno);
+            $stmtImg->execute();
+            logMsg("MOVE IMAGE $old_sno->$new_sno affected_rows=" . $stmtImg->affected_rows);
+            $stmtImg->close();
         }
     }
-
-    $stmtImg = $conn->prepare("
-        UPDATE images
-        SET s_no = ?
-        WHERE s_no = ?
-    ");
-
-    if ($stmtImg) {
-        $stmtImg->bind_param("ss", $new_sno, $old_sno);
-        $stmtImg->execute();
-        logMsg("MOVE IMAGE $old_sno->$new_sno affected_rows=" . $stmtImg->affected_rows);
-        $stmtImg->close();
-    }
-}
-
-if (empty($moved_sno_points)) {
+} else {
     logMsg("No moved_sno_points configured");
 }
 
 // ==========================================
-// 6. AUTO ALIGN ROW_TEMPLATES AND SAVED ROWS
+// 6. AUTO ALIGN CUSTOM ROWS ONLY
 // ==========================================
+// row_templates contains only custom/add-row data.
+// Static rows are coming from frontend/script.
+// Therefore custom rows must always start after static rows.
+// Example:
+// Static rows end at 1.68
+// Custom rows become 1.69, 1.70, 1.71...
 
-logMsg("AUTO ALIGN STARTED");
+logMsg("AUTO ALIGN CUSTOM ROWS STARTED");
 
-$all_rows = $conn->query("
+$custom_rows = $conn->query("
     SELECT id, s_no, description
     FROM row_templates
     WHERE section_id = '$SECTION_ID'
     ORDER BY id ASC
 ");
 
-if (!$all_rows) {
-    logMsg("ROW_TEMPLATE QUERY FAILED: " . $conn->error);
-    die("row_templates query failed: " . $conn->error);
+if (!$custom_rows) {
+    logMsg("CUSTOM ROW QUERY FAILED: " . $conn->error);
+    die("custom row query failed: " . $conn->error);
 }
 
-logMsg("row_templates rows fetched = " . $all_rows->num_rows);
+logMsg("custom rows fetched=" . $custom_rows->num_rows);
 
-$index = 1;
+$next_sno_number = $STATIC_ROWS_COUNT + 1;
 $updated_count = 0;
 
-while ($row = $all_rows->fetch_assoc()) {
+while ($row = $custom_rows->fetch_assoc()) {
     $template_id = (int)$row["id"];
     $old_sno = trim($row["s_no"]);
-    $new_sno = "1." . $index;
+    $new_sno = "1." . $next_sno_number;
     $description = trim($row["description"]);
 
-    logMsg("CHECK ROW id=$template_id old_sno=$old_sno new_sno=$new_sno description=$description");
+    logMsg("CUSTOM ROW id=$template_id old_sno=$old_sno new_sno=$new_sno desc=$description");
 
     if ($old_sno !== $new_sno) {
-        logMsg("UPDATING ROW id=$template_id old_sno=$old_sno new_sno=$new_sno");
 
+        // 1. Update row_templates
         $stmt1 = $conn->prepare("
             UPDATE row_templates
             SET s_no = ?
@@ -272,6 +286,7 @@ while ($row = $all_rows->fetch_assoc()) {
             logMsg("row_templates prepare failed: " . $conn->error);
         }
 
+        // 2. Update saved verification rows safely
         $stmt2 = $conn->prepare("
             UPDATE verification_of_equipment_serial_numbers
             SET S_no = ?
@@ -288,6 +303,7 @@ while ($row = $all_rows->fetch_assoc()) {
             logMsg("verification prepare failed: " . $conn->error);
         }
 
+        // 3. Update image mapping
         $stmt3 = $conn->prepare("
             UPDATE images
             SET s_no = ?
@@ -308,10 +324,14 @@ while ($row = $all_rows->fetch_assoc()) {
         logMsg("NO CHANGE id=$template_id");
     }
 
-    $index++;
+    $next_sno_number++;
 }
 
-logMsg("AUTO ALIGN FINISHED updated_count=$updated_count");
+logMsg("AUTO ALIGN CUSTOM ROWS FINISHED updated_count=$updated_count");
+
+// ==========================================
+// DONE
+// ==========================================
 
 $conn->close();
 
