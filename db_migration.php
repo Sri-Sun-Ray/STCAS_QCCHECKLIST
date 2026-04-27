@@ -1,17 +1,29 @@
 <?php
-// Database Update Script for Checklist Modifications
+// Database Update Script for Checklist Modifications with Log Debugging
+
+$LOG_FILE = __DIR__ . "/db_migration_debug.log";
+
+function logMsg($msg) {
+    global $LOG_FILE;
+    file_put_contents(
+        $LOG_FILE,
+        "[" . date("Y-m-d H:i:s") . "] " . $msg . PHP_EOL,
+        FILE_APPEND
+    );
+}
+
+logMsg("==================================================");
+logMsg("DB MIGRATION STARTED");
 
 $conn = new mysqli("localhost", "root", "Hbl@1234", "station_info");
 
 if ($conn->connect_error) {
+    logMsg("DB CONNECTION FAILED: " . $conn->connect_error);
     die("Connection failed: " . $conn->connect_error);
 }
 
 $conn->set_charset("utf8mb4");
-
-// ==========================================
-// CONFIG
-// ==========================================
+logMsg("DB CONNECTED SUCCESSFULLY");
 
 $tables = [
     "verification_of_equipment_serial_numbers",
@@ -33,13 +45,11 @@ $tables = [
     "tag_to_tag_distance"
 ];
 
-// Section where add-row custom points are stored
 $SECTION_ID = "2_0";
-
-// Current static/default row count in script.js
-// Example: static rows are 1.1 to 1.68, so value is 68
 $STATIC_ROWS_COUNT = 68;
 
+logMsg("SECTION_ID = $SECTION_ID");
+logMsg("STATIC_ROWS_COUNT = $STATIC_ROWS_COUNT");
 
 // ==========================================
 // 1. DELETE REMOVED STATIC POINTS
@@ -54,22 +64,21 @@ if (!empty($deleted_points)) {
     $placeholders = implode(",", array_fill(0, count($deleted_points), "?"));
     $types = str_repeat("s", count($deleted_points));
 
-    $total_deleted = 0;
-
     foreach ($tables as $table) {
         $stmt = $conn->prepare("DELETE FROM `$table` WHERE S_no IN ($placeholders)");
 
         if ($stmt) {
             $stmt->bind_param($types, ...$deleted_points);
             $stmt->execute();
-            $total_deleted += $stmt->affected_rows;
+            logMsg("DELETE $table affected_rows = " . $stmt->affected_rows);
             $stmt->close();
+        } else {
+            logMsg("DELETE PREPARE FAILED $table: " . $conn->error);
         }
     }
-
-    echo "Deleted $total_deleted removed static points.<br>";
+} else {
+    logMsg("No deleted_points configured");
 }
-
 
 // ==========================================
 // 2. UPDATE / RENAME STATIC OBSERVATION TEXT
@@ -77,10 +86,7 @@ if (!empty($deleted_points)) {
 
 $renamed_points = [
     // "1.39" => "SMOCIP Unit",
-    // "1.14" => "FIU Scanner Card 1",
 ];
-
-$total_updated = 0;
 
 foreach ($renamed_points as $s_no => $new_text) {
     foreach ($tables as $table) {
@@ -93,14 +99,17 @@ foreach ($renamed_points as $s_no => $new_text) {
         if ($stmt) {
             $stmt->bind_param("ss", $new_text, $s_no);
             $stmt->execute();
-            $total_updated += $stmt->affected_rows;
+            logMsg("RENAME $table S_no=$s_no affected_rows=" . $stmt->affected_rows);
             $stmt->close();
+        } else {
+            logMsg("RENAME PREPARE FAILED $table: " . $conn->error);
         }
     }
 }
 
-echo "Updated observation text: $total_updated rows.<br>";
-
+if (empty($renamed_points)) {
+    logMsg("No renamed_points configured");
+}
 
 // ==========================================
 // 3. UPDATE REQUIREMENT TEXT
@@ -109,8 +118,6 @@ echo "Updated observation text: $total_updated rows.<br>";
 $updated_requirements = [
     // "4.1.8" => "Functional testing shall be performed as per the PDU test procedure 5 53 20 0024."
 ];
-
-$total_req_updated = 0;
 
 foreach ($updated_requirements as $s_no => $new_req) {
     foreach ($tables as $table) {
@@ -123,14 +130,17 @@ foreach ($updated_requirements as $s_no => $new_req) {
         if ($stmt) {
             $stmt->bind_param("ss", $new_req, $s_no);
             $stmt->execute();
-            $total_req_updated += $stmt->affected_rows;
+            logMsg("REQ UPDATE $table S_no=$s_no affected_rows=" . $stmt->affected_rows);
             $stmt->close();
+        } else {
+            logMsg("REQ PREPARE FAILED $table: " . $conn->error);
         }
     }
 }
 
-echo "Updated requirement text: $total_req_updated rows.<br>";
-
+if (empty($updated_requirements)) {
+    logMsg("No updated_requirements configured");
+}
 
 // ==========================================
 // 4. UPDATE STATUS VALUES
@@ -142,8 +152,6 @@ $status_updates_by_sno = [
     //     "Not Matching" => "Not Verified"
     // ]
 ];
-
-$total_status_updated = 0;
 
 foreach ($status_updates_by_sno as $s_no => $updates) {
     foreach ($updates as $old_status => $new_status) {
@@ -158,15 +166,18 @@ foreach ($status_updates_by_sno as $s_no => $updates) {
             if ($stmt) {
                 $stmt->bind_param("sss", $new_status, $old_status, $s_no);
                 $stmt->execute();
-                $total_status_updated += $stmt->affected_rows;
+                logMsg("STATUS UPDATE $table S_no=$s_no $old_status->$new_status affected_rows=" . $stmt->affected_rows);
                 $stmt->close();
+            } else {
+                logMsg("STATUS PREPARE FAILED $table: " . $conn->error);
             }
         }
     }
 }
 
-echo "Updated status values: $total_status_updated rows.<br>";
-
+if (empty($status_updates_by_sno)) {
+    logMsg("No status_updates_by_sno configured");
+}
 
 // ==========================================
 // 5. MOVE / RENAME STATIC S_NO
@@ -175,8 +186,6 @@ echo "Updated status values: $total_status_updated rows.<br>";
 $moved_sno_points = [
     // "1.54" => "1.53"
 ];
-
-$total_moved = 0;
 
 foreach ($moved_sno_points as $old_sno => $new_sno) {
     foreach ($tables as $table) {
@@ -189,8 +198,10 @@ foreach ($moved_sno_points as $old_sno => $new_sno) {
         if ($stmt) {
             $stmt->bind_param("ss", $new_sno, $old_sno);
             $stmt->execute();
-            $total_moved += $stmt->affected_rows;
+            logMsg("MOVE S_NO $table $old_sno->$new_sno affected_rows=" . $stmt->affected_rows);
             $stmt->close();
+        } else {
+            logMsg("MOVE PREPARE FAILED $table: " . $conn->error);
         }
     }
 
@@ -203,21 +214,21 @@ foreach ($moved_sno_points as $old_sno => $new_sno) {
     if ($stmtImg) {
         $stmtImg->bind_param("ss", $new_sno, $old_sno);
         $stmtImg->execute();
+        logMsg("MOVE IMAGE $old_sno->$new_sno affected_rows=" . $stmtImg->affected_rows);
         $stmtImg->close();
     }
 }
 
-echo "Moved static S_no rows: $total_moved rows.<br>";
-
+if (empty($moved_sno_points)) {
+    logMsg("No moved_sno_points configured");
+}
 
 // ==========================================
-// ==========================================
-// 6. AUTO ALIGN CUSTOM ROWS (FINAL CORRECT)
+// 6. AUTO ALIGN ROW_TEMPLATES AND SAVED ROWS
 // ==========================================
 
-$SECTION_ID = "2_0";
+logMsg("AUTO ALIGN STARTED");
 
-// Get ALL rows ordered
 $all_rows = $conn->query("
     SELECT id, s_no, description
     FROM row_templates
@@ -225,63 +236,87 @@ $all_rows = $conn->query("
     ORDER BY id ASC
 ");
 
+if (!$all_rows) {
+    logMsg("ROW_TEMPLATE QUERY FAILED: " . $conn->error);
+    die("row_templates query failed: " . $conn->error);
+}
+
+logMsg("row_templates rows fetched = " . $all_rows->num_rows);
+
 $index = 1;
 $updated_count = 0;
 
 while ($row = $all_rows->fetch_assoc()) {
-
-    $template_id = (int)$row['id'];
-    $old_sno = trim($row['s_no']);
+    $template_id = (int)$row["id"];
+    $old_sno = trim($row["s_no"]);
     $new_sno = "1." . $index;
-    $description = trim($row['description']);
+    $description = trim($row["description"]);
+
+    logMsg("CHECK ROW id=$template_id old_sno=$old_sno new_sno=$new_sno description=$description");
 
     if ($old_sno !== $new_sno) {
+        logMsg("UPDATING ROW id=$template_id old_sno=$old_sno new_sno=$new_sno");
 
-        // Update template table
         $stmt1 = $conn->prepare("
             UPDATE row_templates
             SET s_no = ?
             WHERE id = ?
         ");
-        $stmt1->bind_param("si", $new_sno, $template_id);
-        $stmt1->execute();
-        $stmt1->close();
 
-        // Update verification table safely
+        if ($stmt1) {
+            $stmt1->bind_param("si", $new_sno, $template_id);
+            $stmt1->execute();
+            logMsg("row_templates affected_rows=" . $stmt1->affected_rows);
+            $stmt1->close();
+        } else {
+            logMsg("row_templates prepare failed: " . $conn->error);
+        }
+
         $stmt2 = $conn->prepare("
             UPDATE verification_of_equipment_serial_numbers
             SET S_no = ?
             WHERE S_no = ?
               AND LOWER(TRIM(observation_text)) LIKE CONCAT(LOWER(TRIM(?)), '%')
         ");
-        $stmt2->bind_param("sss", $new_sno, $old_sno, $description);
-        $stmt2->execute();
-        $stmt2->close();
 
-        // Update images
+        if ($stmt2) {
+            $stmt2->bind_param("sss", $new_sno, $old_sno, $description);
+            $stmt2->execute();
+            logMsg("verification affected_rows=" . $stmt2->affected_rows);
+            $stmt2->close();
+        } else {
+            logMsg("verification prepare failed: " . $conn->error);
+        }
+
         $stmt3 = $conn->prepare("
             UPDATE images
             SET s_no = ?
             WHERE s_no = ?
         ");
-        $stmt3->bind_param("ss", $new_sno, $old_sno);
-        $stmt3->execute();
-        $stmt3->close();
+
+        if ($stmt3) {
+            $stmt3->bind_param("ss", $new_sno, $old_sno);
+            $stmt3->execute();
+            logMsg("images affected_rows=" . $stmt3->affected_rows);
+            $stmt3->close();
+        } else {
+            logMsg("images prepare failed: " . $conn->error);
+        }
 
         $updated_count++;
+    } else {
+        logMsg("NO CHANGE id=$template_id");
     }
 
     $index++;
 }
 
-echo "All rows re-aligned correctly. Updated: $updated_count<br>";
-
-// ==========================================
-// DONE
-// ==========================================
+logMsg("AUTO ALIGN FINISHED updated_count=$updated_count");
 
 $conn->close();
 
-echo "<br><b>Database Migration Completed Successfully!</b><br>";
-echo "Existing custom rows are now shifted according to the current static rows count.";
+logMsg("DB MIGRATION FINISHED");
+logMsg("==================================================");
+
+echo "Database Migration Completed Successfully. Check db_migration_debug.log";
 ?>
