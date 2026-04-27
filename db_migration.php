@@ -200,28 +200,58 @@ if (!empty($status_updates_by_sno)) {
 // ==========================================
 // 5. MOVE / RENAME STATIC S_NO
 // ==========================================
-
 $moved_sno_points = [
     "1.54" => "1.53"
 ];
 
-if (!empty($moved_sno_points)) {
-    foreach ($moved_sno_points as $old_sno => $new_sno) {
+foreach ($moved_sno_points as $old_sno => $new_sno) {
+
+    $old_num = (int)explode('.', $old_sno)[1];
+    $new_num = (int)explode('.', $new_sno)[1];
+
+    if ($old_num > $new_num) {
+
+        logMsg("SHIFTING DOWN from $old_sno to $new_sno");
+
+        // Step 1: shift all >= new_sno and < old_sno DOWN by +1
+        for ($i = $old_num - 1; $i >= $new_num; $i--) {
+
+            $from = "1.$i";
+            $to = "1." . ($i + 1);
+
+            foreach ($tables as $table) {
+                $stmt = $conn->prepare("
+                    UPDATE `$table`
+                    SET S_no = ?
+                    WHERE S_no = ?
+                ");
+                $stmt->bind_param("ss", $to, $from);
+                $stmt->execute();
+                logMsg("SHIFT $table $from -> $to rows=" . $stmt->affected_rows);
+                $stmt->close();
+            }
+
+            $stmtImg = $conn->prepare("
+                UPDATE images
+                SET s_no = ?
+                WHERE s_no = ?
+            ");
+            $stmtImg->bind_param("ss", $to, $from);
+            $stmtImg->execute();
+            $stmtImg->close();
+        }
+
+        // Step 2: move old_sno → new_sno
         foreach ($tables as $table) {
             $stmt = $conn->prepare("
                 UPDATE `$table`
                 SET S_no = ?
                 WHERE S_no = ?
             ");
-
-            if ($stmt) {
-                $stmt->bind_param("ss", $new_sno, $old_sno);
-                $stmt->execute();
-                logMsg("MOVE S_NO $table $old_sno->$new_sno affected_rows=" . $stmt->affected_rows);
-                $stmt->close();
-            } else {
-                logMsg("MOVE PREPARE FAILED $table: " . $conn->error);
-            }
+            $stmt->bind_param("ss", $new_sno, $old_sno);
+            $stmt->execute();
+            logMsg("FINAL MOVE $table $old_sno -> $new_sno rows=" . $stmt->affected_rows);
+            $stmt->close();
         }
 
         $stmtImg = $conn->prepare("
@@ -229,16 +259,10 @@ if (!empty($moved_sno_points)) {
             SET s_no = ?
             WHERE s_no = ?
         ");
-
-        if ($stmtImg) {
-            $stmtImg->bind_param("ss", $new_sno, $old_sno);
-            $stmtImg->execute();
-            logMsg("MOVE IMAGE $old_sno->$new_sno affected_rows=" . $stmtImg->affected_rows);
-            $stmtImg->close();
-        }
+        $stmtImg->bind_param("ss", $new_sno, $old_sno);
+        $stmtImg->execute();
+        $stmtImg->close();
     }
-} else {
-    logMsg("No moved_sno_points configured");
 }
 
 // ==========================================

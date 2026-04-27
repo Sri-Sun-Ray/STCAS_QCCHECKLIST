@@ -146,6 +146,15 @@ try {
         }
 
         foreach ($tableObservations as &$obs) {
+            // Recover barcode if missing from dedicated column but present in observation_text
+            if ($section_id_for_frontend === '2_0' && empty($obs['barcode_kavach_main_unit']) && !empty($obs['observation_text'])) {
+                $cleanText = strip_tags($obs['observation_text']);
+                if (preg_match('/\d{10,15}$/', $cleanText, $matches)) {
+                    $obs['barcode_kavach_main_unit'] = $matches[0];
+                    error_log("[generateReport] Recovered barcode {$matches[0]} from observation_text for S_no {$obs['S_no']}");
+                }
+            }
+
             $imagesForThisSno = $sectionImages[$obs['S_no']] ?? [];
 
             $validImages = [];

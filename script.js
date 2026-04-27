@@ -680,13 +680,13 @@ async function showSection(section, subsection) {
           </tr>
         </thead>
         <tbody id="observations-tbody-2_0">
-        <tr id="row-11">
+        <tr id="row-1.1">
         <td>1.1</td>
       <td class="observation_text" style="padding-right: 10px;"> 
       Stationary Kavach Unit
   <input 
   type="text" 
-  id="kavach-main-unit" 
+  id="barcode-input-1.1" 
   name="barcode_kavach_main_unit" 
   pattern="^\d{10,15}$" 
   title="Enter a number between 10 to 15 digits" 
@@ -714,21 +714,19 @@ async function showSection(section, subsection) {
         <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
       </td>
       <td style="padding-right: 10px;">
-    <button class="add-image" onclick="showUploadOptions(11)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Add Image</button>
-    <div class="upload-options" id="upload-options-11" style="display: none;">
-      <button class="add-image" onclick="startCamera(11)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Camera</button>
-      <label for="file-input-11" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
-      <input type="file" id="file-input-11" accept="image/*" multiple onchange="displayImages(this, 11)" style="display: none;">
+    <button class="add-image" onclick="showUploadOptions('1.1')">Add Image</button>
+    <div class="upload-options" id="upload-options-1.1" style="display: none;">
+      <button class="add-image" onclick="startCamera('1.1')">Camera</button>
+      <label for="file-input-1.1" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
+      <input type="file" id="file-input-1.1" accept="image/*" multiple onchange="displayImages(this, '1.1')">
     </div>
-      <!-- Container for multiple images --> 
-      <div id="image-container-11"></div>
-      <!-- Camera Container -->
-    <div id="camera-container-11" style="display: none;">
-      <video id="camera-11" width="100%" height="auto" autoplay></video>
-      <button class="add-image" onclick="captureImage(11)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Capture Image</button>
-      <button class="add-image" onclick="stopCamera(11)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Stop Camera</button>
-      <button class="reverse-camera" onclick="switchCamera(11)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">🔄 Switch Camera</button>
-      <canvas id="canvas-11" style="display: none;"></canvas>
+      <div id="image-container-1.1"></div>
+    <div id="camera-container-1.1" style="display: none;">
+      <video id="camera-1.1" width="100%" height="auto" autoplay></video>
+      <button class="add-image" onclick="captureImage('1.1')">Capture Image</button>
+      <button class="add-image" onclick="stopCamera('1.1')">Stop Camera</button>
+      <button class="reverse-camera" onclick="switchCamera('1.1')">🔄 Switch Camera</button>
+      <canvas id="canvas-1.1" style="display: none;"></canvas>
     </div>
   </td>
     </tr>
@@ -775,30 +773,67 @@ async function showSection(section, subsection) {
       <!-- Camera Container -->
     <div id="camera-container-12" style="display: none;">
       <video id="camera-12" width="100%" height="auto" autoplay></video>
-      <button class="add-image" onclick="captureImage(12)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Capture Image</button>
-      <button class="add-image" onclick="stopCamera(12)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Stop Camera</button>
-      <button class="reverse-camera" onclick="switchCamera(12)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">🔄 Switch Camera</button>
-      <canvas id="canvas-12" style="display: none;"></canvas>
-    </div>
-  </td>
-
-    </tr>
-
-    <tr id="row-13">
-  <td>1.3</td>
-  <td class="observation_text" style="padding-right: 10px;">
-    Peripheral Processing Card 2
-  <input 
-  type="text" 
-  id="kavach-main-unit" 
+  id="barcode-input-1.2" 
   name="barcode_kavach_main_unit" 
   pattern="^\d{10,15}$" 
   title="Enter a number between 10 to 15 digits" 
   placeholder="Scan Barcode" 
   style="width: 180px; padding: 5px; font-size: 14px;" 
     oninput="
-    if(this.value.length > 113) {
-      this.value = this.value.slice(-113);
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);
+    }
+    toggleNotInstalledOption(this);
+  "/>
+  </td>
+      <td class="select" style="padding-right: 10px;">
+    <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
+      <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
+      <option value="Not Installed">Not Installed</option>
+      <option value="Not Applicable">Not Applicable</option>
+    </select>
+  </td>
+      <td class ="remarks">
+        <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
+      </td>
+      <td style="padding-right: 10px;">
+    <button class="add-image" onclick="showUploadOptions('1.2')" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Add Image</button>
+    <div class="upload-options" id="upload-options-1.2" style="display: none;">
+      <button class="add-image" onclick="startCamera('1.2')" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Camera</button>
+      <label for="file-input-1.2" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
+      <input type="file" id="file-input-1.2" accept="image/*" multiple onchange="displayImages(this, '1.2')" style="display: none;">
+    </div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-1.2"></div>
+      <!-- Camera Container -->
+    <div id="camera-container-1.2" style="display: none;">
+      <video id="camera-1.2" width="100%" height="auto" autoplay></video>
+      <button class="add-image" onclick="captureImage('1.2')" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Capture Image</button>
+      <button class="add-image" onclick="stopCamera('1.2')" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Stop Camera</button>
+      <button class="reverse-camera" onclick="switchCamera('1.2')" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">🔄 Switch Camera</button>
+      <canvas id="canvas-1.2" style="display: none;"></canvas>
+    </div>
+  </td>
+
+    </tr>
+
+    <tr id="row-1.3">
+  <td>1.3</td>
+  <td class="observation_text" style="padding-right: 10px;">
+    Peripheral Processing Card 2
+  <input 
+  type="text" 
+  id="barcode-input-1.3" 
+  name="barcode_kavach_main_unit" 
+  pattern="^\d{10,15}$" 
+  title="Enter a number between 10 to 15 digits" 
+  placeholder="Scan Barcode" 
+  style="width: 180px; padding: 5px; font-size: 14px;" 
+    oninput="
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);
     }
     toggleNotInstalledOption(this);
   "/>
@@ -821,21 +856,19 @@ async function showSection(section, subsection) {
   </td>
   
   <td style="padding-right: 10px;">
-    <button class="add-image" onclick="showUploadOptions(13)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Add Image</button>
-    <div class="upload-options" id="upload-options-13" style="display: none;">
-      <button class="add-image" onclick="startCamera(13)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Camera</button>
-      <label for="file-input-13" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
-      <input type="file" id="file-input-13" accept="image/*" multiple onchange="displayImages(this, 13)" style="display: none;">
+    <button class="add-image" onclick="showUploadOptions('1.3')">Add Image</button>
+    <div class="upload-options" id="upload-options-1.3" style="display: none;">
+      <button class="add-image" onclick="startCamera('1.3')">Camera</button>
+      <label for="file-input-1.3" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
+      <input type="file" id="file-input-1.3" accept="image/*" multiple onchange="displayImages(this, '1.3')">
     </div>
-      <!-- Container for multiple images --> 
-      <div id="image-container-13"></div>
-      <!-- Camera Container -->
-    <div id="camera-container-13" style="display: none;">
-      <video id="camera-13" width="100%" height="auto" autoplay></video>
-      <button class="add-image" onclick="captureImage(13)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Capture Image</button>
-      <button class="add-image" onclick="stopCamera(13)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">Stop Camera</button>
-      <button class="reverse-camera" onclick="switchCamera(13)" style="margin-left: 10px; padding: 5px 10px; font-size: 14px; cursor: pointer;">🔄 Switch Camera</button>
-      <canvas id="canvas-13" style="display: none;"></canvas>
+      <div id="image-container-1.3"></div>
+    <div id="camera-container-1.3" style="display: none;">
+      <video id="camera-1.3" width="100%" height="auto" autoplay></video>
+      <button class="add-image" onclick="captureImage('1.3')">Capture Image</button>
+      <button class="add-image" onclick="stopCamera('1.3')">Stop Camera</button>
+      <button class="reverse-camera" onclick="switchCamera('1.3')">🔄 Switch Camera</button>
+      <canvas id="canvas-1.3" style="display: none;"></canvas>
     </div>
   </td>
 </tr>
@@ -1301,20 +1334,20 @@ async function showSection(section, subsection) {
 </div>
 
           </tr>
-          <tr id="row-113">
+          <tr id="row-1.13">
             <td>1.13</td>
            <td class="observation_text"> EI Gateway-2
         <input 
   type="text" 
-  id="kavach-main-unit" 
+  id="barcode-input-1.13" 
   name="barcode_kavach_main_unit" 
   pattern="^\d{10,15}$" 
   title="Enter a number between 10 to 15 digits" 
   placeholder="Scan Barcode" 
   style="width: 180px; padding: 5px; font-size: 14px;" 
   oninput="
-    if(this.value.length > 113) {
-      this.value = this.value.slice(-113);
+    if(this.value.length > 15) {
+      this.value = this.value.slice(-15);
     }
     toggleNotInstalledOption(this);
   "
@@ -1332,21 +1365,19 @@ async function showSection(section, subsection) {
               <textarea placeholder="Verify with IC" rows="2" cols="20"></textarea><br>
             </td>
           <td>
-       <button class="add-image" onclick="showUploadOptions(113)">Add Image</button>
-<div class="upload-options" id="upload-options-113" style="display: none;">
-  <button class="add-image" onclick="startCamera(113)">Camera</button>
- <label for="file-input-113" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
-  <input type="file" id="file-input-113" accept="image/*" multiple onchange="displayImages(this, 113)">
+       <button class="add-image" onclick="showUploadOptions('1.13')">Add Image</button>
+<div class="upload-options" id="upload-options-1.13" style="display: none;">
+  <button class="add-image" onclick="startCamera('1.13')">Camera</button>
+ <label for="file-input-1.13" class="upload-label" style="cursor: pointer; padding: 5px 10px; font-size: 14px;">Upload from Device</label>
+  <input type="file" id="file-input-1.13" accept="image/*" multiple onchange="displayImages(this, '1.13')">
 </div>
-      <!-- Container for multiple images --> 
-      <div id="image-container-113"></div>
-      <!-- Camera Container -->
-<div id="camera-container-113" style="display: none;">
-  <video id="camera-113" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(113)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(113)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(113)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-113" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+      <div id="image-container-1.13"></div>
+<div id="camera-container-1.13" style="display: none;">
+  <video id="camera-1.13" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage('1.13')">Capture Image</button>
+  <button class="add-image" onclick="stopCamera('1.13')">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera('1.13')">🔄 Switch Camera</button>
+  <canvas id="canvas-1.13" style="display: none;"></canvas>
 </div>
 
 
