@@ -211,86 +211,70 @@ echo "Moved static S_no rows: $total_moved rows.<br>";
 
 
 // ==========================================
-// 6. AUTO ALIGN CUSTOM ROWS AFTER STATIC ROWS
 // ==========================================
-// Purpose:
-// If old static rows were 1.1 to 1.64
-// and user added custom rows 1.65, 1.66, 1.67, 1.68
-//
-// Then later static rows become 1.1 to 1.67,
-// custom rows should automatically become:
-// 1.68, 1.69, 1.70, 1.71
+// 6. AUTO ALIGN CUSTOM ROWS (FINAL CORRECT)
+// ==========================================
 
-$custom_rows = $conn->query("
+$SECTION_ID = "2_0";
+
+// Get ALL rows ordered
+$all_rows = $conn->query("
     SELECT id, s_no, description
     FROM row_templates
     WHERE section_id = '$SECTION_ID'
-      AND s_no LIKE '1.%'
-      AND CAST(SUBSTRING_INDEX(s_no, '.', -1) AS UNSIGNED) > $STATIC_ROWS_COUNT
     ORDER BY id ASC
 ");
 
-$next_sno_number = $STATIC_ROWS_COUNT + 1;
-$custom_updated_count = 0;
+$index = 1;
+$updated_count = 0;
 
-if ($custom_rows) {
-    while ($row = $custom_rows->fetch_assoc()) {
-        $template_id = (int)$row["id"];
-        $old_sno = trim($row["s_no"]);
-        $new_sno = "1." . $next_sno_number;
-        $description = trim($row["description"]);
+while ($row = $all_rows->fetch_assoc()) {
 
-        if ($old_sno !== $new_sno) {
+    $template_id = (int)$row['id'];
+    $old_sno = trim($row['s_no']);
+    $new_sno = "1." . $index;
+    $description = trim($row['description']);
 
-            // Update template table
-            $stmt1 = $conn->prepare("
-                UPDATE row_templates
-                SET s_no = ?
-                WHERE id = ?
-            ");
+    if ($old_sno !== $new_sno) {
 
-            if ($stmt1) {
-                $stmt1->bind_param("si", $new_sno, $template_id);
-                $stmt1->execute();
-                $stmt1->close();
-            }
+        // Update template table
+        $stmt1 = $conn->prepare("
+            UPDATE row_templates
+            SET s_no = ?
+            WHERE id = ?
+        ");
+        $stmt1->bind_param("si", $new_sno, $template_id);
+        $stmt1->execute();
+        $stmt1->close();
 
-            // Update existing saved rows safely using old s_no + description
-            $stmt2 = $conn->prepare("
-                UPDATE verification_of_equipment_serial_numbers
-                SET S_no = ?
-                WHERE S_no = ?
-                  AND LOWER(TRIM(observation_text)) LIKE CONCAT(LOWER(TRIM(?)), '%')
-            ");
+        // Update verification table safely
+        $stmt2 = $conn->prepare("
+            UPDATE verification_of_equipment_serial_numbers
+            SET S_no = ?
+            WHERE S_no = ?
+              AND LOWER(TRIM(observation_text)) LIKE CONCAT(LOWER(TRIM(?)), '%')
+        ");
+        $stmt2->bind_param("sss", $new_sno, $old_sno, $description);
+        $stmt2->execute();
+        $stmt2->close();
 
-            if ($stmt2) {
-                $stmt2->bind_param("sss", $new_sno, $old_sno, $description);
-                $stmt2->execute();
-                $stmt2->close();
-            }
+        // Update images
+        $stmt3 = $conn->prepare("
+            UPDATE images
+            SET s_no = ?
+            WHERE s_no = ?
+        ");
+        $stmt3->bind_param("ss", $new_sno, $old_sno);
+        $stmt3->execute();
+        $stmt3->close();
 
-            // Update image mapping
-            $stmt3 = $conn->prepare("
-                UPDATE images
-                SET s_no = ?
-                WHERE s_no = ?
-            ");
-
-            if ($stmt3) {
-                $stmt3->bind_param("ss", $new_sno, $old_sno);
-                $stmt3->execute();
-                $stmt3->close();
-            }
-
-            $custom_updated_count++;
-        }
-
-        $next_sno_number++;
+        $updated_count++;
     }
+
+    $index++;
 }
 
-echo "Custom rows aligned: $custom_updated_count rows.<br>";
-
+echo "All rows re-aligned correctly. Updated: $updated_count<br>";
 
 // ==========================================
 // DONE
