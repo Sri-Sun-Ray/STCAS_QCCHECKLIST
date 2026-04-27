@@ -7974,6 +7974,8 @@ async function saveObservation(section, subsection) {
       const clone = obsField.cloneNode(true);
       clone.querySelectorAll("input").forEach(i => i.remove());
       descriptionHtml = clone.innerHTML.trim();
+      // Remove trailing <br> that might be present in the template or from previous bugs
+      descriptionHtml = descriptionHtml.replace(/<br\s*\/?>\s*$/i, "").trim();
     } else if (section === "17_0") {
       descriptionHtml = "Tag_No:";
     }
@@ -7988,8 +7990,21 @@ async function saveObservation(section, subsection) {
       return;
     }
 
-    const barcode = row.querySelector("input[type='text']")?.value.trim() || "";
-    const text = (descriptionHtml + " " + barcode).trim();
+    const bcInput = row.querySelector("input[name='barcode_kavach_main_unit']");
+    const barcode = bcInput ? bcInput.value.trim() : "";
+    
+    // For section 17.0, if there's no specific barcode input name, fallback to generic
+    let finalBarcode = barcode;
+    let finalDescription = descriptionHtml;
+
+    if (section === "17_0") {
+      const tagInput = row.querySelector("td:nth-child(2) input[type='text']");
+      const tagVal = tagInput ? tagInput.value.trim() : "";
+      finalDescription = tagVal ? `Tag_No: ${tagVal}` : "Tag_No:";
+      finalBarcode = ""; // Section 17.0 doesn't have a separate barcode column usually
+    }
+
+    const text = finalDescription.trim();
     const remarks = row.querySelector(".remarks textarea")?.value.trim() || "";
     let status = row.querySelector("select")?.value || "";
 
@@ -8016,7 +8031,7 @@ async function saveObservation(section, subsection) {
       S_no,
       observation_text: text,
       requirement_text: requirementText,
-      barcode_kavach_main_unit: barcode,
+      barcode_kavach_main_unit: finalBarcode,
       remarks,
       observation_status: status,
       image_paths: imagePaths,
@@ -8319,6 +8334,33 @@ function updateObservationsTable(sectionID, observations, sno) {
           }
         }
 
+        // Update Description (and clean it up if already corrupted)
+        const obsTd = row.querySelector("td.observation_text");
+        if (obsTd && p.observation_text) {
+          function decodeHTMLEntities(text) {
+            const textArea = document.createElement('textarea');
+            textArea.innerHTML = text;
+            return textArea.value;
+          }
+          let cleanDesc = decodeHTMLEntities(p.observation_text);
+          if (sectionID === "2_0" && p.barcode_kavach_main_unit) {
+            const bc = String(p.barcode_kavach_main_unit).trim();
+            if (bc && cleanDesc.includes(bc)) {
+              cleanDesc = cleanDesc.replace(new RegExp(`<br\\s*\\/?>\\s*${bc}$`, 'i'), '');
+              cleanDesc = cleanDesc.replace(new RegExp(`\\s+${bc}$`, ''), '');
+            }
+          }
+          cleanDesc = cleanDesc.replace(/<br\s*\/?>\s*$/i, "").trim();
+
+          const bcInput = obsTd.querySelector("input[name='barcode_kavach_main_unit']");
+          if (bcInput) {
+            obsTd.innerHTML = cleanDesc + "<br>";
+            obsTd.appendChild(bcInput);
+          } else {
+            obsTd.innerHTML = cleanDesc;
+          }
+        }
+
         // Handle Barcode (Section 2.0 specific)
         if (sectionID === "2_0") {
           const bcInput = row.querySelector("input[name='barcode_kavach_main_unit']");
@@ -8409,12 +8451,26 @@ function updateObservationsTable(sectionID, observations, sno) {
     // For the observation text cell, include the barcode input field only for section "2_0"
     // Use a helper to decode any escaped HTML entities (like &lt;br&gt; becoming <br>)
     function decodeHTMLEntities(text) {
-        const textArea = document.createElement('textarea');
-        textArea.innerHTML = text;
-        return textArea.value;
+      const textArea = document.createElement('textarea');
+      textArea.innerHTML = text;
+      return textArea.value;
     }
 
     let observationContent = decodeHTMLEntities(observation.observation_text || "N/A");
+
+    // CLEANUP: If observation_text already has the barcode appended (due to previous bugs), strip it for UI
+    if (sectionID === "2_0" && observation.barcode_kavach_main_unit) {
+      const bc = String(observation.barcode_kavach_main_unit).trim();
+      if (bc && observationContent.includes(bc)) {
+        // Remove the barcode and any preceding <br> or space from the content
+        // This ensures the label stays clean in the UI
+        observationContent = observationContent.replace(new RegExp(`<br\\s*\\/?>\\s*${bc}$`, 'i'), '');
+        observationContent = observationContent.replace(new RegExp(`\\s+${bc}$`, ''), '');
+      }
+    }
+    // Also strip trailing <br> from labels
+    observationContent = observationContent.replace(/<br\s*\/?>\s*$/i, "").trim();
+
     if (sectionID === "2_0" && S_no !== "2.1") {
       observationContent += `<br>
         <input
@@ -8890,13 +8946,19 @@ async function updateObservation(section, subsection, forceUpdate = false) {
     if (subsection && !S_no.startsWith(subsection)) continue;
 
     // 5a) Text, barcode (for 2_0), remarks, status
-    let observationText = row.querySelector(".observation_text")?.textContent.trim() || "";
+    const obsField = row.querySelector(".observation_text");
+    let observationText = "";
+    if (obsField) {
+      const clone = obsField.cloneNode(true);
+      clone.querySelectorAll("input").forEach(i => i.remove());
+      observationText = clone.innerHTML.trim().replace(/<br\s*\/?>\s*$/i, "").trim();
+    }
     const requirementText = row.querySelector(".requirement_text")?.textContent.trim() || "";
 
     if (section === "17_0") {
       const tagInput = row.querySelector("td:nth-child(2) input[type='text']");
       const tagVal = tagInput ? tagInput.value.trim() : "";
-      observationText = tagVal ? `Tag_No: ${tagVal}` : "";
+      observationText = tagVal ? `Tag_No: ${tagVal}` : "Tag_No:";
       if (tagVal) hasChanges = true;
     }
     const remarksArea = row.querySelector(".remarks textarea");

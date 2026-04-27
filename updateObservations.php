@@ -65,8 +65,8 @@ try {
 
         if ($existing) {
             // Prepare UPDATE query
-            $sql = "UPDATE $tableName SET observation_status = ?, remarks = ?, updated_at = NOW()";
-            $params = [$status, $remarks];
+            $sql = "UPDATE $tableName SET observation_text = ?, observation_status = ?, remarks = ?, updated_at = NOW()";
+            $params = [$observation_text, $status, $remarks];
             
             if ($tableName === 'verification_of_equipment_serial_numbers') {
                 $sql .= ", barcode_kavach_main_unit = ?";
