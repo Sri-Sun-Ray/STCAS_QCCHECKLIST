@@ -2,6 +2,7 @@
 // Database Update Script for Checklist Modifications
 
 $conn = new mysqli("localhost", "root", "Hbl@1234", "station_info");
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -34,8 +35,9 @@ $deleted_points = ["11.3", "1.53"];
 if (!empty($deleted_points)) {
     $placeholders = implode(',', array_fill(0, count($deleted_points), '?'));
     $types = str_repeat("s", count($deleted_points));
-    
+
     $total_deleted = 0;
+
     foreach ($tables as $table) {
         $stmt = $conn->prepare("DELETE FROM $table WHERE S_no IN ($placeholders)");
         if ($stmt) {
@@ -45,7 +47,8 @@ if (!empty($deleted_points)) {
             $stmt->close();
         }
     }
-    echo "Deleted " . $total_deleted . " obsolete observations.<br>";
+
+    echo "Deleted $total_deleted obsolete observations.<br>";
 }
 
 // ==========================================
@@ -68,6 +71,7 @@ $renamed_points = [
 ];
 
 $total_updated = 0;
+
 foreach ($renamed_points as $s_no => $new_text) {
     foreach ($tables as $table) {
         $stmt = $conn->prepare("UPDATE $table SET observation_text = ? WHERE S_no = ?");
@@ -79,7 +83,8 @@ foreach ($renamed_points as $s_no => $new_text) {
         }
     }
 }
-echo "Updated observation text for " . $total_updated . " observations.<br>";
+
+echo "Updated observation text for $total_updated observations.<br>";
 
 // ==========================================
 // 3. UPDATE REQUIREMENT TEXT
@@ -89,6 +94,7 @@ $updated_requirements = [
 ];
 
 $total_req_updated = 0;
+
 foreach ($updated_requirements as $s_no => $new_req) {
     foreach ($tables as $table) {
         $stmt = $conn->prepare("UPDATE $table SET requirement_text = ? WHERE S_no = ?");
@@ -100,10 +106,11 @@ foreach ($updated_requirements as $s_no => $new_req) {
         }
     }
 }
-echo "Updated requirement text for " . $total_req_updated . " observations.<br>";
+
+echo "Updated requirement text for $total_req_updated observations.<br>";
 
 // ==========================================
-// 4. UPDATE STATUS VALUES (Specific Points)
+// 4. UPDATE STATUS VALUES
 // ==========================================
 $status_updates_by_sno = [
     "1.44" => [
@@ -113,10 +120,17 @@ $status_updates_by_sno = [
 ];
 
 $total_status_updated = 0;
+
 foreach ($status_updates_by_sno as $s_no => $updates) {
     foreach ($updates as $old_status => $new_status) {
         foreach ($tables as $table) {
-            $stmt = $conn->prepare("UPDATE $table SET observation_status = ? WHERE observation_status = ? AND S_no = ?");
+            $stmt = $conn->prepare("
+                UPDATE $table 
+                SET observation_status = ? 
+                WHERE observation_status = ? 
+                  AND S_no = ?
+            ");
+
             if ($stmt) {
                 $stmt->bind_param("sss", $new_status, $old_status, $s_no);
                 $stmt->execute();
@@ -126,12 +140,14 @@ foreach ($status_updates_by_sno as $s_no => $updates) {
         }
     }
 }
-echo "Updated status values for $total_status_updated observations (filtered by S_no).<br>";
+
+echo "Updated status values for $total_status_updated observations.<br>";
 
 // ==========================================
-// 5. RENAME S_NO (MOVE 1.54 TO 1.53)
+// 5. RENAME S_NO 1.54 TO 1.53
 // ==========================================
 $total_moved = 0;
+
 foreach ($tables as $table) {
     $stmt = $conn->prepare("UPDATE $table SET S_no = '1.53' WHERE S_no = '1.54'");
     if ($stmt) {
@@ -140,43 +156,92 @@ foreach ($tables as $table) {
         $stmt->close();
     }
 }
+
 echo "Moved 1.54 to 1.53 in $total_moved rows.<br>";
 
 // ==========================================
-// 7. AUTO-ALIGN CUSTOM ROWS (SECTION 2.0)
+// 6. AUTO-ALIGN CUSTOM ROWS SAFELY
 // ==========================================
-// This section ensures custom rows ALWAYS start immediately after standard rows.
-// If you add standard rows, custom rows shift forward.
-// If you delete standard rows, custom rows move back to fill the gap.
-$STANDARD_LIMIT = 68; // Update this whenever you add/remove rows in script.js
+// IMPORTANT:
+// This updates custom row S_no based on row_templates description.
+// It avoids wrong mismatch caused by updating only using S_no.
+
+$STANDARD_LIMIT = 68;
 $SECTION_ID = "2_0";
 
-$all_custom = $conn->query("SELECT id, s_no FROM row_templates WHERE section_id = '$SECTION_ID' AND s_no LIKE '1.%' ORDER BY id ASC");
+$custom_rows = $conn->query("
+    SELECT id, s_no, description
+    FROM row_templates
+    WHERE section_id = '$SECTION_ID'
+      AND s_no LIKE '1.%'
+      AND CAST(SUBSTRING_INDEX(s_no, '.', -1) AS UNSIGNED) > $STANDARD_LIMIT
+    ORDER BY id ASC
+");
+
 $next_available_index = $STANDARD_LIMIT + 1;
 $changed_count = 0;
 
-while ($c_row = $all_custom->fetch_assoc()) {
-    $old_sno = $c_row['s_no'];
-    $new_sno = "1." . $next_available_index;
+if ($custom_rows) {
+    while ($row = $custom_rows->fetch_assoc()) {
+        $template_id = (int)$row['id'];
+        $old_sno = trim($row['s_no']);
+        $new_sno = "1." . $next_available_index;
+        $description = trim($row['description']);
 
-    if ($old_sno !== $new_sno) {
-        $id = $c_row['id'];
-        // Update Template
-        $conn->query("UPDATE row_templates SET s_no = '$new_sno' WHERE id = $id");
-        // Update Observations
-        $conn->query("UPDATE verification_of_equipment_serial_numbers SET S_no = '$new_sno' WHERE S_no = '$old_sno'");
-        // Update Images
-        $conn->query("UPDATE images SET s_no = '$new_sno' WHERE s_no = '$old_sno'");
-        $changed_count++;
+        if ($old_sno !== $new_sno) {
+
+            // Update row_templates
+            $stmt1 = $conn->prepare("
+                UPDATE row_templates 
+                SET s_no = ? 
+                WHERE id = ?
+            ");
+
+            if ($stmt1) {
+                $stmt1->bind_param("si", $new_sno, $template_id);
+                $stmt1->execute();
+                $stmt1->close();
+            }
+
+            // Update verification table safely
+            // Match by old S_no + observation text description
+            $stmt2 = $conn->prepare("
+                UPDATE verification_of_equipment_serial_numbers
+                SET S_no = ?
+                WHERE S_no = ?
+                  AND LOWER(TRIM(observation_text)) LIKE CONCAT(LOWER(TRIM(?)), '%')
+            ");
+
+            if ($stmt2) {
+                $stmt2->bind_param("sss", $new_sno, $old_sno, $description);
+                $stmt2->execute();
+                $stmt2->close();
+            }
+
+            // Update images safely
+            $stmt3 = $conn->prepare("
+                UPDATE images
+                SET s_no = ?
+                WHERE s_no = ?
+            ");
+
+            if ($stmt3) {
+                $stmt3->bind_param("ss", $new_sno, $old_sno);
+                $stmt3->execute();
+                $stmt3->close();
+            }
+
+            $changed_count++;
+        }
+
+        $next_available_index++;
     }
-    $next_available_index++;
 }
 
-if ($changed_count > 0) {
-    echo "Automatically re-aligned $changed_count custom rows to follow standard points (1.1 - 1.$STANDARD_LIMIT).<br>";
-}
+echo "Automatically re-aligned $changed_count custom rows to follow standard points 1.1 - 1.$STANDARD_LIMIT.<br>";
 
 $conn->close();
+
 echo "<br><b>Database Migration Completed Successfully!</b><br>";
 echo "You can view your old reports now, and they will reflect the new template.";
 ?>
