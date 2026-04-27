@@ -63,8 +63,7 @@ logMsg("STATIC_ROWS_COUNT = $STATIC_ROWS_COUNT");
 // ==========================================
 
 $deleted_points = [
-    // "1.53",
-    // "11.3"
+    "1.53", "11.3"
 ];
 
 if (!empty($deleted_points)) {
@@ -92,8 +91,19 @@ if (!empty($deleted_points)) {
 // ==========================================
 
 $renamed_points = [
-    // "1.39" => "SMOCIP Unit",
-    // "1.14" => "FIU Scanner Card 1",
+    "1.39" => "SMOCIP Unit",
+    "1.14" => "FIU Scanner Card 1",
+    "1.15" => "FIU Scanner Card 2",
+    "1.16" => "FIU Scanner Card 3",
+    "1.17" => "FIU Scanner Card 4",
+    "1.18" => "FIU Scanner Card 5",
+    "1.19" => "FIU Scanner Card 6",
+    "1.20" => "FIU Scanner Card 7",
+    "1.21" => "FIU Scanner Card 8",
+    "1.58" => "FIU Scanner Card 1",
+    "1.59" => "FIU Scanner Card 2",
+    "1.60" => "FIU Scanner Card 3",
+    "1.61" => "FIU Scanner Card 4"
 ];
 
 if (!empty($renamed_points)) {
@@ -124,7 +134,7 @@ if (!empty($renamed_points)) {
 // ==========================================
 
 $updated_requirements = [
-    // "4.1.8" => "Functional testing shall be performed as per the PDU test procedure 5 53 20 0024."
+    "4.1.8" => "Functional testing shall be performed as per the PDU test procedure 5 53 20 0024."
 ];
 
 if (!empty($updated_requirements)) {
@@ -155,10 +165,10 @@ if (!empty($updated_requirements)) {
 // ==========================================
 
 $status_updates_by_sno = [
-    // "1.44" => [
-    //     "Matching" => "Verified",
-    //     "Not Matching" => "Not Verified"
-    // ]
+    "1.44" => [
+        "Matching" => "Verified",
+        "Not Matching" => "Not Verified"
+    ]
 ];
 
 if (!empty($status_updates_by_sno)) {
@@ -192,7 +202,7 @@ if (!empty($status_updates_by_sno)) {
 // ==========================================
 
 $moved_sno_points = [
-    // "1.54" => "1.53"
+    "1.54" => "1.53"
 ];
 
 if (!empty($moved_sno_points)) {
