@@ -129,18 +129,35 @@ foreach ($status_updates_by_sno as $s_no => $updates) {
 echo "Updated status values for $total_status_updated observations (filtered by S_no).<br>";
 
 // ==========================================
-// 5. RENAME S_NO (MOVE 1.54 TO 1.53)
+// 5. SHIFT S_NO AFTER REMOVAL OF 1.53
 // ==========================================
-$total_moved = 0;
-foreach ($tables as $table) {
-    $stmt = $conn->prepare("UPDATE $table SET S_no = '1.53' WHERE S_no = '1.54'");
+// When 1.53 is deleted, the following standard points must move down by one.
+// This preserves the sequence for section 2 and keeps custom rows untouched so
+// they can be re-aligned later.
+$SHIFT_START = 64; // last old standard point before custom rows began
+$SHIFT_END = 54;   // first point after removed 1.53
+$total_shifted = 0;
+for ($i = $SHIFT_START; $i >= $SHIFT_END; $i--) {
+    $old_sno = "1.$i";
+    $new_sno = "1." . ($i - 1);
+    foreach ($tables as $table) {
+        $stmt = $conn->prepare("UPDATE $table SET S_no = ? WHERE S_no = ?");
+        if ($stmt) {
+            $stmt->bind_param("ss", $new_sno, $old_sno);
+            $stmt->execute();
+            $total_shifted += $stmt->affected_rows;
+            $stmt->close();
+        }
+    }
+    $stmt = $conn->prepare("UPDATE images SET s_no = ? WHERE s_no = ?");
     if ($stmt) {
+        $stmt->bind_param("ss", $new_sno, $old_sno);
         $stmt->execute();
-        $total_moved += $stmt->affected_rows;
+        $total_shifted += $stmt->affected_rows;
         $stmt->close();
     }
 }
-echo "Moved 1.54 to 1.53 in $total_moved rows.<br>";
+echo "Shifted standard S_no values from 1.54..1.64 down by 1 in $total_shifted rows.<br>";
 
 // ==========================================
 // 7. AUTO-ALIGN CUSTOM ROWS (SECTION 2.0)
