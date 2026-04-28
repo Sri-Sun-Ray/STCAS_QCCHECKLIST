@@ -196,10 +196,10 @@ if (!empty($status_updates_by_sno)) {
 } else {
     logMsg("No status_updates_by_sno configured");
 }
+// ==========================================
+// 5. MOVE / RENAME STATIC S_NO SAFELY BY STATION
+// ==========================================
 
-// ==========================================
-// 5. MOVE / RENAME STATIC S_NO
-// ==========================================
 $moved_sno_points = [
     "1.54" => "1.53"
 ];
@@ -211,60 +211,123 @@ foreach ($moved_sno_points as $old_sno => $new_sno) {
 
     if ($old_num > $new_num) {
 
-        logMsg("SHIFTING DOWN from $old_sno to $new_sno");
+        foreach ($tables as $table) {
 
-        // Step 1: shift all >= new_sno and < old_sno DOWN by +1
-        for ($i = $old_num - 1; $i >= $new_num; $i--) {
+            // Get stations from this table
+            $stations = $conn->query("
+                SELECT DISTINCT station_id 
+                FROM `$table`
+                WHERE station_id IS NOT NULL
+            ");
 
-            $from = "1.$i";
-            $to = "1." . ($i + 1);
+            if (!$stations) {
+                logMsg("STATION FETCH FAILED $table: " . $conn->error);
+                continue;
+            }
 
-            foreach ($tables as $table) {
+            while ($st = $stations->fetch_assoc()) {
+                $station_id = $st['station_id'];
+
+                logMsg("SHIFTING TABLE=$table STATION=$station_id from $old_sno to $new_sno");
+
+                // Step 1: temporarily move old_sno to temp
+                $temp_sno = "TEMP_" . $old_sno;
+
                 $stmt = $conn->prepare("
                     UPDATE `$table`
                     SET S_no = ?
                     WHERE S_no = ?
+                      AND station_id = ?
                 ");
-                $stmt->bind_param("ss", $to, $from);
+                $stmt->bind_param("sss", $temp_sno, $old_sno, $station_id);
                 $stmt->execute();
-                logMsg("SHIFT $table $from -> $to rows=" . $stmt->affected_rows);
+                logMsg("TEMP MOVE $table station=$station_id $old_sno->$temp_sno rows=" . $stmt->affected_rows);
+                $stmt->close();
+
+                // Step 2: shift rows between new_sno and old_sno - 1 upward
+                for ($i = $old_num - 1; $i >= $new_num; $i--) {
+                    $from = "1.$i";
+                    $to = "1." . ($i + 1);
+
+                    $stmt = $conn->prepare("
+                        UPDATE `$table`
+                        SET S_no = ?
+                        WHERE S_no = ?
+                          AND station_id = ?
+                    ");
+                    $stmt->bind_param("sss", $to, $from, $station_id);
+                    $stmt->execute();
+                    logMsg("SHIFT $table station=$station_id $from->$to rows=" . $stmt->affected_rows);
+                    $stmt->close();
+                }
+
+                // Step 3: move temp to new_sno
+                $stmt = $conn->prepare("
+                    UPDATE `$table`
+                    SET S_no = ?
+                    WHERE S_no = ?
+                      AND station_id = ?
+                ");
+                $stmt->bind_param("sss", $new_sno, $temp_sno, $station_id);
+                $stmt->execute();
+                logMsg("FINAL MOVE $table station=$station_id $temp_sno->$new_sno rows=" . $stmt->affected_rows);
                 $stmt->close();
             }
-
-            $stmtImg = $conn->prepare("
-                UPDATE images
-                SET s_no = ?
-                WHERE s_no = ?
-            ");
-            $stmtImg->bind_param("ss", $to, $from);
-            $stmtImg->execute();
-            $stmtImg->close();
         }
 
-        // Step 2: move old_sno → new_sno
-        foreach ($tables as $table) {
-            $stmt = $conn->prepare("
-                UPDATE `$table`
-                SET S_no = ?
-                WHERE S_no = ?
-            ");
-            $stmt->bind_param("ss", $new_sno, $old_sno);
-            $stmt->execute();
-            logMsg("FINAL MOVE $table $old_sno -> $new_sno rows=" . $stmt->affected_rows);
-            $stmt->close();
-        }
-
-        $stmtImg = $conn->prepare("
-            UPDATE images
-            SET s_no = ?
-            WHERE s_no = ?
+        // Images also shift by station_id
+        $stationsImg = $conn->query("
+            SELECT DISTINCT station_id 
+            FROM images
+            WHERE station_id IS NOT NULL
         ");
-        $stmtImg->bind_param("ss", $new_sno, $old_sno);
-        $stmtImg->execute();
-        $stmtImg->close();
+
+        if ($stationsImg) {
+            while ($st = $stationsImg->fetch_assoc()) {
+                $station_id = $st['station_id'];
+                $temp_sno = "TEMP_" . $old_sno;
+
+                $stmtImg = $conn->prepare("
+                    UPDATE images
+                    SET s_no = ?
+                    WHERE s_no = ?
+                      AND station_id = ?
+                ");
+                $stmtImg->bind_param("sss", $temp_sno, $old_sno, $station_id);
+                $stmtImg->execute();
+                logMsg("TEMP IMAGE station=$station_id $old_sno->$temp_sno rows=" . $stmtImg->affected_rows);
+                $stmtImg->close();
+
+                for ($i = $old_num - 1; $i >= $new_num; $i--) {
+                    $from = "1.$i";
+                    $to = "1." . ($i + 1);
+
+                    $stmtImg = $conn->prepare("
+                        UPDATE images
+                        SET s_no = ?
+                        WHERE s_no = ?
+                          AND station_id = ?
+                    ");
+                    $stmtImg->bind_param("sss", $to, $from, $station_id);
+                    $stmtImg->execute();
+                    logMsg("SHIFT IMAGE station=$station_id $from->$to rows=" . $stmtImg->affected_rows);
+                    $stmtImg->close();
+                }
+
+                $stmtImg = $conn->prepare("
+                    UPDATE images
+                    SET s_no = ?
+                    WHERE s_no = ?
+                      AND station_id = ?
+                ");
+                $stmtImg->bind_param("sss", $new_sno, $temp_sno, $station_id);
+                $stmtImg->execute();
+                logMsg("FINAL IMAGE station=$station_id $temp_sno->$new_sno rows=" . $stmtImg->affected_rows);
+                $stmtImg->close();
+            }
+        }
     }
 }
-
 // ==========================================
 // 6. AUTO ALIGN CUSTOM ROWS ONLY
 // ==========================================
