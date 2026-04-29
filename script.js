@@ -680,8 +680,8 @@ async function showSection(section, subsection) {
           </tr>
         </thead>
         <tbody id="observations-tbody-2_0">
-        <tr id="row-11">
-        <td>1.1</td>
+        <tr id="row-11" data-key="stationary-kavach-unit">
+        <td class="sno">1.1</td>
       <td class="observation_text" style="padding-right: 10px;"> 
       Stationary Kavach Unit
   <input 
@@ -732,8 +732,8 @@ async function showSection(section, subsection) {
     </div>
   </td>
     </tr>
-        <tr id="row-12">
-        <td>1.2</td>
+        <tr id="row-12" data-key="ppc_1">
+        <td class="sno">1.2</td>
       <td class="observation_text" style="padding-right: 10px;">
     Peripheral Processing Card 1
   <input 
@@ -784,8 +784,8 @@ async function showSection(section, subsection) {
 
     </tr>
 
-    <tr id="row-13">
-  <td>1.3</td>
+    <tr id="row-13" data-key="ppc_2">
+  <td class="sno">1.3</td>
   <td class="observation_text" style="padding-right: 10px;">
     Peripheral Processing Card 2
   <input 
@@ -839,8 +839,8 @@ async function showSection(section, subsection) {
     </div>
   </td>
 </tr>
-<tr id="row-14">
-  <td>1.4</td>
+<tr id="row-14" data-key="vcc_1">
+  <td class="sno">1.4</td>
   <td class="observation_text" style="padding-right: 10px;">
    Vital Computer Card -1
     <input 
@@ -890,8 +890,8 @@ async function showSection(section, subsection) {
     </div>
   </td>
 </tr>
-<tr id="row-15">
-  <td>1.5</td>
+<tr id="row-15" data-key="vcc-2">
+  <td class="sno">1.5</td>
   <td class="observation_text">
     Vital Computer Card -2
     <input 
@@ -940,8 +940,8 @@ async function showSection(section, subsection) {
     </div>
   </td>
 </tr>
-<tr id="row-16">
-  <td>1.6</td>
+<tr id="row-16" data-key="vcc-3">
+  <td class="sno">1.6</td>
    <td class="observation_text">
     Vital Computer Card -3<input 
   type="text" 
@@ -992,8 +992,8 @@ async function showSection(section, subsection) {
   </td>
 </tr>
 
-<tr id="row-17">
-  <td>1.7</td>
+<tr id="row-17" data-key="vc-1">
+  <td class="sno">1.7</td>
    <td class="observation_text">
     Voter Card -1 <input 
   type="text" 
@@ -1043,8 +1043,8 @@ async function showSection(section, subsection) {
     </div>
   </td>
 </tr>
-<tr id="row-18">
-  <td>1.8</td>
+<tr id="row-18" data-key="vc-2">
+  <td class="sno">1.8</td>
   <td class="observation_text">
      Voter Card -2<input 
   type="text" 
@@ -1094,8 +1094,8 @@ async function showSection(section, subsection) {
   </td>
 </tr>
 
-<tr id="row-19">
-  <td>1.9</td>
+<tr id="row-19" data-key="vgc-1">
+  <td class="sno">1.9</td>
   <td class="observation_text">
     Vital Gateway Card 1 (S2S) <input 
   type="text" 
@@ -1145,8 +1145,8 @@ async function showSection(section, subsection) {
   </td>
 </tr>
 
-<tr id="row-110">
-  <td>1.10</td>
+<tr id="row-110" data-key="vgc-2">
+  <td class="sno">1.10</td>
   <td class="observation_text">      
    Vital Gateway Card 2 (S2S) <input 
   type="text" 
@@ -1198,8 +1198,8 @@ async function showSection(section, subsection) {
           </tr>
 
           </tr>
-          <tr id="row-111">
-            <td>1.11</td>
+          <tr id="row-111" data-key="vgc-3">
+            <td class="sno">1.11</td>
            <td class="observation_text">Vital Gateway Card 3 (NMS)
            <input 
   type="text" 
@@ -1249,8 +1249,8 @@ async function showSection(section, subsection) {
 </div>
 
           </tr>
-          <tr id="row-14">
-            <td >1.12</td>
+          <tr id="row-14" data-key="eig-1">
+            <td class="sno">1.12</td>
            <td class="observation_text"> EI Gateway-1
            <input 
   type="text" 
@@ -1301,8 +1301,8 @@ async function showSection(section, subsection) {
 </div>
 
           </tr>
-          <tr id="row-113">
-            <td>1.13</td>
+          <tr id="row-113" data-key="eig-2">
+            <td class="sno">1.13</td>
            <td class="observation_text"> EI Gateway-2
         <input 
   type="text" 
@@ -1351,8 +1351,8 @@ async function showSection(section, subsection) {
 
 
           </tr>
-          <tr id="row-114">
-            <td>1.14</td>
+          <tr id="row-114" data-key="fiu-1">
+            <td class="sno">1.14</td>
            <td class="observation_text">
 FIU Scanner Card 1
   <input 
@@ -1404,8 +1404,8 @@ FIU Scanner Card 1
 </div>
 
           </tr>
-          <tr id="row-115">
-            <td>1.15</td>
+          <tr id="row-115" data-key="fiu-1">
+            <td class="sno">1.15</td>
            <td class="observation_text">FIU Scanner Card 2
           <input 
   type="text" 
@@ -1453,8 +1453,8 @@ FIU Scanner Card 1
 </div>
 
           </tr>
-          <tr id="row-1150">
-            <td>1.16</td>
+          <tr id="row-1150" data-key="fiu-3">
+            <td class="sno">1.16</td>
            <td class="observation_text">FIU Scanner Card 3
           <input 
   type="text" 
@@ -1502,8 +1502,8 @@ FIU Scanner Card 1
 </div>
 
           </tr>
-          <tr id="row-11554">
-            <td>1.17</td>
+          <tr id="row-11554" data-key="fiu-4">
+            <td class="sno">1.17</td>
            <td class="observation_text">FIU Scanner Card 4
           <input 
   type="text" 
@@ -1552,8 +1552,8 @@ FIU Scanner Card 1
 
           </tr>
            </tr>
-          <tr id="row-11550">
-            <td>1.18</td>
+          <tr id="row-11550" data-key="fiu-5">
+            <td class="sno">1.18</td>
            <td class="observation_text">FIU Scanner Card 5
           <input 
   type="text" 
@@ -1602,8 +1602,8 @@ FIU Scanner Card 1
 
           </tr>
           </tr>
-          <tr id="row-11458">
-            <td>1.19</td>
+          <tr id="row-11458" data-key="fiu-6">
+            <td class="sno">1.19</td>
            <td class="observation_text">FIU Scanner Card 6
           <input 
   type="text" 
@@ -1651,8 +1651,8 @@ FIU Scanner Card 1
 </div>
 
           </tr>
-          <tr id="row-116">
-            <td>1.20</td>
+          <tr id="row-116" data-key="fiu-7">
+            <td class="sno">1.20</td>
            <td class="observation_text"> FIU Scanner Card 7
           <input 
   type="text" 
@@ -1701,8 +1701,8 @@ FIU Scanner Card 1
 
 
           </tr>
-          <tr id="row-117">
-            <td>1.21</td>
+          <tr id="row-117" data-key="fiu-8">
+            <td class="sno">1.21</td>
            <td class="observation_text"> FIU Scanner Card 8
            <input 
   type="text" 
@@ -1750,8 +1750,8 @@ FIU Scanner Card 1
 </div>
 
           </tr>
-          <tr id="row-118">
-            <td>1.22</td>
+          <tr id="row-118" data-key="riu-comm-1">
+            <td class="sno">1.22</td>
            <td class="observation_text"> RIU communication card 1-Host
           <input 
   type="text" 
@@ -1799,8 +1799,8 @@ FIU Scanner Card 1
 
 
           </tr>
-          <tr id="row-119">
-            <td>1.23</td>
+          <tr id="row-119" data-key="riu-comm-2">
+            <td class="sno">1.23</td>
            <td class="observation_text"> RIU communication card 2-Host
           <input 
   type="text" 
@@ -1849,8 +1849,8 @@ FIU Scanner Card 1
 
           </tr>
 
-          <tr id="row-120">
-            <td>1.24</td>
+          <tr id="row-120" data-key="rs-232-conv-1">
+            <td class="sno">1.24</td>
            <td class = "observation_text"> RS 232-OFC converter 1 (STATION)
           <input 
   type="text" 
@@ -1899,8 +1899,8 @@ FIU Scanner Card 1
           </tr>
 
           
-          <tr id="row-121">
-            <td>1.25</td>
+          <tr id="row-121" data-key="rs-232-conv-2">
+            <td class="sno">1.25</td>
            <td class = "observation_text">RS 232-OFC converter 2 (STATION)
           <input 
   type="text" 
@@ -1949,8 +1949,8 @@ FIU Scanner Card 1
           </tr>
 
           
-          <tr id="row-122">
-            <td>1.26</td>
+          <tr id="row-122" data-key="rs-485-conv">
+            <td class="sno">1.26</td>
            <td class = "observation_text"> RS 485-OFC converter (STATION)
           <input 
   type="text" 
@@ -1998,8 +1998,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-           <tr id="row-12232">
-            <td>1.27</td>
+           <tr id="row-12232" data-key="fiu-term-1">
+            <td class="sno">1.27</td>
            <td class = "observation_text"> FIU Termination Card 1
           <input 
   type="text" 
@@ -2047,8 +2047,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-            <tr id="row-123">
-            <td>1.28</td>
+            <tr id="row-123" data-key="fiu-term-2">
+            <td class="sno">1.28</td>
            <td class = "observation_text"> FIU Termination Card 2
           <input 
   type="text" 
@@ -2096,8 +2096,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-            <tr id="row-22435">
-            <td>1.29</td>
+            <tr id="row-22435" data-key="fiu-term-3">
+            <td class="sno">1.29</td>
            <td class = "observation_text"> FIU Termination Card 3
           <input 
   type="text" 
@@ -2145,8 +2145,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-           <tr id="row-125">
-            <td>1.30</td>
+           <tr id="row-125" data-key="fiu-term-4">
+            <td class="sno">1.30</td>
            <td class = "observation_text"> FIU Termination Card 4
           <input 
   type="text" 
@@ -2193,8 +2193,8 @@ FIU Scanner Card 1
   <canvas id="canvas-125" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
-           <tr id="row-1335">
-            <td>1.31</td>
+           <tr id="row-1335" data-key="fiu-term-5">
+            <td class="sno">1.31</td>
            <td class = "observation_text"> FIU Termination Card 5
           <input 
   type="text" 
@@ -2240,8 +2240,8 @@ FIU Scanner Card 1
   <canvas id="canvas-1335" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
-           <tr id="row-1385">
-            <td>1.32</td>
+           <tr id="row-1385" data-key="fiu-term-6">
+            <td class="sno">1.32</td>
            <td class = "observation_text"> FIU Termination Card 6
           <input 
   type="text" 
@@ -2287,8 +2287,8 @@ FIU Scanner Card 1
   <canvas id="canvas-1385" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
-           <tr id="row-1657">
-            <td>1.33</td>
+           <tr id="row-1657" data-key="fiu-term-7">
+            <td class="sno">1.33</td>
            <td class = "observation_text"> FIU Termination Card 7
           <input 
   type="text" 
@@ -2334,8 +2334,8 @@ FIU Scanner Card 1
   <canvas id="canvas-1657" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
-           <tr id="row-1979">
-            <td>1.34</td>
+           <tr id="row-1979" data-key="fiu-term-8">
+            <td class="sno">1.34</td>
            <td class = "observation_text"> FIU Termination Card 8
           <input 
   type="text" 
@@ -2381,8 +2381,8 @@ FIU Scanner Card 1
   <canvas id="canvas-1979" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
-          <tr id="row-19798">
-            <td>1.35</td>
+          <tr id="row-19798" data-key="dps-1">
+            <td class="sno">1.35</td>
            <td class = "observation_text"> DPS Card 1
           <input 
   type="text" 
@@ -2429,8 +2429,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-           <tr id="row-10798">
-            <td>1.36</td>
+           <tr id="row-10798" data-key="dps-2">
+            <td class="sno">1.36</td>
            <td class = "observation_text"> DPS Card 2
           <input 
   type="text" 
@@ -2476,8 +2476,8 @@ FIU Scanner Card 1
   <canvas id="canvas-10798" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
-            <tr id="row-24324">
-            <td>1.37</td>
+            <tr id="row-24324" data-key="gps-gsm-1">
+            <td class="sno">1.37</td>
            <td class = "observation_text"> GPS & GSM Antenna-1
           <input 
   type="text" 
@@ -2524,8 +2524,8 @@ FIU Scanner Card 1
 </div>
           </tr>
          
-           <tr id="row-57657">
-            <td>1.38</td>
+           <tr id="row-57657" data-key="gps-gsm-2">
+            <td class="sno">1.38</td>
            <td class = "observation_text"> GPS & GSM Antenna-2
           <input 
   type="text" 
@@ -2571,8 +2571,8 @@ FIU Scanner Card 1
   <canvas id="canvas-57657" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
-           <tr id="row-255467">
-            <td>1.39</td>
+           <tr id="row-255467" data-key="smocip">
+            <td class="sno">1.39</td>
            <td class = "observation_text"> SMOCIP Unit
           <input 
   type="text" 
@@ -2618,8 +2618,8 @@ FIU Scanner Card 1
   <canvas id="canvas-255467" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
-           <tr id="row-76576">
-            <td>1.40</td>
+           <tr id="row-76576" data-key="smocip-term">
+            <td class="sno">1.40</td>
            <td class = "observation_text"> SMOCIP Termination Panel
           <input 
   type="text" 
@@ -2665,8 +2665,8 @@ FIU Scanner Card 1
   <canvas id="canvas-76576" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
-           <tr id="row-35454">
-            <td>1.41</td>
+           <tr id="row-35454" data-key="station-term-panel">
+            <td class="sno">1.41</td>
            <td class = "observation_text"> Station Termination Panel
           <input 
   type="text" 
@@ -2712,8 +2712,8 @@ FIU Scanner Card 1
   <canvas id="canvas-35454" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
-           <tr id="row-86664765">
-            <td>1.42</td>
+           <tr id="row-86664765" data-key="station-pdu-box">
+            <td class="sno">1.42</td>
            <td class = "observation_text"> Stationary PDU Box
           <input 
   type="text" 
@@ -2760,8 +2760,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664766">
-            <td>1.43</td>
+          <tr id="row-86664766" data-key="ips-pdu">
+            <td class="sno">1.43</td>
            <td class = "observation_text"> IPS PDU Box
           <input 
   type="text" 
@@ -2808,8 +2808,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664767">
-            <td>1.44</td>
+          <tr id="row-86664767" data-key="dc-dc-conv">
+            <td class="sno">1.44</td>
            <td class = "observation_text"> DC-DC Converter (Relay racks)
           <input 
   type="text" 
@@ -2856,8 +2856,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664768">
-            <td>1.45</td>
+          <tr id="row-86664768" data-key="rtu-1">
+            <td class="sno">1.45</td>
            <td class = "observation_text"> RTU-1
           <input 
   type="text" 
@@ -2904,8 +2904,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664769">
-            <td>1.46</td>
+          <tr id="row-86664769" data-key="rtu-2">
+            <td class="sno">1.46</td>
            <td class = "observation_text"> RTU-2
           <input 
   type="text" 
@@ -2952,8 +2952,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664770">
-            <td>1.47</td>
+          <tr id="row-86664770" data-key="station-radio-1">
+            <td class="sno">1.47</td>
            <td class = "observation_text"> Station Radio Power Supply card-1
           <input 
   type="text" 
@@ -3000,8 +3000,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664771">
-            <td>1.48</td>
+          <tr id="row-86664771" data-key="station-radio-2">
+            <td class="sno">1.48</td>
            <td class = "observation_text"> Station Radio Power Supply card-2
           <input 
   type="text" 
@@ -3048,8 +3048,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664772">
-            <td>1.49</td>
+          <tr id="row-86664772" data-key="next-gen-radio-1">
+            <td class="sno">1.49</td>
            <td class = "observation_text"> Next Gen/. Cal Amp Radio Modem-1
           <input 
   type="text" 
@@ -3096,8 +3096,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664773">
-            <td>1.50</td>
+          <tr id="row-86664773" data-key="next-gen-radio-2">
+            <td class="sno">1.50</td>
            <td class = "observation_text"> Next Gen/. Cal Amp Radio Modem-2
           <input 
   type="text" 
@@ -3144,8 +3144,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664774">
-            <td>1.51</td>
+          <tr id="row-86664774" data-key="rs-232-conv-rtu-1">
+            <td class="sno">1.51</td>
            <td class = "observation_text"> RS 232-OFC converter 1 (RTU-1)
           <input 
   type="text" 
@@ -3192,8 +3192,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664775">
-            <td>1.52</td>
+          <tr id="row-86664775" data-key="rs-232-conv-rtu-2">
+            <td class="sno">1.52</td>
            <td class = "observation_text"> RS 232-OFC converter 2 (RTU-2)
           <input 
   type="text" 
@@ -3240,8 +3240,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664777">
-            <td>1.53</td>
+          <tr id="row-86664777" data-key="riu">
+            <td class="sno">1.53</td>
            <td class = "observation_text"> RIU
           <input 
   type="text" 
@@ -3288,8 +3288,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664778">
-            <td>1.54</td>
+          <tr id="row-86664778" data-key="riu-power-1">
+            <td class="sno">1.54</td>
            <td class = "observation_text"> RIU Power Supply Card-1
           <input 
   type="text" 
@@ -3336,8 +3336,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664779">
-            <td>1.55</td>
+          <tr id="row-86664779" data-key="riu-power-2">
+            <td class="sno">1.55</td>
            <td class = "observation_text"> RIU Power Supply Card-2
           <input 
   type="text" 
@@ -3384,8 +3384,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664780">
-            <td>1.56</td>
+          <tr id="row-86664780" data-key="riu-comm-remote-1">
+            <td class="sno">1.56</td>
            <td class = "observation_text"> RIU communication card 1-Remote
           <input 
   type="text" 
@@ -3432,8 +3432,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664781">
-            <td>1.57</td>
+          <tr id="row-86664781" data-key="riu-comm-remote-2">
+            <td class="sno">1.57</td>
            <td class = "observation_text"> RIU communication card 2-Remote
           <input 
   type="text" 
@@ -3480,8 +3480,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664782">
-            <td>1.58</td>
+          <tr id="row-86664782" data-key="fiu-scan-1">
+            <td class="sno">1.58</td>
            <td class = "observation_text"> FIU Scanner Card 1
           <input 
   type="text" 
@@ -3528,8 +3528,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664783">
-            <td>1.59</td>
+          <tr id="row-86664783" data-key="fiu-scan-2">
+            <td class="sno">1.59</td>
            <td class = "observation_text"> FIU Scanner Card 2
           <input 
   type="text" 
@@ -3576,8 +3576,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664784">
-            <td>1.60</td>
+          <tr id="row-86664784" data-key="fiu-scan-3">
+            <td class="sno">1.60</td>
            <td class = "observation_text"> FIU Scanner Card 3
           <input 
   type="text" 
@@ -3624,8 +3624,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664785">
-            <td>1.61</td>
+          <tr id="row-86664785" data-key="fiu-scan-4">
+            <td class="sno">1.61</td>
            <td class = "observation_text"> FIU Scanner Card 4
           <input 
   type="text" 
@@ -3672,8 +3672,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664786">
-            <td>1.62</td>
+          <tr id="row-86664786" data-key="riu-battery-1">
+            <td class="sno">1.62</td>
            <td class = "observation_text"> RIU Battery Charge Cum Filter-1
           <input 
   type="text" 
@@ -3720,8 +3720,8 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664787">
-            <td>1.63</td>
+          <tr id="row-86664787" data-key="riu-battery-2">
+            <td class="sno">1.63</td>
            <td class = "observation_text"> RIU Battery Charge Cum Filter-2
           <input 
   type="text" 
@@ -3767,8 +3767,8 @@ FIU Scanner Card 1
   <canvas id="canvas-86664787" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
-        <tr id="row-1783634">
-            <td>1.64</td>
+        <tr id="row-1783634" data-key="riu-emi-1">
+            <td class="sno">1.64</td>
            <td class = "observation_text"> RTU EMI FILTER_1
           <input 
   type="text" 
@@ -3814,8 +3814,8 @@ FIU Scanner Card 1
   <canvas id="canvas-1783634" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
-        <tr id="row-17832634">
-            <td>1.65</td>
+        <tr id="row-17832634" data-key="riu-emi-2">
+            <td class="sno">1.65</td>
            <td class = "observation_text"> RTU EMI FILTER_2
           <input 
   type="text" 
@@ -3861,8 +3861,8 @@ FIU Scanner Card 1
   <canvas id="canvas-17832634" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
-       <tr id="row-5437352">
-            <td>1.66</td>
+       <tr id="row-5437352" data-key="tcas-emi-1">
+            <td class="sno">1.66</td>
            <td class = "observation_text"> TCAS EMI FILTER _1
           <input 
   type="text" 
@@ -3909,8 +3909,8 @@ FIU Scanner Card 1
 </div>
           </tr>
             </tr>
-       <tr id="row-342543">
-            <td>1.67</td>
+       <tr id="row-342543" data-key="tcas-emi-2">
+            <td class="sno">1.67</td>
            <td class = "observation_text"> TCAS EMI FILTER _2
           <input 
   type="text" 
@@ -3957,8 +3957,8 @@ FIU Scanner Card 1
 </div>
           </tr>
   </tr>
-       <tr id="row-765745">
-            <td>1.68</td>
+       <tr id="row-765745" data-key="tcas-cable-extender">
+            <td class="sno">1.68</td>
            <td class = "observation_text"> TCAS Cable Extender
           <input 
   type="text" 
@@ -10182,3 +10182,10 @@ window.addEventListener('online', checkForUpdates);
 if (navigator.onLine) {
   checkForUpdates();
 }
+
+
+
+
+
+
+
