@@ -57,6 +57,7 @@ try {
             // Loop through each observation
             foreach ($observations as $obs) {
                 $imagePaths = isset($obs['image_path']) ? htmlspecialchars($obs['image_path']) : null;
+                $rowKey = isset($obs['row_key']) ? htmlspecialchars($obs['row_key']) : null;
 
                 $stmt->execute([
                     $stationId,
@@ -74,8 +75,8 @@ try {
                     $deleteStmt->execute([$stationId, $obs['S_no'], 'verification_of_equipment_serial_numbers']);
 
                     foreach ($obs['image_paths'] as $imgPath) {
-                        $imgStmt = $pdo->prepare("INSERT INTO images (entity_type, station_id, s_no, image_path, created_at) VALUES (?, ?, ?, ?, NOW())");
-                        $imgStmt->execute(['verification_of_equipment_serial_numbers', $stationId, $obs['S_no'], $imgPath]);
+                        $imgStmt = $pdo->prepare("INSERT INTO images (entity_type, station_id, s_no, image_path, row_key, created_at) VALUES (?, ?, ?, ?, ?, NOW())");
+                        $imgStmt->execute(['verification_of_equipment_serial_numbers', $stationId, $obs['S_no'], $imgPath, $rowKey]);
                     }
                 }
             }

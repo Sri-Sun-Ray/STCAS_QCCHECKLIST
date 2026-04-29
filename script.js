@@ -4,13 +4,77 @@ const rowImages = new Map(); // Store images for each row
 document.addEventListener("change", function (event) {
   if (event.target.matches("input, select, textarea")) {
     markDataAsUnsaved();
+    autoSaveToDB();
   }
 });
 document.addEventListener("input", function (event) {
   if (event.target.matches("input, textarea")) {
     markDataAsUnsaved();
+    autoSaveToDB();
   }
 });
+
+function collectTableData() {
+  const rows = document.querySelectorAll("#observations-tbody-2_0 tr");
+  let data = [];
+  rows.forEach((row) => {
+    const row_key = row.getAttribute("data-key");
+    if (!row_key) return; // Skip rows without data-key
+
+    const sno = row.querySelector(".sno")?.innerText || "";
+    const barcode = row.querySelector('input[name="barcode_kavach_main_unit"]')?.value || "";
+    const status = row.querySelector("select")?.value || "";
+    const remarks = row.querySelector("textarea")?.value || "";
+    const observation_text = row.querySelector(".observation_text")?.innerText.trim() || "";
+
+    data.push({
+      row_key,
+      sno,
+      barcode,
+      status,
+      remarks,
+      observation_text
+    });
+  });
+  return data;
+}
+
+let saveTimer;
+function autoSaveToDB() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => {
+    const tbody = document.getElementById("observations-tbody-2_0");
+    if (!tbody) return; // Only apply auto-save to section 2.0 right now
+
+    const stationIdElem = document.getElementById("station-id");
+    if (!stationIdElem || !stationIdElem.value) return;
+
+    const tableData = collectTableData();
+    if (tableData.length === 0) return;
+
+    fetch("update.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        station_id: stationIdElem.value,
+        rows: tableData
+      })
+    })
+    .then(res => {
+        if (!res.ok) throw new Error("Network response was not ok: " + res.status);
+        return res.text();
+    })
+    .then(data => {
+      console.log("Auto saved:", data);
+    })
+    .catch(err => {
+      console.error("Auto save error:", err);
+    });
+  }, 1000);
+}
+
 const k = 0
 // Variables to store station info from session or none
 let stationId = "";
@@ -1404,7 +1468,7 @@ FIU Scanner Card 1
 </div>
 
           </tr>
-          <tr id="row-115" data-key="fiu-1">
+          <tr id="row-115" data-key="fiu-2">
             <td class="sno">1.15</td>
            <td class="observation_text">FIU Scanner Card 2
           <input 
@@ -3720,7 +3784,7 @@ FIU Scanner Card 1
 </div>
           </tr>
 
-          <tr id="row-86664787" data-key="riu-battery-2">
+         <tr id="row-86664787" data-key="riu-battery-2">
             <td class="sno">1.63</td>
            <td class = "observation_text"> RIU Battery Charge Cum Filter-2
           <input 
@@ -3861,7 +3925,7 @@ FIU Scanner Card 1
   <canvas id="canvas-17832634" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
-       <tr id="row-5437352" data-key="tcas-emi-1">
+    <tr id="row-5437352" data-key="tcas-emi-1">
             <td class="sno">1.66</td>
            <td class = "observation_text"> TCAS EMI FILTER _1
           <input 
@@ -3908,8 +3972,9 @@ FIU Scanner Card 1
   <canvas id="canvas-5437352" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
           </tr>
+
             </tr>
-       <tr id="row-342543" data-key="tcas-emi-2">
+      <tr id="row-342543" data-key="tcas-emi-2">
             <td class="sno">1.67</td>
            <td class = "observation_text"> TCAS EMI FILTER _2
           <input 
@@ -8014,6 +8079,7 @@ async function saveObservation(section, subsection) {
 
     observations.push({
       S_no,
+      row_key: row.getAttribute("data-key"),
       observation_text: text,
       requirement_text: requirementText,
       barcode_kavach_main_unit: barcode,
@@ -8993,6 +9059,7 @@ async function updateObservation(section, subsection, forceUpdate = false) {
 
     observations.push({
       S_no,
+      row_key: row.getAttribute("data-key"),
       observation_text: observationText,
       requirement_text: requirementText,
       barcode_kavach_main_unit: barcodeValue,
@@ -10179,9 +10246,9 @@ async function checkForUpdates() {
 window.addEventListener('online', checkForUpdates);
 
 // Also check immediately when the page loads if already online
-if (navigator.onLine) {
-  checkForUpdates();
-}
+//if (navigator.onLine) {
+//  checkForUpdates();
+// }
 
 
 
@@ -10189,3 +10256,5 @@ if (navigator.onLine) {
 
 
 
+
+window.addEventListener('load', function () { fetch('sync_structure.php').then(res => res.text()).then(data => console.log('Structure Sync:', data)); });

@@ -48,6 +48,7 @@ try {
 
     foreach ($observations as $obs) {
         $s_no = trim($obs['S_no']);
+        $row_key = isset($obs['row_key']) ? trim($obs['row_key']) : null;
         
         $remarks = $obs['remarks'] ?? '';
         $status = $obs['observation_status'] ?? '';
@@ -65,8 +66,8 @@ try {
 
         if ($existing) {
             // Prepare UPDATE query
-            $sql = "UPDATE $tableName SET observation_status = ?, remarks = ?, updated_at = NOW()";
-            $params = [$status, $remarks];
+            $sql = "UPDATE $tableName SET observation_status = ?, remarks = ?, observation_text = ?, updated_at = NOW()";
+            $params = [$status, $remarks, $observation_text];
             
             if ($tableName === 'verification_of_equipment_serial_numbers') {
                 $sql .= ", barcode_kavach_main_unit = ?";
@@ -105,8 +106,8 @@ try {
 
         if (!empty($image_paths)) {
             foreach ($image_paths as $imgPath) {
-                $imgStmt = $pdo->prepare("INSERT INTO images (entity_type, station_id, s_no, image_path, created_at) VALUES (?, ?, ?, ?, NOW())");
-                $imgStmt->execute([$tableName, $stationId, $s_no, $imgPath]);
+                $imgStmt = $pdo->prepare("INSERT INTO images (entity_type, station_id, s_no, image_path, row_key, created_at) VALUES (?, ?, ?, ?, ?, NOW())");
+                $imgStmt->execute([$tableName, $stationId, $s_no, $imgPath, $row_key]);
             }
         }
         
