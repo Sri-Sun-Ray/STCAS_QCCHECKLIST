@@ -59,8 +59,8 @@ try {
 
         // Check if record exists (Use row_key for verification_of_equipment_serial_numbers, else S_no)
         if ($tableName === 'verification_of_equipment_serial_numbers' && !empty($row_key)) {
-            $check = $pdo->prepare("SELECT id FROM $tableName WHERE station_id = ? AND row_key = ?");
-            $check->execute([$stationId, $row_key]);
+            $check = $pdo->prepare("SELECT id FROM $tableName WHERE station_id = ? AND (row_key = ? OR (S_no = ? AND (row_key IS NULL OR row_key = '')))");
+            $check->execute([$stationId, $row_key, $s_no]);
         } else {
             $check = $pdo->prepare("SELECT id FROM $tableName WHERE station_id = ? AND S_no = ?");
             $check->execute([$stationId, $s_no]);
@@ -77,12 +77,17 @@ try {
             if ($tableName === 'verification_of_equipment_serial_numbers') {
                 $sql .= ", barcode_kavach_main_unit = ?";
                 $params[] = $barcode;
+                if (!empty($row_key)) {
+                    $sql .= ", row_key = ?";
+                    $params[] = $row_key;
+                }
             }
             
             if ($tableName === 'verification_of_equipment_serial_numbers' && !empty($row_key)) {
-                $sql .= " WHERE station_id = ? AND row_key = ?";
+                $sql .= " WHERE station_id = ? AND (row_key = ? OR (S_no = ? AND (row_key IS NULL OR row_key = '')))";
                 $params[] = $stationId;
                 $params[] = $row_key;
+                $params[] = $s_no;
             } else {
                 $sql .= " WHERE station_id = ? AND S_no = ?";
                 $params[] = $stationId;

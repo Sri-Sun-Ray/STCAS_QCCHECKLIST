@@ -33,6 +33,61 @@ if (!$stations) {
 while ($station = mysqli_fetch_assoc($stations)) {
     $station_id = $station['station_id'];
 
+    // --- STEP 1.1: AUTO-RESCUE LEGACY CUSTOM ROWS ---
+    // If any old custom rows exist with NULL keys, automatically link them by matching their description!
+    // We use strict matching (exact or followed by <br>) to prevent prefix collisions like "riuuuu" matching "riuuuuuuuuu_2"
+    mysqli_query($conn, "
+        UPDATE verification_of_equipment_serial_numbers v
+        JOIN row_templates t ON (v.observation_text = t.description OR v.observation_text LIKE CONCAT(t.description, '<br>%')) AND (t.section_id = '2_0' OR t.section_id = '2')
+        SET v.row_key = CONCAT('template_row_', t.id)
+        WHERE v.station_id='$station_id' AND (v.row_key IS NULL OR v.row_key = '')
+    ");
+
+    // --- STEP 1.2: AUTO-RESCUE LEGACY MASTER ROWS BY LEGACY S_NO ---
+    // The original database used specific S_no values before any rows were deleted or renamed.
+    // By mapping the original S_no to the new row_key, we are 100% immune to text changes, prefix collisions, and shifted numbering!
+    $legacy_sno_map = [
+        "stationary-kavach-unit" => "1.1", "ppc_1" => "1.2", "ppc_2" => "1.3",
+        "vcc_1" => "1.4", "vcc-2" => "1.5", "vcc-3" => "1.6", "vc-1" => "1.7", "vc-2" => "1.8",
+        "vgc-1" => "1.9", "vgc-2" => "1.10", "vgc-3" => "1.11", "eig-1" => "1.12", "eig-2" => "1.13",
+        "fiu-1" => "1.14", "fiu-2" => "1.15", "fiu-3" => "1.16", "fiu-4" => "1.17", "fiu-5" => "1.18",
+        "fiu-6" => "1.19", "fiu-7" => "1.20", "fiu-8" => "1.21", "riu-comm-1" => "1.22",
+        "riu-comm-2" => "1.23", "rs-232-conv-1" => "1.24", "rs-232-conv-2" => "1.25",
+        "rs-485-conv" => "1.26", "fiu-term-1" => "1.27", "fiu-term-2" => "1.28",
+        "fiu-term-3" => "1.29", "fiu-term-4" => "1.30", "fiu-term-5" => "1.31",
+        "fiu-term-6" => "1.32", "fiu-term-7" => "1.33", "fiu-term-8" => "1.34",
+        "dps-1" => "1.35", "dps-2" => "1.36", "gps-gsm-1" => "1.37", "gps-gsm-2" => "1.38",
+        "smocip" => "1.39", "smocip-term" => "1.40", "station-term-panel" => "1.41",
+        "station-pdu-box" => "1.42", "ips-pdu" => "1.43", "dc-dc-conv" => "1.44",
+        "rtu-1" => "1.45", "rtu-2" => "1.46", "station-radio-1" => "1.47",
+        "station-radio-2" => "1.48", "next-gen-radio-1" => "1.49", "next-gen-radio-2" => "1.50",
+        "rs-232-conv-rtu-1" => "1.51", "rs-232-conv-rtu-2" => "1.52",
+        // Note: Legacy 1.53 was "RS 485-OFC converter (SM-OCIP)" which was removed.
+        "riu" => "1.54", "riu-power-1" => "1.55", "riu-power-2" => "1.56",
+        "riu-comm-remote-1" => "1.57", "riu-comm-remote-2" => "1.58", "fiu-scan-1" => "1.59",
+        "fiu-scan-2" => "1.60", "fiu-scan-3" => "1.61", "fiu-scan-4" => "1.62",
+        "riu-battery-1" => "1.63", "riu-battery-2" => "1.64"
+    ];
+
+    foreach ($legacy_sno_map as $key => $legacy_sno) {
+        mysqli_query($conn, "
+            UPDATE verification_of_equipment_serial_numbers 
+            SET row_key='$key'
+            WHERE station_id='$station_id' 
+            AND S_no='$legacy_sno' 
+            AND (row_key IS NULL OR row_key = '')
+        ");
+
+        mysqli_query($conn, "
+            UPDATE images 
+            SET row_key='$key'
+            WHERE station_id='$station_id'
+            AND s_no='$legacy_sno'
+            AND entity_type='verification_of_equipment_serial_numbers'
+            AND (row_key IS NULL OR row_key = '')
+        ");
+    }
+
     foreach ($master_rows as $index => $key) {
         $sno = "1." . ($index + 1);
 
@@ -70,14 +125,6 @@ while ($station = mysqli_fetch_assoc($stations)) {
 
     $keys = "'" . implode("','", $master_rows) . "'";
 
-    // --- STEP 1.5: AUTO-RESCUE LEGACY CUSTOM ROWS ---
-    // If any old custom rows exist with NULL keys, automatically link them by matching their description!
-    mysqli_query($conn, "
-        UPDATE verification_of_equipment_serial_numbers v
-        JOIN row_templates t ON v.observation_text = t.description AND (t.section_id = '2_0' OR t.section_id = '2')
-        SET v.row_key = CONCAT('template_row_', t.id)
-        WHERE v.station_id='$station_id' AND (v.row_key IS NULL OR v.row_key = '')
-    ");
     
     // Also rescue any images for these old rows
     mysqli_query($conn, "
@@ -95,7 +142,7 @@ while ($station = mysqli_fetch_assoc($stations)) {
         DELETE FROM verification_of_equipment_serial_numbers 
         WHERE station_id='$station_id'
         AND (row_key NOT IN ($keys) OR row_key IS NULL OR row_key = '')
-        AND row_key NOT LIKE 'template_row_%'
+        AND (row_key NOT LIKE 'template_row_%' OR row_key IS NULL)
     ");
 
     // Delete obsolete images from the images table (Ignore template rows)
@@ -103,7 +150,7 @@ while ($station = mysqli_fetch_assoc($stations)) {
         DELETE FROM images 
         WHERE station_id='$station_id'
         AND (row_key NOT IN ($keys) OR row_key IS NULL OR row_key = '')
-        AND row_key NOT LIKE 'template_row_%'
+        AND (row_key NOT LIKE 'template_row_%' OR row_key IS NULL)
         AND entity_type='verification_of_equipment_serial_numbers'
     ");
     
