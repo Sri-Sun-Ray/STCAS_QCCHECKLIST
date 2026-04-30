@@ -9870,7 +9870,7 @@ function onlyOneChecked(checkbox, groupClass) {
 }
 
 // Render a custom row (used by addRow and loadCustomRows)
-function renderCustomRow(sectionId, s_no, description) {
+function renderCustomRow(sectionId, s_no, description, templateId) {
   const tbodyId = `observations-tbody-${sectionId.replace('.', '_')}`;
   const tbody = document.getElementById(tbodyId);
   if (!tbody) return;
@@ -9885,6 +9885,9 @@ function renderCustomRow(sectionId, s_no, description) {
   const tr = document.createElement("tr");
   tr.id = `row-${s_no}`; // Keep dots to match updateObservationsTable
   tr.className = "custom-row"; // Marker class
+  if (templateId) {
+      tr.setAttribute("data-key", `template_row_${templateId}`);
+  }
 
   // Small delete icon in S_No column
   tr.innerHTML = `
@@ -9983,7 +9986,7 @@ async function addRowWithPassword(sectionId) {
     const resp = await fetch("manage_row_templates.php", { method: "POST", body: formData });
     const res = await resp.json();
     if (res.success) {
-      renderCustomRow(sectionId, nextSno, unitName);
+      renderCustomRow(sectionId, nextSno, unitName, res.id);
       alert("Row added permanently.");
     } else {
       alert("Failed to save row: " + res.message);
@@ -10106,7 +10109,7 @@ async function loadCustomRows(sectionId) {
         // Check if row already exists to avoid duplication
         const existingRowId = `row-${row.s_no}`;
         if (!document.getElementById(existingRowId)) {
-          renderCustomRow(sectionId, row.s_no, row.description);
+          renderCustomRow(sectionId, row.s_no, row.description, row.id);
         }
       });
 

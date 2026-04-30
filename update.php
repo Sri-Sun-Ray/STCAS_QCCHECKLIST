@@ -49,9 +49,9 @@ foreach ($rows as $row) {
     } else {
         $insert_query = "
             INSERT INTO verification_of_equipment_serial_numbers 
-            (station_id, row_key, S_no, barcode_kavach_main_unit, observation_status, remarks, created_at, updated_at) 
+            (station_id, row_key, S_no, barcode_kavach_main_unit, observation_status, remarks, observation_text, created_at, updated_at) 
             VALUES 
-            ('$station_id', '$row_key', '$sno', '$barcode', '$status', '$remarks', NOW(), NOW())
+            ('$station_id', '$row_key', '$sno', '$barcode', '$status', '$remarks', '$observation_text', NOW(), NOW())
         ";
         mysqli_query($conn, $insert_query);
     }

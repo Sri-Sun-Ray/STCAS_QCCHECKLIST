@@ -57,9 +57,14 @@ try {
         $barcode = trim($obs['barcode_kavach_main_unit'] ?? '');
         $image_paths = $obs['image_paths'] ?? [];
 
-        // Check if record exists (Using S_no to match schema)
-        $check = $pdo->prepare("SELECT id FROM $tableName WHERE station_id = ? AND S_no = ?");
-        $check->execute([$stationId, $s_no]);
+        // Check if record exists (Use row_key for verification_of_equipment_serial_numbers, else S_no)
+        if ($tableName === 'verification_of_equipment_serial_numbers' && !empty($row_key)) {
+            $check = $pdo->prepare("SELECT id FROM $tableName WHERE station_id = ? AND row_key = ?");
+            $check->execute([$stationId, $row_key]);
+        } else {
+            $check = $pdo->prepare("SELECT id FROM $tableName WHERE station_id = ? AND S_no = ?");
+            $check->execute([$stationId, $s_no]);
+        }
         $existing = $check->fetch();
         
         $rowLog = "Processing S_no: $s_no. Status: $status, Remarks: $remarks. Existing: " . ($existing ? 'Yes' : 'No') . "\n";
@@ -74,9 +79,15 @@ try {
                 $params[] = $barcode;
             }
             
-            $sql .= " WHERE station_id = ? AND S_no = ?";
-            $params[] = $stationId;
-            $params[] = $s_no;
+            if ($tableName === 'verification_of_equipment_serial_numbers' && !empty($row_key)) {
+                $sql .= " WHERE station_id = ? AND row_key = ?";
+                $params[] = $stationId;
+                $params[] = $row_key;
+            } else {
+                $sql .= " WHERE station_id = ? AND S_no = ?";
+                $params[] = $stationId;
+                $params[] = $s_no;
+            }
             
             $update = $pdo->prepare($sql);
             $update->execute($params);
@@ -92,6 +103,12 @@ try {
                 $sql .= ", barcode_kavach_main_unit";
                 $placeholders .= ", ?";
                 $params[] = $barcode;
+                
+                if (!empty($row_key)) {
+                    $sql .= ", row_key";
+                    $placeholders .= ", ?";
+                    $params[] = $row_key;
+                }
             }
             
             $sql .= ") VALUES ($placeholders)";

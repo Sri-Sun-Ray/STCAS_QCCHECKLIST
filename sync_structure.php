@@ -70,20 +70,74 @@ while ($station = mysqli_fetch_assoc($stations)) {
 
     $keys = "'" . implode("','", $master_rows) . "'";
 
-    // Delete obsolete rows from main table
+    // --- STEP 1.5: AUTO-RESCUE LEGACY CUSTOM ROWS ---
+    // If any old custom rows exist with NULL keys, automatically link them by matching their description!
+    mysqli_query($conn, "
+        UPDATE verification_of_equipment_serial_numbers v
+        JOIN row_templates t ON v.observation_text = t.description AND (t.section_id = '2_0' OR t.section_id = '2')
+        SET v.row_key = CONCAT('template_row_', t.id)
+        WHERE v.station_id='$station_id' AND (v.row_key IS NULL OR v.row_key = '')
+    ");
+    
+    // Also rescue any images for these old rows
+    mysqli_query($conn, "
+        UPDATE images i
+        JOIN verification_of_equipment_serial_numbers v ON i.s_no = v.S_no AND i.station_id = v.station_id
+        SET i.row_key = v.row_key
+        WHERE i.station_id='$station_id' 
+        AND i.entity_type='verification_of_equipment_serial_numbers' 
+        AND (i.row_key IS NULL OR i.row_key = '')
+        AND v.row_key LIKE 'template_row_%'
+    ");
+
+    // Delete obsolete rows from main table (Ignore template rows)
     mysqli_query($conn, "
         DELETE FROM verification_of_equipment_serial_numbers 
         WHERE station_id='$station_id'
         AND (row_key NOT IN ($keys) OR row_key IS NULL OR row_key = '')
+        AND row_key NOT LIKE 'template_row_%'
     ");
 
-    // Delete obsolete images from the images table
+    // Delete obsolete images from the images table (Ignore template rows)
     mysqli_query($conn, "
         DELETE FROM images 
         WHERE station_id='$station_id'
         AND (row_key NOT IN ($keys) OR row_key IS NULL OR row_key = '')
+        AND row_key NOT LIKE 'template_row_%'
         AND entity_type='verification_of_equipment_serial_numbers'
     ");
+    
+    // --- STEP 2: AUTO-ALIGN CUSTOM TEMPLATE ROWS ---
+    // Fetch custom rows from row_templates for section 2 (verification_of_equipment_serial_numbers)
+    $custom_rows_query = mysqli_query($conn, "SELECT id, s_no FROM row_templates WHERE section_id = '2_0' OR section_id = '2' ORDER BY id ASC");
+    $next_sno_index = count($master_rows) + 1; // Start right after the master list
+    
+    if ($custom_rows_query) {
+        while ($template = mysqli_fetch_assoc($custom_rows_query)) {
+            $new_sno = "1." . $next_sno_index;
+            $template_id = $template['id'];
+            $template_row_key = "template_row_" . $template_id;
+
+            // Update row_templates table with new s_no
+            mysqli_query($conn, "UPDATE row_templates SET s_no = '$new_sno' WHERE id = $template_id");
+
+            // Update main table
+            mysqli_query($conn, "
+                UPDATE verification_of_equipment_serial_numbers 
+                SET S_no='$new_sno' 
+                WHERE station_id='$station_id' AND row_key='$template_row_key'
+            ");
+
+            // Update images table
+            mysqli_query($conn, "
+                UPDATE images 
+                SET s_no='$new_sno' 
+                WHERE station_id='$station_id' AND row_key='$template_row_key' AND entity_type='verification_of_equipment_serial_numbers'
+            ");
+
+            $next_sno_index++;
+        }
+    }
 }
 
 echo "Sync complete";
