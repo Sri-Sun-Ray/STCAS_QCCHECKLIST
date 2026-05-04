@@ -57,7 +57,7 @@ try {
     .view-btn { background-color: #17a2b8; }
     .edit-btn { background-color: #ffc107; }
     .download-btn { background-color: #28a745; }
-    .upload-btn { background-color: #6f42c1; }
+    .upload-btn { background-color: #6f42c1; display:none;}
     .back-btn { background-color: #6c757d; }
     .status-label { padding: 4px 8px; border-radius: 4px; font-weight: bold; }
     .completed { color: green; background-color: #d3ffd3; }
