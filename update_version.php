@@ -33,7 +33,7 @@ if ($local === $remote) {
 // pull
 exec("$git reset --hard 2>&1", $r1, $c1);
 exec("$git clean -fd 2>&1", $r2, $c2);
-exec("$git pull origin main 2>&1", $pullOutput, $pullCode);
+exec("$git pull origin develop 2>&1", $pullOutput, $pullCode);
 
 if ($pullCode === 0) {
     // Automatically apply any database migrations silently!
