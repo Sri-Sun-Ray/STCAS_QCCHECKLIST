@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $currentTime = date("Y-m-d H:i:s");
 
     $check = $conn->prepare("SELECT 1 FROM station WHERE station_id = ?");
-    $check->bind_param("i", $stationId);
+    $check->bind_param("s", $stationId);
     $check->execute();
     $check->store_result();
 
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $insert = $conn->prepare("INSERT INTO station 
             (station_id, station_name, railway_zone, division, section_name, initial_date, updated_date, start_time, completed_time)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $insert->bind_param("issssssss", $stationId, $stationName, $zone, $division, $sectionName, $initialDate, $updatedDate, $currentTime, $currentTime);
+        $insert->bind_param("sssssssss", $stationId, $stationName, $zone, $division, $sectionName, $initialDate, $updatedDate, $currentTime, $currentTime);
         if ($insert->execute()) {
             echo json_encode(['success' => true, 'message' => '✅ Station info saved with start time']);
         } else {

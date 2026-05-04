@@ -20,7 +20,7 @@ if (!$stationID) {
 }
 
 $update = $conn->prepare("UPDATE station SET completed_time = ? WHERE station_id = ?");
-$update->bind_param("si", $currentTime, $stationID);
+$update->bind_param("ss", $currentTime, $stationID);
 
 if ($update->execute()) {
     echo json_encode(["success" => true, "message" => "✅ Completed time updated"]);

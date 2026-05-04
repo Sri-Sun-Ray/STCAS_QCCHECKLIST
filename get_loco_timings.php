@@ -16,7 +16,7 @@ if (!$stationID) {
 
 $sql = "SELECT start_time, completed_time FROM station WHERE station_id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $stationID);
+$stmt->bind_param("s", $stationID);
 $stmt->execute();
 $result = $stmt->get_result();
 

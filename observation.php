@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             // Bind parameters for the INSERT query
-            $stmt->bind_param("isssssssssb", $stationID, $sectionID, $stationName, $zone, $division, $observationText, $remarks, $sno, $imagePath, $observationStatus);
+            $stmt->bind_param("ssssssssssb", $stationID, $sectionID, $stationName, $zone, $division, $observationText, $remarks, $sno, $imagePath, $observationStatus);
             $stmt->execute();
         }
 
@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             $query = "SELECT * FROM observations WHERE station_id = ?";
             $stmt = $conn->prepare($query);
-            $stmt->bind_param("i", $stationID);  // Bind the loco_id parameter
+            $stmt->bind_param("s", $stationID);  // Bind the station_id parameter
         }
 
         // Execute the query
