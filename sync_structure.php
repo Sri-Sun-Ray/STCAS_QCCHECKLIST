@@ -187,6 +187,138 @@ while ($station = mysqli_fetch_assoc($stations)) {
     }
 }
 
-echo "Sync complete";
+// ==========================================
+// UPDATE OBSERVATION TEXT
+// ==========================================
+$renamed_points = [
+    "1.39" => "SMOCIP Unit",
+    "1.14" => "FIU Scanner Card 1",
+    "1.15" => "FIU Scanner Card 2",
+    "1.16" => "FIU Scanner Card 3",
+    "1.17" => "FIU Scanner Card 4",
+    "1.18" => "FIU Scanner Card 5",
+    "1.19" => "FIU Scanner Card 6",
+    "1.20" => "FIU Scanner Card 7",
+    "1.21" => "FIU Scanner Card 8",
+    "1.58" => "FIU Scanner Card 1",
+    "1.59" => "FIU Scanner Card 2",
+    "1.60" => "FIU Scanner Card 3",
+    "1.61" => "FIU Scanner Card 4"
+];
+
+$tables = [
+    "verification_of_equipment_serial_numbers",
+    "tower",
+    "rtu",
+    "rf_antennas",
+    "installation_of_kavach_equipment",
+    "networking_rack",
+    "ips",
+    "dc_convertor",
+    "pdu",
+    "smocip",
+    "gps_gsm_antenna",
+    "relay_rack",
+    "riu",
+    "laying_of_sectional_ofc_cable",
+    "outdoor_cabling",
+    "rfid_tags",
+    "tag_to_tag_distance"
+];
+
+$total_updated = 0;
+foreach ($renamed_points as $s_no => $new_text) {
+    foreach ($tables as $table) {
+        $stmt = $conn->prepare("UPDATE $table SET observation_text = ? WHERE S_no = ?");
+        if ($stmt) {
+            $stmt->bind_param("ss", $new_text, $s_no);
+            $stmt->execute();
+            $total_updated += $stmt->affected_rows;
+            $stmt->close();
+        }
+    }
+}
+echo "Updated observation text for " . $total_updated . " observations.<br>";
+
+// ==========================================
+// UPDATE REQUIREMENT TEXT
+// ==========================================
+$updated_requirements = [
+    "4.1.8" => "Functional testing shall be performed as per the PDU test procedure 5 53 20 0024."
+];
+
+$total_req_updated = 0;
+foreach ($updated_requirements as $s_no => $new_req) {
+    foreach ($tables as $table) {
+        $stmt = $conn->prepare("UPDATE $table SET requirement_text = ? WHERE S_no = ?");
+        if ($stmt) {
+            $stmt->bind_param("ss", $new_req, $s_no);
+            $stmt->execute();
+            $total_req_updated += $stmt->affected_rows;
+            $stmt->close();
+        }
+    }
+}
+echo "Updated requirement text for " . $total_req_updated . " observations.<br>";
+
+// ==========================================
+// UPDATE STATUS VALUES (Specific Points)
+// ==========================================
+$status_updates_by_sno = [
+    "1.44" => [
+        "Matching" => "Verified",
+        "Not Matching" => "Not Verified"
+    ]
+];
+
+$total_status_updated = 0;
+foreach ($status_updates_by_sno as $s_no => $updates) {
+    foreach ($updates as $old_status => $new_status) {
+        foreach ($tables as $table) {
+            $stmt = $conn->prepare("UPDATE $table SET observation_status = ? WHERE observation_status = ? AND S_no = ?");
+            if ($stmt) {
+                $stmt->bind_param("sss", $new_status, $old_status, $s_no);
+                $stmt->execute();
+                $total_status_updated += $stmt->affected_rows;
+                $stmt->close();
+            }
+        }
+    }
+}
+echo "Updated status values for $total_status_updated observations (filtered by S_no).<br>";
+
+// ==========================================
+// DELETE OBSOLETE POINTS FROM OUTDOOR CABLING
+// ==========================================
+$deleted_points = ["11.3"];
+
+if (!empty($deleted_points)) {
+    $placeholders = implode(',', array_fill(0, count($deleted_points), '?'));
+    $types = str_repeat("s", count($deleted_points));
+    
+    $total_deleted = 0;
+    $stations_result = mysqli_query($conn, "SELECT DISTINCT station_id FROM verification_of_equipment_serial_numbers");
+    while ($station = mysqli_fetch_assoc($stations_result)) {
+        $station_id = $station['station_id'];
+        $stmt = $conn->prepare("DELETE FROM outdoor_cabling WHERE station_id = ? AND S_no IN ($placeholders)");
+        if ($stmt) {
+            $stmt->bind_param("s" . $types, $station_id, ...$deleted_points);
+            $stmt->execute();
+            $total_deleted += $stmt->affected_rows;
+            $stmt->close();
+        }
+        
+        // Also delete associated images
+        $stmt = $conn->prepare("DELETE FROM images WHERE station_id = ? AND s_no IN ($placeholders) AND entity_type = 'outdoor_cabling'");
+        if ($stmt) {
+            $stmt->bind_param("s" . $types, $station_id, ...$deleted_points);
+            $stmt->execute();
+            $stmt->close();
+        }
+    }
+    echo "Deleted " . $total_deleted . " obsolete observations (11.3) from outdoor_cabling.<br>";
+}
+
+echo "<br>Sync complete";
 mysqli_close($conn);
 ?>
