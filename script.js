@@ -9910,12 +9910,14 @@ function renderCustomRow(sectionId, s_no, description, templateId) {
                       <option value="Matching">Matching</option>
                       <option value="Not Matching">Not Matching</option>
                       <option value="Not Installed">Not Installed</option>
+                      <option value="Not Applicable">Not Applicable</option>
                   `;
       } else {
         return `
                       <option value="Select">Select</option>
                       <option value="Yes">Yes</option>
                       <option value="No">No</option>
+                      <option value="Not Applicable">Not Applicable</option>
                   `;
       }
     })()}
