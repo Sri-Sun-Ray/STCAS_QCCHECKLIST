@@ -74,7 +74,7 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
 // Check if record exists
 $sql_check = "SELECT COUNT(*) AS cnt FROM $table_name WHERE S_no = ? AND station_id = ?";
 $stmt_check = $conn->prepare($sql_check);
-$stmt_check->bind_param("si", $S_no, $station_id); // S_no is string now
+$stmt_check->bind_param("ss", $S_no, $station_id); // Both are strings now
 $stmt_check->execute();
 $result = $stmt_check->get_result()->fetch_assoc();
 $stmt_check->close();
@@ -99,15 +99,15 @@ if ($exists) {
     
     if ($is_barcode_table) {
         if ($image_path !== null) {
-            $stmt->bind_param("sssssssi", $observation_text, $requirement_text, $observation_status, $remarks, $barcode, $image_path, $S_no, $station_id);
+            $stmt->bind_param("ssssssss", $observation_text, $requirement_text, $observation_status, $remarks, $barcode, $image_path, $S_no, $station_id);
         } else {
-            $stmt->bind_param("ssssssi", $observation_text, $requirement_text, $observation_status, $remarks, $barcode, $S_no, $station_id);
+            $stmt->bind_param("sssssss", $observation_text, $requirement_text, $observation_status, $remarks, $barcode, $S_no, $station_id);
         }
     } else {
         if ($image_path !== null) {
-            $stmt->bind_param("ssssssi", $observation_text, $requirement_text, $observation_status, $remarks, $image_path, $S_no, $station_id);
+            $stmt->bind_param("sssssss", $observation_text, $requirement_text, $observation_status, $remarks, $image_path, $S_no, $station_id);
         } else {
-            $stmt->bind_param("sssssi", $observation_text, $requirement_text, $observation_status, $remarks, $S_no, $station_id);
+            $stmt->bind_param("ssssss", $observation_text, $requirement_text, $observation_status, $remarks, $S_no, $station_id);
         }
     }
 } else {
@@ -116,12 +116,12 @@ if ($exists) {
         $sql = "INSERT INTO $table_name (S_no, station_id, observation_text, requirement_text, observation_status, remarks, image_path, barcode_kavach_main_unit)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sissssss", $S_no, $station_id, $observation_text, $requirement_text, $observation_status, $remarks, $image_path, $barcode);
+        $stmt->bind_param("ssssssss", $S_no, $station_id, $observation_text, $requirement_text, $observation_status, $remarks, $image_path, $barcode);
     } else {
         $sql = "INSERT INTO $table_name (S_no, station_id, observation_text, requirement_text, observation_status, remarks, image_path)
                 VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sisssss", $S_no, $station_id, $observation_text, $requirement_text, $observation_status, $remarks, $image_path);
+        $stmt->bind_param("sssssss", $S_no, $station_id, $observation_text, $requirement_text, $observation_status, $remarks, $image_path);
     }
 }
 
@@ -129,7 +129,7 @@ if ($stmt->execute()) {
     // Update the station table's update date
     $sql_upd = "UPDATE station SET updated_date = NOW() WHERE station_id = ?";
     $stmt_upd = $conn->prepare($sql_upd);
-    $stmt_upd->bind_param("i", $station_id);
+    $stmt_upd->bind_param("s", $station_id);
     $stmt_upd->execute();
     $stmt_upd->close();
 
