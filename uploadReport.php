@@ -12,7 +12,7 @@ try {
     $pdo = new PDO($dsn, $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $uploadDir = 'C:/xampp/htdocs/STCAS_QCCHECKLIST/uploads/reports/';  // Upload directory
+    $uploadDir = 'uploads/reports/';  // Upload directory (Relative to project root)
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Get user_id from request

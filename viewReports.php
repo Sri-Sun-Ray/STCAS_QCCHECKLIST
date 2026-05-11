@@ -57,8 +57,73 @@ try {
     .view-btn { background-color: #17a2b8; }
     .edit-btn { background-color: #ffc107; }
     .download-btn { background-color: #28a745; }
-    .upload-btn { background-color: #6f42c1; display:none;}
+    .upload-btn { background-color: #6f42c1; display:inline-block;}
     .back-btn { background-color: #6c757d; }
+
+    /* WFMS Integration Modals */
+    .wfms-modal {
+        display: none;
+        position: fixed;
+        z-index: 3000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        justify-content: center;
+        align-items: center;
+    }
+    .wfms-modal-content {
+        background-color: #fff;
+        padding: 25px;
+        border-radius: 8px;
+        width: 400px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .wfms-modal-header {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #3f51b5;
+    }
+    .wfms-form-group {
+        margin-bottom: 15px;
+    }
+    .wfms-form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+    .wfms-form-group input, .wfms-form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .wfms-btn-row {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+        margin-top: 20px;
+    }
+    .loader {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #3498db;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        animation: spin 2s linear infinite;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
     .status-label { padding: 4px 8px; border-radius: 4px; font-weight: bold; }
     .completed { color: green; background-color: #d3ffd3; }
     .not-completed { color: red; background-color: #ffd3d3; }
@@ -140,7 +205,7 @@ try {
                         <a href="uploads/reports/<?php echo htmlspecialchars($report['file_name']); ?>" class="btn view-btn">View</a>
                         <a href="create.html?station_id=<?php echo htmlspecialchars($station_id); ?>" class="btn edit-btn">Edit</a>
                         <a href="uploads/reports/<?php echo htmlspecialchars($report['file_name']); ?>" download class="btn download-btn">Download</a>
-                        <button class="btn upload-btn" onclick="uploadToWFMS(event, '<?php echo htmlspecialchars($report['id']); ?>', '<?php echo htmlspecialchars($station_id); ?>')">Upload</button>
+                        <button class="btn upload-btn" onclick="openWFMSLogin(event, '<?php echo htmlspecialchars($report['id']); ?>', '<?php echo htmlspecialchars($station_id); ?>')">Push to WFMS</button>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -151,60 +216,208 @@ try {
     <?php endif; ?>
 </div>
 
+<!-- WFMS Login Modal -->
+<div id="wfmsLoginModal" class="wfms-modal">
+    <div class="wfms-modal-content">
+        <div class="wfms-modal-header">Login to WFMS</div>
+        <div class="wfms-form-group">
+            <label>Username</label>
+            <input type="text" id="wfms_user" placeholder="WFMS Username">
+        </div>
+        <div class="wfms-form-group">
+            <label>Password</label>
+            <input type="password" id="wfms_pass" placeholder="WFMS Password">
+        </div>
+        <div id="login_error" style="color:red; font-size:0.9rem; margin-bottom:10px; display:none;"></div>
+        <div class="wfms-btn-row">
+            <button class="btn back-btn" onclick="closeWFMSModal('wfmsLoginModal')">Cancel</button>
+            <button class="btn upload-btn" id="loginBtn" onclick="doWFMSLogin()">Login & Next</button>
+        </div>
+    </div>
+</div>
+
+<!-- WFMS Station Selection Modal -->
+<div id="wfmsStationModal" class="wfms-modal">
+    <div class="wfms-modal-content">
+        <div class="wfms-modal-header">Select Assigned Station</div>
+        <p style="font-size: 0.9rem; color: #666;">Choosing from your WFMS assignments:</p>
+        <div class="wfms-form-group">
+            <label>Assigned Station</label>
+            <select id="wfms_station_select">
+                <option value="">Loading assignments...</option>
+            </select>
+        </div>
+        <div id="station_error" style="color:red; font-size:0.9rem; margin-bottom:10px; display:none;"></div>
+        <div class="wfms-btn-row">
+            <button class="btn back-btn" onclick="closeWFMSModal('wfmsStationModal')">Cancel</button>
+            <button class="btn upload-btn" id="pushBtn" onclick="doFinalPush()">Push Report</button>
+        </div>
+    </div>
+</div>
+
 <script>
-  document.getElementById('search-input').addEventListener('input', function() {
-    const searchValue = this.value.toLowerCase();
-    const rows = document.querySelectorAll('#report-table tbody tr');
-    rows.forEach(row => {
-      const stationId = row.getAttribute('data-station-id') || '';
-      if (stationId.toLowerCase().includes(searchValue)) {
-        row.style.display = '';
-      } else {
-        row.style.display = 'none';
-      }
-    });
-  });
+  let currentReportId = null;
+  let currentStationId = null;
+  let wfmsToken = null;
+  let assignedActivities = [];
 
-  async function uploadToWFMS(event, reportId, stationId) {
+  function openWFMSLogin(event, reportId, stationId) {
     if (!navigator.onLine) {
-        alert("No internet connection. Please check your connectivity and try again.");
+        alert("No internet connection. Please check your connectivity to push to WFMS.");
+        return;
+    }
+    currentReportId = reportId;
+    currentStationId = stationId;
+    document.getElementById('wfmsLoginModal').style.display = 'flex';
+  }
+
+  function closeWFMSModal(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  async function doWFMSLogin() {
+    const user = document.getElementById('wfms_user').value;
+    const pass = document.getElementById('wfms_pass').value;
+    const errorDiv = document.getElementById('login_error');
+    const btn = document.getElementById('loginBtn');
+
+    if (!user || !pass) {
+        errorDiv.innerText = "Please enter WFMS credentials";
+        errorDiv.style.display = 'block';
         return;
     }
 
-    if (!confirm("Are you sure you want to upload this report to WFMS?")) {
-        return;
-    }
-
-    const btn = event.target;
-    const originalText = btn.innerText;
-    btn.innerText = "Uploading...";
+    errorDiv.style.display = 'none';
     btn.disabled = true;
+    btn.innerHTML = '<span class="loader"></span> Connecting...';
 
     try {
-        const formData = new FormData();
-        formData.append('reportId', reportId);
-        formData.append('stationId', stationId);
+        const response = await fetch('wfms_proxy.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `action=login&user=${encodeURIComponent(user)}&pass=${encodeURIComponent(pass)}`
+        });
+        const result = await response.json();
 
-        const response = await fetch('upload-to-wfms.php', {
+        if (result.status) {
+            wfmsToken = result.data.token;
+            closeWFMSModal('wfmsLoginModal');
+            openStationSelection();
+        } else {
+            errorDiv.innerText = result.message || "Invalid WFMS credentials";
+            errorDiv.style.display = 'block';
+        }
+    } catch (e) {
+        errorDiv.innerText = "Error connecting to WFMS Server";
+        errorDiv.style.display = 'block';
+    } finally {
+        btn.disabled = false;
+        btn.innerText = "Login & Next";
+    }
+  }
+
+  async function openStationSelection() {
+    document.getElementById('wfmsStationModal').style.display = 'flex';
+    const select = document.getElementById('wfms_station_select');
+    select.innerHTML = '<option value="">Fetching your assigned stations...</option>';
+
+    try {
+        // Fetch user's assigned activities directly
+        const response = await fetch('wfms_proxy.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `action=get_assignments&token=${wfmsToken}`
+        });
+        const result = await response.json();
+
+        if (result.status && result.data.data) {
+            assignedActivities = result.data.data;
+            
+            // Extract unique stations from the assigned activities
+            const stationsMap = new Map();
+            assignedActivities.forEach(act => {
+                if (act.station && act.station._id) {
+                    stationsMap.set(act.station._id, {
+                        id: act.station._id,
+                        name: act.station.name,
+                        code: act.station.code || ''
+                    });
+                }
+            });
+
+            if (stationsMap.size === 0) {
+                select.innerHTML = '<option value="">No active assignments found for you.</option>';
+            } else {
+                select.innerHTML = '<option value="">-- Choose Assigned Station --</option>';
+                stationsMap.forEach((st) => {
+                    const opt = document.createElement('option');
+                    opt.value = st.id;
+                    opt.text = st.name + (st.code ? " (" + st.code + ")" : "");
+                    select.appendChild(opt);
+                });
+            }
+        } else {
+            select.innerHTML = '<option value="">Error loading your assignments.</option>';
+        }
+    } catch (e) {
+        select.innerHTML = '<option value="">Connection error.</option>';
+    }
+  }
+
+  async function doFinalPush() {
+    const wfmsStationId = document.getElementById('wfms_station_select').value;
+    const errorDiv = document.getElementById('station_error');
+    const btn = document.getElementById('pushBtn');
+
+    if (!wfmsStationId) {
+        errorDiv.innerText = "Please select a station";
+        errorDiv.style.display = 'block';
+        return;
+    }
+
+    try {
+        // Verify if "Wayside QA Audit" task exists for the selected station
+        const targetActivity = assignedActivities.find(act => 
+            act.station && act.station._id === wfmsStationId && 
+            act.name.toLowerCase().includes('wayside qa audit')
+        );
+
+        if (!targetActivity) {
+            errorDiv.innerText = "Access Denied: The 'Wayside QA Audit' task for this station is NOT assigned to you in WFMS.";
+            errorDiv.style.display = 'block';
+            btn.disabled = false;
+            btn.innerText = "Push Report";
+            return;
+        }
+
+        // 2. Access verified, proceed to upload
+        btn.innerHTML = '<span class="loader"></span> Uploading...';
+        const formData = new FormData();
+        formData.append('reportId', currentReportId);
+        formData.append('stationId', currentStationId);
+        formData.append('wfms_token', wfmsToken);
+        formData.append('wfms_station_name', targetActivity.station.name);
+
+        const uploadResponse = await fetch('upload-to-wfms.php', {
             method: 'POST',
             body: formData
         });
+        const uploadResult = await uploadResponse.json();
 
-        const result = await response.json();
-        alert(result.message);
-        
-        if (result.success) {
-            btn.innerText = "Uploaded";
-            btn.style.backgroundColor = "#28a745"; // Success color
+        if (uploadResult.success) {
+            alert("Success: " + uploadResult.message);
+            location.reload();
         } else {
-            btn.innerText = originalText;
+            errorDiv.innerText = uploadResult.message;
+            errorDiv.style.display = 'block';
             btn.disabled = false;
+            btn.innerText = "Push Report";
         }
-    } catch (error) {
-        console.error('Error:', error);
-        alert("An error occurred during the upload process.");
-        btn.innerText = originalText;
+    } catch (e) {
+        errorDiv.innerText = "Error: " + e.message;
+        errorDiv.style.display = 'block';
         btn.disabled = false;
+        btn.innerText = "Push Report";
     }
   }
 </script>
