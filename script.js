@@ -4024,7 +4024,7 @@ FIU Scanner Card 1
   </tr>
        <tr id="row-765745" data-key="tcas-cable-extender">
             <td class="sno">1.68</td>
-           <td class = "observation_text"> TCAS Cable Extender
+           <td class = "observation_text"> TCAS Cable Extenders
           <input 
   type="text" 
   id="kavach-main-unit" 
