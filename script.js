@@ -10251,15 +10251,9 @@ async function checkForUpdates() {
 window.addEventListener('online', checkForUpdates);
 
 // Also check immediately when the page loads if already online
-//if (navigator.onLine) {
-//  checkForUpdates();
-// }
-
-
-
-
-
-
+if (navigator.onLine) {
+  checkForUpdates();
+ }
 
 
 window.addEventListener('load', function () { fetch('sync_structure.php').then(res => res.text()).then(data => console.log('Structure Sync:', data)); });
