@@ -6,7 +6,7 @@ ob_start(); // Start buffering to catch any accidental output
 header('Content-Type: application/json');
 
 $action = $_POST['action'] ?? '';
-$wfmsBaseUrl = "http://127.0.0.1:2000/api";
+$wfmsBaseUrl = "https://wfms.upskill365.com/api";
 
 if ($action === 'login') {
     $user = $_POST['user'] ?? '';
@@ -67,7 +67,7 @@ if ($action === 'get_assignments') {
     $token = $_POST['token'] ?? '';
     
     // Fixed: The route is /api/activity/all
-    $url = "http://127.0.0.1:2000/api/activity/all?pageNo=1&pageSize=500&dashboard=1";
+    $url = "https://wfms.upskill365.com/api/activity/all?pageNo=1&pageSize=500&dashboard=1";
     
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

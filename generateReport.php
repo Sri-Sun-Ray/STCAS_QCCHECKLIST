@@ -151,7 +151,9 @@ try {
             $validImages = [];
             foreach ($imagesForThisSno as $imagePath) {
                 if (file_exists(__DIR__ . '/' . $imagePath) && strpos($imagePath, 'uploads/') === 0) {
-                    $validImages[] = "http://localhost/STCAS_QCCHECKLIST/" . $imagePath;
+                    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+                    $host = $_SERVER['HTTP_HOST'];
+                    $validImages[] = "$protocol://$host/STCAS_QCCHECKLIST/" . $imagePath;
                 }
             }
 

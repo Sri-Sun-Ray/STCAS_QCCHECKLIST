@@ -21,7 +21,7 @@ if (!$reportId || !$stationId) {
 }
 
 // WFMS Base URL (Local)
-$wfmsBaseUrl = "http://127.0.0.1:2000/api"; 
+$wfmsBaseUrl = "https://wfms.upskill365.com/api"; 
 
 // Get data from Frontend
 $wfmsToken = $_POST['wfms_token'] ?? '';
