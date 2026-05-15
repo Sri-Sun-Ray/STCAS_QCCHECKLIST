@@ -23,7 +23,7 @@ if ($fetchCode !== 0) {
 
 // compare
 $local = trim(shell_exec("$git rev-parse HEAD"));
-$remote = trim(shell_exec("$git rev-parse origin/main"));
+$remote = trim(shell_exec("$git rev-parse origin/develop"));
 
 if ($local === $remote) {
     echo json_encode(["status" => "uptodate"]);

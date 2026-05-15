@@ -9910,12 +9910,14 @@ function renderCustomRow(sectionId, s_no, description, templateId) {
                       <option value="Matching">Matching</option>
                       <option value="Not Matching">Not Matching</option>
                       <option value="Not Installed">Not Installed</option>
+                      <option value="Not Applicable">Not Applicable</option>
                   `;
       } else {
         return `
                       <option value="Select">Select</option>
                       <option value="Yes">Yes</option>
                       <option value="No">No</option>
+                      <option value="Not Applicable">Not Applicable</option>
                   `;
       }
     })()}
@@ -10249,15 +10251,9 @@ async function checkForUpdates() {
 window.addEventListener('online', checkForUpdates);
 
 // Also check immediately when the page loads if already online
-//if (navigator.onLine) {
-//  checkForUpdates();
-// }
-
-
-
-
-
-
+if (navigator.onLine) {
+  checkForUpdates();
+ }
 
 
 window.addEventListener('load', function () { fetch('sync_structure.php').then(res => res.text()).then(data => console.log('Structure Sync:', data)); });
