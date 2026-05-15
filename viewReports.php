@@ -336,11 +336,13 @@ try {
             // Extract unique stations from the assigned activities
             const stationsMap = new Map();
             assignedActivities.forEach(act => {
-                if (act.station && act.station._id) {
-                    stationsMap.set(act.station._id, {
-                        id: act.station._id,
-                        name: act.station.name,
-                        code: act.station.code || ''
+                const stObj = act.station || act.stationId; // Fallback for different API structures
+                if (stObj && (stObj._id || stObj.id)) {
+                    const id = stObj._id || stObj.id;
+                    stationsMap.set(id, {
+                        id: id,
+                        name: stObj.name || "Unnamed Station",
+                        code: stObj.code || ''
                     });
                 }
             });

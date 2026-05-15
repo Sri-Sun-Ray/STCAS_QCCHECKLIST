@@ -21,7 +21,7 @@ if (!$reportId || !$stationId) {
 }
 
 // WFMS Base URL (Local)
-$wfmsBaseUrl = "https://wfms.upskill365.com/api"; 
+$wfmsBaseUrl = "https://eg.hbl.in:5100/api"; 
 
 // Get data from Frontend
 $wfmsToken = $_POST['wfms_token'] ?? '';
@@ -88,6 +88,8 @@ function uploadWithUserToken($url, $fields, $filePath, $token) {
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         'Authorization: Bearer ' . $token,
         'x-app-module: WFMS2'
