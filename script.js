@@ -21,7 +21,8 @@ function collectTableData() {
     const row_key = row.getAttribute("data-key");
     if (!row_key) return; // Skip rows without data-key
 
-    const sno = row.querySelector(".sno")?.innerText || "";
+    const rawSno = row.querySelector(".sno")?.innerText || row.querySelector("td:first-child")?.innerText || "";
+    const sno = rawSno.replace("🗑️", "").trim();
     const barcode = row.querySelector('input[name="barcode_kavach_main_unit"]')?.value || "";
     const status = row.querySelector("select")?.value || "";
     const remarks = row.querySelector("textarea")?.value || "";
@@ -9894,7 +9895,7 @@ function renderCustomRow(sectionId, s_no, description, templateId) {
 
   // Small delete icon in S_No column
   tr.innerHTML = `
-      <td>
+      <td class="sno">
         ${s_no} <button type="button" onclick="deleteRowTemplate(this, '${s_no}', '${sectionId}')" style="background: none; border: none; cursor: pointer; font-size: 14px;" title="Delete Row">🗑️</button>
       </td>
       <td class="observation_text">${description}<br>
