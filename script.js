@@ -21,11 +21,21 @@ function collectTableData() {
     const row_key = row.getAttribute("data-key");
     if (!row_key) return; // Skip rows without data-key
 
-    const sno = row.querySelector(".sno")?.innerText || "";
-    const barcode = row.querySelector('input[name="barcode_kavach_main_unit"]')?.value || "";
+    let sno = (row.querySelector(".sno") || row.querySelector("td:first-child"))?.innerText || "";
+    sno = sno.trim().replace("🗑️", "").trim();
+
+    const barcode = row.querySelector('input[name="barcode_kavach_main_unit"]')?.value.trim() || "";
     const status = row.querySelector("select")?.value || "";
     const remarks = row.querySelector("textarea")?.value || "";
-    const observation_text = row.querySelector(".observation_text")?.innerText.trim() || "";
+
+    const obsField = row.querySelector(".observation_text");
+    let descriptionHtml = "";
+    if (obsField) {
+      const clone = obsField.cloneNode(true);
+      clone.querySelectorAll("input").forEach(i => i.remove());
+      descriptionHtml = clone.innerHTML.trim().replace(/<br\s*\/?>$/i, "").trim();
+    }
+    const text = (descriptionHtml + " " + barcode).trim();
 
     data.push({
       row_key,
@@ -33,7 +43,7 @@ function collectTableData() {
       barcode,
       status,
       remarks,
-      observation_text
+      observation_text: text
     });
   });
   return data;
@@ -771,6 +781,7 @@ async function showSection(section, subsection) {
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
   
@@ -822,6 +833,7 @@ async function showSection(section, subsection) {
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
       <td class ="remarks">
@@ -877,6 +889,7 @@ async function showSection(section, subsection) {
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
   
@@ -928,6 +941,7 @@ async function showSection(section, subsection) {
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+       <option value="Not Verified">Not Verified</option>
     </select>
   </td>
   
@@ -980,6 +994,7 @@ async function showSection(section, subsection) {
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
   <td class="remarks">
@@ -1031,6 +1046,7 @@ async function showSection(section, subsection) {
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+       <option value="Not Verified">Not Verified</option>
     </select>
   </td>
    <td class="remarks">
@@ -1083,6 +1099,7 @@ async function showSection(section, subsection) {
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+       <option value="Not Verified">Not Verified</option>
     </select>
   </td>
    <td class="remarks">
@@ -1133,6 +1150,7 @@ async function showSection(section, subsection) {
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+       <option value="Not Verified">Not Verified</option>
     </select>
   </td>
   <td class="remarks">
@@ -1184,6 +1202,7 @@ async function showSection(section, subsection) {
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
   <td class="remarks">
@@ -1236,6 +1255,7 @@ async function showSection(section, subsection) {
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
   <td class="remarks">
@@ -1289,6 +1309,7 @@ async function showSection(section, subsection) {
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1341,6 +1362,7 @@ async function showSection(section, subsection) {
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1390,6 +1412,7 @@ async function showSection(section, subsection) {
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1444,6 +1467,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1493,6 +1517,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1542,6 +1567,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1591,6 +1617,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1641,6 +1668,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1691,6 +1719,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1740,6 +1769,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -1790,6 +1820,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1838,6 +1869,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1888,6 +1920,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1938,6 +1971,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1988,6 +2022,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -2038,6 +2073,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -2087,6 +2123,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -2136,6 +2173,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -2185,6 +2223,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -2234,6 +2273,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2281,6 +2321,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2328,6 +2369,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2375,6 +2417,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2422,6 +2465,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2469,6 +2513,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2517,6 +2562,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2564,6 +2610,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2612,6 +2659,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2659,6 +2707,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2706,6 +2755,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2753,6 +2803,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2800,6 +2851,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2848,6 +2900,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2896,6 +2949,7 @@ FIU Scanner Card 1
       <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2944,6 +2998,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2992,6 +3047,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3040,6 +3096,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3088,6 +3145,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3136,6 +3194,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3184,6 +3243,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3232,6 +3292,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3280,6 +3341,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3328,6 +3390,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3376,6 +3439,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3424,6 +3488,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3472,6 +3537,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3520,6 +3586,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3568,6 +3635,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3616,6 +3684,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3664,6 +3733,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3712,6 +3782,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3760,6 +3831,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3808,6 +3880,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3855,6 +3928,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3902,6 +3976,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3949,6 +4024,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3998,6 +4074,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -4046,6 +4123,7 @@ FIU Scanner Card 1
       <option value="Not Matching">Not Matching</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -6017,6 +6095,39 @@ Ensure mill connector shall be locked properly.</td>
   <canvas id="canvas-6112" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
+     <tr id="row-61120">
+      <td>6.1.11</td>
+      <td class="observation_text">Radio Configuration</td>
+      <td class="requirement_text">Radio power shall be configured as 10W.</td>
+      <td class="select">
+       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+                <option value="Select">Select</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
+              </select>
+      </td>
+      <td class="remarks">
+        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+      </td>
+      <td>
+       <button class="add-image" onclick="showUploadOptions(61120)">Add Image</button>
+<div class="upload-options" id="upload-options-61120" style="display: none;">
+  <button class="add-image" onclick="startCamera(61120)">Camera</button>
+  <label for="file-input-61120" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-61120" accept="image/*" multiple onchange="displayImages(this, 61120)">
+</div>
+      <!-- Container for multiple images -->
+      <div id="image-container-61120"></div>
+      <!-- Camera Container -->
+<div id="camera-container-61120" style="display: none;">
+  <video id="camera-61120" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(61120)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(61120)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(61120)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-61120" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+    </tr>
     <tr id="row-62">
       <td>6.2.1</td>
       <td class="observation_text">RF antenna installation and Audit</td>
@@ -6844,6 +6955,44 @@ Ensure mill connector shall be locked properly.</td>
   <canvas id="canvas-1012" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
+    <tr id="row-10120">
+      <td>9.2.1</td>
+      <td class="observation_text">Earth Resistance Measurement</td>
+      <td class="requirement_text">Check the value of earth resistance at earth of the radio tower. The measured value shall be lessthan or equal to 2 Ohm.</td>
+     <td class="select">
+        <input type="number" min="0" step="0.01" placeholder="Enter resistance (Ohm)"
+              oninput="checkEarthResistance(this, 10120)"
+              style="margin-bottom:3px; width:70%; height: 30%">
+
+        <select id="status-10120" class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();"
+                style="opacity:1; color:#000; background-color:#fff;">
+          <option value="Select">Select</option>
+          <option value="Ok" style="display:none;">Ok</option>
+          <option value="Not Ok" style="display:none;">Not Ok</option>
+          <option value="Not Applicable">Not Applicable</option>
+        </select>
+      </td>
+      <td class="remarks">
+        <textarea id="remarks-10120" placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+      </td>
+     <td>
+       <button class="add-image" onclick="showUploadOptions(10120)">Add Image</button>
+<div class="upload-options" id="upload-options-10120" style="display: none;">
+  <button class="add-image" onclick="startCamera(10120)">Camera</button>
+  <label for="file-input-10120" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-10120" accept="image/*" multiple onchange="displayImages(this, 10120)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-10120"></div>
+      <!-- Camera Container -->
+<div id="camera-container-10120" style="display: none;">
+  <video id="camera-10120" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(10120)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(10120)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(10120)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-10120" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+    </tr>
      <tr id="row-93">
       <td>9.3</td>
       <td class="observation_text">Test Reports</td>
@@ -6951,6 +7100,8 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
+                <option value="Applicable">Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -6986,6 +7137,8 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
+                <option value="Applicable">Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7018,6 +7171,8 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
+                <option value="Applicable">Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7050,6 +7205,8 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
+                <option value="Applicable">Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7082,6 +7239,8 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
+                <option value="Applicable">Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7114,6 +7273,8 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
+                <option value="Applicable">Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7703,6 +7864,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 async function generateReport() {
+  if (unsavedChanges) {
+    alert("⚠️ You have unsaved changes in the current section. Please click 'Save' or 'Update' at the bottom of the table before generating the report.");
+    return;
+  }
   // Remove the beforeunload listener so that it won't trigger when clicking the button.
   window.removeEventListener("beforeunload", beforeUnloadHandler);
   const stationInfo = JSON.parse(sessionStorage.getItem("stationInfo") || "{}");
@@ -7740,8 +7905,8 @@ async function generateReport() {
       JSON.stringify(data.observations)
     );
 
-    // Redirect to the observations page
-    window.location.href = "observations.html";
+    // Redirect to the observations page with a cache-buster
+    window.location.href = "observations.html?_t=" + Date.now();
   } else {
     alert(data.message || "Failed to generate the report");
   }
@@ -8041,7 +8206,7 @@ async function saveObservation(section, subsection) {
     if (obsField) {
       const clone = obsField.cloneNode(true);
       clone.querySelectorAll("input").forEach(i => i.remove());
-      descriptionHtml = clone.innerHTML.trim();
+      descriptionHtml = clone.innerHTML.trim().replace(/<br\s*\/?>$/i, "").trim();
     } else if (section === "17_0") {
       descriptionHtml = "Tag_No:";
     }
@@ -8362,6 +8527,29 @@ function updateObservationsTable(sectionID, observations, sno) {
         if (textarea) {
           textarea.value = p.remarks || '';
           textarea.setAttribute('data-initial', textarea.value);
+        }
+
+        // Update Number Input if it exists (for checkEarthResistance/checkVoltage)
+        const numberInput = row.querySelector("input[type='number']");
+        if (numberInput && p.remarks) {
+          const val = parseFloat(p.remarks);
+          if (!isNaN(val)) {
+            numberInput.value = val;
+            numberInput.setAttribute('data-initial', val);
+            if (select) {
+              select.disabled = true;
+              // Ensure Ok and Not Ok options are displayed, and Not Applicable is hidden
+              const optNA = select.querySelector('option[value="Not Applicable"]');
+              const optOk = select.querySelector('option[value="Ok"]');
+              const optNotOk = select.querySelector('option[value="Not Ok"]');
+              if (optNA) optNA.style.display = 'none';
+              if (optOk) optOk.style.display = '';
+              if (optNotOk) optNotOk.style.display = '';
+            }
+            if (textarea) {
+              textarea.readOnly = true;
+            }
+          }
         }
 
         // Update Images
@@ -9144,10 +9332,11 @@ function getDropdownOptions(sno, observationStatus, sectionID = null) {
   // 1. Explicitly defined options for standard rows
   // We check this first to honor specific mappings
   const specificOptions = {
-    "1.38,1.40,1.41,1.42,1.43,1.45,1.46,1.47,1.48,1.49,1.50,1.51,1.52,1.53,1.54,1.55,1.56,1.57,1.58,1.59,1.60,1.61,1.62,1.63,1.64": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
-    "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37,1.65,1.66,1.67,1.68": ["Matching", "Not Matching", "Not Installed", "Not Applicable"],
-    "3.1,2.1,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.2.9,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,5.4.6,8.1,8.2,8.3,8.4,8.6,8.7,7.1,7.2,7.3,7.4,7.5,7.6,7.7,7.8,7.9,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.2.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.1.6,4.1.7,4.1.8,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,9.2,12.1,12.2,13.1,11.1": ["Ok", "Not Ok", "Not Applicable"],
-    "5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1,10.1,10.2,10.3,10.4,10.5,10.6": ["Ok", "Not Ok"],
+    "1.38,1.40,1.41,1.42,1.43,1.45,1.46,1.47,1.48,1.49,1.50,1.51,1.52,1.53,1.54,1.55,1.56,1.57,1.58,1.59,1.60,1.61,1.62,1.63,1.64": ["Matching", "Not Matching", "Not Installed", "Not Applicable", "Not Verified"],
+    "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37,1.65,1.66,1.67,1.68": ["Matching", "Not Matching", "Not Installed", "Not Applicable", "Not Verified"],
+    "3.1,2.1,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.2.9,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,5.4.6,8.1,8.2,8.3,8.4,8.6,8.7,7.1,7.2,7.3,7.4,7.5,7.6,7.7,7.8,7.9,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.1.11,6.2.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.1.6,4.1.7,4.1.8,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,9.2,9.2.1,12.1,12.2,13.1,11.1": ["Ok", "Not Ok", "Not Applicable"],
+    "5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1": ["Ok", "Not Ok"],
+    "10.1,10.2,10.3,10.4,10.5,10.6": ["Ok", "Not Ok", "Not Applicable", "Applicable"],
     "9.3": ["Available", "Not Available"],
     "6.2.2,7.10,8.5,12.3,11.1": ["Available", "Not Available", "Not Applicable"],
     "1.44": ["Verified", "Not Verified", "Not Installed", "Not Applicable"]
@@ -9170,13 +9359,13 @@ function getDropdownOptions(sno, observationStatus, sectionID = null) {
   if (sectionID) {
     // Label 1.0 is Section "2_0"
     if (sectionID === "2_0" || sectionID === "2.0") {
-      options = ["Matching", "Not Matching", "Not Installed"];
+      options = ["Matching", "Not Matching", "Not Installed", "Not Applicable", "Not Verified"];
     }
   } else {
     // Fallback to S_no prefix if sectionID is not provided
     const parts = sNoStr.split('.');
     if (parts[0] === "1") {
-      options = ["Matching", "Not Matching", "Not Installed"];
+      options = ["Matching", "Not Matching", "Not Installed", "Not Applicable", "Not Verified"];
     }
   }
 
@@ -9760,12 +9949,12 @@ const deletedImagesMap = {}; // Tracks deleted image URLs for each observationID
 
 // 1) define per‑section lists of S_no that require an image
 const mandatoryImageRowsBySection = {
-  "3_0": ["3.1", "3.5", "3.7", "3.8", "3.11"],
-  "4_0": ["4.1", "4.2"],
-  "5_0": ["5.2", "5.3", "5.4", "5.5"],
-  "6_0": ["6.2", "6.3", "6.6", "6.8", "6.9", "6.10"],
-  "7_0": ["7.1", "7.3"],
-
+  "3_0": [], // Section 2.0 Building
+  "4_0": ["3.1", "3.5", "3.7", "3.8", "3.11"], // Section 3.0 Tower (includes 3.1)
+  "5_0": ["4.1", "4.2"], // Section 4.0 Power Supply (matches 4.1.x and 4.2.x)
+  "6_0": ["5.2", "5.3", "5.4", "5.5"], // Section 5.0 Kavach Equipment (matches 5.2.x, 5.3.x, 5.4.x, etc.)
+  "7_0": ["6.1.2", "6.1.3", "6.1.6", "6.1.8", "6.1.9", "6.1.10", "6.1.11", "6.2"], // Section 6.0 RF Communication (matches specified 6.1.x and all 6.2.x)
+  "8_0": ["7.1", "7.3"] // Section 7.0 OFC Networking rack
 };
 
 function validateMandatoryImages(sectionID) {
@@ -9777,10 +9966,12 @@ function validateMandatoryImages(sectionID) {
 
   tbody.querySelectorAll("tr").forEach(tr => {
     const sno = tr.cells[0]?.textContent.trim();
-    if (!mandatory.includes(sno)) return;       // not one of the must‑have rows
+    // Check if sno matches any mandatory item exactly or as a subsection prefix
+    const isMandatory = mandatory.some(m => sno === m || sno.startsWith(m + "."));
+    if (!isMandatory) return;       // not one of the must‑have rows
 
     const sel = tr.querySelector("select");
-    if (!sel || sel.value === "Select") return; // still default → skip
+    if (!sel || sel.value === "Select" || sel.value === "Not Applicable") return; // still default or NA → skip
 
     // IMAGE IS ALWAYS IN THE LAST CELL
     const imgCell = tr.cells[tr.cells.length - 1];
@@ -9914,6 +10105,7 @@ function renderCustomRow(sectionId, s_no, description, templateId) {
                       <option value="Not Matching">Not Matching</option>
                       <option value="Not Installed">Not Installed</option>
                       <option value="Not Applicable">Not Applicable</option>
+                      <option value="Not Verified">Not Verified</option>
                   `;
       } else {
         return `
@@ -10049,7 +10241,8 @@ async function checkEarthResistance(input, rowId) {
     dropdown.querySelector('option[value="Ok"]').style.display = '';
     dropdown.querySelector('option[value="Not Ok"]').style.display = '';
 
-    if (value <= 1) {
+    const limit = (rowId === 10120) ? 2 : 1;
+    if (value <= limit) {
       dropdown.value = "Ok";
     } else {
       dropdown.value = "Not Ok";

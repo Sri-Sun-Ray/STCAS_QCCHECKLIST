@@ -2,6 +2,10 @@
 session_start();
 
 header('Content-Type: application/json');
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+header("Pragma: no-cache"); // HTTP 1.0.
+header("Expires: 0"); // Proxies.
+
 
 $servername = "localhost";
 $username = "root";
@@ -28,6 +32,19 @@ $tableNames = [
 ];
 
 $observations = [];
+
+// Pre-fetch all images for this station in a single query to eliminate the N+1 query loop
+$imagesMap = [];
+$imgStmt = $conn->prepare("SELECT s_no, entity_type, image_path FROM images WHERE station_id = ?");
+if ($imgStmt) {
+    $imgStmt->bind_param("s", $stationId);
+    $imgStmt->execute();
+    $imgResult = $imgStmt->get_result();
+    while ($imgRow = $imgResult->fetch_assoc()) {
+        $imagesMap[$imgRow['entity_type']][$imgRow['s_no']][] = $imgRow['image_path'];
+    }
+    $imgStmt->close();
+}
 
 foreach ($tableNames as $tableName) {
     if ($tableName === "verification_of_equipment_serial_numbers") {
@@ -68,17 +85,7 @@ foreach ($tableNames as $tableName) {
 
     while ($row = $result->fetch_assoc()) {
         $s_no = $row['S_no'];
-
-        // Fetch associated images from `images` table for each S_no
-        $imgStmt = $conn->prepare("SELECT image_path FROM images WHERE station_id = ? AND s_no = ? AND entity_type = ?");
-        $imgStmt->bind_param("sss", $stationId, $s_no, $tableName);
-        $imgStmt->execute();
-        $imgResult = $imgStmt->get_result();
-
-        $imagePaths = [];
-        while ($imgRow = $imgResult->fetch_assoc()) {
-            $imagePaths[] = $imgRow['image_path'];
-        }
+        $imagePaths = isset($imagesMap[$tableName][$s_no]) ? $imagesMap[$tableName][$s_no] : [];
 
        $observations[] = [
             'S_no' => $row['S_no'],

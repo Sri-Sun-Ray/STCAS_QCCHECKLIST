@@ -74,6 +74,17 @@ try {
         "tag_to_tag_distance"                      => ["id" => "18_0", "img_entity" => "tag_to_tag_distance"],
     ];
 
+    // Pre-fetch all images for this station in a single query to eliminate N+1 database calls
+    $allImagesQuery = "SELECT s_no, entity_type, image_path FROM images WHERE station_id = ?";
+    $allImagesStmt = $pdo->prepare($allImagesQuery);
+    $allImagesStmt->execute([$stationID]);
+    $allImages = $allImagesStmt->fetchAll();
+    
+    $imagesMap = [];
+    foreach ($allImages as $img) {
+        $imagesMap[$img['entity_type']][$img['s_no']][] = $img['image_path'];
+    }
+
     $observations = [];
 
     // Go through each mapped table
@@ -84,19 +95,13 @@ try {
         
         error_log("[generateReport] Processing section: {$section_id_for_frontend}, table: {$tableName}, image_entity: {$image_entity_type}");
 
-        // Fetch images specifically for this table/section using the correct entity type
-        $imageQuery = "SELECT S_no, image_path FROM images WHERE station_id = ? AND entity_type = ?";
-        $imageStmt = $pdo->prepare($imageQuery);
-        $imageStmt->execute([$stationID, $image_entity_type]);
-        $sectionImages = $imageStmt->fetchAll(PDO::FETCH_GROUP | PDO::FETCH_COLUMN);
+        // Retrieve pre-fetched images specifically for this table/section using the correct entity type
+        $sectionImages = $imagesMap[$image_entity_type] ?? [];
         
         // For section 13, also check rfid_tags entity type (for backward compatibility)
         if ($section_id_for_frontend === '13_0' && count($sectionImages) === 0) {
             error_log("[generateReport] No images found with entity_type=relay_rack for section 13, trying rfid_tags");
-            $fallbackImageQuery = "SELECT S_no, image_path FROM images WHERE station_id = ? AND entity_type = 'rfid_tags'";
-            $fallbackImageStmt = $pdo->prepare($fallbackImageQuery);
-            $fallbackImageStmt->execute([$stationID]);
-            $sectionImages = $fallbackImageStmt->fetchAll(PDO::FETCH_GROUP | PDO::FETCH_COLUMN);
+            $sectionImages = $imagesMap['rfid_tags'] ?? [];
         }
         
         error_log("[generateReport] Found " . count($sectionImages) . " images for section {$section_id_for_frontend}");
@@ -152,7 +157,7 @@ try {
             foreach ($imagesForThisSno as $imagePath) {
                 if (file_exists(__DIR__ . '/' . $imagePath) && strpos($imagePath, 'uploads/') === 0) {
                     $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
-                    $host = $_SERVER['HTTP_HOST'];
+                    $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
                     $validImages[] = "$protocol://$host/STCAS_QCCHECKLIST/" . $imagePath;
                 }
             }

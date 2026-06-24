@@ -9,6 +9,97 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+// --- OPTIMIZATION: AUTOMATIC DATABASE INDEXING ---
+$tables_to_index = [
+    "verification_of_equipment_serial_numbers",
+    "tower",
+    "rtu",
+    "rf_antennas",
+    "installation_of_kavach_equipment",
+    "networking_rack",
+    "ips",
+    "dc_convertor",
+    "pdu",
+    "smocip",
+    "outdoor_cabling",
+    "relay_rack",
+    "riu",
+    "laying_of_sectional_ofc_cable",
+    "gps_gsm_antenna",
+    "rfid_tags",
+    "tag_to_tag_distance"
+];
+
+foreach ($tables_to_index as $table) {
+    // Check if composite index on (station_id, S_no) already exists
+    $check_index = mysqli_query($conn, "
+        SELECT COUNT(*) as count 
+        FROM INFORMATION_SCHEMA.STATISTICS 
+        WHERE TABLE_SCHEMA = 'station_info' 
+        AND TABLE_NAME = '$table' 
+        AND INDEX_NAME = 'idx_station_sno'
+    ");
+    if ($check_index) {
+        $row = mysqli_fetch_assoc($check_index);
+        $has_index = $row ? ($row['count'] > 0) : false;
+        
+        if (!$has_index) {
+            // Create composite index for station_id and S_no
+            mysqli_query($conn, "ALTER TABLE `$table` ADD INDEX `idx_station_sno` (`station_id`, `S_no`)");
+        }
+    }
+
+    // Special: verification_of_equipment_serial_numbers also queries by row_key
+    if ($table === 'verification_of_equipment_serial_numbers') {
+        $check_rowkey = mysqli_query($conn, "
+            SELECT COUNT(*) as count 
+            FROM INFORMATION_SCHEMA.STATISTICS 
+            WHERE TABLE_SCHEMA = 'station_info' 
+            AND TABLE_NAME = '$table' 
+            AND INDEX_NAME = 'idx_station_rowkey'
+        ");
+        if ($check_rowkey) {
+            $row = mysqli_fetch_assoc($check_rowkey);
+            $has_rowkey = $row ? ($row['count'] > 0) : false;
+            if (!$has_rowkey) {
+                mysqli_query($conn, "ALTER TABLE `$table` ADD INDEX `idx_station_rowkey` (`station_id`, `row_key`)");
+            }
+        }
+    }
+}
+
+// Add composite index on images table
+$check_img_index = mysqli_query($conn, "
+    SELECT COUNT(*) as count 
+    FROM INFORMATION_SCHEMA.STATISTICS 
+    WHERE TABLE_SCHEMA = 'station_info' 
+    AND TABLE_NAME = 'images' 
+    AND INDEX_NAME = 'idx_station_sno_entity'
+");
+if ($check_img_index) {
+    $row = mysqli_fetch_assoc($check_img_index);
+    $has_img_index = $row ? ($row['count'] > 0) : false;
+    if (!$has_img_index) {
+        mysqli_query($conn, "ALTER TABLE `images` ADD INDEX `idx_station_sno_entity` (`station_id`, `s_no`, `entity_type`)");
+    }
+}
+
+// Add index on report table user_id
+$check_report_index = mysqli_query($conn, "
+    SELECT COUNT(*) as count 
+    FROM INFORMATION_SCHEMA.STATISTICS 
+    WHERE TABLE_SCHEMA = 'station_info' 
+    AND TABLE_NAME = 'report' 
+    AND INDEX_NAME = 'idx_user_id'
+");
+if ($check_report_index) {
+    $row = mysqli_fetch_assoc($check_report_index);
+    $has_report_index = $row ? ($row['count'] > 0) : false;
+    if (!$has_report_index) {
+        mysqli_query($conn, "ALTER TABLE `report` ADD INDEX `idx_user_id` (`user_id`)");
+    }
+}
+
 $master_rows = [
     "stationary-kavach-unit", "ppc_1", "ppc_2", "vcc_1", "vcc-2", "vcc-3", "vc-1", "vc-2",
     "vgc-1", "vgc-2", "vgc-3", "eig-1", "eig-2", "fiu-1", "fiu-2", "fiu-3", "fiu-4", "fiu-5",
@@ -244,7 +335,8 @@ echo "Updated observation text for " . $total_updated . " observations.<br>";
 // UPDATE REQUIREMENT TEXT
 // ==========================================
 $updated_requirements = [
-    "4.1.8" => "Functional testing shall be performed as per the PDU test procedure 5 53 20 0024."
+    "4.1.8" => "Functional testing shall be performed as per the PDU test procedure 5 53 20 0024.",
+    "9.2.1" => "Check the value of earth resistance at earth of the radio tower. The measured value shall be lessthan or equal to 2 Ohm."
 ];
 
 $total_req_updated = 0;

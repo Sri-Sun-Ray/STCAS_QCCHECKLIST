@@ -30,6 +30,17 @@ if ($local === $remote) {
     exit;
 }
 
+// --- AUTOMATIC DATABASE BACKUP BEFORE UPDATE ---
+$backupDir = __DIR__ . '/backups';
+if (!is_dir($backupDir)) {
+    mkdir($backupDir, 0777, true);
+}
+$filename = $backupDir . '/auto_backup_' . date('Ymd_His') . '.sql';
+$mysqldump = 'C:\\xampp\\mysql\\bin\\mysqldump.exe';
+if (file_exists($mysqldump)) {
+    exec("\"$mysqldump\" -u root -pHbl@1234 station_info > \"$filename\"");
+}
+
 // pull
 exec("$git reset --hard 2>&1", $r1, $c1);
 exec("$git clean -fd 2>&1", $r2, $c2);
