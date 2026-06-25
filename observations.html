@@ -405,7 +405,7 @@
           const p = document.createElement("p");
           p.style.padding = "10px";
           p.style.fontWeight = "bold";
-          p.style.color = "red";
+          p.style.color = "green";
           p.textContent = "Not Applicable";
           naDiv.appendChild(p);
 
@@ -532,7 +532,7 @@
             subTr.style.background = "#e6f2ff";
             subTr.innerHTML = `
                  <td colspan="${hasRequirement ? 3 : 2}" style="font-weight:bold; color: #0056b3; padding: 10px;">${subTitle}</td>
-                 <td colspan="3" style="color: red; font-weight: bold; text-align: center;">Not Applicable</td>
+                 <td colspan="3" style="color: green; font-weight: bold; text-align: center;">Not Applicable</td>
               `;
             tbody.appendChild(subTr);
           } else {
@@ -1165,7 +1165,7 @@
               body: [
                 [
                   { content: `${title} ${description}`, styles: { textColor: [0, 0, 255], halign: 'left' } },
-                  { content: "Not Applicable", styles: { textColor: [255, 0, 0], halign: 'right' } }
+                  { content: "Not Applicable", styles: { textColor: [0, 128, 0], halign: 'right' } }
                 ]
               ],
               theme: 'grid',
@@ -1249,7 +1249,7 @@
               tableBody.push([{
                 content: `${subTitle}: Not Applicable`,
                 colSpan: showRequirement ? 6 : 5,
-                styles: { fillColor: [230, 242, 255], fontStyle: 'bold', textColor: [255, 0, 0] }
+                styles: { fillColor: [230, 242, 255], fontStyle: 'bold', textColor: [0, 128, 0] }
               }]);
             } else {
               if (subSectionMetadata[subKey]) {

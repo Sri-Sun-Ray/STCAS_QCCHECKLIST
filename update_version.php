@@ -42,17 +42,36 @@ if (file_exists($mysqldump)) {
 }
 
 // pull
+$commitBefore = trim(shell_exec("$git rev-parse HEAD"));
+
 exec("$git reset --hard 2>&1", $r1, $c1);
 exec("$git clean -fd 2>&1", $r2, $c2);
 exec("$git pull origin develop 2>&1", $pullOutput, $pullCode);
 
-if ($pullCode === 0) {
-    // Automatically apply any database migrations silently!
-    ob_start();
-    include 'db_migration.php';
-    ob_end_clean();
+$commitAfter = trim(shell_exec("$git rev-parse HEAD"));
 
-    echo json_encode(["status" => "updated"]);
+if ($pullCode === 0) {
+    if ($commitBefore !== $commitAfter) {
+        // --- AUTOMATIC DATABASE BACKUP BEFORE MIGRATION ---
+        $backupDir = __DIR__ . '/backups';
+        if (!is_dir($backupDir)) {
+            mkdir($backupDir, 0777, true);
+        }
+        $filename = $backupDir . '/auto_backup_' . date('Ymd_His') . '.sql';
+        $mysqldump = 'C:\\xampp\\mysql\\bin\\mysqldump.exe';
+        if (file_exists($mysqldump)) {
+            exec("\"$mysqldump\" -u root -pHbl@1234 station_info > \"$filename\"");
+        }
+
+        // Automatically apply any database migrations silently!
+        ob_start();
+        include 'db_migration.php';
+        ob_end_clean();
+
+        echo json_encode(["status" => "updated"]);
+    } else {
+        echo json_encode(["status" => "uptodate"]);
+    }
 } else {
     echo json_encode([
         "status" => "error",
