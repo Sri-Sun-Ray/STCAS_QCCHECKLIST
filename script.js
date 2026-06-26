@@ -9971,7 +9971,11 @@ function validateMandatoryImages(sectionID) {
     if (!isMandatory) return;       // not one of the must‑have rows
 
     const sel = tr.querySelector("select");
-    if (!sel || sel.value === "Select" || sel.value === "Not Applicable") return; // still default or NA → skip
+    if (!sel) return;
+    const val = sel.value;
+    // Skip if default "Select", "Not Applicable", or any status styled in red
+    const isRedStatus = statusColors[val] && statusColors[val].toLowerCase() === "red";
+    if (val === "Select" || val === "Not Applicable" || isRedStatus) return;
 
     // IMAGE IS ALWAYS IN THE LAST CELL
     const imgCell = tr.cells[tr.cells.length - 1];
