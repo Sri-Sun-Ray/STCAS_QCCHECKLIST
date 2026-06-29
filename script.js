@@ -9951,7 +9951,7 @@ const deletedImagesMap = {}; // Tracks deleted image URLs for each observationID
 const mandatoryImageRowsBySection = {
   "3_0": [], // Section 2.0 Building
   "4_0": ["3.1", "3.5", "3.7", "3.8", "3.11"], // Section 3.0 Tower (includes 3.1)
-  "5_0": ["4.1", "4.2"], // Section 4.0 Power Supply (matches 4.1.x and 4.2.x)
+  "5_0": ["4.1.1", "4.1.2","4.1.3", "4.2.1","4.2.2","4.2.3","4.2.5"], // Section 4.0 Power Supply (matches 4.1.x and 4.2.x)
   "6_0": ["5.2", "5.3", "5.4", "5.5"], // Section 5.0 Kavach Equipment (matches 5.2.x, 5.3.x, 5.4.x, etc.)
   "7_0": ["6.1.2", "6.1.3", "6.1.6", "6.1.8", "6.1.9", "6.1.10", "6.1.11"], // Section 6.0 RF Communication (matches specified 6.1.x and all 6.2.x)
   "8_0": ["7.1", "7.3"] // Section 7.0 OFC Networking rack
