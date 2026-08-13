@@ -4364,6 +4364,7 @@ FIU Scanner Card 1
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -4397,6 +4398,7 @@ FIU Scanner Card 1
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                 <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -4430,6 +4432,7 @@ FIU Scanner Card 1
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                 <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -4463,6 +4466,7 @@ FIU Scanner Card 1
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                 <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -4496,6 +4500,7 @@ FIU Scanner Card 1
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                 <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -4529,6 +4534,7 @@ FIU Scanner Card 1
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -4562,6 +4568,7 @@ FIU Scanner Card 1
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                 <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -4595,6 +4602,7 @@ FIU Scanner Card 1
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -4628,6 +4636,7 @@ FIU Scanner Card 1
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -4661,6 +4670,7 @@ FIU Scanner Card 1
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -4694,6 +4704,7 @@ FIU Scanner Card 1
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -4728,6 +4739,7 @@ FIU Scanner Card 1
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -4765,6 +4777,7 @@ FIU Scanner Card 1
                 <option value="Ok" style="display:none;">Ok</option>
                 <option value="Not Ok" style="display:none;">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                 <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -4853,6 +4866,7 @@ FIU Scanner Card 1
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                 <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -4887,6 +4901,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                 <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -4920,6 +4935,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -4952,6 +4968,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -4985,6 +5002,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5017,6 +5035,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5050,6 +5069,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5084,6 +5104,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5117,6 +5138,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5151,6 +5173,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5185,6 +5208,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5218,6 +5242,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5252,6 +5277,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5285,6 +5311,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5318,6 +5345,7 @@ Ensure mill connector shall be locked properly.</td>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
       <option value="Not Applicable">Not Applicable</option>
+      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
       <td class="remarks">
@@ -5351,6 +5379,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5384,6 +5413,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5418,6 +5448,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5451,6 +5482,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5484,6 +5516,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5517,6 +5550,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5551,6 +5585,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5584,6 +5619,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5618,6 +5654,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5651,6 +5688,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5685,6 +5723,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5772,6 +5811,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5806,6 +5846,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5839,6 +5880,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5872,6 +5914,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5906,6 +5949,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5939,6 +5983,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -5973,6 +6018,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6006,6 +6052,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6039,6 +6086,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6072,6 +6120,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6105,6 +6154,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6138,6 +6188,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6256,6 +6307,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                 <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6289,6 +6341,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6322,6 +6375,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6356,6 +6410,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6390,6 +6445,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6423,6 +6479,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6456,6 +6513,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6490,6 +6548,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6523,6 +6582,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6556,6 +6616,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Available">Available</option>
                 <option value="Not Available">Not Available</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6628,6 +6689,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6661,6 +6723,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6694,6 +6757,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6728,6 +6792,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6757,10 +6822,11 @@ Ensure mill connector shall be locked properly.</td>
       <td class="requirement_text">Completed Station Analyser and Bell Test reports shall be available.</td>
    <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                <option value="Select">Select</option>
-                <option value="Available">Available</option>
-                <option value="Not Available">Not Available</option>
+                 <option value="Select">Select</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6794,6 +6860,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6828,6 +6895,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6894,6 +6962,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -6931,6 +7000,7 @@ Ensure mill connector shall be locked properly.</td>
           <option value="Select">Select</option>
           <option value="Ok" style="display:none;">Ok</option>
           <option value="Not Ok" style="display:none;">Not Ok</option>
+          <option value="Not Verified">Not Verified</option>
           <option value="Not Applicable">Not Applicable</option>
         </select>
       </td>
@@ -6969,6 +7039,7 @@ Ensure mill connector shall be locked properly.</td>
           <option value="Select">Select</option>
           <option value="Ok" style="display:none;">Ok</option>
           <option value="Not Ok" style="display:none;">Not Ok</option>
+          <option value="Not Verified">Not Verified</option>
           <option value="Not Applicable">Not Applicable</option>
         </select>
       </td>
@@ -7029,11 +7100,13 @@ Ensure mill connector shall be locked properly.</td>
       <td>9.4</td>
       <td class="observation_text">Labeling</td>
       <td class="requirement_text">All earth pits, earthing conductors, and earth points shall be clearly labelled and identifiable.</td>
-      <td class="select">
+    <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
-                <option value="Available">Available</option>
-                <option value="Not Available">Not Available</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -7102,6 +7175,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Applicable">Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -7139,6 +7213,7 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Applicable">Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -7173,6 +7248,7 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Applicable">Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -7207,6 +7283,7 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Applicable">Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -7241,6 +7318,7 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Applicable">Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -7275,6 +7353,7 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Applicable">Applicable</option>
+                <option value="Not Verified">Not Verified</option>  
               </select>
       </td>
       <td class="remarks">
@@ -7376,6 +7455,7 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -7512,6 +7592,40 @@ OFC armoured cables shall be used for communication.</td>
       </td>
       <td class="remarks">
         <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+      </td>
+     <td>
+       <button class="add-image" onclick="showUploadOptions(123)">Add Image</button>
+<div class="upload-options" id="upload-options-123" style="display: none;">
+  <button class="add-image" onclick="startCamera(123)">Camera</button>
+  <label for="file-input-123" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-123" accept="image/*" multiple onchange="displayImages(this, 123)">
+</div>
+      <!-- Container for multiple images --> 
+      <div id="image-container-123"></div>
+      <!-- Camera Container -->
+<div id="camera-container-123" style="display: none;">
+  <video id="camera-123" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(123)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(123)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(123)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-123" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+    </tr>
+     <tr id="row-12398">
+      <td>12.4</td>
+      <td class="observation_text">Verify replacement of RFID Point Tags with the new FRP Tag Mounting Base</td>
+      <td class="requirement_text">All RFID Point Tags are installed using the FRP Tag Mounting Base.</td>
+      <td class="select">
+       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+                <option value="Select">Select</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Verified">Not Verified</option>
+                <option value="Not Completed">Not Completed</option>
+              </select>
+      </td>
+      <td class="remarks">
+        <textarea placeholder="Add Tag Numbers..." rows="2" cols="20"></textarea><br>
       </td>
      <td>
        <button class="add-image" onclick="showUploadOptions(123)">Add Image</button>
@@ -9334,11 +9448,14 @@ function getDropdownOptions(sno, observationStatus, sectionID = null) {
   const specificOptions = {
     "1.38,1.40,1.41,1.42,1.43,1.45,1.46,1.47,1.48,1.49,1.50,1.51,1.52,1.53,1.54,1.55,1.56,1.57,1.58,1.59,1.60,1.61,1.62,1.63,1.64": ["Matching", "Not Matching", "Not Installed", "Not Applicable", "Not Verified"],
     "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37,1.65,1.66,1.67,1.68": ["Matching", "Not Matching", "Not Installed", "Not Applicable", "Not Verified"],
-    "3.1,2.1,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.2.9,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,5.4.6,8.1,8.2,8.3,8.4,8.6,8.7,7.1,7.2,7.3,7.4,7.5,7.6,7.7,7.8,7.9,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.1.11,6.2.1,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.1.6,4.1.7,4.1.8,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,9.2,9.2.1,12.1,12.2,13.1,11.1": ["Ok", "Not Ok", "Not Applicable"],
-    "5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1": ["Ok", "Not Ok"],
-    "10.1,10.2,10.3,10.4,10.5,10.6": ["Ok", "Not Ok", "Not Applicable", "Applicable"],
-    "9.3": ["Available", "Not Available"],
-    "6.2.2,7.10,8.5,12.3,11.1": ["Available", "Not Available", "Not Applicable"],
+    "3.1,2.1,12.1,12.2,13.1": ["Ok", "Not Ok", "Not Applicable"],
+    "5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1,9.2,9.2.1,9.4": ["Ok", "Not Ok","Not Verified"],
+    "8.1,8.2,8.3,8.4,8.5,8.6,8.7,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.1.11,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.1.6,4.1.7,4.1.8,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,7.1,7.2,7.3,7.4,7.5,7.6,7.7,7.8,7.9,6.2.1,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,5.4.6,11.2": ["Ok", "Not Ok", "Not Applicable","Not Verified"],
+    "10.1,10.2,10.3,10.4,10.5,10.6": ["Ok", "Not Ok", "Not Applicable", "Applicable", "Not Verified"],
+    "12.4":["Ok", "Not Ok", "Not Verified", "Not Completed"],
+    "9.3": ["Available", "Not Available"],  
+    "5.2.9": ["Available", "Not Available", "Not Applicable","Not Verified"],
+    "6.2.2,7.10,12.3,11.1": ["Available", "Not Available", "Not Applicable"],
     "1.44": ["Verified", "Not Verified", "Not Installed", "Not Applicable"]
   };
 
@@ -9875,7 +9992,7 @@ function uploadImages(files) {
 
 const statusColors = {
   "Present": "green", "Matching": "green", "Found Ok": "green", "Implemented": "green",
-  "Not Applicable": "green", "Fixed": "Green", "Connected": "green", "Routing done": "green",
+  "Not Applicable": "green", "Applicable": "green", "Fixed": "Green", "Connected": "green", "Routing done": "green",
   "Verified": "green", "Done": "green", "Ok": "green", "Earth Connected": "green",
   "Functioning": "green", "Identification Done": "green", "Cable ties implemented": "green",
   "Joined": "Green", "Installed": "green", "Available": "green", "Actual Rating:": "green",
@@ -9886,7 +10003,7 @@ const statusColors = {
   "Not Done": "red", "Routing Not done": "red", "Not Ok": "red", "PCCL Not Done": "red",
   "Earth not connected": "red", "Not Functioning": "red", "Identification Not Done": "red",
   "Cable ties not implemented": "red", "Not Joined": "red", "Non-Compliance": "red", "No": "red",
-  "Not Available": "red",
+  "Not Available": "red", "Not Completed": "red",
 
   "Not Connected": "yellow"
 };
