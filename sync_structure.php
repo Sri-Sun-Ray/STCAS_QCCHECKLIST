@@ -411,6 +411,31 @@ if (!empty($deleted_points)) {
     echo "Deleted " . $total_deleted . " obsolete observations (11.3) from outdoor_cabling.<br>";
 }
 
+// ==========================================
+// ENSURE POINT 12.4 EXISTS FOR ALL STATIONS
+// ==========================================
+$rfid_text = "Verify replacement of RFID Point Tags with the new FRP Tag Mounting Base";
+$rfid_req = "All RFID Point Tags are installed using the FRP Tag Mounting Base.";
+
+$stations_result = mysqli_query($conn, "SELECT DISTINCT station_id FROM verification_of_equipment_serial_numbers");
+$added_12_4 = 0;
+if ($stations_result) {
+    while ($station = mysqli_fetch_assoc($stations_result)) {
+        $st_id = $station['station_id'];
+        $check_12_4 = mysqli_query($conn, "SELECT id FROM rfid_tags WHERE station_id = '$st_id' AND S_no = '12.4'");
+        if ($check_12_4 && mysqli_num_rows($check_12_4) == 0) {
+            $stmt_ins = $conn->prepare("INSERT INTO rfid_tags (station_id, S_no, observation_text, requirement_text, observation_status, created_at, updated_at) VALUES (?, '12.4', ?, ?, 'Select', NOW(), NOW())");
+            if ($stmt_ins) {
+                $stmt_ins->bind_param("sss", $st_id, $rfid_text, $rfid_req);
+                $stmt_ins->execute();
+                $added_12_4 += $stmt_ins->affected_rows;
+                $stmt_ins->close();
+            }
+        }
+    }
+}
+echo "Added missing point 12.4 to " . $added_12_4 . " stations in rfid_tags.<br>";
+
 echo "<br>Sync complete";
 mysqli_close($conn);
 ?>

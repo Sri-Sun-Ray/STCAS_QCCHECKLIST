@@ -356,7 +356,7 @@
           if (status === "Not Applicable") {
             naCount++;
           } else {
-            const isClosed = ["Available", "Present", "Ok", "Yes", "Routing Done", "Fixed", "Secured", "Installed", "Connected", "Aligned", "Torquing done", "Positioning done", "Configured", "Welding done", "Earthing done", "Matching", "Coating done", "Applied", "Cables Connected", "Metal clamps implemented", "Locked", "Verified", "Verified and ok"].includes(status);
+            const isClosed = ["Available", "Present", "Ok", "Yes", "Routing Done", "Fixed", "Secured", "Installed", "Connected", "Aligned", "Torquing done", "Positioning done", "Configured", "Welding done", "Earthing done", "Matching", "Not Applicable", "Applicable", "Coating done", "Applied", "Cables Connected", "Metal clamps implemented", "Locked", "Verified", "Verified and ok"].includes(status);
             if (isClosed) closed++;
           }
         });
@@ -914,7 +914,7 @@
             if (status === "Not Applicable") {
               naCount++;
             } else {
-              const isClosed = ["Available", "Present", "Ok", "Yes", "Routing Done", "Fixed", "Secured", "Installed", "Connected", "Aligned", "Torquing done", "Positioning done", "Configured", "Welding done", "Earthing done", "Matching", "Coating done", "Applied", "Cables Connected", "Metal clamps implemented", "Locked", "Verified", "Verified and ok"].includes(status);
+              const isClosed = ["Available", "Present", "Ok", "Yes", "Routing Done", "Fixed", "Secured", "Installed", "Connected", "Aligned", "Torquing done", "Positioning done", "Configured", "Welding done", "Earthing done", "Matching", "Not Applicable", "Applicable", "Coating done", "Applied", "Cables Connected", "Metal clamps implemented", "Locked", "Verified", "Verified and ok"].includes(status);
               if (isClosed) closed++;
             }
           });
