@@ -167,15 +167,32 @@ try {
             <tbody>
             <?php foreach ($reports as $report): ?>
                 <?php
-                // Extract Station ID and Report Date from filename e.g. 6787_2026-03-17_Report_NotCompleted_Version-1.pdf
+                // Extract Station Name or ID and look up real numeric station_id from DB
                 $station_id = null;
                 $report_date = null;
 
-                if (preg_match('/^([^_]+)_([0-9]{4}-[0-9]{2}-[0-9]{2})_Report_/i', $report['file_name'], $matches)) {
-                    $station_id = trim($matches[1]);
+                if (preg_match('/^(.*?)_([0-9]{4}-[0-9]{2}-[0-9]{2})_Report_/i', $report['file_name'], $matches)) {
+                    $extracted_name = trim($matches[1]);
                     $report_date = $matches[2];
+
+                    if (is_numeric($extracted_name)) {
+                        $station_id = $extracted_name;
+                    } else {
+                        $stStmt = $pdo->prepare("SELECT station_id FROM station WHERE station_name = :name LIMIT 1");
+                        $stStmt->execute(['name' => $extracted_name]);
+                        $stRow = $stStmt->fetch(PDO::FETCH_ASSOC);
+                        if ($stRow && !empty($stRow['station_id'])) {
+                            $station_id = $stRow['station_id'];
+                        } else {
+                            $station_id = $extracted_name;
+                        }
+                    }
                 } elseif (preg_match('/^([^_]+)/', $report['file_name'], $stationMatches)) {
-                    $station_id = trim($stationMatches[0]) ?? null;
+                    $station_id = trim($stationMatches[0]);
+                }
+
+                if (empty($station_id)) {
+                    $station_id = 'N/A';
                 }
 
                 // Values as fallbacks
@@ -205,7 +222,7 @@ try {
                         <a href="uploads/reports/<?php echo htmlspecialchars($report['file_name']); ?>" class="btn view-btn">View</a>
                         <a href="create.html?station_id=<?php echo htmlspecialchars($station_id); ?>" class="btn edit-btn">Edit</a>
                         <a href="uploads/reports/<?php echo htmlspecialchars($report['file_name']); ?>" download class="btn download-btn">Download</a>
-                        <button class="btn upload-btn" onclick="openWFMSLogin(event, '<?php echo htmlspecialchars($report['id']); ?>', '<?php echo htmlspecialchars($station_id); ?>')">Push to WFMS</button>
+                        <button class="btn upload-btn" onclick="openWFMSLogin(event, '<?php echo htmlspecialchars($report['id']); ?>', '<?php echo htmlspecialchars($station_id); ?>', '<?php echo htmlspecialchars($report['file_name']); ?>')">Push to WFMS</button>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -258,17 +275,26 @@ try {
 <script>
   let currentReportId = null;
   let currentStationId = null;
+  let currentFileName = null;
   let wfmsToken = null;
   let assignedActivities = [];
 
-  function openWFMSLogin(event, reportId, stationId) {
+  function openWFMSLogin(event, reportId, stationId, fileName) {
     if (!navigator.onLine) {
         alert("No internet connection. Please check your connectivity to push to WFMS.");
         return;
     }
-    currentReportId = reportId;
-    currentStationId = stationId;
-    document.getElementById('wfmsLoginModal').style.display = 'flex';
+    const btn = event ? (event.currentTarget || event.target) : null;
+    const tr = btn ? btn.closest('tr') : null;
+    currentReportId = reportId || (btn ? btn.getAttribute('data-report-id') : '');
+    currentStationId = stationId || (btn ? btn.getAttribute('data-station-id') : '');
+    currentFileName = fileName || (tr ? tr.cells[0]?.textContent?.trim() : '');
+
+    if (wfmsToken && assignedActivities && assignedActivities.length > 0) {
+        openStationSelection();
+    } else {
+        document.getElementById('wfmsLoginModal').style.display = 'flex';
+    }
   }
 
   function closeWFMSModal(id) {
@@ -355,6 +381,7 @@ try {
                     const opt = document.createElement('option');
                     opt.value = st.id;
                     opt.text = st.name + (st.code ? " (" + st.code + ")" : "");
+                    opt.setAttribute('data-station-name', st.name);
                     select.appendChild(opt);
                 });
             }
@@ -371,18 +398,32 @@ try {
     const errorDiv = document.getElementById('station_error');
     const btn = document.getElementById('pushBtn');
 
+    errorDiv.style.display = 'none';
+
+    if (!wfmsToken) {
+        errorDiv.innerText = "Session expired. Please log in to WFMS again.";
+        errorDiv.style.display = 'block';
+        setTimeout(() => {
+            closeWFMSModal('wfmsStationModal');
+            document.getElementById('wfmsLoginModal').style.display = 'flex';
+        }, 1200);
+        return;
+    }
+
     if (!wfmsStationId) {
-        errorDiv.innerText = "Please select a station";
+        errorDiv.innerText = "Please select a valid station from the dropdown.";
         errorDiv.style.display = 'block';
         return;
     }
 
     try {
         // Verify if "Wayside QA Audit" task exists for the selected station
-        const targetActivity = assignedActivities.find(act => 
-            act.station && act.station._id === wfmsStationId && 
-            act.name.toLowerCase().includes('wayside qa audit')
-        );
+        const targetActivity = assignedActivities.find(act => {
+            const stObj = act.station || act.stationId;
+            const stId = stObj ? (stObj._id || stObj.id || stObj) : null;
+            const actName = act.name || '';
+            return stId === wfmsStationId && actName.toLowerCase().includes('wayside qa audit');
+        });
 
         if (!targetActivity) {
             errorDiv.innerText = "Access Denied: The 'Wayside QA Audit' task for this station is NOT assigned to you in WFMS.";
@@ -392,13 +433,47 @@ try {
             return;
         }
 
+        const select = document.getElementById('wfms_station_select');
+        const selectedOpt = select.options[select.selectedIndex];
+        let stationName = selectedOpt ? selectedOpt.getAttribute('data-station-name') : '';
+
+        if (!stationName) {
+            const stObj = targetActivity ? (targetActivity.station || targetActivity.stationId) : null;
+            if (typeof stObj === 'string') {
+                stationName = stObj;
+            } else if (stObj && typeof stObj === 'object') {
+                stationName = stObj.name || stObj.stationName || stObj.station_name || '';
+            }
+        }
+
+        if (!stationName && selectedOpt) {
+            const txt = selectedOpt.text.split('(')[0].trim();
+            if (txt && !txt.startsWith('--')) {
+                stationName = txt;
+            }
+        }
+
+        if (!stationName || stationName.startsWith('--')) {
+            errorDiv.innerText = "Please select a valid station from the dropdown list.";
+            errorDiv.style.display = 'block';
+            return;
+        }
+
         // 2. Access verified, proceed to upload
+        btn.disabled = true;
         btn.innerHTML = '<span class="loader"></span> Uploading...';
+
+        const targetDoc = (targetActivity.outputDocs || []).find(d => d.name === 'Wayside QA Audit Report') || (targetActivity.outputDocs || [])[0];
+        const docId = targetDoc ? (targetDoc._id || targetDoc.id || '') : '';
+
         const formData = new FormData();
-        formData.append('reportId', currentReportId);
-        formData.append('stationId', currentStationId);
-        formData.append('wfms_token', wfmsToken);
-        formData.append('wfms_station_name', targetActivity.station.name);
+        formData.append('reportId', currentReportId || '');
+        formData.append('stationId', currentStationId || '');
+        formData.append('fileName', currentFileName || '');
+        formData.append('wfms_token', wfmsToken || '');
+        formData.append('wfms_station_name', stationName);
+        formData.append('activityId', targetActivity._id || '');
+        formData.append('docId', docId);
 
         const uploadResponse = await fetch('upload-to-wfms.php', {
             method: 'POST',
