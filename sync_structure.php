@@ -332,10 +332,26 @@ foreach ($renamed_points as $s_no => $new_text) {
 echo "Updated observation text for " . $total_updated . " observations.<br>";
 
 // ==========================================
-// UPDATE REQUIREMENT TEXT
-// ==========================================
 $updated_requirements = [
+    "4.1.1" => "IPS PDU unit shall be mounted on the wall using M8 insulators, secured with M8 bolts, and tightened to a torque of 7 Nm as per diagram 5 16 76 0053",
+    "4.1.2" => "Station PDU unit shall be mounted on the wall using M8 insulators, secured with M8 bolts, and tightened to a torque of 7 Nm as per diagram 5 16 76 0054",
+    "4.1.3" => "PDU units shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 5 Nm with torque marking applied.",
     "4.1.8" => "Functional testing shall be performed as per the PDU test procedure 5 53 20 0024.",
+    "4.2.1" => "DC-DC Converter unit shall be installed as per the approved floor plan drawing, mounted on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 8 Nm as per diagram 5 16 76 0055",
+    "4.2.3" => "Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 5 Nm with torque marking applied.",
+    "5.1.1" => "Kavach unit shall be installed as per the approved floor plan drawing, mounted on the floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 8 Nm as per diagram 5 16 76 0056.",
+    "5.1.3" => "Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 5 Nm with torque marking applied.",
+    "5.1.5" => "Station Kavach Termination Unit shall be wall-mounted near the Kavach unit using insulators, secured with M8 bolts, and tightened to a torque of 7 Nm as per diagram 5 16 76 0045.",
+    "5.2.1" => "SMOCIP shall be installed in the Station Master’s room at an ergonomic height. The panel shall be securely fixed using M6 screws and tightened to a torque of 5 Nm with torque marking applied, as per diagram 5 16 76 0040",
+    "5.2.2" => "SMOCIP Termination Unit shall be wall-mounted near the SMOCIP unit, using insulators, secured with M6 bolts, and tightened to a torque of 5 Nm as per diagram  5 16 76 0046",
+    "5.3.3" => "Two antennas shall be installed on the Kavach room rooftop with a minimum separation of 3 meters, grouting shall be carried out as per diagram 5 16 67 0039, and torque of 5 Nm shall be applied for M6 fasteners with torque marking provided.",
+    "5.4.1" => "RIU shall be installed on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 8 Nm as per diagram 5 16 76 0057.",
+    "5.4.3" => "Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 5 Nm with torque marking applied.",
+    "5.5.1" => "EI protocol converter shall be installed on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 8 Nm or unit shall be mounted on wall with M10 nut & Bolts as per respective diagram.",
+    "5.5.3" => "Unit shall be connected to the ring earth/bus bar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 5  NM with torque marking applied.",
+    "6.1.1" => "Both RTUs shall be firmly secured to the tower platform using M12 bolts and nuts, and a torque of 42 Nm shall be applied as per diagram 5 16 67 0983.",
+    "8.4" => "Bolts shall be tightened to a torque of 5 Nm, and torque marking shall be applied using yellow paint.",
+    "8.6" => "Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 5 Nm with torque marking applied.",
     "9.2.1" => "Check the value of earth resistance at earth of the radio tower. The measured value shall be lessthan or equal to 2 Ohm."
 ];
 

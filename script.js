@@ -4357,7 +4357,7 @@ FIU Scanner Card 1
           <tr id="row-41">
       <td>4.1.1</td>
       <td class="observation_text">Installation</td>
-      <td class="requirement_text">IPS PDU unit shall be mounted on the wall using M8 insulators, secured with M8 bolts, and tightened to a torque of 20 Nm as per diagram 5 16 76 0053</td>
+      <td class="requirement_text">IPS PDU unit shall be mounted on the wall using M8 insulators, secured with M8 bolts, and tightened to a torque of 7 Nm as per diagram 5 16 76 0053</td>
        <td class="select">
         <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4365,6 +4365,7 @@ FIU Scanner Card 1
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
               </select>
       </td>
       <td class="remarks">
@@ -4391,7 +4392,7 @@ FIU Scanner Card 1
     <tr id="row-411">
       <td>4.1.2</td>
       <td class="observation_text">Installation</td>
-      <td class="requirement_text">Station PDU unit shall be mounted on the wall using M8 insulators, secured with M8 bolts, and tightened to a torque of 20 Nm as per diagram 5 16 76 0054</td>
+      <td class="requirement_text">Station PDU unit shall be mounted on the wall using M8 insulators, secured with M8 bolts, and tightened to a torque of 7 Nm as per diagram 5 16 76 0054</td>
        <td class="select">
         <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4399,6 +4400,7 @@ FIU Scanner Card 1
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                  <option value="Not Verified">Not Verified</option>
+                  <option value="Not Installed">Not Installed</option>
               </select>
       </td>
       <td class="remarks">
@@ -4425,14 +4427,15 @@ FIU Scanner Card 1
     <tr id="row-412">
       <td>4.1.3</td>
       <td class="observation_text">Cabling</td>
-      <td class="requirement_text">All external cables entering the PDU shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.</td>
+      <td class="requirement_text">All external cables entering the PDU shall pass through cable glands and ensure no cable entry opening.</td>
       <td class="select">
         <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
-                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -4527,7 +4530,7 @@ FIU Scanner Card 1
     <tr id="row-415">
       <td>4.1.6</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">PDU units shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
+      <td class="requirement_text">PDU units shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 5 Nm with torque marking applied.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4535,6 +4538,7 @@ FIU Scanner Card 1
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -4629,7 +4633,7 @@ FIU Scanner Card 1
     <tr id="row-42">
       <td>4.2.1</td>
       <td class="observation_text">Installation</td>
-      <td class="requirement_text">DC-DC Converter unit shall be installed as per the approved floor plan drawing, mounted on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0055</td>
+      <td class="requirement_text">DC-DC Converter unit shall be installed as per the approved floor plan drawing, mounted on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 8 Nm as per diagram 5 16 76 0055</td>
      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4637,6 +4641,7 @@ FIU Scanner Card 1
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
               </select>
       </td>
       <td class="remarks">
@@ -4663,7 +4668,7 @@ FIU Scanner Card 1
     <tr id="row-421">
       <td>4.2.2</td>
       <td class="observation_text">Cabling</td>
-      <td class="requirement_text">All external cables entering the unit shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.</td>
+      <td class="requirement_text">All external cables entering the unit shall pass through cable glands and ensure no cable entry opening.</td>
      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4671,6 +4676,8 @@ FIU Scanner Card 1
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -4697,7 +4704,7 @@ FIU Scanner Card 1
     <tr id="row-422">
       <td>4.2.3</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
+      <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 5 Nm with torque marking applied.</td>
      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -4705,6 +4712,7 @@ FIU Scanner Card 1
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -4836,9 +4844,19 @@ FIU Scanner Card 1
     // Clear old section content but preserve station info
     clearSectionContent();
     mainContent.innerHTML += `
-      <div style="position: relative; margin-bottom: 20px;">
-        <h3 class="section-heading" id="section-heading-6_0"> Kavach Equipment </h3>
-        <select id="section-na-dropdown-6_0" style="position: absolute; top: 0; right: 0; width: 140px; padding: 5px 8px; border: 1px solid #ccc; border-radius: 3px; font-size: 12px; background-color: white;" onchange="if(this.value) { markSectionAsNotApplicable('6_0', this.value); this.value=''; }">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; position: relative;">
+        <div id="oem-container-5_5" style="display: none; align-items: center; gap: 10px; white-space: nowrap;">
+          <label for="oem-select-5_5" style="font-weight: bold; font-size: 15px; color: #111; white-space: nowrap; margin: 0;">OEM Name:</label>
+          <select id="oem-select-5_5" class="oem-dropdown" style="padding: 6px 12px; border: 1.5px solid #007bff; border-radius: 5px; font-size: 14px; background-color: #f8f9fa; font-weight: bold; color: #111; cursor: pointer;" onchange="saveOemSelection(this.value); markDataAsUnsaved();">
+            <option value="">Select OEM</option>
+            <option value="Medha">Medha</option>
+            <option value="Siemens">Siemens</option>
+            <option value="Hitachi">Hitachi</option>
+            <option value="Kyosan">Kyosan</option>
+          </select>
+        </div>
+        <h3 class="section-heading" id="section-heading-6_0" style="margin: 0; flex-grow: 1; text-align: center; font-size: 18px; font-weight: bold;"> Kavach Equipment </h3>
+        <select id="section-na-dropdown-6_0" style="width: 140px; padding: 5px 8px; border: 1px solid #ccc; border-radius: 3px; font-size: 12px; background-color: white;" onchange="if(this.value) { markSectionAsNotApplicable('6_0', this.value); this.value=''; }">
           <option value="">Mark Section As:</option>
           <option value="mark">Mark All as Not Applicable</option>
           <option value="clear">Clear All Selections</option>
@@ -4860,13 +4878,14 @@ FIU Scanner Card 1
     <tr id="row-51">
       <td>5.1.1</td>
       <td class="observation_text">Installation</td>
-      <td class="requirement_text">Kavach unit shall be installed as per the approved floor plan drawing, mounted on the floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0056.</td>
+      <td class="requirement_text">Kavach unit shall be installed as per the approved floor plan drawing, mounted on the floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 8 Nm as per diagram 5 16 76 0056.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                  <option value="Not Verified">Not Verified</option>
+                 <option value="Not Installed">Not Installed</option>
               </select>
       </td>
       <td class="remarks">
@@ -4902,6 +4921,8 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                  <option value="Not Verified">Not Verified</option>
+                 <option value="Not Installed">Not Installed</option>
+                 <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -4929,13 +4950,14 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-517">
       <td>5.1.3</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
+      <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 5 Nm with torque marking applied.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -4996,13 +5018,15 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-5110">
       <td>5.1.5</td>
       <td class="observation_text">Termination Unit</td>
-      <td class="requirement_text">Station Kavach Termination Unit shall be wall-mounted near the Kavach unit using insulators, secured with M8 bolts, and tightened to a torque of 20 Nm as per diagram 5 16 76 0045.</td>
+      <td class="requirement_text">Station Kavach Termination Unit shall be wall-mounted near the Kavach unit using insulators, secured with M8 bolts, and tightened to a torque of 7 Nm as per diagram 5 16 76 0045.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
+                
               </select>
       </td>
       <td class="remarks">
@@ -5062,7 +5086,7 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-52">
       <td>5.2.1</td>
       <td class="observation_text">Installation</td>
-      <td class="requirement_text">SMOCIP shall be installed in the Station Master’s room at an ergonomic height. The panel shall be securely fixed using M6 screws and tightened to a torque of 8 Nm with torque marking applied, as per diagram 5 16 76 0040</td>
+      <td class="requirement_text">SMOCIP shall be installed in the Station Master’s room at an ergonomic height. The panel shall be securely fixed using M6 screws and tightened to a torque of 5 Nm with torque marking applied, as per diagram 5 16 76 0040</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5070,6 +5094,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
               </select>
       </td>
       <td class="remarks">
@@ -5097,7 +5122,7 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-522">
       <td>5.2.2</td>
       <td class="observation_text">Termination Unit</td>
-      <td class="requirement_text">SMOCIP Termination Unit shall be wall-mounted near the SMOCIP unit, using insulators, secured with M6 bolts, and tightened to a torque of 8 Nm as per diagram  5 16 76 0046</td>
+      <td class="requirement_text">SMOCIP Termination Unit shall be wall-mounted near the SMOCIP unit, using insulators, secured with M6 bolts, and tightened to a torque of 5 Nm as per diagram  5 16 76 0046</td>
         <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5105,6 +5130,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
               </select>
       </td>
       <td class="remarks">
@@ -5139,6 +5165,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -5201,7 +5228,7 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-524">
       <td>5.2.5</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
+      <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 5 Nm with torque marking applied.</td>
         <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5209,6 +5236,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -5372,7 +5400,7 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-53">
       <td>5.3.1</td>
       <td class="observation_text">Installation</td>
-      <td class="requirement_text">Two antennas shall be installed on the Kavach room rooftop with a minimum separation of 3 meters, grouting shall be carried out as per diagram 5 16 67 0039, and torque of 10 Nm shall be applied for M6 fasteners with torque marking provided.</td>
+      <td class="requirement_text">Two antennas shall be installed on the Kavach room rooftop with a minimum separation of 3 meters, grouting shall be carried out as per diagram 5 16 67 0039, and torque of 5 Nm shall be applied for M6 fasteners with torque marking provided.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5380,6 +5408,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
               </select>
       </td>
       <td class="remarks">
@@ -5517,6 +5546,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -5543,7 +5573,7 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-54">
       <td>5.4.1</td>
       <td class="observation_text">Installation</td>
-      <td class="requirement_text">RIU shall be installed on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 40 Nm as per diagram 5 16 76 0057.</td>
+      <td class="requirement_text">RIU shall be installed on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 8 Nm as per diagram 5 16 76 0057.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5551,6 +5581,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
               </select>
       </td>
       <td class="remarks">
@@ -5578,7 +5609,7 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-542">
       <td>5.4.2</td>
       <td class="observation_text">Cabling</td>
-      <td class="requirement_text">All external cables entering into the RIU unit shall pass through cable glands and ensure no cable entry opening shall be used without a cable gland.</td>
+      <td class="requirement_text">All external cables entering into the RIU unit shall pass through cable glands and ensure no cable entry opening .</td>
        <td class="select">
       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5586,6 +5617,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -5647,7 +5679,7 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-544">
       <td>5.4.4</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
+      <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 5 Nm with torque marking applied.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5655,6 +5687,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -5724,6 +5757,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
               </select>
       </td>
       <td class="remarks">
@@ -5745,6 +5779,182 @@ Ensure mill connector shall be locked properly.</td>
   <button class="add-image" onclick="stopCamera(546)">Stop Camera</button>
   <button class="reverse-camera" onclick="switchCamera(546)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
   <canvas id="canvas-546" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+    </tr>
+    <tr id="row-54212">
+      <td>5.5.1</td>
+      <td class="observation_text">Installation</td>
+      <td class="requirement_text">EI protocol converter shall be installed on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 8 Nm or unit shall be mounted on wall with M10 nut & Bolts as per respective diagram.</td>
+      <td class="select">
+       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+                <option value="Select">Select</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
+              </select>
+      </td>
+      <td class="remarks">
+        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+      </td>
+     <td>
+       <button class="add-image" onclick="showUploadOptions(54212)">Add Image</button>
+<div class="upload-options" id="upload-options-54212" style="display: none;">
+  <button class="add-image" onclick="startCamera(54212)">Camera</button>
+  <label for="file-input-54212" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-54212" accept="image/*" multiple onchange="displayImages(this, 54212)">
+</div>
+      <!-- Container for multiple images -->
+      <div id="image-container-54212"></div>
+      <!-- Camera Container -->
+<div id="camera-container-54212" style="display: none;">
+  <video id="camera-54212" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(54212)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(54212)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(54212)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-54212" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+    </tr>
+
+    <tr id="row-542343">
+      <td>5.5.2</td>
+      <td class="observation_text">Cabling</td>
+      <td class="requirement_text">All external cables entering into the EI protocol converter unit shall pass through cable glands and ensure no cable entry opening without a cable glands/grommets.</td>
+       <td class="select">
+      <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+                <option value="Select">Select</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
+              </select>
+      </td>
+      <td class="remarks">
+        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+      </td>
+     <td>
+       <button class="add-image" onclick="showUploadOptions(542343)">Add Image</button>
+<div class="upload-options" id="upload-options-542343" style="display: none;">
+  <button class="add-image" onclick="startCamera(542343)">Camera</button>
+  <label for="file-input-542343" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-542343" accept="image/*" multiple onchange="displayImages(this, 542343)">
+</div>
+      <!-- Container for multiple images -->
+      <div id="image-container-542343"></div>
+      <!-- Camera Container -->
+<div id="camera-container-542343" style="display: none;">
+  <video id="camera-542343" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(542343)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(542343)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(542343)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-542343" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+    </tr>
+    <tr id="row-54353">
+      <td>5.5.3</td>
+      <td class="observation_text">Earthing</td>
+      <td class="requirement_text">Unit shall be connected to the ring earth/bus bar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 5  NM with torque marking applied.</td>
+       <td class="select">
+       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+                <option value="Select">Select</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
+              </select>
+      </td>
+      <td class="remarks">
+        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+      </td>
+     <td>
+       <button class="add-image" onclick="showUploadOptions(54353)">Add Image</button>
+<div class="upload-options" id="upload-options-54353" style="display: none;">
+  <button class="add-image" onclick="startCamera(54353)">Camera</button>
+  <label for="file-input-54353" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-54353" accept="image/*" multiple onchange="displayImages(this, 54353)">
+</div>
+      <!-- Container for multiple images -->
+      <div id="image-container-54353"></div>
+      <!-- Camera Container -->
+<div id="camera-container-54353" style="display: none;">
+  <video id="camera-54353" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(54353)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(54353)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(54353)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-54353" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+    </tr>
+
+    <tr id="row-513344">
+      <td>5.5.4</td>
+      <td class="observation_text">Earthing</td>
+      <td class="requirement_text">Crimping of lugs on earthing cables shall be carried out, and self-vulcanizing utility tape shall be applied.</td>
+       <td class="select">
+       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+                <option value="Select">Select</option>
+                <option value="Ok">Ok</option>
+                <option value="Not Ok">Not Ok</option>
+                <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
+              </select>
+      </td>
+      <td class="remarks">
+        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+      </td>
+     <td>
+       <button class="add-image" onclick="showUploadOptions(513344)">Add Image</button>
+<div class="upload-options" id="upload-options-513344" style="display: none;">
+  <button class="add-image" onclick="startCamera(513344)">Camera</button>
+  <label for="file-input-513344" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-513344" accept="image/*" multiple onchange="displayImages(this, 513344)">
+</div>
+      <!-- Container for multiple images -->
+      <div id="image-container-513344"></div>
+      <!-- Camera Container -->
+<div id="camera-container-513344" style="display: none;">
+  <video id="camera-513344" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(513344)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(513344)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(513344)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-513344" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+</div>
+    </tr>
+    <tr id="row-14545">
+      <td>5.5.5</td>
+      <td class="observation_text">EI Interface test report</td>
+      <td class="requirement_text">Verify the EI Interface Test Report is available in WFMS with OEM and customer sign-off, and there are no open points.</td>
+      <td class="select">
+       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+                <option value="Select">Select</option>
+                <option value="Available">Available</option>
+                <option value="Not Available">Not Available</option>
+                <option value="Available with Comments">Available with Comments</option>
+                <option value="Not Verified">Not Verified</option>
+                <option value="Not Applicable">Not Applicable</option>
+              </select>
+      </td>
+      <td class="remarks">
+        <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
+      </td>
+     <td>
+       <button class="add-image" onclick="showUploadOptions(14545)">Add Image</button>
+<div class="upload-options" id="upload-options-14545" style="display: none;">
+  <button class="add-image" onclick="startCamera(14545)">Camera</button>
+  <label for="file-input-14545" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-14545" accept="image/*" multiple onchange="displayImages(this, 14545)">
+</div>
+      <!-- Container for multiple images -->
+      <div id="image-container-14545"></div>
+      <!-- Camera Container -->
+<div id="camera-container-14545" style="display: none;">
+  <video id="camera-14545" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(14545)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(14545)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(14545)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-14545" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
     </tbody>
@@ -5769,6 +5979,21 @@ Ensure mill connector shall be locked properly.</td>
       setTimeout(() => {
         filterTableRows('observations-section-6_0', subsection);
         const heading = document.getElementById('section-heading-6_0');
+        const oemContainer = document.getElementById('oem-container-5_5');
+        const oemSelect = document.getElementById('oem-select-5_5');
+
+        if (oemContainer) {
+          if (subsection.startsWith("5.5")) {
+            oemContainer.style.display = 'flex';
+            const stationIdInput = document.getElementById('station-id');
+            const stationId = stationIdInput ? (stationIdInput.value || stationIdInput.textContent || '').trim() : '';
+            const savedOem = (stationId ? localStorage.getItem(`oem_name_5_5_${stationId}`) : null) || localStorage.getItem('oem_name_5_5') || '';
+            if (oemSelect && savedOem) oemSelect.value = savedOem;
+          } else {
+            oemContainer.style.display = 'none';
+          }
+        }
+
         if (heading) {
           if (subsection.startsWith("5.1")) {
             heading.textContent = "5.1 Kavach Unit";
@@ -5778,6 +6003,7 @@ Ensure mill connector shall be locked properly.</td>
           else if (subsection.startsWith("5.2")) heading.textContent = "5.2 SMOCIP(Station Master's Operation-Cum-Indication Panel)";
           else if (subsection.startsWith("5.3")) heading.textContent = "5.3 GPS/GSM Antennas";
           else if (subsection.startsWith("5.4")) heading.textContent = "5.4 RIU(Remote Interface Unit)";
+          else if (subsection.startsWith("5.5")) heading.textContent = "5.5 EI Protocol Converter";
         }
       }, 100);
     }
@@ -5804,7 +6030,7 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-61">
       <td>6.1.1</td>
       <td class="observation_text">RTU Fixing</td>
-      <td class="requirement_text">Both RTUs shall be firmly secured to the tower platform using M12 bolts and nuts, and a torque of 85 Nm shall be applied as per diagram 5 16 67 0983.</td>
+      <td class="requirement_text">Both RTUs shall be firmly secured to the tower platform using M12 bolts and nuts, and a torque of 42 Nm shall be applied as per diagram 5 16 67 0983.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -5812,6 +6038,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
               </select>
       </td>
       <td class="remarks">
@@ -5881,6 +6108,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -6045,7 +6273,7 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-618">
       <td>6.1.8</td>
       <td class="observation_text">110V Power cable termination</td>
-      <td class="requirement_text">110 V DC power cables shall be terminated inside RTU as per approved drawing 5 16 49 0672.</td>
+      <td class="requirement_text">110 V DC power cables shall be terminated on RTU MCB as per diagram 5 16 49 0672.</td>
       <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -6121,6 +6349,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -6189,6 +6418,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
               </select>
       </td>
       <td class="remarks">
@@ -6222,7 +6452,8 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Available">Available</option>
                 <option value="Not Available">Not Available</option>
                 <option value="Not Applicable">Not Applicable</option>
-              </select>
+                <option value="Not Verified">Not Verified</option>        
+                </select>
       </td>
       <td class="remarks">
         <textarea placeholder="Add comments here if Not OK..." rows="2" cols="20"></textarea><br>
@@ -6307,7 +6538,8 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
-                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
               </select>
       </td>
       <td class="remarks">
@@ -6446,6 +6678,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -6480,6 +6713,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -6506,7 +6740,7 @@ Ensure mill connector shall be locked properly.</td>
      <tr id="row-733">
       <td>7.7</td>
       <td class="observation_text">Earthing</td>
-       <td class="requirement_text">Bolts shall be tightened to a torque of 8 Nm, and torque marking shall be applied using yellow paint.</td>
+       <td class="requirement_text">Bolts shall be tightened to a torque of 5 Nm, and torque marking shall be applied using yellow paint.</td>
        <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -6549,6 +6783,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
               </select>
       </td>
       <td class="remarks">
@@ -6690,6 +6925,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
               </select>
       </td>
       <td class="remarks">
@@ -6758,6 +6994,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -6820,11 +7057,11 @@ Ensure mill connector shall be locked properly.</td>
       <td>8.5</td>
       <td class="observation_text">Continuity Test / Bell Test</td>
       <td class="requirement_text">Completed Station Analyser and Bell Test reports shall be available.</td>
-   <td class="select">
-       <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
-                 <option value="Select">Select</option>
-                <option value="Ok">Ok</option>
-                <option value="Not Ok">Not Ok</option>
+    <td class="select">
+      <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
+                <option value="Select">Select</option>
+                <option value="Available">Available</option>
+                <option value="Not Available">Not Available</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
               </select>
@@ -6853,7 +7090,7 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-914">
       <td>8.6</td>
       <td class="observation_text">Earthing</td>
-      <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 8 Nm with torque marking applied.</td>
+      <td class="requirement_text">Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 5 Nm with torque marking applied.</td>
      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -6861,6 +7098,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -7002,6 +7240,7 @@ Ensure mill connector shall be locked properly.</td>
           <option value="Not Ok" style="display:none;">Not Ok</option>
           <option value="Not Verified">Not Verified</option>
           <option value="Not Applicable">Not Applicable</option>
+          
         </select>
       </td>
       <td class="remarks">
@@ -7041,6 +7280,7 @@ Ensure mill connector shall be locked properly.</td>
           <option value="Not Ok" style="display:none;">Not Ok</option>
           <option value="Not Verified">Not Verified</option>
           <option value="Not Applicable">Not Applicable</option>
+        
         </select>
       </td>
       <td class="remarks">
@@ -7073,6 +7313,8 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Select">Select</option>
                 <option value="Available">Available</option>
                 <option value="Not Available">Not Available</option>
+                <option value="Not Verified">Not Verified</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7214,6 +7456,7 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Applicable">Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -7422,6 +7665,8 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Available">Available</option>
                 <option value="Not Available">Not Available</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
+               
               </select>
       </td>
       <td class="remarks">
@@ -7456,6 +7701,7 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
               </select>
       </td>
       <td class="remarks">
@@ -7522,6 +7768,8 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                  <option value="Not Verified">Not Verified</option>
+                  <option value="Not Installed">Not Installed</option>
               </select>
       </td>
       <td class="remarks">
@@ -7555,6 +7803,9 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
+                 
               </select>
       </td>
       <td class="remarks">
@@ -7588,6 +7839,7 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Available">Available</option>
                 <option value="Not Available">Not Available</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -7622,6 +7874,9 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Verified">Not Verified</option>
                 <option value="Not Completed">Not Completed</option>
+                option value="Not Verified">Not Verified</option>
+                <option value="Not Installed">Not Installed</option>
+                <option value="Not Applicable">Not Applicable</option>
               </select>
       </td>
       <td class="remarks">
@@ -7688,6 +7943,7 @@ OFC armoured cables shall be used for communication.</td>
                 <option value="Ok">Ok</option>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
+                <option value="Not Verified">Not Verified</option>
               </select>
       </td>
       <td class="remarks">
@@ -8168,7 +8424,7 @@ async function checkAndHighlightSections(stationId, zone, division) {
     },
     {
       id: '6.0', dbId: 6, btn: 'button-6',
-      subsections: ['5.1', '5.2', '5.3', '5.4']
+      subsections: ['5.1', '5.2', '5.3', '5.4', '5.5']
     },
     {
       id: '7.0', dbId: 7, btn: 'button-7',
@@ -9440,7 +9696,6 @@ function getDropdownOptions(sno, observationStatus, sectionID = null) {
     console.error("Invalid S_no value:", sno);
     return defaultOption;
   }
-
   const sNoStr = String(sno).trim().toLowerCase();
 
   // 1. Explicitly defined options for standard rows
@@ -9448,15 +9703,18 @@ function getDropdownOptions(sno, observationStatus, sectionID = null) {
   const specificOptions = {
     "1.38,1.40,1.41,1.42,1.43,1.45,1.46,1.47,1.48,1.49,1.50,1.51,1.52,1.53,1.54,1.55,1.56,1.57,1.58,1.59,1.60,1.61,1.62,1.63,1.64": ["Matching", "Not Matching", "Not Installed", "Not Applicable", "Not Verified"],
     "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37,1.65,1.66,1.67,1.68": ["Matching", "Not Matching", "Not Installed", "Not Applicable", "Not Verified"],
-    "3.1,2.1,12.1,12.2,13.1": ["Ok", "Not Ok", "Not Applicable"],
-    "5.1.1,5.1.2,5.1.3,5.1.4,5.1.5,5.1.6,9.1,9.2,9.2.1,9.4": ["Ok", "Not Ok","Not Verified"],
-    "8.1,8.2,8.3,8.4,8.5,8.6,8.7,6.1.1,6.1.2,6.1.3,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.10,6.1.11,4.1.1,4.1.2,4.1.3,4.1.4,4.1.5,4.1.6,4.1.7,4.1.8,4.2.1,4.2.2,4.2.3,4.2.4,4.2.5,7.1,7.2,7.3,7.4,7.5,7.6,7.7,7.8,7.9,6.2.1,5.2.1,5.2.2,5.2.3,5.2.4,5.2.5,5.2.6,5.2.7,5.2.8,5.3.1,5.3.2,5.3.3,5.3.4,5.3.5,5.4.1,5.4.2,5.4.3,5.4.4,5.4.5,5.4.6,11.2": ["Ok", "Not Ok", "Not Applicable","Not Verified"],
-    "10.1,10.2,10.3,10.4,10.5,10.6": ["Ok", "Not Ok", "Not Applicable", "Applicable", "Not Verified"],
-    "12.4":["Ok", "Not Ok", "Not Verified", "Not Completed"],
-    "9.3": ["Available", "Not Available"],  
-    "5.2.9": ["Available", "Not Available", "Not Applicable","Not Verified"],
-    "6.2.2,7.10,12.3,11.1": ["Available", "Not Available", "Not Applicable"],
-    "1.44": ["Verified", "Not Verified", "Not Installed", "Not Applicable"]
+    "3.1,2.1": ["Ok", "Not Ok", "Not Applicable"],
+    "5.1.2,5.1.4,5.1.6,9.1,9.2,9.2.1,9.4": ["Ok", "Not Ok","Not Verified"],
+    "8.2,8.4,8.7,6.1.2,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.11,4.1.4,4.1.5,4.1.7,4.1.8,4.2.4,4.2.5,7.2,7.3,7.4,7.7,7.8,7.9,5.2.4,5.2.6,5.2.7,5.2.8,5.3.2,5.3.3,5.3.4,5.4.3,5.4.5,5.5.4,13.1": ["Ok", "Not Ok", "Not Applicable","Not Verified"],
+    "10.1,10.3,10.4,10.5,10.6": ["Ok", "Not Ok", "Not Applicable", "Applicable", "Not Verified"],
+    "5.5.1,4.1.1,4.1.2,4.2.1,5.1.1,5.1.5,5.2.1,5.2.2,5.3.1,5.4.1,5.4.6,6.1.1,6.2.1,7.1,8.1,11.2,12.1,12.2":["Ok", "Not Ok", "Not Applicable", "Not Verified","Not Installed"],
+    "5.5.2,5.5.3,4.1.3,4.1.6,4.2.2,4.2.3,5.1.3,5.2.3,5.3.5,5.4.2,5.4.4,6.1.3,6.1.10,7.5,7.6,8.3,8.6,10.2,5.2.5":["Ok", "Not Ok", "Not Applicable", "Not Verified","Not Connected"],
+    "5.1.2":["Ok", "Not Ok", "Not Applicable", "Not Verified","Not Installed","Not Connected"],
+    "5.5.5":["Available", "Not Available", "Available with Comments", "Not Verified","Not Applicable"],
+    "5.2.9,6.2.2,7.10,8.5,9.3,11.1": ["Available", "Not Available", "Not Applicable","Not Verified"],
+    "12.3": ["Available", "Not Available", "Not Applicable"],
+    "1.44": ["Verified", "Not Verified", "Not Installed", "Not Applicable"],
+    "12.4": ["Ok", "Not Ok", "Not Applicable", "Not Verified","Not Installed","Not Completed"],
   };
 
 
@@ -10003,9 +10261,7 @@ const statusColors = {
   "Not Done": "red", "Routing Not done": "red", "Not Ok": "red", "PCCL Not Done": "red",
   "Earth not connected": "red", "Not Functioning": "red", "Identification Not Done": "red",
   "Cable ties not implemented": "red", "Not Joined": "red", "Non-Compliance": "red", "No": "red",
-  "Not Available": "red", "Not Completed": "red",
-
-  "Not Connected": "yellow"
+  "Not Available": "red", "Not Completed": "red", "Available with Comments": "red", "Not Connected": "red"
 };
 
 function highlightSelect(selectElement) {
@@ -10018,6 +10274,17 @@ function highlightSelect(selectElement) {
 
   } catch (e) {
     console.error("highlightSelect error:", e);
+  }
+}
+
+function saveOemSelection(val) {
+  const stationIdInput = document.getElementById('station-id');
+  const stationId = stationIdInput ? (stationIdInput.value || stationIdInput.textContent || '').trim() : '';
+  if (val) {
+    localStorage.setItem('oem_name_5_5', val);
+    if (stationId) {
+      localStorage.setItem(`oem_name_5_5_${stationId}`, val);
+    }
   }
 }
 
