@@ -344,6 +344,7 @@ $updated_requirements = [
     "5.1.5" => "Station Kavach Termination Unit shall be wall-mounted near the Kavach unit using insulators, secured with M8 bolts, and tightened to a torque of 7 Nm as per diagram 5 16 76 0045.",
     "5.2.1" => "SMOCIP shall be installed in the Station Master’s room at an ergonomic height. The panel shall be securely fixed using M6 screws and tightened to a torque of 5 Nm with torque marking applied, as per diagram 5 16 76 0040",
     "5.2.2" => "SMOCIP Termination Unit shall be wall-mounted near the SMOCIP unit, using insulators, secured with M6 bolts, and tightened to a torque of 5 Nm as per diagram  5 16 76 0046",
+    "5.3.1" => "Two antennas shall be installed on the Kavach room rooftop with a minimum separation of 3 meters, grouting shall be carried out as per diagram 5 16 67 0039, and torque of 5 Nm shall be applied for M6 fasteners with torque marking provided.",
     "5.3.3" => "Two antennas shall be installed on the Kavach room rooftop with a minimum separation of 3 meters, grouting shall be carried out as per diagram 5 16 67 0039, and torque of 5 Nm shall be applied for M6 fasteners with torque marking provided.",
     "5.4.1" => "RIU shall be installed on floor using M10 insulators, secured with M10 bolts, and tightened to a torque of 8 Nm as per diagram 5 16 76 0057.",
     "5.4.3" => "Unit shall be connected to the ring earth/busbar using a 10 sq.mm green/yellow earthing wire, and bolts shall be tightened to a torque of 5 Nm with torque marking applied.",

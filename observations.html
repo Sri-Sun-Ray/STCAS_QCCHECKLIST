@@ -997,6 +997,70 @@
         });
         finalY = pdf.lastAutoTable.finalY + 10;
 
+        // --- Station Billing Summary Table ---
+        const billingSections = ["1", "4", "5", "7", "8", "10", "13"];
+        let billingTotalPoints = 0;
+        let billingClosedPoints = 0;
+
+        billingSections.forEach(id => {
+          if (sectionStats[id]) {
+            billingTotalPoints += sectionStats[id].total;
+            billingClosedPoints += sectionStats[id].closed;
+          }
+        });
+        const billingOpenPoints = Math.max(0, billingTotalPoints - billingClosedPoints);
+
+        if (finalY > pageHeight - footerHeight - bottomMargin - 35) {
+          pdf.addPage();
+          finalY = 10;
+        }
+
+        pdf.setFont("helvetica", "bold");
+        pdf.setFontSize(11);
+        pdf.setTextColor(0, 51, 102);
+        pdf.text("Station Billing Summary", 10, finalY);
+        finalY += 5;
+
+        pdf.autoTable({
+          startY: finalY,
+          head: [["Total Points", "Closed Points", "Open Points"]],
+          body: [[billingTotalPoints, billingClosedPoints, billingOpenPoints]],
+          theme: "grid",
+          styles: {
+            fontSize: 10,
+            cellPadding: 1,
+            halign: 'center',
+            valign: 'middle',
+            lineWidth: 0.1,
+            lineColor: [0, 0, 0]
+          },
+          headStyles: {
+            fillColor: [0, 108, 204],
+            textColor: [255, 255, 255],
+            fontStyle: 'bold',
+            lineWidth: 0.5,
+            lineColor: [0, 0, 0]
+          },
+          bodyStyles: {
+            lineWidth: 0.5,
+            lineColor: [0, 0, 0],
+            textColor: [0, 0, 0]
+          },
+          margin: { right: 10 },
+          columnStyles: {
+            0: { cellWidth: 61 },
+            1: { cellWidth: 62 },
+            2: { cellWidth: 62 }
+          }
+        });
+        finalY = pdf.lastAutoTable.finalY + 4;
+
+        pdf.setFont("helvetica", "bold");
+        pdf.setFontSize(10.5);
+        pdf.setTextColor(0, 0, 0);
+        pdf.text("Considered Sections : 1.0,  4.0,  5.0,  7.0,  8.0,  10.0,  13.0", 10, finalY + 1);
+        finalY += 9;
+
         // --- Completion Status Table ---
         pdf.autoTable({
           startY: finalY,
