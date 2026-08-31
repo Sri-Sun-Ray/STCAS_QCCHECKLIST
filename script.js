@@ -7883,21 +7883,21 @@ OFC armoured cables shall be used for communication.</td>
         <textarea placeholder="Add Tag Numbers..." rows="2" cols="20"></textarea><br>
       </td>
      <td>
-       <button class="add-image" onclick="showUploadOptions(123)">Add Image</button>
-<div class="upload-options" id="upload-options-123" style="display: none;">
-  <button class="add-image" onclick="startCamera(123)">Camera</button>
-  <label for="file-input-123" class="upload-label">Upload from Device</label>
-  <input type="file" id="file-input-123" accept="image/*" multiple onchange="displayImages(this, 123)">
+       <button class="add-image" onclick="showUploadOptions(12398)">Add Image</button>
+<div class="upload-options" id="upload-options-12398" style="display: none;">
+  <button class="add-image" onclick="startCamera(12398)">Camera</button>
+  <label for="file-input-12398" class="upload-label">Upload from Device</label>
+  <input type="file" id="file-input-12398" accept="image/*" multiple onchange="displayImages(this, 12398)">
 </div>
       <!-- Container for multiple images --> 
       <div id="image-container-123"></div>
       <!-- Camera Container -->
-<div id="camera-container-123" style="display: none;">
-  <video id="camera-123" width="100%" height="auto" autoplay></video>
-  <button class="add-image" onclick="captureImage(123)">Capture Image</button>
-  <button class="add-image" onclick="stopCamera(123)">Stop Camera</button>
-  <button class="reverse-camera" onclick="switchCamera(123)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
-  <canvas id="canvas-123" style="display: none;"></canvas> <!-- Canvas to capture the image -->
+<div id="camera-container-12398" style="display: none;">
+  <video id="camera-12398" width="100%" height="auto" autoplay></video>
+  <button class="add-image" onclick="captureImage(12398)">Capture Image</button>
+  <button class="add-image" onclick="stopCamera(12398)">Stop Camera</button>
+  <button class="reverse-camera" onclick="switchCamera(12398)">🔄 Switch Camera</button> <!-- Reverse Camera Icon -->
+  <canvas id="canvas-12398" style="display: none;"></canvas> <!-- Canvas to capture the image -->
 </div>
     </tr>
     </tbody>
