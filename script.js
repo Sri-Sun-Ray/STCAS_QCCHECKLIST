@@ -7890,7 +7890,7 @@ OFC armoured cables shall be used for communication.</td>
   <input type="file" id="file-input-12398" accept="image/*" multiple onchange="displayImages(this, 12398)">
 </div>
       <!-- Container for multiple images --> 
-      <div id="image-container-123"></div>
+      <div id="image-container-12398"></div>
       <!-- Camera Container -->
 <div id="camera-container-12398" style="display: none;">
   <video id="camera-12398" width="100%" height="auto" autoplay></video>
