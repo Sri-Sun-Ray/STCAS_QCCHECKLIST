@@ -1508,9 +1508,8 @@
           }
         });
 
-        // Collect pending points per section
+        // Collect pending points per section/sub-section
         const pendingBySection = {};
-        Object.keys(sectionMetadata).forEach(id => pendingBySection[id] = new Set());
 
         // 1. Build a set of S_nos from actual observations (only active points)
         const requiredSnos = new Set();
@@ -1540,15 +1539,14 @@
         requiredSnos.forEach(sno => {
           if (skipPendingSnos.has(sno)) return;
           if (!closedSet.has(sno)) {
-            // Determine section from S_no (assuming format Section.SubPoint)
-            const sectionId = sno.split('.')[0];
-            if (pendingBySection[sectionId]) {
-              pendingBySection[sectionId].add(sno);
-            } else {
-              // Fallback if sectionId is not standard
-              if (!pendingBySection["Other"]) pendingBySection["Other"] = new Set();
-              pendingBySection["Other"].add(sno);
+            const parts = String(sno).split('.');
+            const mainSec = parts[0];
+            let key = mainSec;
+            if (["4", "5", "6"].includes(mainSec) && parts.length >= 2) {
+              key = `${parts[0]}.${parts[1]}`;
             }
+            if (!pendingBySection[key]) pendingBySection[key] = new Set();
+            pendingBySection[key].add(sno);
           }
         });
 
@@ -1563,7 +1561,7 @@
           }
 
           pdf.setFontSize(12);
-          pdf.setTextColor(0, 0, 255); // Red color
+          pdf.setTextColor(0, 0, 255); // Blue color
           pdf.setFont("helvetica", "bold");
           pdf.text("The following are the pending items to be verified during the next inspection", 14, finalY);
           finalY += 10;
@@ -1573,12 +1571,20 @@
             .sort((a, b) => {
               if (a === 'Other') return 1;
               if (b === 'Other') return -1;
-              return Number(a) - Number(b);
+              const aParts = a.split('.').map(Number);
+              const bParts = b.split('.').map(Number);
+              for (let i = 0; i < Math.max(aParts.length, bParts.length); i++) {
+                const av = aParts[i] || 0;
+                const bv = bParts[i] || 0;
+                if (av !== bv) return av - bv;
+              }
+              return 0;
             });
 
-          // Use a simple table to list section and points for better alignment and wrapping
-          const pendingSummaryData = sortedSections.map(sectionId => {
-            const points = Array.from(pendingBySection[sectionId]).sort((a, b) => {
+          // Use a simple table to list section/sub-section and points for better alignment and wrapping
+          let totalPendingCount = 0;
+          const pendingSummaryData = sortedSections.map(subKey => {
+            const points = Array.from(pendingBySection[subKey]).sort((a, b) => {
               // Sort points nicely (1.1, 1.2, 1.10 etc)
               const aParts = a.split('.').map(Number);
               const bParts = b.split('.').map(Number);
@@ -1589,15 +1595,24 @@
               }
               return 0;
             });
-            const sectionName = sectionMetadata[sectionId] ? sectionMetadata[sectionId].name : (sectionId === "Other" ? "Other" : "");
-            const title = `Section ${sectionId}: ${sectionName}`;
+            const subTitle = subSectionMetadata[subKey] || (sectionMetadata[subKey] ? `${subKey}.0 ${sectionMetadata[subKey].name}` : (subKey === "Other" ? "Other" : subKey));
+            const title = subTitle.startsWith("Section") ? subTitle : `Section ${subTitle}`;
+            const count = points.length;
+            totalPendingCount += count;
             const pointsList = points.join(', ');
-            return [title, pointsList];
+            return [title, count, pointsList];
           });
+
+          // Add Total Row at bottom
+          pendingSummaryData.push([
+            { content: "Total", styles: { fontStyle: 'bold', fillColor: [240, 240, 240] } },
+            { content: totalPendingCount, styles: { fontStyle: 'bold', halign: 'center', fillColor: [240, 240, 240] } },
+            { content: "", styles: { fillColor: [240, 240, 240] } }
+          ]);
 
           pdf.autoTable({
             startY: finalY,
-            head: [["Section Name", "Pending Points"]],
+            head: [["Section / Sub-Section Name", "Pending Count", "Pending Points"]],
             body: pendingSummaryData,
             theme: "grid",
             styles: {
@@ -1619,8 +1634,9 @@
               lineWidth: 0.5
             },
             columnStyles: {
-              0: { cellWidth: 60, fontStyle: 'bold' },
-              1: { cellWidth: 'auto' }
+              0: { cellWidth: 70, fontStyle: 'bold' },
+              1: { cellWidth: 30, halign: 'center', fontStyle: 'bold' },
+              2: { cellWidth: 'auto' }
             }
           });
 
