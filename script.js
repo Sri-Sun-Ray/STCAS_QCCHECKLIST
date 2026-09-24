@@ -5374,6 +5374,7 @@ Ensure mill connector shall be locked properly.</td>
       <option value="Not Matching">Not Matching</option>
       <option value="Not Applicable">Not Applicable</option>
       <option value="Not Verified">Not Verified</option>
+      <option value="Not deployed">Not deployed</option>
     </select>
   </td>
       <td class="remarks">
@@ -5652,6 +5653,7 @@ Ensure mill connector shall be locked properly.</td>
                 <option value="Not Ok">Not Ok</option>
                 <option value="Not Applicable">Not Applicable</option>
                 <option value="Not Verified">Not Verified</option>
+                <option value="Not Connected">Not Connected</option>
               </select>
       </td>
       <td class="remarks">
@@ -6100,7 +6102,7 @@ Ensure mill connector shall be locked properly.</td>
     <tr id="row-612">
       <td>6.1.3</td>
       <td class="observation_text">RTU Earthing</td>
-      <td class="requirement_text">RTU shall be properly earthed by connecting a 35 sq.mm green to GI strip earthing conductor from the RTU earthing bolt to the designated earth pit-4, as per diagram 5 16 76 0043.</td>
+      <td class="requirement_text">RTU shall be properly earthed by connecting a 16 sq.mm Y/G copper cable to GI strip earthing conductor from the RTU earthing bolt to the designated earth pit-4, as per diagram 5 16 49 0614</td>
      <td class="select">
        <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();">
                 <option value="Select">Select</option>
@@ -9705,13 +9707,14 @@ function getDropdownOptions(sno, observationStatus, sectionID = null) {
     "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37,1.65,1.66,1.67,1.68": ["Matching", "Not Matching", "Not Installed", "Not Applicable", "Not Verified"],
     "3.1,2.1": ["Ok", "Not Ok", "Not Applicable"],
     "5.1.2,5.1.4,5.1.6,9.1,9.2,9.2.1,9.4": ["Ok", "Not Ok","Not Verified"],
-    "8.2,8.4,8.7,6.1.2,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.11,4.1.4,4.1.5,4.1.7,4.1.8,4.2.4,4.2.5,7.2,7.3,7.4,7.7,7.8,7.9,5.2.4,5.2.6,5.2.7,5.2.8,5.3.2,5.3.3,5.3.4,5.4.3,5.4.5,5.5.4,13.1": ["Ok", "Not Ok", "Not Applicable","Not Verified"],
+    "8.2,8.4,8.7,6.1.2,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.11,4.1.4,4.1.5,4.1.7,4.1.8,4.2.4,4.2.5,7.2,7.3,7.4,7.7,7.8,7.9,5.2.4,5.2.6,5.2.7,5.2.8,5.3.2,5.3.3,5.3.4,5.4.5,5.5.4,13.1": ["Ok", "Not Ok", "Not Applicable","Not Verified"],
     "10.1,10.3,10.4,10.5,10.6": ["Ok", "Not Ok", "Not Applicable", "Applicable", "Not Verified"],
     "5.5.1,4.1.1,4.1.2,4.2.1,5.1.1,5.1.5,5.2.1,5.2.2,5.3.1,5.4.1,5.4.6,6.1.1,6.2.1,7.1,8.1,11.2,12.1,12.2":["Ok", "Not Ok", "Not Applicable", "Not Verified","Not Installed"],
-    "5.5.2,5.5.3,4.1.3,4.1.6,4.2.2,4.2.3,5.1.3,5.2.3,5.3.5,5.4.2,5.4.4,6.1.3,6.1.10,7.5,7.6,8.3,8.6,10.2,5.2.5":["Ok", "Not Ok", "Not Applicable", "Not Verified","Not Connected"],
+    "5.5.2,5.5.3,4.1.3,4.1.6,4.2.2,4.2.3,5.1.3,5.2.3,5.3.5,5.4.2,5.4.3,5.4.4,6.1.3,6.1.10,7.5,7.6,8.3,8.6,10.2,5.2.5":["Ok", "Not Ok", "Not Applicable", "Not Verified","Not Connected"],
     "5.1.2":["Ok", "Not Ok", "Not Applicable", "Not Verified","Not Installed","Not Connected"],
     "5.5.5":["Available", "Not Available", "Available with Comments", "Not Verified","Not Applicable"],
-    "5.2.9,6.2.2,7.10,8.5,9.3,11.1": ["Available", "Not Available", "Not Applicable","Not Verified"],
+    "6.2.2,7.10,8.5,9.3,11.1": ["Available", "Not Available", "Not Applicable","Not Verified"],
+    "5.2.9": ["Available", "Not Available", "Not Applicable","Not Verified","Not deployed"],
     "12.3": ["Available", "Not Available", "Not Applicable"],
     "1.44": ["Verified", "Not Verified", "Not Installed", "Not Applicable"],
     "12.4": ["Ok", "Not Ok", "Not Applicable", "Not Verified","Not Installed","Not Completed"],
@@ -10259,7 +10262,7 @@ const statusColors = {
   "Not Present": "red", "Not Matching": "red", "Not Installed": "red", "Found Not Ok": "red",
   "Not Verified": "red", "Not Fixed": "red", "Voltage found not Ok": "red",
   "Not Done": "red", "Routing Not done": "red", "Not Ok": "red", "PCCL Not Done": "red",
-  "Earth not connected": "red", "Not Functioning": "red", "Identification Not Done": "red",
+  "Earth not connected": "red", "Not deployed": "red", "Identification Not Done": "red",
   "Cable ties not implemented": "red", "Not Joined": "red", "Non-Compliance": "red", "No": "red",
   "Not Available": "red", "Not Completed": "red", "Available with Comments": "red", "Not Connected": "red"
 };

@@ -24,18 +24,19 @@
       return txt.value;
     }
 
- const specificOptions = {
+  const specificOptions = {
     "1.38,1.40,1.41,1.42,1.43,1.45,1.46,1.47,1.48,1.49,1.50,1.51,1.52,1.53,1.54,1.55,1.56,1.57,1.58,1.59,1.60,1.61,1.62,1.63,1.64": ["Matching", "Not Matching", "Not Installed", "Not Applicable", "Not Verified"],
     "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37,1.65,1.66,1.67,1.68": ["Matching", "Not Matching", "Not Installed", "Not Applicable", "Not Verified"],
     "3.1,2.1": ["Ok", "Not Ok", "Not Applicable"],
     "5.1.2,5.1.4,5.1.6,9.1,9.2,9.2.1,9.4": ["Ok", "Not Ok","Not Verified"],
-    "8.2,8.4,8.7,6.1.2,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.11,4.1.4,4.1.5,4.1.7,4.1.8,4.2.4,4.2.5,7.2,7.3,7.4,7.7,7.8,7.9,5.2.4,5.2.6,5.2.7,5.2.8,5.3.2,5.3.3,5.3.4,5.4.3,5.4.5,5.5.4,13.1": ["Ok", "Not Ok", "Not Applicable","Not Verified"],
+    "8.2,8.4,8.7,6.1.2,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.11,4.1.4,4.1.5,4.1.7,4.1.8,4.2.4,4.2.5,7.2,7.3,7.4,7.7,7.8,7.9,5.2.4,5.2.6,5.2.7,5.2.8,5.3.2,5.3.3,5.3.4,5.4.5,5.5.4,13.1": ["Ok", "Not Ok", "Not Applicable","Not Verified"],
     "10.1,10.3,10.4,10.5,10.6": ["Ok", "Not Ok", "Not Applicable", "Applicable", "Not Verified"],
     "5.5.1,4.1.1,4.1.2,4.2.1,5.1.1,5.1.5,5.2.1,5.2.2,5.3.1,5.4.1,5.4.6,6.1.1,6.2.1,7.1,8.1,11.2,12.1,12.2":["Ok", "Not Ok", "Not Applicable", "Not Verified","Not Installed"],
-    "5.5.2,5.5.3,4.1.3,4.1.6,4.2.2,4.2.3,5.1.3,5.2.3,5.3.5,5.4.2,5.4.4,6.1.3,6.1.10,7.5,7.6,8.3,8.6,10.2,5.2.5":["Ok", "Not Ok", "Not Applicable", "Not Verified","Not Connected"],
+    "5.5.2,5.5.3,4.1.3,4.1.6,4.2.2,4.2.3,5.1.3,5.2.3,5.3.5,5.4.2,5.4.3,5.4.4,6.1.3,6.1.10,7.5,7.6,8.3,8.6,10.2,5.2.5":["Ok", "Not Ok", "Not Applicable", "Not Verified","Not Connected"],
     "5.1.2":["Ok", "Not Ok", "Not Applicable", "Not Verified","Not Installed","Not Connected"],
     "5.5.5":["Available", "Not Available", "Available with Comments", "Not Verified","Not Applicable"],
-    "5.2.9,6.2.2,7.10,8.5,9.3,11.1": ["Available", "Not Available", "Not Applicable","Not Verified"],
+    "6.2.2,7.10,8.5,9.3,11.1": ["Available", "Not Available", "Not Applicable","Not Verified"],
+    "5.2.9": ["Available", "Not Available", "Not Applicable","Not Verified","Not deployed"],
     "12.3": ["Available", "Not Available", "Not Applicable"],
     "1.44": ["Verified", "Not Verified", "Not Installed", "Not Applicable"],
     "12.4": ["Ok", "Not Ok", "Not Applicable", "Not Verified","Not Installed","Not Completed"],
@@ -567,7 +568,7 @@
               let statusColor = '';
               const isGreen = ["Available", "Present", "Ok", "Yes", "Routing Done", "Fixed", "Secured", "Installed", "Connected", "Aligned", "Torquing done", "Positioning done", "Configured", "Welding done", "Earthing done", "Matching", "Not Applicable", "Applicable", "Coating done", "Applied", "Cables Connected", "Metal clamps implemented", "Locked", "Verified", "Verified and ok"].includes(statusText);
               if (isGreen) statusColor = 'green';
-              else if (["Not Present", "No", "Not Matching", "Not Installed", "Found Not Ok", "Not Implemented", "Not Fixed", "Not Connected", "Routing Not done", "Voltage found not Ok", "Torquing Not done", "Not Done", "Not Ok", "PCCL Not Done", "Earthing Not done", "Not Functioning", "Identification Not Done", "Cable ties not implemented", "Not Verified", "Quantity Not Matched", "Not Available", "Not Completed", "Available with Comments"].includes(statusText)) statusColor = 'red';
+              else if (["Not Present", "No", "Not Matching", "Not Installed", "Found Not Ok", "Not Implemented", "Not Fixed", "Not Connected", "Routing Not done", "Voltage found not Ok", "Torquing Not done", "Not Done", "Not Ok", "PCCL Not Done", "Earthing Not done", "Not deployed", "Identification Not Done", "Cable ties not implemented", "Not Verified", "Quantity Not Matched", "Not Available", "Not Completed", "Available with Comments"].includes(statusText)) statusColor = 'red';
               else statusColor = 'yellow';
 
               const tr = document.createElement("tr");
@@ -823,7 +824,7 @@
         pdf.text("In-Process QC Checklist for Stationary Kavach Installation", pdf.internal.pageSize.width / 2, finalY + 20, { align: "center" });
         pdf.setFont("helvetica", "normal");
         pdf.text(`QC Engineer Name: ${employeeName}`, 10, finalY + 26);
-        pdf.text("V1.2.2", pdf.internal.pageSize.width - 10, finalY + 26, { align: "right" });
+        pdf.text("V1.2.3", pdf.internal.pageSize.width - 10, finalY + 26, { align: "right" });
         pdf.line(10, finalY + 28, pdf.internal.pageSize.width - 10, finalY + 28);
         finalY += 30;
 
@@ -1019,7 +1020,12 @@
         pdf.setFontSize(11);
         pdf.setTextColor(0, 51, 102);
         pdf.text("Station Billing Summary", 10, finalY);
-        finalY += 5;
+
+        pdf.setFont("helvetica", "bold");
+        pdf.setFontSize(9);
+        pdf.setTextColor(0, 0, 0);
+        pdf.text("Considered Sections : 1.0,4.0,5.0,7.0,8.0,10.0,13.0", 10, finalY + 5);       
+        finalY += 8;
 
         pdf.autoTable({
           startY: finalY,
@@ -1053,13 +1059,7 @@
             2: { cellWidth: 62 }
           }
         });
-        finalY = pdf.lastAutoTable.finalY + 4;
-
-        pdf.setFont("helvetica", "bold");
-        pdf.setFontSize(10.5);
-        pdf.setTextColor(0, 0, 0);
-        pdf.text("Considered Sections : 1.0,  4.0,  5.0,  7.0,  8.0,  10.0,  13.0", 10, finalY + 1);
-        finalY += 9;
+        finalY = pdf.lastAutoTable.finalY + 10;
 
         // --- Completion Status Table ---
         pdf.autoTable({
@@ -1508,8 +1508,9 @@
           }
         });
 
-        // Collect pending points per section/sub-section
+        // Collect pending points per section
         const pendingBySection = {};
+        Object.keys(sectionMetadata).forEach(id => pendingBySection[id] = new Set());
 
         // 1. Build a set of S_nos from actual observations (only active points)
         const requiredSnos = new Set();
@@ -1539,14 +1540,15 @@
         requiredSnos.forEach(sno => {
           if (skipPendingSnos.has(sno)) return;
           if (!closedSet.has(sno)) {
-            const parts = String(sno).split('.');
-            const mainSec = parts[0];
-            let key = mainSec;
-            if (["4", "5", "6"].includes(mainSec) && parts.length >= 2) {
-              key = `${parts[0]}.${parts[1]}`;
+            // Determine section from S_no (assuming format Section.SubPoint)
+            const sectionId = sno.split('.')[0];
+            if (pendingBySection[sectionId]) {
+              pendingBySection[sectionId].add(sno);
+            } else {
+              // Fallback if sectionId is not standard
+              if (!pendingBySection["Other"]) pendingBySection["Other"] = new Set();
+              pendingBySection["Other"].add(sno);
             }
-            if (!pendingBySection[key]) pendingBySection[key] = new Set();
-            pendingBySection[key].add(sno);
           }
         });
 
@@ -1561,7 +1563,7 @@
           }
 
           pdf.setFontSize(12);
-          pdf.setTextColor(0, 0, 255); // Blue color
+          pdf.setTextColor(0, 0, 255); // Red color
           pdf.setFont("helvetica", "bold");
           pdf.text("The following are the pending items to be verified during the next inspection", 14, finalY);
           finalY += 10;
@@ -1571,20 +1573,12 @@
             .sort((a, b) => {
               if (a === 'Other') return 1;
               if (b === 'Other') return -1;
-              const aParts = a.split('.').map(Number);
-              const bParts = b.split('.').map(Number);
-              for (let i = 0; i < Math.max(aParts.length, bParts.length); i++) {
-                const av = aParts[i] || 0;
-                const bv = bParts[i] || 0;
-                if (av !== bv) return av - bv;
-              }
-              return 0;
+              return Number(a) - Number(b);
             });
 
-          // Use a simple table to list section/sub-section and points for better alignment and wrapping
-          let totalPendingCount = 0;
-          const pendingSummaryData = sortedSections.map(subKey => {
-            const points = Array.from(pendingBySection[subKey]).sort((a, b) => {
+          // Use a simple table to list section and points for better alignment and wrapping
+          const pendingSummaryData = sortedSections.map(sectionId => {
+            const points = Array.from(pendingBySection[sectionId]).sort((a, b) => {
               // Sort points nicely (1.1, 1.2, 1.10 etc)
               const aParts = a.split('.').map(Number);
               const bParts = b.split('.').map(Number);
@@ -1595,24 +1589,15 @@
               }
               return 0;
             });
-            const subTitle = subSectionMetadata[subKey] || (sectionMetadata[subKey] ? `${subKey}.0 ${sectionMetadata[subKey].name}` : (subKey === "Other" ? "Other" : subKey));
-            const title = subTitle.startsWith("Section") ? subTitle : `Section ${subTitle}`;
-            const count = points.length;
-            totalPendingCount += count;
+            const sectionName = sectionMetadata[sectionId] ? sectionMetadata[sectionId].name : (sectionId === "Other" ? "Other" : "");
+            const title = `Section ${sectionId}: ${sectionName}`;
             const pointsList = points.join(', ');
-            return [title, count, pointsList];
+            return [title, pointsList];
           });
-
-          // Add Total Row at bottom
-          pendingSummaryData.push([
-            { content: "Total", styles: { fontStyle: 'bold', fillColor: [240, 240, 240] } },
-            { content: totalPendingCount, styles: { fontStyle: 'bold', halign: 'center', fillColor: [240, 240, 240] } },
-            { content: "", styles: { fillColor: [240, 240, 240] } }
-          ]);
 
           pdf.autoTable({
             startY: finalY,
-            head: [["Section / Sub-Section Name", "Pending Count", "Pending Points"]],
+            head: [["Section Name", "Pending Points"]],
             body: pendingSummaryData,
             theme: "grid",
             styles: {
@@ -1634,9 +1619,8 @@
               lineWidth: 0.5
             },
             columnStyles: {
-              0: { cellWidth: 70, fontStyle: 'bold' },
-              1: { cellWidth: 30, halign: 'center', fontStyle: 'bold' },
-              2: { cellWidth: 'auto' }
+              0: { cellWidth: 60, fontStyle: 'bold' },
+              1: { cellWidth: 'auto' }
             }
           });
 
