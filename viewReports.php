@@ -380,7 +380,8 @@ try {
                 stationsMap.forEach((st) => {
                     const opt = document.createElement('option');
                     opt.value = st.id;
-                    opt.text = st.name + (st.code ? " (" + st.code + ")" : "");
+                    const codeSuffix = st.code ? "(" + st.code + ")" : "";
+                    opt.text = (st.code && st.name.includes(codeSuffix)) ? st.name : (st.name + (codeSuffix ? " " + codeSuffix : ""));
                     opt.setAttribute('data-station-name', st.name);
                     select.appendChild(opt);
                 });
@@ -479,7 +480,14 @@ try {
             method: 'POST',
             body: formData
         });
-        const uploadResult = await uploadResponse.json();
+        const resText = await uploadResponse.text();
+        let uploadResult;
+        try {
+            uploadResult = JSON.parse(resText);
+        } catch (jsonErr) {
+            const cleanErr = resText.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+            throw new Error(cleanErr || "Invalid response received from server.");
+        }
 
         if (uploadResult.success) {
             alert("Success: " + uploadResult.message);

@@ -1,15 +1,23 @@
 <?php
+ob_start();
 session_start();
+ini_set('display_errors', 0);
+error_reporting(E_ALL);
 header('Content-Type: application/json');
 
 // Define WFMS Constants as per Requirement
 define("WFMS_ACTIVITY", "Wayside QA Audit");
 define("WFMS_FILE", "Wayside QA Audit Report");
 
+function sendJsonResponse($data) {
+    if (ob_get_length()) ob_clean();
+    echo json_encode($data);
+    exit;
+}
+
 // Ensure user is logged in
 if (!isset($_SESSION['username'])) {
-    echo json_encode(['success' => false, 'message' => 'Unauthorized access. Please log in.']);
-    exit;
+    sendJsonResponse(['success' => false, 'message' => 'Unauthorized access. Please log in.']);
 }
 
 $reportId = $_POST['reportId'] ?? null;
@@ -24,8 +32,7 @@ $wfmsToken = $_POST['wfms_token'] ?? '';
 $wfmsStationName = $_POST['wfms_station_name'] ?? '';
 
 if (!$wfmsToken || !$wfmsStationName || $wfmsStationName === 'undefined') {
-    echo json_encode(['success' => false, 'message' => 'WFMS Authentication or Station selection missing. Please select a station from the dropdown.']);
-    exit;
+    sendJsonResponse(['success' => false, 'message' => 'WFMS Authentication or Station selection missing. Please select a station from the dropdown.']);
 }
 
 try {
@@ -48,16 +55,14 @@ try {
     }
 
     if (!$report) {
-        echo json_encode(['success' => false, 'message' => 'Report not found in local database.']);
-        exit;
+        sendJsonResponse(['success' => false, 'message' => 'Report not found in local database.']);
     }
 
     $reportId = $report['id'];
 
     $filePath = 'uploads/reports/' . $report['file_name'];
-    if (!file_exists($filePath)) {
-        echo json_encode(['success' => false, 'message' => 'Report file found in DB but missing on disk.']);
-        exit;
+    if (!file_exists($filePath) || !realpath($filePath)) {
+        sendJsonResponse(['success' => false, 'message' => 'Report file found in DB but missing on disk: ' . $report['file_name']]);
     }
 
     $activityId = $_POST['activityId'] ?? null;
@@ -90,14 +95,16 @@ try {
         $updateStmt = $pdo->prepare("UPDATE report SET last_uploaded_hash = :hash WHERE id = :id");
         $updateStmt->execute(['hash' => $localHash, 'id' => $reportId]);
         
-        echo json_encode(['success' => true, 'message' => 'Report pushed to WFMS Wayside activity successfully!']);
+        sendJsonResponse(['success' => true, 'message' => 'Report pushed to WFMS Wayside activity successfully!']);
     } else {
         $errorMsg = $actUploadRes['message'] ?? $stationUploadRes['message'] ?? 'WFMS rejected the upload.';
-        echo json_encode(['success' => false, 'message' => "WFMS Error: $errorMsg"]);
+        sendJsonResponse(['success' => false, 'message' => "WFMS Error: $errorMsg"]);
     }
 
 } catch (PDOException $e) {
-    echo json_encode(['success' => false, 'message' => 'Database error: ' . $e->getMessage()]);
+    sendJsonResponse(['success' => false, 'message' => 'Database error: ' . $e->getMessage()]);
+} catch (Throwable $t) {
+    sendJsonResponse(['success' => false, 'message' => 'Server error: ' . $t->getMessage()]);
 }
 
 /**
@@ -105,7 +112,11 @@ try {
  */
 function uploadWithUserToken($url, $fields, $filePath, $token) {
     $ch = curl_init($url);
-    $fields['file'] = new CURLFile(realpath($filePath), 'application/pdf', basename($filePath));
+    $realPath = realpath($filePath);
+    if (!$realPath) {
+        return ['status' => false, 'message' => 'File path invalid'];
+    }
+    $fields['file'] = new CURLFile($realPath, 'application/pdf', basename($filePath));
 
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
@@ -124,13 +135,17 @@ function uploadWithUserToken($url, $fields, $filePath, $token) {
 
     $logMsg = "[" . date('Y-m-d H:i:s') . "] POST $url\n";
     $logMsg .= "Fields: " . json_encode(array_diff_key($fields, ['file' => 1])) . "\n";
-    $logMsg .= "File: " . realpath($filePath) . "\n";
+    $logMsg .= "File: " . $realPath . "\n";
     $logMsg .= "HTTP Code: $httpCode\n";
     $logMsg .= "cURL Error: " . ($err ?: "None") . "\n";
     $logMsg .= "Response: " . $response . "\n";
     $logMsg .= "----------------------------------------\n";
-    file_put_contents(__DIR__ . '/wfms_debug.log', $logMsg, FILE_APPEND);
+    @file_put_contents(__DIR__ . '/wfms_debug.log', $logMsg, FILE_APPEND);
 
-    return json_decode($response, true);
+    $decoded = json_decode($response, true);
+    if (!is_array($decoded)) {
+        return ['status' => false, 'message' => "Invalid response from WFMS (HTTP $httpCode): " . strip_tags($response)];
+    }
+    return $decoded;
 }
 ?>
