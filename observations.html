@@ -1576,7 +1576,7 @@
               return Number(a) - Number(b);
             });
 
-          // Use a simple table to list section and points for better alignment and wrapping
+          // Use a table to list each section's pending count and points.
           const pendingSummaryData = sortedSections.map(sectionId => {
             const points = Array.from(pendingBySection[sectionId]).sort((a, b) => {
               // Sort points nicely (1.1, 1.2, 1.10 etc)
@@ -1592,13 +1592,18 @@
             const sectionName = sectionMetadata[sectionId] ? sectionMetadata[sectionId].name : (sectionId === "Other" ? "Other" : "");
             const title = `Section ${sectionId}: ${sectionName}`;
             const pointsList = points.join(', ');
-            return [title, pointsList];
+            return [title, points.length, pointsList];
           });
+          const totalPendingCount = sortedSections.reduce(
+            (total, sectionId) => total + pendingBySection[sectionId].size,
+            0
+          );
 
           pdf.autoTable({
             startY: finalY,
-            head: [["Section Name", "Pending Points"]],
+            head: [["Section / Sub-Section Name", "Pending Count", "Pending Points"]],
             body: pendingSummaryData,
+            foot: [["Total", totalPendingCount, ""]],
             theme: "grid",
             styles: {
               fontSize: 10,
@@ -1618,9 +1623,16 @@
               lineColor: [0, 0, 0], // body borders
               lineWidth: 0.5
             },
+            footStyles: {
+              textColor: [0, 0, 0],
+              fontStyle: "bold",
+              lineColor: [0, 0, 0],
+              lineWidth: 0.5
+            },
             columnStyles: {
               0: { cellWidth: 60, fontStyle: 'bold' },
-              1: { cellWidth: 'auto' }
+              1: { cellWidth: 20, halign: 'center', fontStyle: 'bold' },
+              2: { cellWidth: 'auto' }
             }
           });
 
