@@ -1598,12 +1598,12 @@
             (total, sectionId) => total + pendingBySection[sectionId].size,
             0
           );
+          pendingSummaryData.push(["Total", totalPendingCount, ""]);
 
           pdf.autoTable({
             startY: finalY,
             head: [["Section / Sub-Section Name", "Pending Count", "Pending Points"]],
             body: pendingSummaryData,
-            foot: [["Total", totalPendingCount, ""]],
             theme: "grid",
             styles: {
               fontSize: 10,
@@ -1621,13 +1621,8 @@
             bodyStyles: {
               textColor: [0, 0, 0],
               lineColor: [0, 0, 0], // body borders
-              lineWidth: 0.5
-            },
-            footStyles: {
-              textColor: [0, 0, 0],
-              fontStyle: "bold",
-              lineColor: [0, 0, 0],
-              lineWidth: 0.5
+              lineWidth: 0.5,
+              fillColor: [255, 255, 255]
             },
             columnStyles: {
               0: { cellWidth: 60, fontStyle: 'bold' },
