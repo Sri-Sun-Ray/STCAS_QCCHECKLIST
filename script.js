@@ -779,9 +779,10 @@ async function showSection(section, subsection) {
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
   
@@ -831,9 +832,10 @@ async function showSection(section, subsection) {
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
       <td class ="remarks">
@@ -887,9 +889,10 @@ async function showSection(section, subsection) {
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
   
@@ -939,9 +942,10 @@ async function showSection(section, subsection) {
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-       <option value="Not Verified">Not Verified</option>
     </select>
   </td>
   
@@ -992,9 +996,10 @@ async function showSection(section, subsection) {
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
   <td class="remarks">
@@ -1044,9 +1049,10 @@ async function showSection(section, subsection) {
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-       <option value="Not Verified">Not Verified</option>
     </select>
   </td>
    <td class="remarks">
@@ -1097,9 +1103,10 @@ async function showSection(section, subsection) {
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-       <option value="Not Verified">Not Verified</option>
     </select>
   </td>
    <td class="remarks">
@@ -1148,9 +1155,10 @@ async function showSection(section, subsection) {
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-       <option value="Not Verified">Not Verified</option>
     </select>
   </td>
   <td class="remarks">
@@ -1200,9 +1208,10 @@ async function showSection(section, subsection) {
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
   <td class="remarks">
@@ -1253,9 +1262,10 @@ async function showSection(section, subsection) {
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
   <td class="remarks">
@@ -1307,9 +1317,10 @@ async function showSection(section, subsection) {
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1360,9 +1371,10 @@ async function showSection(section, subsection) {
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1410,9 +1422,10 @@ async function showSection(section, subsection) {
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1465,9 +1478,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1515,9 +1529,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1565,9 +1580,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1615,9 +1631,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1666,9 +1683,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1717,9 +1735,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1767,9 +1786,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -1818,9 +1838,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1867,9 +1888,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1918,9 +1940,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -1969,9 +1992,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -2020,9 +2044,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -2071,9 +2096,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -2121,9 +2147,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -2171,9 +2198,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -2221,9 +2249,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
             <td class="remarks">
@@ -2271,9 +2300,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2319,9 +2349,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2367,9 +2398,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2415,9 +2447,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2463,9 +2496,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2511,9 +2545,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2560,9 +2595,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2608,9 +2644,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2657,9 +2694,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2705,9 +2743,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2753,9 +2792,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2801,9 +2841,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2849,9 +2890,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2898,9 +2940,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2945,11 +2988,12 @@ FIU Scanner Card 1
 /> <td class="select" style="padding-right: 10px;">
     <select class="status-dropdown" onchange="highlightSelect(this); markDataAsUnsaved();" style="width: 180px; padding: 5px; font-size: 14px;">
       <option value="Select">Select</option>
+      <option value="Matching">Matching</option>
+      <option value="Not Matching">Not Matching</option>
       <option value="Verified">Verified</option>
       <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -2996,9 +3040,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3045,9 +3090,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3094,9 +3140,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3143,9 +3190,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3192,9 +3240,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3241,9 +3290,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3290,9 +3340,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3339,9 +3390,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3388,9 +3440,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3437,9 +3490,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3486,9 +3540,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3535,9 +3590,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3584,9 +3640,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3633,9 +3690,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3682,9 +3740,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3731,9 +3790,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3780,9 +3840,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3829,9 +3890,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3878,9 +3940,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3926,9 +3989,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -3974,9 +4038,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -4022,9 +4087,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -4072,9 +4138,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -4121,9 +4188,10 @@ FIU Scanner Card 1
       <option value="Select">Select</option>
       <option value="Matching">Matching</option>
       <option value="Not Matching">Not Matching</option>
+      <option value="Verified">Verified</option>
+      <option value="Not Verified">Not Verified</option>
       <option value="Not Installed">Not Installed</option>
       <option value="Not Applicable">Not Applicable</option>
-      <option value="Not Verified">Not Verified</option>
     </select>
   </td>
              <td class="remarks">
@@ -6011,11 +6079,17 @@ Ensure mill connector shall be locked properly.</td>
     }
   }
   else if (section === "7.0") {
-    // Networking Rack - 2 subsections
     // Clear old section content but preserve station info
     clearSectionContent();
     mainContent.innerHTML += `
-      <h3 class="section-heading" id="section-heading-7_0"> RF Communication equipment on tower </h3>
+      <div style="position: relative; margin-bottom: 20px;">
+        <h3 class="section-heading" id="section-heading-7_0"> RF Communication equipment on tower </h3>
+        <select id="section-na-dropdown-7_0" style="position: absolute; top: 0; right: 0; width: 140px; padding: 5px 8px; border: 1px solid #ccc; border-radius: 3px; font-size: 12px; background-color: white;" onchange="if(this.value) { markSectionAsNotApplicable('7_0', this.value); this.value=''; }">
+          <option value="">Mark Section As:</option>
+          <option value="mark">Mark All as Not Applicable</option>
+          <option value="clear">Clear All Selections</option>
+        </select>
+      </div>
        <div  class="table-container">
       <table class="observations" id="observations-section-7_0">
         <thead>
@@ -6486,26 +6560,13 @@ Ensure mill connector shall be locked properly.</td>
       <button type="button"
               id="update-btn"
               style="background-color: blue; color: white; display: none;"
-              onclick="updateObservation('7_0', activeSubsection)">
+              onclick="updateObservation('7_0')">
         Update
       </button>
-         <button type="button" id= "save-btn" style = "display: inline-block;" onclick="if(validateMandatoryImages('7_0')) { saveObservation('7_0', activeSubsection); }">Save</button>
+         <button type="button" id= "save-btn" style = "display: inline-block;" onclick="if(validateMandatoryImages('7_0')) { saveObservation('7_0'); }">Save</button>
          <button id="get-details-btn" onclick="getDetails()">Get Details</button>
       </div>
     ;`
-
-    // Immediately filter rows if subsection is specified
-    if (subsection) {
-      console.log(`Section 7.0 rendered, applying filter for subsection: ${subsection}`);
-      setTimeout(() => {
-        filterTableRows('observations-section-7_0', subsection);
-        const heading = document.getElementById('section-heading-7_0');
-        if (heading) {
-          if (subsection.startsWith("6.1")) heading.textContent = "6.1 RTU(Radio Tower Unit)";
-          else if (subsection.startsWith("6.2")) heading.textContent = "6.2 RF Antenna Installation";
-        }
-      }, 100);
-    }
   } else if (section === "8.0") {
     // For all other sections, add Save Observation button
     mainContent.innerHTML += `
@@ -9703,8 +9764,8 @@ function getDropdownOptions(sno, observationStatus, sectionID = null) {
   // 1. Explicitly defined options for standard rows
   // We check this first to honor specific mappings
   const specificOptions = {
-    "1.38,1.40,1.41,1.42,1.43,1.45,1.46,1.47,1.48,1.49,1.50,1.51,1.52,1.53,1.54,1.55,1.56,1.57,1.58,1.59,1.60,1.61,1.62,1.63,1.64": ["Matching", "Not Matching", "Not Installed", "Not Applicable", "Not Verified"],
-    "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37,1.65,1.66,1.67,1.68": ["Matching", "Not Matching", "Not Installed", "Not Applicable", "Not Verified"],
+    "1.38,1.40,1.41,1.42,1.43,1.45,1.46,1.47,1.48,1.49,1.50,1.51,1.52,1.53,1.54,1.55,1.56,1.57,1.58,1.59,1.60,1.61,1.62,1.63,1.64": ["Matching", "Not Matching", "Verified", "Not Verified", "Not Installed", "Not Applicable"],
+    "1.39,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,1.18,1.19,1.20,1.21,1.22,1.23,1.24,1.25,1.26,1.27,1.28,1.29,1.30,1.31,1.32,1.33,1.34,1.35,1.36,1.37,1.65,1.66,1.67,1.68": ["Matching", "Not Matching", "Verified", "Not Verified", "Not Installed", "Not Applicable"],
     "3.1,2.1": ["Ok", "Not Ok", "Not Applicable"],
     "5.1.2,5.1.4,5.1.6,9.1,9.2,9.2.1,9.4": ["Ok", "Not Ok","Not Verified"],
     "8.2,8.4,8.7,6.1.2,6.1.4,6.1.5,6.1.6,6.1.7,6.1.8,6.1.9,6.1.11,4.1.4,4.1.5,4.1.7,4.1.8,4.2.4,4.2.5,7.2,7.3,7.4,7.7,7.8,7.9,5.2.4,5.2.6,5.2.7,5.2.8,5.3.2,5.3.3,5.3.4,5.4.5,5.5.4,13.1": ["Ok", "Not Ok", "Not Applicable","Not Verified"],
@@ -9716,7 +9777,7 @@ function getDropdownOptions(sno, observationStatus, sectionID = null) {
     "6.2.2,7.10,8.5,9.3,11.1": ["Available", "Not Available", "Not Applicable","Not Verified"],
     "5.2.9": ["Available", "Not Available", "Not Applicable","Not Verified","Not deployed"],
     "12.3": ["Available", "Not Available", "Not Applicable"],
-    "1.44": ["Verified", "Not Verified", "Not Installed", "Not Applicable"],
+    "1.44": ["Matching", "Not Matching", "Verified", "Not Verified", "Not Installed", "Not Applicable"],
     "12.4": ["Ok", "Not Ok", "Not Applicable", "Not Verified","Not Installed","Not Completed"],
   };
 
@@ -9737,13 +9798,13 @@ function getDropdownOptions(sno, observationStatus, sectionID = null) {
   if (sectionID) {
     // Label 1.0 is Section "2_0"
     if (sectionID === "2_0" || sectionID === "2.0") {
-      options = ["Matching", "Not Matching", "Not Installed", "Not Applicable", "Not Verified"];
+      options = ["Matching", "Not Matching", "Verified", "Not Verified", "Not Installed", "Not Applicable"];
     }
   } else {
     // Fallback to S_no prefix if sectionID is not provided
     const parts = sNoStr.split('.');
     if (parts[0] === "1") {
-      options = ["Matching", "Not Matching", "Not Installed", "Not Applicable", "Not Verified"];
+      options = ["Matching", "Not Matching", "Verified", "Not Verified", "Not Installed", "Not Applicable"];
     }
   }
 
@@ -10494,9 +10555,10 @@ function renderCustomRow(sectionId, s_no, description, templateId) {
                       <option value="Select">Select</option>
                       <option value="Matching">Matching</option>
                       <option value="Not Matching">Not Matching</option>
+                      <option value="Verified">Verified</option>
+                      <option value="Not Verified">Not Verified</option>
                       <option value="Not Installed">Not Installed</option>
                       <option value="Not Applicable">Not Applicable</option>
-                      <option value="Not Verified">Not Verified</option>
                   `;
       } else {
         return `

@@ -108,16 +108,8 @@ if (isset($_SESSION['station_id'])) {
       </div>
     </div>
 
-    <!-- Section 6: Networking Rack (with subsections) -->
-    <div class="section-group">
-      <button class="button section-toggle" onclick="toggleSubsections(this)" id="button-7" disabled>▶ 6.0 RF
-        Communication equipment on tower</button>
-      <div class="subsections" style="display: none;">
-        <button class="subsection-button" id="button-6.1" onclick="showSection('7.0', '6.1')">├─ 6.1 RTU</button>
-        <button class="subsection-button" id="button-6.2" onclick="showSection('7.0', '6.2')">└─ 6.2 RF Antennae &
-          cables </button>
-      </div>
-    </div>
+    <!-- Section 6 -->
+    <button class="button" onclick="showSection('7.0')" id="button-7" disabled>6.0 RF Communication equipment on tower</button>
 
     <!-- Section 7 -->
     <button class="button" onclick="showSection('8.0')" id="button-8" disabled>7.0 OFC Networking rack</button>

@@ -48,6 +48,11 @@ foreach ($tables_to_index as $table) {
 
     // Special: verification_of_equipment_serial_numbers also queries by row_key
     if ($table === 'verification_of_equipment_serial_numbers') {
+        $col_check = $conn->query("SHOW COLUMNS FROM `$table` LIKE 'row_key'");
+        if ($col_check && $col_check->num_rows == 0) {
+            $conn->query("ALTER TABLE `$table` ADD COLUMN `row_key` VARCHAR(100) DEFAULT NULL");
+        }
+
         $check_rowkey = $conn->query("
             SELECT COUNT(*) as count 
             FROM INFORMATION_SCHEMA.STATISTICS 
@@ -63,6 +68,12 @@ foreach ($tables_to_index as $table) {
             }
         }
     }
+}
+
+// Ensure row_key column exists on images table
+$col_check_img = $conn->query("SHOW COLUMNS FROM `images` LIKE 'row_key'");
+if ($col_check_img && $col_check_img->num_rows == 0) {
+    $conn->query("ALTER TABLE `images` ADD COLUMN `row_key` VARCHAR(100) DEFAULT NULL");
 }
 
 // Add composite index on images table

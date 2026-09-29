@@ -40,6 +40,35 @@ try {
     exit;
 }
 
+// Ensure row_key column exists in verification_of_equipment_serial_numbers and images
+$hasRowKeyVerification = false;
+try {
+    $colCheck = $pdo->query("SHOW COLUMNS FROM verification_of_equipment_serial_numbers LIKE 'row_key'");
+    if ($colCheck && $colCheck->rowCount() > 0) {
+        $hasRowKeyVerification = true;
+    } else {
+        $pdo->exec("ALTER TABLE verification_of_equipment_serial_numbers ADD COLUMN row_key VARCHAR(100) DEFAULT NULL, ADD INDEX idx_station_rowkey (station_id, row_key)");
+        $hasRowKeyVerification = true;
+    }
+} catch (Exception $e) {
+    // If ALTER TABLE fails or column doesn't exist, fallback to false
+    $hasRowKeyVerification = false;
+}
+
+$hasRowKeyImages = false;
+try {
+    $colCheckImg = $pdo->query("SHOW COLUMNS FROM images LIKE 'row_key'");
+    if ($colCheckImg && $colCheckImg->rowCount() > 0) {
+        $hasRowKeyImages = true;
+    } else {
+        $pdo->exec("ALTER TABLE images ADD COLUMN row_key VARCHAR(100) DEFAULT NULL, ADD INDEX idx_station_rowkey (station_id, row_key)");
+        $hasRowKeyImages = true;
+    }
+} catch (Exception $e) {
+    // If ALTER TABLE fails or column doesn't exist, fallback to false
+    $hasRowKeyImages = false;
+}
+
 $debugInfo = [];
 try {
     $pdo->beginTransaction();
@@ -57,8 +86,8 @@ try {
         $barcode = trim($obs['barcode_kavach_main_unit'] ?? '');
         $image_paths = $obs['image_paths'] ?? [];
 
-        // Check if record exists (Use row_key for verification_of_equipment_serial_numbers, else S_no)
-        if ($tableName === 'verification_of_equipment_serial_numbers' && !empty($row_key)) {
+        // Check if record exists (Use row_key for verification_of_equipment_serial_numbers if column exists, else S_no)
+        if ($tableName === 'verification_of_equipment_serial_numbers' && !empty($row_key) && $hasRowKeyVerification) {
             $check = $pdo->prepare("SELECT id FROM $tableName WHERE station_id = ? AND (row_key = ? OR (S_no = ? AND (row_key IS NULL OR row_key = '')))");
             $check->execute([$stationId, $row_key, $s_no]);
         } else {
@@ -77,13 +106,13 @@ try {
             if ($tableName === 'verification_of_equipment_serial_numbers') {
                 $sql .= ", barcode_kavach_main_unit = ?";
                 $params[] = $barcode;
-                if (!empty($row_key)) {
+                if (!empty($row_key) && $hasRowKeyVerification) {
                     $sql .= ", row_key = ?";
                     $params[] = $row_key;
                 }
             }
             
-            if ($tableName === 'verification_of_equipment_serial_numbers' && !empty($row_key)) {
+            if ($tableName === 'verification_of_equipment_serial_numbers' && !empty($row_key) && $hasRowKeyVerification) {
                 $sql .= " WHERE station_id = ? AND (row_key = ? OR (S_no = ? AND (row_key IS NULL OR row_key = '')))";
                 $params[] = $stationId;
                 $params[] = $row_key;
@@ -109,7 +138,7 @@ try {
                 $placeholders .= ", ?";
                 $params[] = $barcode;
                 
-                if (!empty($row_key)) {
+                if (!empty($row_key) && $hasRowKeyVerification) {
                     $sql .= ", row_key";
                     $placeholders .= ", ?";
                     $params[] = $row_key;
@@ -128,8 +157,13 @@ try {
 
         if (!empty($image_paths)) {
             foreach ($image_paths as $imgPath) {
-                $imgStmt = $pdo->prepare("INSERT INTO images (entity_type, station_id, s_no, image_path, row_key, created_at) VALUES (?, ?, ?, ?, ?, NOW())");
-                $imgStmt->execute([$tableName, $stationId, $s_no, $imgPath, $row_key]);
+                if ($hasRowKeyImages) {
+                    $imgStmt = $pdo->prepare("INSERT INTO images (entity_type, station_id, s_no, image_path, row_key, created_at) VALUES (?, ?, ?, ?, ?, NOW())");
+                    $imgStmt->execute([$tableName, $stationId, $s_no, $imgPath, $row_key]);
+                } else {
+                    $imgStmt = $pdo->prepare("INSERT INTO images (entity_type, station_id, s_no, image_path, created_at) VALUES (?, ?, ?, ?, NOW())");
+                    $imgStmt->execute([$tableName, $stationId, $s_no, $imgPath]);
+                }
             }
         }
         
