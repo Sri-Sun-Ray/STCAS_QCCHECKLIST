@@ -165,7 +165,7 @@ while ($station = mysqli_fetch_assoc($stations)) {
         "station-radio-2" => "1.48", "next-gen-radio-1" => "1.49", "next-gen-radio-2" => "1.50",
         "rs-232-conv-rtu-1" => "1.51", "rs-232-conv-rtu-2" => "1.52",
         // Note: Legacy 1.53 was "RS 485-OFC converter (SM-OCIP)" which was removed.
-        "riu" => "1.54", "riu-power-1" => "1.55", "riu-power-2" => "1.56",
+        "riu" => "1.53", "riu-power-1" => "1.54", "riu-power-2" => "1.55",
         "riu-comm-remote-1" => "1.57", "riu-comm-remote-2" => "1.58", "fiu-scan-1" => "1.59",
         "fiu-scan-2" => "1.60", "fiu-scan-3" => "1.61", "fiu-scan-4" => "1.62",
         "riu-battery-1" => "1.63", "riu-battery-2" => "1.64"

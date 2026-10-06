@@ -131,7 +131,7 @@ $tables = [
 // ==========================================
 // 1. DELETE POINTS
 // ==========================================
-$deleted_points = ["11.3", "1.53"];
+$deleted_points = ["11.3"];
 
 if (!empty($deleted_points)) {
     $placeholders = implode(',', array_fill(0, count($deleted_points), '?'));
@@ -232,18 +232,22 @@ foreach ($status_updates_by_sno as $s_no => $updates) {
 echo "Updated status values for $total_status_updated observations (filtered by S_no).<br>";
 
 // ==========================================
-// 5. RENAME S_NO (MOVE 1.54 TO 1.53)
+// 5. RENAME S_NO (MOVE LEGACY 1.54 RIU TO 1.53 IF 1.53 IS EMPTY)
 // ==========================================
 $total_moved = 0;
 foreach ($tables as $table) {
-    $stmt = $conn->prepare("UPDATE $table SET S_no = '1.53' WHERE S_no = '1.54'");
-    if ($stmt) {
-        $stmt->execute();
-        $total_moved += $stmt->affected_rows;
-        $stmt->close();
+    if ($table === 'verification_of_equipment_serial_numbers') {
+        $stmt = $conn->prepare("UPDATE $table SET S_no = '1.53' WHERE S_no = '1.54' AND station_id NOT IN (SELECT station_id FROM (SELECT DISTINCT station_id FROM $table WHERE S_no = '1.53') AS temp)");
+        if ($stmt) {
+            $stmt->execute();
+            $total_moved += $stmt->affected_rows;
+            $stmt->close();
+        }
     }
 }
-echo "Moved 1.54 to 1.53 in $total_moved rows.<br>";
+if ($total_moved > 0) {
+    echo "Moved legacy 1.54 to 1.53 in $total_moved rows.<br>";
+}
 
 // ==========================================
 // 7. AUTO-ALIGN CUSTOM ROWS (SECTION 2.0)

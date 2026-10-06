@@ -3431,7 +3431,7 @@ FIU Scanner Card 1
   style="width: 180px; padding: 5px; font-size: 14px;" 
   oninput="
     if(this.value.length > 15) {
-      this.value = this.value.slice(-15);86664777
+      this.value = this.value.slice(-15);
     }
     toggleNotInstalledOption(this);
   "
