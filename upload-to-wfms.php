@@ -1,9 +1,24 @@
 <?php
 ob_start();
 session_start();
+set_time_limit(300); // 5 minutes execution limit for PDF uploads
+ini_set('memory_limit', '256M');
 ini_set('display_errors', 0);
 error_reporting(E_ALL);
 header('Content-Type: application/json');
+
+// Shutdown handler to convert fatal PHP errors or timeouts into valid JSON responses
+register_shutdown_function(function() {
+    $error = error_get_last();
+    if ($error && in_array($error['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR])) {
+        if (ob_get_length()) ob_clean();
+        http_response_code(200);
+        echo json_encode([
+            'success' => false,
+            'message' => 'PHP Fatal Error: ' . $error['message'] . ' in ' . basename($error['file']) . ' line ' . $error['line']
+        ]);
+    }
+});
 
 // Define WFMS Constants as per Requirement
 define("WFMS_ACTIVITY", "Wayside QA Audit");
@@ -11,6 +26,7 @@ define("WFMS_FILE", "Wayside QA Audit Report");
 
 function sendJsonResponse($data) {
     if (ob_get_length()) ob_clean();
+    http_response_code(200);
     echo json_encode($data);
     exit;
 }
@@ -121,6 +137,8 @@ function uploadWithUserToken($url, $fields, $filePath, $token) {
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 120);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
