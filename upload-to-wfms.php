@@ -139,7 +139,7 @@ function uploadWithUserToken($url, $fields, $filePath, $token) {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 120);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 300);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -161,6 +161,11 @@ function uploadWithUserToken($url, $fields, $filePath, $token) {
     $logMsg .= "Response: " . $response . "\n";
     $logMsg .= "----------------------------------------\n";
     @file_put_contents(__DIR__ . '/wfms_debug.log', $logMsg, FILE_APPEND);
+
+    if ($err || $httpCode === 0 || $response === false) {
+        $errorDetail = $err ?: "Network connection lost or request timed out.";
+        return ['status' => false, 'message' => "WFMS Connection Failed (HTTP $httpCode): $errorDetail"];
+    }
 
     $decoded = json_decode($response, true);
     if (!is_array($decoded)) {
