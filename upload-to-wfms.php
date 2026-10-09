@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-set_time_limit(300); // 5 minutes execution limit for PDF uploads
+set_time_limit(180); // 3 minutes total execution limit for PDF uploads
 ini_set('memory_limit', '256M');
 ini_set('display_errors', 0);
 error_reporting(E_ALL);
@@ -40,7 +40,7 @@ $reportId = $_POST['reportId'] ?? null;
 $stationId = $_POST['stationId'] ?? null;
 $reportFileName = $_POST['fileName'] ?? $_POST['file_name'] ?? null;
 
-// WFMS Base URL (Local)
+// WFMS Base URL
 $wfmsBaseUrl = "https://eg.hbl.in:5100/api"; 
 
 // Get data from Frontend
@@ -86,7 +86,7 @@ try {
 
     // 1. Direct Activity Document Upload (Advances WFMS Portal UI Revision)
     $actUploadRes = null;
-    if ($activityId && $docId) {
+    if ($activityId && $docId && $activityId !== 'undefined' && $docId !== 'undefined' && $activityId !== 'null' && $docId !== 'null') {
         $actFields = [
             "activityId" => $activityId,
             "docId" => $docId
@@ -113,7 +113,7 @@ try {
         
         sendJsonResponse(['success' => true, 'message' => 'Report pushed to WFMS Wayside activity successfully!']);
     } else {
-        $errorMsg = $actUploadRes['message'] ?? $stationUploadRes['message'] ?? 'WFMS rejected the upload.';
+        $errorMsg = ($stationUploadRes['message'] ?? null) ?: ($actUploadRes['message'] ?? 'WFMS rejected the upload.');
         sendJsonResponse(['success' => false, 'message' => "WFMS Error: $errorMsg"]);
     }
 
@@ -125,6 +125,7 @@ try {
 
 /**
  * Helper: Upload file to WFMS using User Token
+ * Configured with forced HTTP 1.1, dedicated connection, and strict header handling to prevent stalls or HTTP 100 errors.
  */
 function uploadWithUserToken($url, $fields, $filePath, $token) {
     $ch = curl_init($url);
@@ -138,10 +139,15 @@ function uploadWithUserToken($url, $fields, $filePath, $token) {
     curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 300);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    
+    // Crucial socket & HTTP settings to prevent cURL hangs / socket buffering / HTTP 100 bugs on Express/multer
+    curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+    curl_setopt($ch, CURLOPT_FORBID_REUSE, true);
+    curl_setopt($ch, CURLOPT_FRESH_CONNECT, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         'Authorization: Bearer ' . $token,
         'x-app-module: WFMS2',
@@ -150,20 +156,34 @@ function uploadWithUserToken($url, $fields, $filePath, $token) {
 
     $response = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    
+    // Fallback if cURL captures intermediate 100 Continue status code
+    if ($httpCode === 100 || $httpCode === 0) {
+        $respCode = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
+        if ($respCode > 0) {
+            $httpCode = $respCode;
+        }
+    }
+    
+    $errno = curl_errno($ch);
     $err = curl_error($ch);
     curl_close($ch);
 
+    // Write debug log for tracking exact server communication
     $logMsg = "[" . date('Y-m-d H:i:s') . "] POST $url\n";
     $logMsg .= "Fields: " . json_encode(array_diff_key($fields, ['file' => 1])) . "\n";
     $logMsg .= "File: " . $realPath . "\n";
     $logMsg .= "HTTP Code: $httpCode\n";
-    $logMsg .= "cURL Error: " . ($err ?: "None") . "\n";
+    $logMsg .= "cURL Errno ($errno): " . ($err ?: "None") . "\n";
     $logMsg .= "Response: " . $response . "\n";
     $logMsg .= "----------------------------------------\n";
     @file_put_contents(__DIR__ . '/wfms_debug.log', $logMsg, FILE_APPEND);
 
-    if ($err || $httpCode === 0 || $response === false) {
+    if ($errno || $httpCode === 0 || $response === false) {
         $errorDetail = $err ?: "Network connection lost or request timed out.";
+        if ($errno === CURLE_OPERATION_TIMEDOUT) {
+            $errorDetail = "WFMS Server timed out after 60 seconds. The server at eg.hbl.in:5100 took too long to process the report.";
+        }
         return ['status' => false, 'message' => "WFMS Connection Failed (HTTP $httpCode): $errorDetail"];
     }
 
