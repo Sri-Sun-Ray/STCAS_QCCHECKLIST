@@ -2,3 +2,9 @@ uploads/
 *.log
 *.lock
 backups/
+
+# Composer dependencies - never commit these
+vendor/
+
+# Scratch / temporary test scripts
+scratch/

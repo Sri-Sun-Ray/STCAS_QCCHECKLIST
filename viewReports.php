@@ -128,7 +128,7 @@ try {
     .completed { color: green; background-color: #d3ffd3; }
     .not-completed { color: red; background-color: #ffd3d3; }
     .profile { position: absolute; right: 20px; color: white; font-size: 14px; }
-    #search-input { padding: 10px; width: 300px; margin-top: 20px; }
+    #search-input { padding: 10px; width: 300px; max-width: 100%; box-sizing: border-box; margin-top: 20px; margin-right: 0; }
   </style>
 </head>
 <body>
@@ -137,7 +137,7 @@ try {
     <img src="hbl_logo.jpg" alt="HBL Engineering Ltd. Logo" style="position: absolute; left: 20px; height: 50px;">
     <div>
       <h1>HBL Engineering Ltd.</h1>
-      <h2>Electronics Group</h2>
+      <h2>Rail Signaling Division</h2>
     </div>
     <div class="profile">User: <?php echo htmlspecialchars($username); ?> | Employee: <?php echo htmlspecialchars($employee_name); ?></div>
 </header>
@@ -151,7 +151,14 @@ try {
       <input type="text" id="search-input" placeholder="Search by Station ID...">
     </div>
 
-    <h2>Your Uploaded Reports</h2>
+    <!-- 3-column Grid for perfectly centered heading and inline button -->
+    <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; margin-top: 20px; margin-bottom: 20px;">
+      <div></div>
+      <h2 style="margin: 0; text-align: center;">Your Uploaded Reports</h2>
+      <div style="text-align: left; padding-left: 15px;">
+        <button class="btn download-btn" onclick="downloadSummaryReport()" style="padding: 6px 14px; font-weight: bold; font-size: 14px; margin: 0; cursor: pointer;">Summary Report</button>
+      </div>
+    </div>
     <?php if ($reports): ?>
         <table id="report-table">
             <thead>
@@ -206,15 +213,15 @@ try {
                 preg_match('/_Report_([^_]+)_Version[\w-]+\.(pdf)$/i', $report['file_name'], $statusMatch);
                 $statusCaptured = isset($statusMatch[1]) ? trim($statusMatch[1]) : '';
                 $statusText = strtolower($statusCaptured);
-                $statusLabel = ($statusText === 'completed') 
-                    ? '<span class="status-label completed">Completed</span>' 
+                $statusLabel = ($statusText === 'completed')
+                    ? '<span class="status-label completed">Completed</span>'
                     : '<span class="status-label not-completed">Not Completed</span>';
                 ?>
                 <tr data-station-id="<?php echo htmlspecialchars($station_id); ?>" data-report-date="<?php echo htmlspecialchars($report_date); ?>">
                     <td><?php echo htmlspecialchars($report['file_name']); ?></td>
                     <td><?php echo htmlspecialchars(date('d/m/y', strtotime($report['upload_date']))); ?></td>
                     <td><?php echo htmlspecialchars($report['upload_time']); ?></td>
-                    <?php if ($role === 'admin'): ?> 
+                    <?php if ($role === 'admin'): ?>
                         <td><?php echo htmlspecialchars($report['user_id']); ?></td>
                     <?php endif; ?>
                     <td><?php echo $statusLabel; ?></td>
@@ -358,7 +365,7 @@ try {
 
         if (result.status && result.data.data) {
             assignedActivities = result.data.data;
-            
+
             // Extract unique stations from the assigned activities
             const stationsMap = new Map();
             assignedActivities.forEach(act => {
@@ -504,6 +511,11 @@ try {
         btn.disabled = false;
         btn.innerText = "Push Report";
     }
+  }
+
+  function downloadSummaryReport() {
+    const searchVal = document.getElementById('search-input')?.value || '';
+    window.location.href = 'generateSummaryReport.php?search=' + encodeURIComponent(searchVal);
   }
 </script>
 
