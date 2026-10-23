@@ -74,6 +74,62 @@ function normalizeStationName($raw) {
     return trim($name);
 }
 
+function getSectionNameForSno($sno, $sectionId = null) {
+    if ($sectionId !== null) {
+        $secIdStr = (string)$sectionId;
+        if ($secIdStr === '2' || $secIdStr === '2_0' || $secIdStr === '2.0') return '1.0_Serial Number verification';
+        if ($secIdStr === '3' || $secIdStr === '3_0' || $secIdStr === '3.0') return '2_Building';
+        if ($secIdStr === '4' || $secIdStr === '4_0' || $secIdStr === '4.0') return '3_Tower';
+        if ($secIdStr === '10' || $secIdStr === '10_0' || $secIdStr === '10.0') return '4.1_PDU';
+        if ($secIdStr === '9' || $secIdStr === '9_0' || $secIdStr === '9.0') return '4.2_DC-DC Converter';
+        if ($secIdStr === '6' || $secIdStr === '6_0' || $secIdStr === '6.0') return '5.1_Kavach unit';
+        if ($secIdStr === '11' || $secIdStr === '11_0' || $secIdStr === '11.0') return '5.2_SMOCIP';
+        if ($secIdStr === '16' || $secIdStr === '16_0' || $secIdStr === '16.0') return '5.3_GPS GSM';
+        if ($secIdStr === '14' || $secIdStr === '14_0' || $secIdStr === '14.0') return '5.4_RIU';
+        if ($secIdStr === '7' || $secIdStr === '7_0' || $secIdStr === '7.0') return '7.0_OFC Networking Rack';
+        if ($secIdStr === '13' || $secIdStr === '13_0' || $secIdStr === '13.0') return '8.0_Relay Rack';
+        if ($secIdStr === '12' || $secIdStr === '12_0' || $secIdStr === '12.0') return '9.0_Earthing';
+        if ($secIdStr === '15' || $secIdStr === '15_0' || $secIdStr === '15.0') return '11_Outdoor Cabling';
+        if ($secIdStr === '17' || $secIdStr === '17_0' || $secIdStr === '17.0') return '12_RFID Tag';
+        if ($secIdStr === '18' || $secIdStr === '18_0' || $secIdStr === '18.0') return '12_RFID Tag';
+    }
+
+    $parts = explode('.', (string)$sno);
+    $p0 = (int)($parts[0] ?? 0);
+    $p1 = (int)($parts[1] ?? 0);
+
+    if ($p0 === 1) return '1.0_Serial Number verification';
+    if ($p0 === 2) return '2_Building';
+    if ($p0 === 3) return '3_Tower';
+    if ($p0 === 4) {
+        if ($p1 === 1) return '4.1_PDU';
+        if ($p1 === 2) return '4.2_DC-DC Converter';
+        return '4.1_PDU';
+    }
+    if ($p0 === 5) {
+        if ($p1 === 1) return '5.1_Kavach unit';
+        if ($p1 === 2) return '5.2_SMOCIP';
+        if ($p1 === 3) return '5.3_GPS GSM';
+        if ($p1 === 4) return '5.4_RIU';
+        if ($p1 === 5) return '5.5_EI';
+        return '5.1_Kavach unit';
+    }
+    if ($p0 === 6) {
+        if ($p1 === 1) return '6.1_RTU';
+        if ($p1 === 2) return '6.2_RF Antenna Installation';
+        return '6.1_RTU';
+    }
+    if ($p0 === 7) return '7.0_OFC Networking Rack';
+    if ($p0 === 8) return '8.0_Relay Rack';
+    if ($p0 === 9) return '9.0_Earthing';
+    if ($p0 === 10) return '10_Indoor wiring';
+    if ($p0 === 11) return '11_Outdoor Cabling';
+    if ($p0 === 12) return '12_RFID Tag';
+    if ($p0 === 13) return '13_Components Inspection';
+    return "Section {$p0}";
+}
+
+
 // 1. Group and filter reports
 $groupedReports = [];
 
@@ -366,16 +422,39 @@ try {
     logSummaryDebug("Section 1 observation_text fetch error: " . $e->getMessage());
 }
 
-// Find highest Section 1 index
-$maxSec1 = 77;
+// Fetch any custom rows added via "Add Row" from row_templates
+$customTemplates = [];
+try {
+    $rtStmt = $pdo->query("SELECT id, section_id, s_no, description FROM row_templates ORDER BY id ASC");
+    while ($rtRow = $rtStmt->fetch(PDO::FETCH_ASSOC)) {
+        $rtSno = trim($rtRow['s_no']);
+        $rtDesc = trim(strip_tags(html_entity_decode($rtRow['description'] ?? '', ENT_QUOTES | ENT_HTML5, 'UTF-8')));
+        $rtSecId = trim($rtRow['section_id'] ?? '');
+        if ($rtSno !== '') {
+            $customTemplates[$rtSno] = [
+                'sno' => $rtSno,
+                'obs' => $rtDesc,
+                'section_id' => $rtSecId
+            ];
+            if (strpos($rtSno, '1.') === 0 || $rtSecId === '2_0' || $rtSecId === '2') {
+                $sec1Map[$rtSno] = $rtDesc;
+            }
+        }
+    }
+} catch (Exception $e) {
+    logSummaryDebug("row_templates fetch error: " . $e->getMessage());
+}
+
+// Find highest Section 1 index dynamically (standard baseline is 68; increases only if custom rows exist)
+$maxSec1 = 68;
 foreach (array_keys($sec1Map) as $s) {
     $p = explode('.', $s);
-    if (isset($p[1]) && (int)$p[1] > $maxSec1) {
+    if (isset($p[1]) && is_numeric($p[1]) && (int)$p[1] > $maxSec1) {
         $maxSec1 = (int)$p[1];
     }
 }
 
-// For any S_no 1.1–1.max, fall back to DB aspect or numbered label
+// For S_no 1.1 to 1.$maxSec1, populate Section 1 items
 for ($i = 1; $i <= $maxSec1; $i++) {
     $sno = "1.$i";
     $obsLabel = $sec1Map[$sno] ?? ($dbAspects[$sno] ?? "Equipment serial number verification ($sno)");
@@ -384,6 +463,31 @@ for ($i = 1; $i <= $maxSec1; $i++) {
         'section' => '1.0_Serial Number verification',
         'obs'     => $obsLabel
     ];
+}
+
+// Add any other Section 1 items that might have custom S_no format
+$existingSnoMap = array_column($checklistMaster, 'sno', 'sno');
+foreach ($sec1Map as $sno => $obsLabel) {
+    if (!isset($existingSnoMap[$sno])) {
+        $checklistMaster[] = [
+            'sno'     => $sno,
+            'section' => '1.0_Serial Number verification',
+            'obs'     => $obsLabel
+        ];
+        $existingSnoMap[$sno] = $sno;
+    }
+}
+
+// Add any custom rows from row_templates for other sections
+foreach ($customTemplates as $rtSno => $rtInfo) {
+    if (!isset($existingSnoMap[$rtSno])) {
+        $checklistMaster[] = [
+            'sno'     => $rtSno,
+            'section' => getSectionNameForSno($rtSno, $rtInfo['section_id']),
+            'obs'     => $rtInfo['obs']
+        ];
+        $existingSnoMap[$rtSno] = $rtSno;
+    }
 }
 
 // Build station name -> station_id mapping for database queries
@@ -400,6 +504,46 @@ try {
     logSummaryDebug("Station lookup error: " . $e->getMessage());
 }
 
+// Dynamically check all observation tables for any additional custom rows present for active stations
+$activeStationIds = [];
+foreach ($latestReports as $repSt => $repInfo) {
+    $rawSt = strtoupper(trim($repInfo['raw_station'] ?? ''));
+    if (isset($stationIdMap[$repSt])) $activeStationIds = array_merge($activeStationIds, $stationIdMap[$repSt]);
+    if (isset($stationIdMap[$rawSt])) $activeStationIds = array_merge($activeStationIds, $stationIdMap[$rawSt]);
+}
+$activeStationIds = array_unique($activeStationIds);
+
+if (!empty($activeStationIds)) {
+    $inClause = implode(',', array_map('intval', $activeStationIds));
+    $obsTablesCheck = [
+        "verification_of_equipment_serial_numbers", "tower", "rtu", "rf_antennas", "installation_of_kavach_equipment",
+        "networking_rack", "ips", "dc_convertor", "pdu", "smocip", "outdoor_cabling", "relay_rack", "riu",
+        "laying_of_sectional_ofc_cable", "gps_gsm_antenna", "rfid_tags", "tag_to_tag_distance"
+    ];
+    foreach ($obsTablesCheck as $tbl) {
+        try {
+            $obsCheckStmt = $pdo->query("SELECT DISTINCT S_no, observation_text FROM {$tbl} WHERE station_id IN ({$inClause}) AND S_no IS NOT NULL AND TRIM(S_no) <> ''");
+            while ($cRow = $obsCheckStmt->fetch(PDO::FETCH_ASSOC)) {
+                $cSno = trim($cRow['S_no']);
+                if ($cSno !== '' && !isset($existingSnoMap[$cSno])) {
+                    $cObs = trim(strip_tags(html_entity_decode($cRow['observation_text'] ?? '', ENT_QUOTES | ENT_HTML5, 'UTF-8')));
+                    if ($cObs === '') {
+                        $cObs = $dbAspects[$cSno] ?? "Observation ($cSno)";
+                    }
+                    $checklistMaster[] = [
+                        'sno'     => $cSno,
+                        'section' => getSectionNameForSno($cSno),
+                        'obs'     => $cObs
+                    ];
+                    $existingSnoMap[$cSno] = $cSno;
+                }
+            }
+        } catch (Exception $e) {
+            logSummaryDebug("Observation table check error ({$tbl}): " . $e->getMessage());
+        }
+    }
+}
+
 $obsTables = [
     "verification_of_equipment_serial_numbers", "tower", "rtu", "rf_antennas", "installation_of_kavach_equipment",
     "networking_rack", "ips", "dc_convertor", "pdu", "smocip", "outdoor_cabling", "relay_rack", "riu",
@@ -409,7 +553,11 @@ $obsTables = [
 $parser = new Parser();
 $stationPendingMap = [];
 $stationNaMap = [];
+$stationObsMap = [];
 $stationDateMap = [];
+$stationReportTotalMap = [];
+$stationReportClosedMap = [];
+$stationReportOpenMap = [];
 $skippedReports = [];
 
 // Parse pending and not applicable points from each station's latest report
@@ -419,8 +567,9 @@ foreach ($latestReports as $station => $rep) {
     $uploadDateFormatted = date('d/m/y', $rep['timestamp']);
     $stationDateMap[$station] = $uploadDateFormatted;
     $stationNaMap[$station] = [];
+    $stationObsMap[$station] = [];
 
-    // 1. Fetch NA (Not Applicable) items from Database
+    // 1. Fetch NA (Not Applicable) items and all observation statuses from Database
     $rawSt = strtoupper(trim($rep['raw_station']));
     $normSt = $station;
     $matchedIds = [];
@@ -435,9 +584,13 @@ foreach ($latestReports as $station => $rep) {
                 $obsStmt = $pdo->prepare($q);
                 $obsStmt->execute([$sid]);
                 while ($obsRow = $obsStmt->fetch(PDO::FETCH_ASSOC)) {
+                    $snoKey = trim($obsRow['S_no'] ?? '');
                     $stVal = trim($obsRow['observation_status'] ?? '');
-                    if (strcasecmp($stVal, 'Not Applicable') === 0 || strcasecmp($stVal, 'NA') === 0 || strcasecmp($stVal, 'N/A') === 0) {
-                        $stationNaMap[$station][$obsRow['S_no']] = true;
+                    if ($snoKey !== '') {
+                        $stationObsMap[$station][$snoKey] = $stVal;
+                    }
+                    if (strcasecmp($stVal, 'Not Applicable') === 0 || strcasecmp($stVal, 'NA') === 0 || strcasecmp($stVal, 'N/A') === 0 || strcasecmp($stVal, 'Not Installed') === 0) {
+                        $stationNaMap[$station][$snoKey] = true;
                     }
                 }
             } catch (Exception $e) {}
@@ -462,6 +615,43 @@ foreach ($latestReports as $station => $rep) {
     try {
         $pdf = $parser->parseFile($pdfPath);
         $text = $pdf->getText();
+
+        $reportTotalPoints = null;
+        $reportClosedPoints = null;
+        $reportOpenPoints = null;
+
+        // Parse Summary Table from PDF (displays: Total Points | Closed Points | Open Points)
+        // Prioritize matching before "Station Billing Summary" so we get the overall summary table
+        $summarySearchText = $text;
+        if (($billingPos = stripos($summarySearchText, 'Station Billing Summary')) !== false) {
+            $summarySearchText = substr($summarySearchText, 0, $billingPos);
+        }
+
+        // Pattern 1: Standard autoTable text output where headers are followed by numbers
+        // e.g. "Total Points Closed Points Open Points 165 150 15"
+        if (preg_match('/Total\s+Points\s+Closed\s+Points\s+Open\s+Points\s+(\d+)\s+(\d+)\s+(\d+)/i', $summarySearchText, $sm)) {
+            $reportTotalPoints = (int)$sm[1];
+            $reportClosedPoints = (int)$sm[2];
+            $reportOpenPoints = (int)$sm[3];
+        } elseif (preg_match('/Total\s+Points[^\d]*?(\d+)[^\d\w]+Closed\s+Points[^\d]*?(\d+)[^\d\w]+Open\s+Points[^\d]*?(\d+)/is', $summarySearchText, $sm)) {
+            $reportTotalPoints = (int)$sm[1];
+            $reportClosedPoints = (int)$sm[2];
+            $reportOpenPoints = (int)$sm[3];
+        } elseif (preg_match('/Total\s+Points\s+Closed\s+Points\s+Open\s+Points\s+(\d+)\s+(\d+)\s+(\d+)/i', $text, $sm)) {
+            $reportTotalPoints = (int)$sm[1];
+            $reportClosedPoints = (int)$sm[2];
+            $reportOpenPoints = (int)$sm[3];
+        } elseif (preg_match('/Total\s+Points[^\d]*?(\d+)[^\d\w]+Closed\s+Points[^\d]*?(\d+)[^\d\w]+Open\s+Points[^\d]*?(\d+)/is', $text, $sm)) {
+            $reportTotalPoints = (int)$sm[1];
+            $reportClosedPoints = (int)$sm[2];
+            $reportOpenPoints = (int)$sm[3];
+        }
+
+        if ($reportTotalPoints !== null) {
+            logSummaryDebug("Station {$station}: Extracted report points from PDF: Total={$reportTotalPoints}, Closed={$reportClosedPoints}, Open={$reportOpenPoints}");
+        } else {
+            logSummaryDebug("Station {$station}: Summary table not found in PDF text; will use calculated fallback.");
+        }
 
         $expectedTotal = null;
         $pendingSet = [];
@@ -548,6 +738,18 @@ foreach ($latestReports as $station => $rep) {
         }
 
         logSummaryDebug("Station {$station}: Identified " . count($stationNaMap[$station]) . " Not Applicable (NA) points.");
+
+        // Determine station total, closed, and open points based on the report
+        $naCount = count($stationNaMap[$station] ?? []);
+        $fallbackTotal = max(0, count($checklistMaster) - $naCount);
+        $fallbackOpen = $reportOpenPoints ?? ($expectedTotal ?? $actualCount);
+        $fallbackClosed = max(0, $fallbackTotal - $fallbackOpen);
+
+        $stationReportTotalMap[$station] = $reportTotalPoints ?? $fallbackTotal;
+        $stationReportClosedMap[$station] = $reportClosedPoints ?? $fallbackClosed;
+        $stationReportOpenMap[$station] = $reportOpenPoints ?? $fallbackOpen;
+
+        logSummaryDebug("Station {$station}: Final points counts -> Total: {$stationReportTotalMap[$station]}, Closed: {$stationReportClosedMap[$station]}, Open: {$stationReportOpenMap[$station]}");
     } catch (Exception $e) {
         logSummaryDebug("Station {$station}: PDF parse exception - " . $e->getMessage());
         $skippedReports[] = [
@@ -569,26 +771,51 @@ $stationOpenTotals = array_fill_keys($parsedStations, 0);
 $stationCloseTotals = array_fill_keys($parsedStations, 0);
 $stationNaTotals = array_fill_keys($parsedStations, 0);
 
+$closedStatuses = [
+    'matching', 'verified', 'available', 'ok', 'yes',
+    'routing done', 'fixed', 'secured', 'installed', 'done'
+];
+
 foreach ($checklistMaster as $item) {
     $sno = $item['sno'];
     $rowStatuses = [];
 
     foreach ($parsedStations as $st) {
-        if (isset($stationPendingMap[$st][$sno])) {
-            $rowStatuses[$st] = 'Open';
-            $stationOpenTotals[$st]++;
-        } elseif (isset($stationNaMap[$st][$sno])) {
+        if (isset($stationNaMap[$st][$sno])) {
             $rowStatuses[$st] = 'NA';
-            $stationCloseTotals[$st]++; // NA comes for closed points only
             $stationNaTotals[$st]++;
+        } elseif (isset($stationPendingMap[$st][$sno])) {
+            $rowStatuses[$st] = 'Open';
         } else {
-            $rowStatuses[$st] = 'Close';
-            $stationCloseTotals[$st]++;
+            // Check station's actual observation status in the database
+            if (isset($stationObsMap[$st][$sno])) {
+                $dbVal = strtolower(trim($stationObsMap[$st][$sno]));
+                if (in_array($dbVal, ['not applicable', 'not installed', 'na', 'n/a'])) {
+                    $rowStatuses[$st] = 'NA';
+                    $stationNaTotals[$st]++;
+                } elseif (in_array($dbVal, $closedStatuses)) {
+                    $rowStatuses[$st] = 'Close';
+                } else {
+                    // Status is 'select', 'not matching', 'not verified', etc.
+                    $rowStatuses[$st] = 'Open';
+                }
+            } else {
+                // Station has NO observation record in DB for this S_no (unfilled checkpoint / added row)
+                $rowStatuses[$st] = 'Open';
+            }
         }
     }
 
     $item['statuses'] = $rowStatuses;
     $validRows[] = $item;
+}
+
+// Set station totals based on report counts
+$stationTotalPoints = [];
+foreach ($parsedStations as $st) {
+    $stationTotalPoints[$st] = $stationReportTotalMap[$st] ?? 0;
+    $stationCloseTotals[$st] = $stationReportClosedMap[$st] ?? 0;
+    $stationOpenTotals[$st] = $stationReportOpenMap[$st] ?? 0;
 }
 
 // Rule D1: Sort rows numerically by section number so 1.0 Serial Number verification comes FIRST, then 2, 3... 13
@@ -711,11 +938,12 @@ $srNo = 1;
 foreach ($validRows as $vr) {
     $sheet->setCellValue("A{$currRow}", $srNo);
     $sheet->setCellValue("B{$currRow}", $vr['section']);
-    $sheet->setCellValue("C{$currRow}", $vr['sno']);
+    $sheet->setCellValueExplicit("C{$currRow}", (string)$vr['sno'], \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
     $sheet->setCellValue("D{$currRow}", $vr['obs']);
 
     $sheet->getStyle("A{$currRow}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
     $sheet->getStyle("C{$currRow}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+    $sheet->getStyle("C{$currRow}")->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_TEXT);
 
     $colIndex = 5;
     $rowOpenCount = 0;
@@ -732,7 +960,6 @@ foreach ($validRows as $vr) {
             $rowOpenCount++;
         } elseif ($stVal === 'NA') {
             $sheet->getStyle("{$colLetter}{$currRow}")->applyFromArray($naStyle);
-            $rowCloseCount++; // NA comes for closed points only
             $rowNaCount++;
         } else {
             $sheet->getStyle("{$colLetter}{$currRow}")->applyFromArray($closeStyle);
@@ -758,7 +985,7 @@ foreach ($validRows as $vr) {
 // Grand Totals calculation
 $grandTotalClosed = array_sum($stationCloseTotals);
 $grandTotalOpen = array_sum($stationOpenTotals);
-$grandTotalPoints = $grandTotalClosed + $grandTotalOpen;
+$grandTotalPoints = array_sum($stationTotalPoints);
 $grandTotalPct = $grandTotalPoints > 0 ? (round(($grandTotalClosed / $grandTotalPoints) * 100, 2) . '%') : '0%';
 
 // Summary Row 1: Total points
@@ -771,7 +998,7 @@ $sheet->mergeCells("B{$currRow}:D{$currRow}");
 $colIndex = 5;
 foreach ($parsedStations as $st) {
     $colLetter = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($colIndex);
-    $stTotal = ($stationCloseTotals[$st] ?? 0) + ($stationOpenTotals[$st] ?? 0);
+    $stTotal = $stationTotalPoints[$st] ?? 0;
     $sheet->setCellValue("{$colLetter}{$currRow}", $stTotal);
     $colIndex++;
 }
@@ -835,8 +1062,7 @@ $colIndex = 5;
 foreach ($parsedStations as $st) {
     $colLetter = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($colIndex);
     $stClosed = $stationCloseTotals[$st] ?? 0;
-    $stOpen = $stationOpenTotals[$st] ?? 0;
-    $stTotal = $stClosed + $stOpen;
+    $stTotal = $stationTotalPoints[$st] ?? 0;
     $stPct = $stTotal > 0 ? (round(($stClosed / $stTotal) * 100, 2) . '%') : '0%';
     $sheet->setCellValue("{$colLetter}{$currRow}", $stPct);
     $colIndex++;
@@ -847,8 +1073,9 @@ $sheet->setCellValue("{$openColLetter}{$currRow}", '');
 $sheet->getStyle("A{$currRow}:{$lastColLetter}{$currRow}")->applyFromArray($totalRowStyle);
 $sheet->getRowDimension($currRow)->setRowHeight(22);
 
-// Freeze panes at E4 — rows 1-3 (title, green separator, header) and cols A-D always visible
-$sheet->freezePane('E4');
+// Freeze header rows at row 4 — rows 1-3 (title, green separator, header) always visible when scrolling vertically
+$sheet->freezePane('A4');
+$sheet->setSelectedCell('A4');
 
 // Auto-fit column widths
 foreach (range(1, $lastColIndex) as $col) {
