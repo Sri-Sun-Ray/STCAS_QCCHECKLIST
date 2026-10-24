@@ -12,6 +12,23 @@ $username = $_SESSION['username'] ?? '';
 $employee_name = $_SESSION['employee_name'] ?? 'Unknown Employee';
 $role = $_SESSION['role'] ?? 'user';
 
+// Auto-extract vendor libraries from libs/vendor.zip if missing
+if (!file_exists(__DIR__ . '/vendor/autoload.php')) {
+    $zipFile = __DIR__ . '/libs/vendor.zip';
+    if (file_exists($zipFile)) {
+        if (class_exists('ZipArchive')) {
+            $zip = new ZipArchive();
+            if ($zip->open($zipFile) === true) {
+                $zip->extractTo(__DIR__);
+                $zip->close();
+            }
+        }
+        if (!file_exists(__DIR__ . '/vendor/autoload.php')) {
+            @shell_exec('powershell -NoProfile -ExecutionPolicy Bypass -Command "Expand-Archive -Path \'' . $zipFile . '\' -DestinationPath \'' . __DIR__ . '\' -Force"');
+        }
+    }
+}
+
 require_once __DIR__ . '/vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
